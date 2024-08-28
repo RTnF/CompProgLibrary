@@ -143,7 +143,7 @@ void print(Head &&head, Tail &&...tail) {
 }
 #pragma endregion
 
-//*
+/*
 constexpr ll MOD = 1e9 + 7;
 /*/
 constexpr ll MOD = 998244353;
@@ -161,7 +161,9 @@ constexpr ll MOD = 998244353;
   } while(0)
 //#define PRECISION
 
-void solve() {}
+void solve() {
+  // 本体
+}
 
 int main() {
   cin.tie(0);
