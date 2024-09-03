@@ -12,7 +12,7 @@ int main() {
 
   ll maxv = -INF;
   ll minv = R;
-  for(int i = 1; i < n; i++) {
+  for (int i = 1; i < n; i++) {
     cin >> R;
     maxv = max(maxv, R - minv);
     minv = min(minv, R);

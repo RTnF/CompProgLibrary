@@ -13,17 +13,17 @@ using vpii = vector<pii>;
 using vs = vector<string>;
 template<typename T>
 using pqrev = priority_queue<T, vector<T>, greater<T>>;
-#define rep(i, n) for(int i = 0, i##_end = (n); i < i##_end; i++)
-#define repb(i, n) for(int i = (n) - 1; i >= 0; i--)
-#define repr(i, a, b) for(int i = (a), i##_end = (b); i < i##_end; i++)
-#define reprb(i, a, b) for(int i = (b) - 1, i##_end = (a); i >= i##_end; i--)
+#define rep(i, n) for (int i = 0, i##_end = (n); i < i##_end; i++)
+#define repb(i, n) for (int i = (n) - 1; i >= 0; i--)
+#define repr(i, a, b) for (int i = (a), i##_end = (b); i < i##_end; i++)
+#define reprb(i, a, b) for (int i = (b) - 1, i##_end = (a); i >= i##_end; i--)
 #define ALL(a) (a).begin(), (a).end()
 #define SZ(x) ((int)(x).size())
 constexpr int INF = 1e9;
 constexpr double EPS = 1e-12;
 template<typename S, typename T>
 inline bool chmax(S &a, const T &b) {
-  if(a < b) {
+  if (a < b) {
     a = b;
     return 1;
   }
@@ -31,7 +31,7 @@ inline bool chmax(S &a, const T &b) {
 }
 template<typename S, typename T>
 inline bool chmin(S &a, const T &b) {
-  if(b < a) {
+  if (b < a) {
     a = b;
     return 1;
   }
@@ -57,22 +57,22 @@ namespace in {
   }
   template<typename T>
   bool print(const vector<T> &vec) {
-    for(auto &a: vec) {
+    for (auto &a: vec) {
       cout << a;
-      if(&a != &vec.back())
+      if (&a != &vec.back())
         cout << ' ';
     }
     return false;
   }
   template<typename T>
   bool print(const vector<vector<T>> &vv) {
-    for(auto &v: vv) {
-      for(auto &a: v) {
+    for (auto &v: vv) {
+      for (auto &a: v) {
         cout << a;
-        if(&a != &v.back())
+        if (&a != &v.back())
           cout << ' ';
       }
-      if(&v != &vv.back())
+      if (&v != &vv.back())
         cout << '\n';
     }
     return false;
@@ -82,7 +82,7 @@ void print() { cout << '\n'; }
 template<typename Head, typename... Tail>
 void print(Head &&head, Tail &&...tail) {
   bool f = in::print(head);
-  if(sizeof...(tail) != 0) {
+  if (sizeof...(tail) != 0) {
     cout << (f ? ' ' : '\n');
   }
   print(forward<Tail>(tail)...);

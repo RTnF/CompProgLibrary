@@ -5,14 +5,14 @@
 ll read_ll() {
   ll ret = 0, sgn = 1;
   int ch = getchar_unlocked();
-  while(isspace(ch)) {
+  while (isspace(ch)) {
     ch = getchar_unlocked();
   }
-  if(ch == '-') {
+  if (ch == '-') {
     sgn = -1;
     ch = getchar_unlocked();
   }
-  for(; isdigit(ch); ch = getchar_unlocked())
+  for (; isdigit(ch); ch = getchar_unlocked())
     ret = (ret * 10) + (ch - '0');
   ungetc(ch, stdin);
   return sgn * ret;
@@ -22,14 +22,14 @@ ll read_ll() {
 int read_int() {
   int ret = 0, sgn = 1;
   int ch = getchar_unlocked();
-  while(isspace(ch)) {
+  while (isspace(ch)) {
     ch = getchar_unlocked();
   }
-  if(ch == '-') {
+  if (ch == '-') {
     sgn = -1;
     ch = getchar_unlocked();
   }
-  for(; isdigit(ch); ch = getchar_unlocked())
+  for (; isdigit(ch); ch = getchar_unlocked())
     ret = (ret * 10) + (ch - '0');
   ungetc(ch, stdin);
   return sgn * ret;
@@ -41,7 +41,7 @@ int main() {
 
   int T = read_int();
 
-  while(T--) {
+  while (T--) {
     ll A = read_ll();
     ll B = read_ll();
     cout << A + B << '\n';

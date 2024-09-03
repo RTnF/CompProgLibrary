@@ -28,10 +28,10 @@ using vpdd = vector<pdd>;
 using vpld = vector<pld>;
 template<typename T>
 using pqrev = priority_queue<T, vector<T>, greater<T>>;
-#define rep(i, n) for(ll i = 0, i##_end = (n); i < i##_end; i++)
-#define repb(i, n) for(ll i = (n) - 1; i >= 0; i--)
-#define repr(i, a, b) for(ll i = (a), i##_end = (b); i < i##_end; i++)
-#define reprb(i, a, b) for(ll i = (b) - 1, i##_end = (a); i >= i##_end; i--)
+#define rep(i, n) for (ll i = 0, i##_end = (n); i < i##_end; i++)
+#define repb(i, n) for (ll i = (n) - 1; i >= 0; i--)
+#define repr(i, a, b) for (ll i = (a), i##_end = (b); i < i##_end; i++)
+#define reprb(i, a, b) for (ll i = (b) - 1, i##_end = (a); i >= i##_end; i--)
 #define ALL(a) begin(a), end(a)
 #define SZ(x) ((ll)(x).size())
 constexpr ll INF = 1e+18;
@@ -47,7 +47,7 @@ constexpr T local([[maybe_unused]] const T &lcl, [[maybe_unused]] const T &oj) {
 }
 template<typename S, typename T>
 constexpr bool chmax(S &a, const T &b) {
-  if(a < b) {
+  if (a < b) {
     a = b;
     return 1;
   }
@@ -55,7 +55,7 @@ constexpr bool chmax(S &a, const T &b) {
 }
 template<typename S, typename T>
 constexpr bool chmin(S &a, const T &b) {
-  if(b < a) {
+  if (b < a) {
     a = b;
     return 1;
   }
@@ -73,8 +73,8 @@ template<typename T>
 pair<T, int> argmax(const vector<T> &x) {
   int idx = 0;
   T m = x[0];
-  repr(i, 1, SZ(x)) {
-    if(chmax(m, x[i]))
+  repr (i, 1, SZ(x)) {
+    if (chmax(m, x[i]))
       idx = i;
   }
   return {m, idx};
@@ -83,8 +83,8 @@ template<typename T>
 pair<T, int> argmin(const vector<T> &x) {
   int idx = 0;
   T m = x[0];
-  repr(i, 1, SZ(x)) {
-    if(chmin(m, x[i]))
+  repr (i, 1, SZ(x)) {
+    if (chmin(m, x[i]))
       idx = i;
   }
   return {m, idx};
@@ -111,22 +111,22 @@ namespace in {
   }
   template<typename T>
   bool print(const vector<T> &vec) {
-    for(auto &a: vec) {
+    for (auto &a: vec) {
       cout << a;
-      if(&a != &vec.back())
+      if (&a != &vec.back())
         cout << ' ';
     }
     return false;
   }
   template<typename T>
   bool print(const vector<vector<T>> &vv) {
-    for(auto &v: vv) {
-      for(auto &a: v) {
+    for (auto &v: vv) {
+      for (auto &a: v) {
         cout << a;
-        if(&a != &v.back())
+        if (&a != &v.back())
           cout << ' ';
       }
-      if(&v != &vv.back())
+      if (&v != &vv.back())
         cout << '\n';
     }
     return false;
@@ -136,7 +136,7 @@ void print() { cout << '\n'; }
 template<typename Head, typename... Tail>
 void print(Head &&head, Tail &&...tail) {
   bool f = in::print(head);
-  if(sizeof...(tail) != 0) {
+  if (sizeof...(tail) != 0) {
     cout << (f ? ' ' : '\n');
   }
   print(forward<Tail>(tail)...);
@@ -153,17 +153,15 @@ constexpr ll MOD = 998244353;
   do {                                    \
     cout << ((f) ? "Yes" : "No") << '\n'; \
     return;                               \
-  } while(0)
+  } while (0)
 #define PR()        \
   do {              \
     cout << "-1\n"; \
     return;         \
-  } while(0)
+  } while (0)
 //#define PRECISION
 
-void solve() {
-  // 本体
-}
+void solve() {}
 
 int main() {
   cin.tie(0);

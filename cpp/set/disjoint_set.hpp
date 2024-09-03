@@ -15,10 +15,10 @@ public:
   // a と b を結合する
   int unite(int a, int b) {
     int x = root(a), y = root(b);
-    if(x == y) {
+    if (x == y) {
       return x;
     }
-    if(-ps[x] < -ps[y]) {
+    if (-ps[x] < -ps[y]) {
       swap(x, y);
     }
     ps[x] += ps[y];
@@ -32,7 +32,7 @@ public:
 
   // a が属する木の根
   int root(int a) {
-    if(ps[a] < 0) {
+    if (ps[a] < 0) {
       return a;
     }
     return ps[a] = root(ps[a]);
