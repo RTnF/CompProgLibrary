@@ -3,14 +3,13 @@
 
 // based on ACL
 class DisjointSet {
-  int _n;
   // root: -1 * 連結成分サイズ
   // otherwise: parent
   vector<int> ps;
   int num_groups;
 
 public:
-  DisjointSet(int n): _n(n), ps(n, -1), num_groups(n) {}
+  DisjointSet(int n): ps(n, -1), num_groups(n) {}
 
   // a と b を結合する
   int unite(int a, int b) {
