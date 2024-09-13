@@ -2,6 +2,9 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
+    path: cpp/set/disjoint_set.hpp
+    title: cpp/set/disjoint_set.hpp
+  - icon: ':heavy_check_mark:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
   _extendedRequiredBy: []
@@ -11,9 +14,9 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/1/ALDS1_1_D
+    PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/1/DSL_1_A
     links:
-    - https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/1/ALDS1_1_D
+    - https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/1/DSL_1_A
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
@@ -24,25 +27,27 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: template/small_template.hpp:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: set/disjoint_set.hpp:\
     \ line -1: no such header\n"
-  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/1/ALDS1_1_D\"\
-    \n#include \"template/small_template.hpp\"\n\nint main() {\n  cin.tie(0);\n  ios::sync_with_stdio(false);\n\
-    \n  int n;\n  cin >> n;\n  ll R;\n  cin >> R;\n\n  ll maxv = -INF;\n  ll minv\
-    \ = R;\n  for (int i = 1; i < n; i++) {\n    cin >> R;\n    maxv = max(maxv, R\
-    \ - minv);\n    minv = min(minv, R);\n  }\n\n  cout << maxv << endl;\n}"
+  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/1/DSL_1_A\"\
+    \n#include \"set/disjoint_set.hpp\"\n\nint main() {\n  cin.tie(0);\n  ios::sync_with_stdio(false);\n\
+    \n  int n, q;\n  cin >> n >> q;\n\n  auto ds = DisjointSet(n);\n\n  for (int i\
+    \ = 0; i < q; i++) {\n    int com, x, y;\n    cin >> com >> x >> y;\n\n    if\
+    \ (com == 0) {\n      ds.unite(x, y);\n    } else {\n      cout << (ds.same(x,\
+    \ y) ? 1 : 0) << endl;\n    }\n  }\n}"
   dependsOn:
+  - cpp/set/disjoint_set.hpp
   - cpp/template/small_template.hpp
   isVerificationFile: true
-  path: cpp/verify/maximum_profit.test.cpp
+  path: cpp/verify/disjoint_set.test.cpp
   requiredBy: []
-  timestamp: '2024-09-04 08:08:18+09:00'
+  timestamp: '2024-09-07 19:01:33+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: cpp/verify/maximum_profit.test.cpp
+documentation_of: cpp/verify/disjoint_set.test.cpp
 layout: document
 redirect_from:
-- /verify/cpp/verify/maximum_profit.test.cpp
-- /verify/cpp/verify/maximum_profit.test.cpp.html
-title: cpp/verify/maximum_profit.test.cpp
+- /verify/cpp/verify/disjoint_set.test.cpp
+- /verify/cpp/verify/disjoint_set.test.cpp.html
+title: cpp/verify/disjoint_set.test.cpp
 ---
