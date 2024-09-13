@@ -85,7 +85,7 @@ void print(Head &&head, Tail &&...tail) {
   if (sizeof...(tail) != 0) {
     cout << (f ? ' ' : '\n');
   }
-  print(forward<Tail>(tail)...);
+  print(std::forward<Tail>(tail)...);
 }
 
 struct Timer {
