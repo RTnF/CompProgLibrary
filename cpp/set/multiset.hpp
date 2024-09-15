@@ -1,5 +1,6 @@
 #pragma once
 #include "template/small_template.hpp"
+#include "random/xorshift.hpp"
 
 /**
  * @brief 重複ありの集合
@@ -11,16 +12,6 @@
  */
 template<typename T = ll>
 class TreeMultiSet {
-  struct Xor64 {
-    ull a = 0xAF180B8D7E239CC1;
-    ull next() {
-      ull x = a;
-      x ^= x << 3;
-      x ^= x >> 35;
-      x ^= x << 14;
-      return a = x;
-    }
-  };
   static inline Xor64 rnd;
   struct Node {
     T k;
@@ -168,8 +159,6 @@ public:
     return 0;
   }
 
-  int countAll() { return n; }
-
   T min() {
     Tree t = root;
     while (t->l) {
@@ -184,4 +173,6 @@ public:
       dump(root, l, r);
     }
   }
+
+  int size() { return n; }
 };

@@ -16,7 +16,7 @@ int main() {
       case 0: // insert
         cin >> x;
         ms.add(x);
-        cout << ms.countAll() << endl;
+        cout << ms.size() << endl;
         break;
       case 1: // find
         cin >> x;
