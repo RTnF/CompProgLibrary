@@ -1,16 +1,27 @@
 #pragma region template
 #include <bits/stdc++.h>
 using namespace std;
-using ll = long long;
+using ll = int64_t;
+using ull = uint64_t;
+using ld = long double;
 using vi = vector<int>;
 using vvi = vector<vi>;
 using vvvi = vector<vvi>;
-using vd = vector<double>;
-using vvd = vector<vd>;
-using vvvd = vector<vvd>;
-using pii = pair<int, int>;
-using vpii = vector<pii>;
+using vll = vector<ll>;
+using vvll = vector<vll>;
+using vvvll = vector<vvll>;
+using vld = vector<ld>;
+using vvld = vector<vld>;
+using vvvld = vector<vvld>;
 using vs = vector<string>;
+using pii = pair<int, int>;
+using pll = pair<ll, ll>;
+using pdd = pair<double, double>;
+using pld = pair<ld, ld>;
+using vpii = vector<pii>;
+using vp = vector<pll>;
+using vpdd = vector<pdd>;
+using vpld = vector<pld>;
 template<typename T>
 using pqrev = priority_queue<T, vector<T>, greater<T>>;
 #define rep(i, n) for (int i = 0, i##_end = (n); i < i##_end; i++)
@@ -94,7 +105,7 @@ struct Timer {
   ll threshold = 1930000000; // 1.93 s
   Timer() { reset(); }
   void reset() { start = chrono::high_resolution_clock::now(); }
-  int get_ns() {
+  ll get_ns() {
     now = chrono::high_resolution_clock::now();
     nano = chrono::duration_cast<chrono::nanoseconds>(now - start);
     return nano.count();
@@ -102,37 +113,39 @@ struct Timer {
   int get_us() { return get_ns() / 1000; }
   int get_ms() { return get_ns() / 1000000; }
   int get_s() { return get_ns() / 1000000000; }
-  int getRemain_ns() { return threshold - get_ns(); }
-  int getRemain_us() { return getRemain_ns() / 1000; }
-  int getRemain_ms() { return getRemain_ns() / 1000000; }
-  int getRemain_s() { return getRemain_ns() / 1000000000; }
-  int getLimit_ms() { return threshold / 1000000; }
+  ll get_remain_ns() { return threshold - get_ns(); }
+  int get_remain_us() { return get_remain_ns() / 1000; }
+  int get_remain_ms() { return get_remain_ns() / 1000000; }
+  int get_remain_s() { return get_remain_ns() / 1000000000; }
+  int get_limit_ms() { return threshold / 1000000; }
   bool intime() { return get_ns() <= threshold; }
 } timer;
 
 // https://ja.wikipedia.org/wiki/Xorshift
-class XorShift64 {
-  uint64_t s;
+class Xor64 {
+  ull s;
 
 public:
-  XorShift64(uint64_t s_): s(s_) {}
+  Xor64(ull s_): s(s_) {}
   // [0, 2**64)
-  uint64_t get() {
-    uint64_t x = s;
+  ull get() {
+    ull x = s;
     x ^= x << 7;
     return s = x ^ (x >> 9);
   }
   // [min, max)
-  int getInt(int mi, int ma) { return mi + get() % (ma - mi); }
+  int get_int(int mi, int ma) { return mi + get() % (ma - mi); }
   // [min, max)
-  ll getLL(ll mi, ll ma) { return mi + get() % (ma - mi); }
+  ll get_ll(ll mi, ll ma) { return mi + get() % (ma - mi); }
   // [0, 1)
-  double getDouble() { return get() / pow(2.0, 64); }
+  double get_double() { return get() / pow(2.0, 64); }
   // [min, max)
-  double getDouble(double mi, double ma) { return mi + getDouble() * (ma - mi); }
+  double get_double(double mi, double ma) {
+    return mi + get_double() * (ma - mi);
+  }
   // normal
-  double getNormal() {
-    double x = getDouble(), y = getDouble();
+  double get_normal() {
+    double x = get_double(), y = get_double();
     return sqrt(-2.0 * log(x)) * cos(2.0 * M_PI * y);
   }
 } rnd(720759665484242684ull);

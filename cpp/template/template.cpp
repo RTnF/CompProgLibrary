@@ -5,8 +5,8 @@
 using namespace std;
 // using namespace atcoder;
 // using cpp_int = boost::multiprecision::cpp_int;
-using ll = long long;
-using ull = unsigned long long;
+using ll = int64_t;
+using ull = uint64_t;
 using ld = long double;
 using vi = vector<int>;
 using vvi = vector<vi>;
@@ -159,7 +159,6 @@ constexpr ll MOD = 998244353;
     cout << "-1\n"; \
     return;         \
   } while (0)
-//#define PRECISION
 
 void solve() {}
 

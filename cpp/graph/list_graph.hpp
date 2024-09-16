@@ -36,26 +36,26 @@ public:
   ListGraph() {}
   ListGraph(int n_): n(n_), m(0), adj(n_) {}
 
-  void addNode() {
+  void add_node() {
     adj.emplace_back();
     n++;
-    resetShortest();
+    reset_shortest();
   }
   template<class... Args>
-  void addEdge(int from, int to, Args... args) {
+  void add_edge(int from, int to, Args... args) {
     adj[from].emplace_back(from, to, args...);
     m++;
-    resetShortest();
+    reset_shortest();
   }
   // 双方向
   template<class... Args>
-  void addBidirectionalEdge(int from, int to, Args... args) {
+  void add_bidirectional_edge(int from, int to, Args... args) {
     adj[from].emplace_back(from, to, args...);
     adj[to].emplace_back(to, from, args...);
     m += 2;
-    resetShortest();
+    reset_shortest();
   }
-  void resetShortest() {
+  void reset_shortest() {
     shortest_path_dist.clear();
     shortest_path_parent.clear();
   }
@@ -63,9 +63,9 @@ public:
 
   // 最短距離
   void dijkstra(int start_node);
-  void bellmanFord(int start_node);
-  Cost getDist(int from, int to) { return shortest_path_dist[from][to]; }
-  vector<int> getShortestPath(int from, int to) {
+  void bellman_ford(int start_node);
+  Cost get_dist(int from, int to) { return shortest_path_dist[from][to]; }
+  vector<int> get_shortest_path(int from, int to) {
     vector<int> path;
     for (int cur = to; cur != -1; cur = shortest_path_parent[from][cur]) {
       path.emplace_back(cur);
@@ -81,8 +81,8 @@ public:
   pair<vector<int>, vector<pair<int, int>>> lowlink();
 
   // トポロジカルソート
-  vector<int> topologicalSort();
-  vector<int> topologicalSortMinimum();
+  vector<int> topological_sort();
+  vector<int> topological_sort_minimum();
 
   template<class C_, class E_>
   friend ostream &operator<<(ostream &, const ListGraph<C_, E_> &);
