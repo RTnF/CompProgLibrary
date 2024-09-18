@@ -2,11 +2,11 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: cpp/random/xorshift.hpp
-    title: cpp/random/xorshift.hpp
+    path: cpp/graph/graph_matrix.hpp
+    title: cpp/graph/graph_matrix.hpp
   - icon: ':heavy_check_mark:'
-    path: cpp/set/multiset.hpp
-    title: "\u91CD\u8907\u3042\u308A\u306E\u96C6\u5408"
+    path: cpp/graph/warshall_floyd.hpp
+    title: cpp/graph/warshall_floyd.hpp
   - icon: ':question:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
@@ -17,9 +17,9 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/lesson/8/ITP2/all/ITP2_7_D
+    PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_C
     links:
-    - https://onlinejudge.u-aizu.ac.jp/courses/lesson/8/ITP2/all/ITP2_7_D
+    - https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_C
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
@@ -30,31 +30,32 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: set/multiset.hpp:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: graph/warshall_floyd.hpp:\
     \ line -1: no such header\n"
-  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/lesson/8/ITP2/all/ITP2_7_D\"\
-    \n#include \"set/multiset.hpp\"\n\nint main() {\n  //cin.tie(0);\n  //ios::sync_with_stdio(false);\n\
-    \n  TreeMultiSet ms;\n  int q;\n  cin >> q;\n  while (q--) {\n    int type;\n\
-    \    cin >> type;\n    int x, l, r;\n    switch (type) {\n      case 0: // insert\n\
-    \        cin >> x;\n        ms.add(x);\n        cout << ms.size() << endl;\n \
-    \       break;\n      case 1: // find\n        cin >> x;\n        cout << ms.count(x)\
-    \ << endl;\n        break;\n      case 2: // delete\n        cin >> x;\n     \
-    \   ms.removeAll(x);\n        break;\n      case 3: // dump\n        cin >> l\
-    \ >> r;\n        ms.dump(l, r);\n        break;\n    }\n  }\n}"
+  code: "#define PROBLEM \\\n  \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_C\"\
+    \n#include \"graph/warshall_floyd.hpp\"\n\nint main() {\n  cin.tie(0);\n  ios::sync_with_stdio(false);\n\
+    \  int V, E;\n  cin >> V >> E;\n  MatrixGraph g(V);\n  for (int i = 0; i < E;\
+    \ ++i) {\n    int s, t;\n    ll d;\n    cin >> s >> t >> d;\n    g.addEdge(s,\
+    \ t, d);\n  }\n  g.warshallFloyd();\n  if (g.hasNegativeCycle()) {\n    cout <<\
+    \ \"NEGATIVE CYCLE\\n\";\n  } else {\n    for (int i = 0; i < V; ++i) {\n    \
+    \  for (int j = 0; j < V; ++j) {\n        if (g.getDist(i, j) >= MatrixGraph<>::UNREACHABLE)\
+    \ {\n          cout << \"INF\";\n        } else {\n          cout << g.getDist(i,\
+    \ j);\n        }\n        cout << \" \\n\"[j == V - 1];\n      }\n    }\n  }\n\
+    }"
   dependsOn:
-  - cpp/set/multiset.hpp
+  - cpp/graph/warshall_floyd.hpp
   - cpp/template/small_template.hpp
-  - cpp/random/xorshift.hpp
+  - cpp/graph/graph_matrix.hpp
   isVerificationFile: true
-  path: cpp/verify/multi_set.test.cpp
+  path: cpp/verify/warshall_floyd.test.cpp
   requiredBy: []
   timestamp: '2024-09-18 18:24:28+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: cpp/verify/multi_set.test.cpp
+documentation_of: cpp/verify/warshall_floyd.test.cpp
 layout: document
 redirect_from:
-- /verify/cpp/verify/multi_set.test.cpp
-- /verify/cpp/verify/multi_set.test.cpp.html
-title: cpp/verify/multi_set.test.cpp
+- /verify/cpp/verify/warshall_floyd.test.cpp
+- /verify/cpp/verify/warshall_floyd.test.cpp.html
+title: cpp/verify/warshall_floyd.test.cpp
 ---

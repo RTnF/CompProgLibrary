@@ -1,22 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: cpp/set/disjoint_set.hpp
-    title: cpp/set/disjoint_set.hpp
   - icon: ':question:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
-  _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _pathExtension: hpp
+  _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/1/DSL_1_A
-    links:
-    - https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/1/DSL_1_A
+    links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
@@ -27,27 +21,24 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: set/disjoint_set.hpp:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: template/small_template.hpp:\
     \ line -1: no such header\n"
-  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/1/DSL_1_A\"\
-    \n#include \"set/disjoint_set.hpp\"\n\nint main() {\n  cin.tie(0);\n  ios::sync_with_stdio(false);\n\
-    \n  int n, q;\n  cin >> n >> q;\n\n  auto ds = DisjointSet(n);\n\n  for (int i\
-    \ = 0; i < q; i++) {\n    int com, x, y;\n    cin >> com >> x >> y;\n\n    if\
-    \ (com == 0) {\n      ds.unite(x, y);\n    } else {\n      cout << (ds.same(x,\
-    \ y) ? 1 : 0) << endl;\n    }\n  }\n}"
+  code: "#pragma once\n#include \"template/small_template.hpp\"\n\ntemplate<class\
+    \ T = ll>\nstruct MonoidMul {\n  T x;\n  MonoidMul(T x_): x(x_) {}\n  MonoidMul():\
+    \ MonoidMul(e()) {}\n  static MonoidMul e() { return 1; }\n  friend MonoidMul\
+    \ op(const MonoidMul &a, const MonoidMul &b) {\n    return a.x * b.x;\n  }\n};\n"
   dependsOn:
-  - cpp/set/disjoint_set.hpp
   - cpp/template/small_template.hpp
-  isVerificationFile: true
-  path: cpp/verify/disjoint_set.test.cpp
+  isVerificationFile: false
+  path: cpp/algebraic_structure/monoid.hpp
   requiredBy: []
-  timestamp: '2024-09-07 19:01:33+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-09-18 18:24:28+09:00'
+  verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: cpp/verify/disjoint_set.test.cpp
+documentation_of: cpp/algebraic_structure/monoid.hpp
 layout: document
 redirect_from:
-- /verify/cpp/verify/disjoint_set.test.cpp
-- /verify/cpp/verify/disjoint_set.test.cpp.html
-title: cpp/verify/disjoint_set.test.cpp
+- /library/cpp/algebraic_structure/monoid.hpp
+- /library/cpp/algebraic_structure/monoid.hpp.html
+title: cpp/algebraic_structure/monoid.hpp
 ---

@@ -7,8 +7,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: cpp/verify/disjoint_set.test.cpp
-    title: cpp/verify/disjoint_set.test.cpp
+    path: cpp/verify/sort_points_by_argument.test.cpp
+    title: cpp/verify/sort_points_by_argument.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -26,33 +26,34 @@ data:
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: template/small_template.hpp:\
     \ line -1: no such header\n"
-  code: "#pragma once\n#include \"template/small_template.hpp\"\n\n// based on ACL\n\
-    class DisjointSet {\n  // root: -1 * \u9023\u7D50\u6210\u5206\u30B5\u30A4\u30BA\
-    \n  // otherwise: parent\n  vector<int> ps;\n  int num_groups;\n\npublic:\n  DisjointSet(int\
-    \ n): ps(n, -1), num_groups(n) {}\n\n  // a \u3068 b \u3092\u7D50\u5408\u3059\u308B\
-    \n  int unite(int a, int b) {\n    int x = root(a), y = root(b);\n    if (x ==\
-    \ y) {\n      return x;\n    }\n    if (-ps[x] < -ps[y]) {\n      swap(x, y);\n\
-    \    }\n    ps[x] += ps[y];\n    ps[y] = x;\n    num_groups--;\n    return x;\n\
-    \  }\n\n  // a \u3068 b \u304C\u540C\u3058\u6728\u306B\u5C5E\u3059\u308B\u304B\
-    \n  bool same(int a, int b) { return root(a) == root(b); }\n\n  // a \u304C\u5C5E\
-    \u3059\u308B\u6728\u306E\u6839\n  int root(int a) {\n    if (ps[a] < 0) {\n  \
-    \    return a;\n    }\n    return ps[a] = root(ps[a]);\n  }\n\n  // a \u304C\u5C5E\
-    \u3059\u308B\u6728\u306E\u30B5\u30A4\u30BA\n  int size(int a) { return -ps[root(a)];\
-    \ }\n\n  // \u68EE\u306E\u6728\u306E\u6570\n  int getNum() { return num_groups;\
-    \ }\n};"
+  code: "#pragma once\n#include \"template/small_template.hpp\"\n\ntemplate<class\
+    \ T = ll>\nstruct Point {\n  T x, y;\n  int8_t quadrant; // 0-index \u8C61\u9650\
+    \n  Point(): x(0), y(0) { setQuadrant(); }\n  Point(T x_, T y_): x(x_), y(y_)\
+    \ { setQuadrant(); }\n  void setX(T x_) {\n    x = x_;\n    setQuadrant();\n \
+    \ }\n  void setY(T y_) {\n    y = y_;\n    setQuadrant();\n  }\n  void setQuadrant()\
+    \ {\n    int8_t xm = x < 0, ym = y < 0;\n    // 0123\n    // quadrant = (ym <<\
+    \ 1) + (xm ^ ym);\n    // 2301\n    quadrant = (!ym << 1) + (xm ^ ym);\n  }\n\
+    };\n\ntemplate<class T>\nbool operator<(const Point<T> &a, const Point<T> &b)\
+    \ {\n  if (a.quadrant != b.quadrant) {\n    return a.quadrant < b.quadrant;\n\
+    \  }\n  T cross = a.x * b.y - b.x * a.y;\n  if (cross != 0) {\n    return cross\
+    \ > 0;\n  } else if (a.x != b.x) {\n    return a.x < b.x;\n  } else {\n    return\
+    \ a.y < b.y;\n  }\n}\n\ntemplate<class T>\nostream &operator<<(ostream &os, const\
+    \ Point<T> &p) {\n  os << p.x << ' ' << p.y;\n  return os;\n}\n\ntemplate<class\
+    \ T = ll>\nstruct Point3 {\n  T x, y, z;\n  Point3(T x_, T y_, T z_): x(x_), y(y_),\
+    \ z(z_) {}\n};\n"
   dependsOn:
   - cpp/template/small_template.hpp
   isVerificationFile: false
-  path: cpp/set/disjoint_set.hpp
+  path: cpp/geometry/point.hpp
   requiredBy: []
-  timestamp: '2024-09-07 19:01:33+09:00'
+  timestamp: '2024-09-18 18:24:28+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - cpp/verify/disjoint_set.test.cpp
-documentation_of: cpp/set/disjoint_set.hpp
+  - cpp/verify/sort_points_by_argument.test.cpp
+documentation_of: cpp/geometry/point.hpp
 layout: document
 redirect_from:
-- /library/cpp/set/disjoint_set.hpp
-- /library/cpp/set/disjoint_set.hpp.html
-title: cpp/set/disjoint_set.hpp
+- /library/cpp/geometry/point.hpp
+- /library/cpp/geometry/point.hpp.html
+title: cpp/geometry/point.hpp
 ---

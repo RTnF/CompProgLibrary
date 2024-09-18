@@ -2,6 +2,9 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
+    path: cpp/random/xorshift.hpp
+    title: cpp/random/xorshift.hpp
+  - icon: ':question:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
   _extendedRequiredBy: []
@@ -28,14 +31,13 @@ data:
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: template/small_template.hpp:\
     \ line -1: no such header\n"
-  code: "#pragma once\n#include \"template/small_template.hpp\"\n\n/**\n * @brief\
-    \ \u91CD\u8907\u3042\u308A\u306E\u96C6\u5408\n * \u633F\u5165 O(log n)\n * \u524A\
-    \u9664 O(log n)\n * \u691C\u7D22 O(log n)\n * \u5B9F\u88C5\uFF1ATreap https://xuzijian629.hatenablog.com/entry/2018/12/08/000452\n\
-    \ * @tparam T \u8981\u7D20\u306E\u578B\n */\ntemplate<typename T = ll>\nclass\
-    \ TreeMultiSet {\n  struct Xor64 {\n    ull a = 0xAF180B8D7E239CC1;\n    ull next()\
-    \ {\n      ull x = a;\n      x ^= x << 3;\n      x ^= x >> 35;\n      x ^= x <<\
-    \ 14;\n      return a = x;\n    }\n  };\n  static inline Xor64 rnd;\n  struct\
-    \ Node {\n    T k;\n    int c = 1;\n    ull p = rnd.next();\n    Node *l = nullptr,\
+  code: "#pragma once\n#include \"template/small_template.hpp\"\n#include \"random/xorshift.hpp\"\
+    \n\n/**\n * @brief \u91CD\u8907\u3042\u308A\u306E\u96C6\u5408\n * \u633F\u5165\
+    \ O(log n)\n * \u524A\u9664 O(log n)\n * \u691C\u7D22 O(log n)\n * \u5B9F\u88C5\
+    \uFF1ATreap https://xuzijian629.hatenablog.com/entry/2018/12/08/000452\n * @tparam\
+    \ T \u8981\u7D20\u306E\u578B\n */\ntemplate<typename T = ll>\nclass TreeMultiSet\
+    \ {\n  static inline Xor64 rnd = Xor64(192865741288375612ull);\n  struct Node\
+    \ {\n    T k;\n    int c = 1;\n    ull p = rnd.get();\n    Node *l = nullptr,\
     \ *r = nullptr;\n    Node(T key): k(key) {}\n  };\n  using Tree = Node *;\n  Tree\
     \ root = nullptr;\n  int n = 0;\n\n  void split(Tree t, T key, Tree &l, Tree &r)\
     \ {\n    if (!t) {\n      l = r = nullptr;\n    } else if (key < t->k) {\n   \
@@ -72,16 +74,17 @@ data:
     \      t = key < t->k ? t->l : t->r;\n    }\n    return 0;\n  }\n\n  int count(T\
     \ key) {\n    Tree t = root;\n    while (t) {\n      if (key == t->k) {\n    \
     \    return t->c;\n      }\n      t = key < t->k ? t->l : t->r;\n    }\n    return\
-    \ 0;\n  }\n\n  int countAll() { return n; }\n\n  T min() {\n    Tree t = root;\n\
-    \    while (t->l) {\n      t = t->l;\n    }\n    return t->k;\n  }\n\n  // AOJ\n\
-    \  void dump(int l, int r) {\n    if (root) {\n      dump(root, l, r);\n    }\n\
-    \  }\n};\n"
+    \ 0;\n  }\n\n  T min() {\n    Tree t = root;\n    while (t->l) {\n      t = t->l;\n\
+    \    }\n    return t->k;\n  }\n\n  // AOJ\n  void dump(int l, int r) {\n    if\
+    \ (root) {\n      dump(root, l, r);\n    }\n  }\n\n  int size() { return n; }\n\
+    };\n"
   dependsOn:
   - cpp/template/small_template.hpp
+  - cpp/random/xorshift.hpp
   isVerificationFile: false
   path: cpp/set/multiset.hpp
   requiredBy: []
-  timestamp: '2024-09-10 15:51:10+09:00'
+  timestamp: '2024-09-18 18:24:28+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - cpp/verify/multi_set.test.cpp

@@ -5,14 +5,13 @@ data:
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: cpp/verify/disjoint_set.test.cpp
-    title: cpp/verify/disjoint_set.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
+    document_title: "\u5199\u50CF\u306F X -> X \u306A\u3089\u7D50\u5408\u7684\u306A\
+      \u306E\u3067\u5909\u63DB\u30E2\u30CE\u30A4\u30C9\u3092\u306A\u3059"
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
@@ -26,33 +25,31 @@ data:
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: template/small_template.hpp:\
     \ line -1: no such header\n"
-  code: "#pragma once\n#include \"template/small_template.hpp\"\n\n// based on ACL\n\
-    class DisjointSet {\n  // root: -1 * \u9023\u7D50\u6210\u5206\u30B5\u30A4\u30BA\
-    \n  // otherwise: parent\n  vector<int> ps;\n  int num_groups;\n\npublic:\n  DisjointSet(int\
-    \ n): ps(n, -1), num_groups(n) {}\n\n  // a \u3068 b \u3092\u7D50\u5408\u3059\u308B\
-    \n  int unite(int a, int b) {\n    int x = root(a), y = root(b);\n    if (x ==\
-    \ y) {\n      return x;\n    }\n    if (-ps[x] < -ps[y]) {\n      swap(x, y);\n\
-    \    }\n    ps[x] += ps[y];\n    ps[y] = x;\n    num_groups--;\n    return x;\n\
-    \  }\n\n  // a \u3068 b \u304C\u540C\u3058\u6728\u306B\u5C5E\u3059\u308B\u304B\
-    \n  bool same(int a, int b) { return root(a) == root(b); }\n\n  // a \u304C\u5C5E\
-    \u3059\u308B\u6728\u306E\u6839\n  int root(int a) {\n    if (ps[a] < 0) {\n  \
-    \    return a;\n    }\n    return ps[a] = root(ps[a]);\n  }\n\n  // a \u304C\u5C5E\
-    \u3059\u308B\u6728\u306E\u30B5\u30A4\u30BA\n  int size(int a) { return -ps[root(a)];\
-    \ }\n\n  // \u68EE\u306E\u6728\u306E\u6570\n  int getNum() { return num_groups;\
-    \ }\n};"
+  code: "#pragma once\n#include \"template/small_template.hpp\"\n\n/**\n * @brief\
+    \ \u5199\u50CF\u306F X -> X \u306A\u3089\u7D50\u5408\u7684\u306A\u306E\u3067\u5909\
+    \u63DB\u30E2\u30CE\u30A4\u30C9\u3092\u306A\u3059\n * \u6052\u7B49\u5199\u50CF\uFF1A\
+    static Mapping ide()\n * \u9069\u7528\uFF1AU apply(U x) const\n * \u5408\u6210\
+    \uFF1Afriend Mapping compose(const Mappint &, const Mappint &)\n */\n\n/**\n *\
+    \ @brief \u30A2\u30D5\u30A3\u30F3\u5199\u50CF y = ax + b\n * @tparam T \n */\n\
+    template<class T = ll>\nstruct Affine {\n  T a, b;\n  Affine(T a_, T b_): a(a_),\
+    \ b(b_) {}\n  Affine(): Affine(ide()) {}\n  static Affine ide() { return {1, 0};\
+    \ }\n  template<class U>\n  U apply(U x) const {\n    return a * x + b;\n  }\n\
+    \  friend Affine compose(const Affine &p, const Affine &q) {\n    return {p.a\
+    \ * q.a, p.b * q.a + q.b};\n  }\n  Affine inv() const { return {1 / a, -b / a};\
+    \ }\n};\n"
   dependsOn:
   - cpp/template/small_template.hpp
   isVerificationFile: false
-  path: cpp/set/disjoint_set.hpp
+  path: cpp/algebraic_structure/mapping.hpp
   requiredBy: []
-  timestamp: '2024-09-07 19:01:33+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - cpp/verify/disjoint_set.test.cpp
-documentation_of: cpp/set/disjoint_set.hpp
+  timestamp: '2024-09-18 18:24:28+09:00'
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
+documentation_of: cpp/algebraic_structure/mapping.hpp
 layout: document
 redirect_from:
-- /library/cpp/set/disjoint_set.hpp
-- /library/cpp/set/disjoint_set.hpp.html
-title: cpp/set/disjoint_set.hpp
+- /library/cpp/algebraic_structure/mapping.hpp
+- /library/cpp/algebraic_structure/mapping.hpp.html
+title: "\u5199\u50CF\u306F X -> X \u306A\u3089\u7D50\u5408\u7684\u306A\u306E\u3067\
+  \u5909\u63DB\u30E2\u30CE\u30A4\u30C9\u3092\u306A\u3059"
 ---

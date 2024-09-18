@@ -2,11 +2,11 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: cpp/random/xorshift.hpp
-    title: cpp/random/xorshift.hpp
+    path: cpp/graph/graph_list.hpp
+    title: cpp/graph/graph_list.hpp
   - icon: ':heavy_check_mark:'
-    path: cpp/set/multiset.hpp
-    title: "\u91CD\u8907\u3042\u308A\u306E\u96C6\u5408"
+    path: cpp/graph/lowlink.hpp
+    title: cpp/graph/lowlink.hpp
   - icon: ':question:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
@@ -17,9 +17,9 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/lesson/8/ITP2/all/ITP2_7_D
+    PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/3/GRL_3_B
     links:
-    - https://onlinejudge.u-aizu.ac.jp/courses/lesson/8/ITP2/all/ITP2_7_D
+    - https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/3/GRL_3_B
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
@@ -30,31 +30,28 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: set/multiset.hpp:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: graph/lowlink.hpp:\
     \ line -1: no such header\n"
-  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/lesson/8/ITP2/all/ITP2_7_D\"\
-    \n#include \"set/multiset.hpp\"\n\nint main() {\n  //cin.tie(0);\n  //ios::sync_with_stdio(false);\n\
-    \n  TreeMultiSet ms;\n  int q;\n  cin >> q;\n  while (q--) {\n    int type;\n\
-    \    cin >> type;\n    int x, l, r;\n    switch (type) {\n      case 0: // insert\n\
-    \        cin >> x;\n        ms.add(x);\n        cout << ms.size() << endl;\n \
-    \       break;\n      case 1: // find\n        cin >> x;\n        cout << ms.count(x)\
-    \ << endl;\n        break;\n      case 2: // delete\n        cin >> x;\n     \
-    \   ms.removeAll(x);\n        break;\n      case 3: // dump\n        cin >> l\
-    \ >> r;\n        ms.dump(l, r);\n        break;\n    }\n  }\n}"
+  code: "#define PROBLEM \\\n  \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/3/GRL_3_B\"\
+    \n#include \"graph/lowlink.hpp\"\n\nint main() {\n  cin.tie(0);\n  ios::sync_with_stdio(false);\n\
+    \  int V, E;\n  cin >> V >> E;\n  ListGraph graph(V);\n  for (int i = 0; i < E;\
+    \ ++i) {\n    int s, t;\n    cin >> s >> t;\n    graph.add_bidirectional_edge(s,\
+    \ t);\n  }\n  auto [aps, bridges] = graph.lowlink();\n  for (auto &&b: bridges)\
+    \ {\n    cout << b.first << ' ' << b.second << '\\n';\n  }\n}"
   dependsOn:
-  - cpp/set/multiset.hpp
+  - cpp/graph/lowlink.hpp
   - cpp/template/small_template.hpp
-  - cpp/random/xorshift.hpp
+  - cpp/graph/graph_list.hpp
   isVerificationFile: true
-  path: cpp/verify/multi_set.test.cpp
+  path: cpp/verify/bridges.test.cpp
   requiredBy: []
   timestamp: '2024-09-18 18:24:28+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: cpp/verify/multi_set.test.cpp
+documentation_of: cpp/verify/bridges.test.cpp
 layout: document
 redirect_from:
-- /verify/cpp/verify/multi_set.test.cpp
-- /verify/cpp/verify/multi_set.test.cpp.html
-title: cpp/verify/multi_set.test.cpp
+- /verify/cpp/verify/bridges.test.cpp
+- /verify/cpp/verify/bridges.test.cpp.html
+title: cpp/verify/bridges.test.cpp
 ---

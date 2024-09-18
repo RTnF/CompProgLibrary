@@ -2,6 +2,9 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
+    path: cpp/random/xorshift.hpp
+    title: cpp/random/xorshift.hpp
+  - icon: ':question:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
   _extendedRequiredBy: []
@@ -10,7 +13,9 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    links: []
+    document_title: "\u91CD\u8907\u306A\u3057\u306E\u96C6\u5408"
+    links:
+    - https://xuzijian629.hatenablog.com/entry/2018/12/08/000452
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
@@ -23,36 +28,39 @@ data:
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: template/small_template.hpp:\
     \ line -1: no such header\n"
-  code: "#pragma once\n#include \"template/small_template.hpp\"\n\n// Treap\ntemplate<typename\
-    \ T = ll>\nclass TreapSet {\n  struct Xor64 {\n    ull a = 0xAF180B8D7E239CC1;\n\
-    \    ull next() {\n      ull x = a;\n      x ^= x << 3;\n      x ^= x >> 35;\n\
-    \      x ^= x << 14;\n      return a = x;\n    }\n  };\n  static inline Xor64\
-    \ rnd;\n  struct Node {\n    T key;\n    int c = 1;\n    ull priority = rnd.next();\n\
-    \    Node *l = nullptr, *r = nullptr;\n    Node(T val): key(val) {}\n  };\n  using\
-    \ Tree = Node *;\n  Tree root = nullptr;\n\n  void split(Tree t, T key, Tree &l,\
-    \ Tree &r) {\n    if (!t) {\n      l = r = nullptr;\n    } else if (key < t->key)\
-    \ {\n      split(t->l, key, l, t->l), r = t;\n    } else {\n      split(t->r,\
-    \ key, t->r, r), l = t;\n    }\n  }\n\n  void merge(Tree &t, Tree l, Tree r) {\n\
-    \    if (!l || !r) {\n      t = l ? l : r;\n    } else if (l->priority > r->priority)\
-    \ {\n      merge(l->r, l->r, r), t = l;\n    } else {\n      merge(r->l, l, r->l),\
-    \ t = r;\n    }\n  }\n\n  void insert(Tree &t, Tree item) {\n    if (!t) {\n \
-    \     t = item;\n    } else if (item->priority > t->priority) {\n      split(t,\
-    \ item->key, item->l, item->r), t = item;\n    } else {\n      insert(item->key\
-    \ < t->key ? t->l : t->r, item);\n    }\n  }\n\n  void erase(Tree &t, T key) {\n\
-    \    if (t->key == key) {\n      merge(t, t->l, t->r);\n    } else {\n      erase(key\
-    \ < t->key ? t->l : t->r, key);\n    }\n  }\n\n  bool find(Tree &t, T key) {\n\
-    \    if (!t) {\n      return false;\n    } else if (t->key == key) {\n      return\
-    \ true;\n    } else {\n      return find(key < t->key ? t->l : t->r, key);\n \
-    \   }\n  }\n\npublic:\n  TreapSet() = default;\n  void add(T key) { insert(root,\
-    \ new Node(key)); }\n  void remove(T key) { erase(root, key); }\n  bool count(T\
-    \ key) { return count(root, key); }\n  T min() {\n    Tree t = root;\n    while\
-    \ (t->l) {\n      t = t->l;\n    }\n    return t->key;\n  }\n};"
+  code: "#pragma once\n#include \"template/small_template.hpp\"\n#include \"random/xorshift.hpp\"\
+    \n\n/**\n * @brief \u91CD\u8907\u306A\u3057\u306E\u96C6\u5408\n * \u633F\u5165\
+    \ O(log n)\n * \u524A\u9664 O(log n)\n * \u691C\u7D22 O(log n)\n * \u5B9F\u88C5\
+    \uFF1ATreap https://xuzijian629.hatenablog.com/entry/2018/12/08/000452\n * @tparam\
+    \ T \u8981\u7D20\u306E\u578B\n */\ntemplate<typename T = ll>\nclass TreeSet {\n\
+    \  static inline Xor64 rnd;\n  struct Node {\n    T k;\n    ull p = rnd.next();\n\
+    \    Node *l = nullptr, *r = nullptr;\n    Node(T key): k(key) {}\n  };\n  using\
+    \ Tree = Node *;\n  Tree root = nullptr;\n  int n = 0;\n\n  void split(Tree t,\
+    \ T key, Tree &l, Tree &r) {\n    if (!t) {\n      l = r = nullptr;\n    } else\
+    \ if (key < t->k) {\n      split(t->l, key, l, t->l);\n      r = t;\n    } else\
+    \ {\n      split(t->r, key, t->r, r);\n      l = t;\n    }\n  }\n\n  void merge(Tree\
+    \ &t, Tree l, Tree r) {\n    if (!l || !r) {\n      t = l ? l : r;\n    } else\
+    \ if (l->p > r->p) {\n      merge(l->r, l->r, r);\n      t = l;\n    } else {\n\
+    \      merge(r->l, l, r->l);\n      t = r;\n    }\n  }\n\n  void insert(Tree &t,\
+    \ Tree item) {\n    if (!t) {\n      t = item;\n    } else if (item->p > t->p)\
+    \ {\n      split(t, item->k, item->l, item->r);\n      t = item;\n    } else {\n\
+    \      insert(item->k < t->k ? t->l : t->r, item);\n    }\n  }\n\n  void remove(Tree\
+    \ &t, T key) {\n    if (t->k == key) {\n      merge(t, t->l, t->r);\n    } else\
+    \ {\n      remove(key < t->k ? t->l : t->r, key);\n    }\n  }\n\n  bool find(Tree\
+    \ &t, T key) {\n    if (!t) {\n      return false;\n    } else if (t->k == key)\
+    \ {\n      return true;\n    } else {\n      return find(key < t->k ? t->l : t->r,\
+    \ key);\n    }\n  }\n\npublic:\n  TreeSet() = default;\n  void add(T key) {\n\
+    \    n++;\n    insert(root, new Node(key));\n  }\n  void remove(T key) {\n   \
+    \ n--;\n    remove(root, key);\n  }\n  bool find(T key) { return find(root, key);\
+    \ }\n  T min() {\n    Tree t = root;\n    while (t->l) {\n      t = t->l;\n  \
+    \  }\n    return t->k;\n  }\n\n  int size() { return n; }\n};\n"
   dependsOn:
   - cpp/template/small_template.hpp
+  - cpp/random/xorshift.hpp
   isVerificationFile: false
   path: cpp/set/set.hpp
   requiredBy: []
-  timestamp: '2024-09-10 15:51:10+09:00'
+  timestamp: '2024-09-16 23:28:48+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp/set/set.hpp
@@ -60,5 +68,5 @@ layout: document
 redirect_from:
 - /library/cpp/set/set.hpp
 - /library/cpp/set/set.hpp.html
-title: cpp/set/set.hpp
+title: "\u91CD\u8907\u306A\u3057\u306E\u96C6\u5408"
 ---

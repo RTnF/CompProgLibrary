@@ -1,25 +1,22 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: cpp/random/xorshift.hpp
-    title: cpp/random/xorshift.hpp
-  - icon: ':heavy_check_mark:'
-    path: cpp/set/multiset.hpp
-    title: "\u91CD\u8907\u3042\u308A\u306E\u96C6\u5408"
+  - icon: ':question:'
+    path: cpp/number_theory/is_prime.hpp
+    title: cpp/number_theory/is_prime.hpp
   - icon: ':question:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/lesson/8/ITP2/all/ITP2_7_D
+    PROBLEM: https://yukicoder.me/problems/no/3030
     links:
-    - https://onlinejudge.u-aizu.ac.jp/courses/lesson/8/ITP2/all/ITP2_7_D
+    - https://yukicoder.me/problems/no/3030
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
@@ -30,31 +27,25 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: set/multiset.hpp:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: number_theory/is_prime.hpp:\
     \ line -1: no such header\n"
-  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/lesson/8/ITP2/all/ITP2_7_D\"\
-    \n#include \"set/multiset.hpp\"\n\nint main() {\n  //cin.tie(0);\n  //ios::sync_with_stdio(false);\n\
-    \n  TreeMultiSet ms;\n  int q;\n  cin >> q;\n  while (q--) {\n    int type;\n\
-    \    cin >> type;\n    int x, l, r;\n    switch (type) {\n      case 0: // insert\n\
-    \        cin >> x;\n        ms.add(x);\n        cout << ms.size() << endl;\n \
-    \       break;\n      case 1: // find\n        cin >> x;\n        cout << ms.count(x)\
-    \ << endl;\n        break;\n      case 2: // delete\n        cin >> x;\n     \
-    \   ms.removeAll(x);\n        break;\n      case 3: // dump\n        cin >> l\
-    \ >> r;\n        ms.dump(l, r);\n        break;\n    }\n  }\n}"
+  code: "#define PROBLEM \"https://yukicoder.me/problems/no/3030\"\n#include \"number_theory/is_prime.hpp\"\
+    \n\nint main() {\n  cin.tie(0);\n  ios::sync_with_stdio(false);\n  int n;\n  cin\
+    \ >> n;\n  while (n--) {\n    ull x;\n    cin >> x;\n    cout << x << ' ' << is_prime(x)\
+    \ << '\\n';\n  }\n}"
   dependsOn:
-  - cpp/set/multiset.hpp
+  - cpp/number_theory/is_prime.hpp
   - cpp/template/small_template.hpp
-  - cpp/random/xorshift.hpp
   isVerificationFile: true
-  path: cpp/verify/multi_set.test.cpp
+  path: cpp/verify/is_prime.test.cpp
   requiredBy: []
   timestamp: '2024-09-18 18:24:28+09:00'
-  verificationStatus: TEST_ACCEPTED
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: cpp/verify/multi_set.test.cpp
+documentation_of: cpp/verify/is_prime.test.cpp
 layout: document
 redirect_from:
-- /verify/cpp/verify/multi_set.test.cpp
-- /verify/cpp/verify/multi_set.test.cpp.html
-title: cpp/verify/multi_set.test.cpp
+- /verify/cpp/verify/is_prime.test.cpp
+- /verify/cpp/verify/is_prime.test.cpp.html
+title: cpp/verify/is_prime.test.cpp
 ---

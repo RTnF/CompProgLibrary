@@ -4,16 +4,23 @@ data:
   - icon: ':question:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: cpp/set/multiset.hpp
+    title: "\u91CD\u8907\u3042\u308A\u306E\u96C6\u5408"
+  - icon: ':warning:'
+    path: cpp/set/set.hpp
+    title: "\u91CD\u8907\u306A\u3057\u306E\u96C6\u5408"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: cpp/verify/disjoint_set.test.cpp
-    title: cpp/verify/disjoint_set.test.cpp
+    path: cpp/verify/multi_set.test.cpp
+    title: cpp/verify/multi_set.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    links: []
+    links:
+    - https://ja.wikipedia.org/wiki/Xorshift
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
@@ -26,33 +33,31 @@ data:
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: template/small_template.hpp:\
     \ line -1: no such header\n"
-  code: "#pragma once\n#include \"template/small_template.hpp\"\n\n// based on ACL\n\
-    class DisjointSet {\n  // root: -1 * \u9023\u7D50\u6210\u5206\u30B5\u30A4\u30BA\
-    \n  // otherwise: parent\n  vector<int> ps;\n  int num_groups;\n\npublic:\n  DisjointSet(int\
-    \ n): ps(n, -1), num_groups(n) {}\n\n  // a \u3068 b \u3092\u7D50\u5408\u3059\u308B\
-    \n  int unite(int a, int b) {\n    int x = root(a), y = root(b);\n    if (x ==\
-    \ y) {\n      return x;\n    }\n    if (-ps[x] < -ps[y]) {\n      swap(x, y);\n\
-    \    }\n    ps[x] += ps[y];\n    ps[y] = x;\n    num_groups--;\n    return x;\n\
-    \  }\n\n  // a \u3068 b \u304C\u540C\u3058\u6728\u306B\u5C5E\u3059\u308B\u304B\
-    \n  bool same(int a, int b) { return root(a) == root(b); }\n\n  // a \u304C\u5C5E\
-    \u3059\u308B\u6728\u306E\u6839\n  int root(int a) {\n    if (ps[a] < 0) {\n  \
-    \    return a;\n    }\n    return ps[a] = root(ps[a]);\n  }\n\n  // a \u304C\u5C5E\
-    \u3059\u308B\u6728\u306E\u30B5\u30A4\u30BA\n  int size(int a) { return -ps[root(a)];\
-    \ }\n\n  // \u68EE\u306E\u6728\u306E\u6570\n  int getNum() { return num_groups;\
-    \ }\n};"
+  code: "#pragma once\n#include \"template/small_template.hpp\"\n\n// https://ja.wikipedia.org/wiki/Xorshift\n\
+    class Xor64 {\n  ull s;\n\npublic:\n  Xor64(ull s_): s(s_) {}\n  // [0, 2**64)\n\
+    \  ull get() {\n    ull x = s;\n    x ^= x << 7;\n    return s = x ^ (x >> 9);\n\
+    \  }\n  // [min, max)\n  int get_int(int mi, int ma) { return mi + get() % (ma\
+    \ - mi); }\n  // [min, max)\n  ll get_ll(ll mi, ll ma) { return mi + get() % (ma\
+    \ - mi); }\n  // [0, 1)\n  double get_double() { return get() / pow(2.0, 64);\
+    \ }\n  // [min, max)\n  double get_double(double mi, double ma) {\n    return\
+    \ mi + get_double() * (ma - mi);\n  }\n  // normal\n  double get_normal() {\n\
+    \    double x = get_double(), y = get_double();\n    return sqrt(-2.0 * log(x))\
+    \ * cos(2.0 * M_PI * y);\n  }\n};"
   dependsOn:
   - cpp/template/small_template.hpp
   isVerificationFile: false
-  path: cpp/set/disjoint_set.hpp
-  requiredBy: []
-  timestamp: '2024-09-07 19:01:33+09:00'
+  path: cpp/random/xorshift.hpp
+  requiredBy:
+  - cpp/set/set.hpp
+  - cpp/set/multiset.hpp
+  timestamp: '2024-09-16 23:28:48+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - cpp/verify/disjoint_set.test.cpp
-documentation_of: cpp/set/disjoint_set.hpp
+  - cpp/verify/multi_set.test.cpp
+documentation_of: cpp/random/xorshift.hpp
 layout: document
 redirect_from:
-- /library/cpp/set/disjoint_set.hpp
-- /library/cpp/set/disjoint_set.hpp.html
-title: cpp/set/disjoint_set.hpp
+- /library/cpp/random/xorshift.hpp
+- /library/cpp/random/xorshift.hpp.html
+title: cpp/random/xorshift.hpp
 ---

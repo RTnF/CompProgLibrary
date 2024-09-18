@@ -2,12 +2,70 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: cpp/algebraic_structure/group.hpp
+    title: "\u30A2\u30D5\u30A3\u30F3\u5199\u50CF y = ax + b"
   - icon: ':warning:'
-    path: cpp/graph/list_graph.hpp
-    title: cpp/graph/list_graph.hpp
+    path: cpp/algebraic_structure/mapping.hpp
+    title: "\u5199\u50CF\u306F X -> X \u306A\u3089\u7D50\u5408\u7684\u306A\u306E\u3067\
+      \u5909\u63DB\u30E2\u30CE\u30A4\u30C9\u3092\u306A\u3059"
+  - icon: ':warning:'
+    path: cpp/algebraic_structure/monoid.hpp
+    title: cpp/algebraic_structure/monoid.hpp
+  - icon: ':warning:'
+    path: cpp/array/cumulative_sum.hpp
+    title: "1\u6B21\u5143\u7D2F\u7A4D\u548C"
+  - icon: ':warning:'
+    path: cpp/array/search_util.hpp
+    title: cpp/array/search_util.hpp
+  - icon: ':warning:'
+    path: cpp/array/sort_util.hpp
+    title: "\u9006\u7F6E\u63DB"
+  - icon: ':heavy_check_mark:'
+    path: cpp/geometry/point.hpp
+    title: cpp/geometry/point.hpp
+  - icon: ':heavy_check_mark:'
+    path: cpp/graph/bellman_ford.hpp
+    title: cpp/graph/bellman_ford.hpp
+  - icon: ':heavy_check_mark:'
+    path: cpp/graph/dijkstra.hpp
+    title: cpp/graph/dijkstra.hpp
+  - icon: ':heavy_check_mark:'
+    path: cpp/graph/graph_list.hpp
+    title: cpp/graph/graph_list.hpp
+  - icon: ':heavy_check_mark:'
+    path: cpp/graph/graph_matrix.hpp
+    title: cpp/graph/graph_matrix.hpp
+  - icon: ':heavy_check_mark:'
+    path: cpp/graph/lowlink.hpp
+    title: cpp/graph/lowlink.hpp
+  - icon: ':heavy_check_mark:'
+    path: cpp/graph/prim.hpp
+    title: cpp/graph/prim.hpp
+  - icon: ':heavy_check_mark:'
+    path: cpp/graph/topological_sort.hpp
+    title: cpp/graph/topological_sort.hpp
+  - icon: ':heavy_check_mark:'
+    path: cpp/graph/warshall_floyd.hpp
+    title: cpp/graph/warshall_floyd.hpp
+  - icon: ':heavy_check_mark:'
+    path: cpp/modint/modint.hpp
+    title: "\u5270\u4F59\u3092\u53D6\u308A[0, mod)\u306B\u53CE\u3081\u308Bint"
   - icon: ':warning:'
     path: cpp/number/ratio.hpp
     title: cpp/number/ratio.hpp
+  - icon: ':heavy_check_mark:'
+    path: cpp/number_theory/factorize.hpp
+    title: cpp/number_theory/factorize.hpp
+  - icon: ':question:'
+    path: cpp/number_theory/is_prime.hpp
+    title: cpp/number_theory/is_prime.hpp
+  - icon: ':heavy_check_mark:'
+    path: cpp/random/xorshift.hpp
+    title: cpp/random/xorshift.hpp
+  - icon: ':heavy_check_mark:'
+    path: cpp/segment_tree/segment_tree.hpp
+    title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 based on ACL"
   - icon: ':heavy_check_mark:'
     path: cpp/set/disjoint_set.hpp
     title: cpp/set/disjoint_set.hpp
@@ -16,11 +74,38 @@ data:
     title: "\u91CD\u8907\u3042\u308A\u306E\u96C6\u5408"
   - icon: ':warning:'
     path: cpp/set/set.hpp
-    title: cpp/set/set.hpp
+    title: "\u91CD\u8907\u306A\u3057\u306E\u96C6\u5408"
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: cpp/verify/articulation_points.test.cpp
+    title: cpp/verify/articulation_points.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: cpp/verify/bellman_ford.test.cpp
+    title: cpp/verify/bellman_ford.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: cpp/verify/bridges.test.cpp
+    title: cpp/verify/bridges.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: cpp/verify/detect_cycle_directed.test.cpp
+    title: cpp/verify/detect_cycle_directed.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: cpp/verify/dijkstra.test.cpp
+    title: cpp/verify/dijkstra.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: cpp/verify/dijkstra2.test.cpp
+    title: cpp/verify/dijkstra2.test.cpp
   - icon: ':heavy_check_mark:'
     path: cpp/verify/disjoint_set.test.cpp
     title: cpp/verify/disjoint_set.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: cpp/verify/factorize.test.cpp
+    title: cpp/verify/factorize.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: cpp/verify/factorize2.test.cpp
+    title: cpp/verify/factorize2.test.cpp
+  - icon: ':x:'
+    path: cpp/verify/is_prime.test.cpp
+    title: cpp/verify/is_prime.test.cpp
   - icon: ':heavy_check_mark:'
     path: cpp/verify/many_a_plus_b.test.cpp
     title: cpp/verify/many_a_plus_b.test.cpp
@@ -30,9 +115,24 @@ data:
   - icon: ':heavy_check_mark:'
     path: cpp/verify/multi_set.test.cpp
     title: cpp/verify/multi_set.test.cpp
-  _isVerificationFailed: false
+  - icon: ':heavy_check_mark:'
+    path: cpp/verify/point_add_range_sum.test.cpp
+    title: cpp/verify/point_add_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: cpp/verify/point_set_range_composite.test.cpp
+    title: cpp/verify/point_set_range_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: cpp/verify/prim.test.cpp
+    title: cpp/verify/prim.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: cpp/verify/sort_points_by_argument.test.cpp
+    title: cpp/verify/sort_points_by_argument.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: cpp/verify/warshall_floyd.test.cpp
+    title: cpp/verify/warshall_floyd.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: '#line 2 "cpp/template/small_template.hpp"
@@ -77,18 +177,51 @@ data:
   isVerificationFile: false
   path: cpp/template/small_template.hpp
   requiredBy:
-  - cpp/number/ratio.hpp
-  - cpp/graph/list_graph.hpp
+  - cpp/array/cumulative_sum.hpp
+  - cpp/array/search_util.hpp
+  - cpp/array/sort_util.hpp
+  - cpp/random/xorshift.hpp
+  - cpp/geometry/point.hpp
+  - cpp/graph/warshall_floyd.hpp
+  - cpp/graph/dijkstra.hpp
+  - cpp/graph/prim.hpp
+  - cpp/graph/lowlink.hpp
+  - cpp/graph/topological_sort.hpp
+  - cpp/graph/bellman_ford.hpp
+  - cpp/graph/graph_list.hpp
+  - cpp/graph/graph_matrix.hpp
   - cpp/set/disjoint_set.hpp
   - cpp/set/set.hpp
   - cpp/set/multiset.hpp
+  - cpp/number_theory/is_prime.hpp
+  - cpp/number_theory/factorize.hpp
+  - cpp/number/ratio.hpp
+  - cpp/algebraic_structure/group.hpp
+  - cpp/algebraic_structure/monoid.hpp
+  - cpp/algebraic_structure/mapping.hpp
+  - cpp/modint/modint.hpp
+  - cpp/segment_tree/segment_tree.hpp
   timestamp: '2024-08-28 19:34:48+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - cpp/verify/many_a_plus_b.test.cpp
   - cpp/verify/maximum_profit.test.cpp
+  - cpp/verify/is_prime.test.cpp
   - cpp/verify/disjoint_set.test.cpp
   - cpp/verify/multi_set.test.cpp
+  - cpp/verify/dijkstra2.test.cpp
+  - cpp/verify/warshall_floyd.test.cpp
+  - cpp/verify/point_set_range_composite.test.cpp
+  - cpp/verify/bellman_ford.test.cpp
+  - cpp/verify/articulation_points.test.cpp
+  - cpp/verify/sort_points_by_argument.test.cpp
+  - cpp/verify/prim.test.cpp
+  - cpp/verify/bridges.test.cpp
+  - cpp/verify/dijkstra.test.cpp
+  - cpp/verify/factorize2.test.cpp
+  - cpp/verify/factorize.test.cpp
+  - cpp/verify/point_add_range_sum.test.cpp
+  - cpp/verify/many_a_plus_b.test.cpp
+  - cpp/verify/detect_cycle_directed.test.cpp
 documentation_of: cpp/template/small_template.hpp
 layout: document
 redirect_from:

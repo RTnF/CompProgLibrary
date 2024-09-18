@@ -2,11 +2,14 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: cpp/random/xorshift.hpp
-    title: cpp/random/xorshift.hpp
+    path: cpp/algebraic_structure/group.hpp
+    title: "\u30A2\u30D5\u30A3\u30F3\u5199\u50CF y = ax + b"
   - icon: ':heavy_check_mark:'
-    path: cpp/set/multiset.hpp
-    title: "\u91CD\u8907\u3042\u308A\u306E\u96C6\u5408"
+    path: cpp/modint/modint.hpp
+    title: "\u5270\u4F59\u3092\u53D6\u308A[0, mod)\u306B\u53CE\u3081\u308Bint"
+  - icon: ':heavy_check_mark:'
+    path: cpp/segment_tree/segment_tree.hpp
+    title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 based on ACL"
   - icon: ':question:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
@@ -17,9 +20,9 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/lesson/8/ITP2/all/ITP2_7_D
+    PROBLEM: https://judge.yosupo.jp/problem/point_set_range_composite
     links:
-    - https://onlinejudge.u-aizu.ac.jp/courses/lesson/8/ITP2/all/ITP2_7_D
+    - https://judge.yosupo.jp/problem/point_set_range_composite
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
@@ -30,31 +33,33 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: set/multiset.hpp:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: modint/modint.hpp:\
     \ line -1: no such header\n"
-  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/lesson/8/ITP2/all/ITP2_7_D\"\
-    \n#include \"set/multiset.hpp\"\n\nint main() {\n  //cin.tie(0);\n  //ios::sync_with_stdio(false);\n\
-    \n  TreeMultiSet ms;\n  int q;\n  cin >> q;\n  while (q--) {\n    int type;\n\
-    \    cin >> type;\n    int x, l, r;\n    switch (type) {\n      case 0: // insert\n\
-    \        cin >> x;\n        ms.add(x);\n        cout << ms.size() << endl;\n \
-    \       break;\n      case 1: // find\n        cin >> x;\n        cout << ms.count(x)\
-    \ << endl;\n        break;\n      case 2: // delete\n        cin >> x;\n     \
-    \   ms.removeAll(x);\n        break;\n      case 3: // dump\n        cin >> l\
-    \ >> r;\n        ms.dump(l, r);\n        break;\n    }\n  }\n}"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/point_set_range_composite\"\
+    \n#include \"modint/modint.hpp\"\n#include \"algebraic_structure/group.hpp\"\n\
+    #include \"segment_tree/segment_tree.hpp\"\n\nint main() {\n  cin.tie(0);\n  ios::sync_with_stdio(false);\n\
+    \  int N, Q;\n  cin >> N >> Q;\n  vector<GroupAffine<mint>> v(N);\n  for (int\
+    \ i = 0; i < N; i++) {\n    int a, b;\n    cin >> a >> b;\n    v[i] = {a, b};\n\
+    \  }\n  SegmentTree<GroupAffine<mint>> sg(v);\n  while (Q--) {\n    int type;\n\
+    \    cin >> type;\n    if (type) {\n      int l, r;\n      mint x;\n      cin\
+    \ >> l >> r >> x;\n      auto p = sg.product(l, r);\n      cout << p.a * x + p.b\
+    \ << '\\n';\n    } else {\n      int p;\n      mint c, d;\n      cin >> p >> c\
+    \ >> d;\n      sg.set(p, {c, d});\n    }\n  }\n}"
   dependsOn:
-  - cpp/set/multiset.hpp
+  - cpp/modint/modint.hpp
   - cpp/template/small_template.hpp
-  - cpp/random/xorshift.hpp
+  - cpp/algebraic_structure/group.hpp
+  - cpp/segment_tree/segment_tree.hpp
   isVerificationFile: true
-  path: cpp/verify/multi_set.test.cpp
+  path: cpp/verify/point_set_range_composite.test.cpp
   requiredBy: []
   timestamp: '2024-09-18 18:24:28+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: cpp/verify/multi_set.test.cpp
+documentation_of: cpp/verify/point_set_range_composite.test.cpp
 layout: document
 redirect_from:
-- /verify/cpp/verify/multi_set.test.cpp
-- /verify/cpp/verify/multi_set.test.cpp.html
-title: cpp/verify/multi_set.test.cpp
+- /verify/cpp/verify/point_set_range_composite.test.cpp
+- /verify/cpp/verify/point_set_range_composite.test.cpp.html
+title: cpp/verify/point_set_range_composite.test.cpp
 ---

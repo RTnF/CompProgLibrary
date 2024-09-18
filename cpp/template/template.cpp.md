@@ -11,10 +11,10 @@ data:
   bundledCode: "#line 1 \"cpp/template/template.cpp\"\n#pragma region template\n#include\
     \ <bits/stdc++.h>\n//#include <boost/multiprecision/cpp_int.hpp>\n//#include <atcoder/all>\n\
     using namespace std;\n// using namespace atcoder;\n// using cpp_int = boost::multiprecision::cpp_int;\n\
-    using ll = long long;\nusing ull = unsigned long long;\nusing ld = long double;\n\
-    using vi = vector<int>;\nusing vvi = vector<vi>;\nusing vvvi = vector<vvi>;\n\
-    using vll = vector<ll>;\nusing vvll = vector<vll>;\nusing vvvll = vector<vvll>;\n\
-    using vld = vector<ld>;\nusing vvld = vector<vld>;\nusing vvvld = vector<vvld>;\n\
+    using ll = int64_t;\nusing ull = uint64_t;\nusing ld = long double;\nusing vi\
+    \ = vector<int>;\nusing vvi = vector<vi>;\nusing vvvi = vector<vvi>;\nusing vll\
+    \ = vector<ll>;\nusing vvll = vector<vll>;\nusing vvvll = vector<vvll>;\nusing\
+    \ vld = vector<ld>;\nusing vvld = vector<vld>;\nusing vvvld = vector<vvld>;\n\
     using vs = vector<string>;\nusing pii = pair<int, int>;\nusing pll = pair<ll,\
     \ ll>;\nusing pdd = pair<double, double>;\nusing pld = pair<ld, ld>;\nusing vpii\
     \ = vector<pii>;\nusing vp = vector<pll>;\nusing vpdd = vector<pdd>;\nusing vpld\
@@ -57,17 +57,17 @@ data:
     \                                   \\\n    cout << ((f) ? \"Yes\" : \"No\") <<\
     \ '\\n'; \\\n    return;                               \\\n  } while (0)\n#define\
     \ PR()        \\\n  do {              \\\n    cout << \"-1\\n\"; \\\n    return;\
-    \         \\\n  } while (0)\n//#define PRECISION\n\nvoid solve() {}\n\nint main()\
-    \ {\n  cin.tie(0);\n  ios::sync_with_stdio(false);\n  cout << fixed << setprecision(20);\n\
-    \  //*\n  solve();\n  /*/\n  ll _cases;\n  cin >> _cases;\n  while (_cases--)\
-    \ solve();\n  //*/\n}\n"
+    \         \\\n  } while (0)\n\nvoid solve() {}\n\nint main() {\n  cin.tie(0);\n\
+    \  ios::sync_with_stdio(false);\n  cout << fixed << setprecision(20);\n  //*\n\
+    \  solve();\n  /*/\n  ll _cases;\n  cin >> _cases;\n  while (_cases--) solve();\n\
+    \  //*/\n}\n"
   code: "#pragma region template\n#include <bits/stdc++.h>\n//#include <boost/multiprecision/cpp_int.hpp>\n\
     //#include <atcoder/all>\nusing namespace std;\n// using namespace atcoder;\n\
-    // using cpp_int = boost::multiprecision::cpp_int;\nusing ll = long long;\nusing\
-    \ ull = unsigned long long;\nusing ld = long double;\nusing vi = vector<int>;\n\
-    using vvi = vector<vi>;\nusing vvvi = vector<vvi>;\nusing vll = vector<ll>;\n\
-    using vvll = vector<vll>;\nusing vvvll = vector<vvll>;\nusing vld = vector<ld>;\n\
-    using vvld = vector<vld>;\nusing vvvld = vector<vvld>;\nusing vs = vector<string>;\n\
+    // using cpp_int = boost::multiprecision::cpp_int;\nusing ll = int64_t;\nusing\
+    \ ull = uint64_t;\nusing ld = long double;\nusing vi = vector<int>;\nusing vvi\
+    \ = vector<vi>;\nusing vvvi = vector<vvi>;\nusing vll = vector<ll>;\nusing vvll\
+    \ = vector<vll>;\nusing vvvll = vector<vvll>;\nusing vld = vector<ld>;\nusing\
+    \ vvld = vector<vld>;\nusing vvvld = vector<vvld>;\nusing vs = vector<string>;\n\
     using pii = pair<int, int>;\nusing pll = pair<ll, ll>;\nusing pdd = pair<double,\
     \ double>;\nusing pld = pair<ld, ld>;\nusing vpii = vector<pii>;\nusing vp = vector<pll>;\n\
     using vpdd = vector<pdd>;\nusing vpld = vector<pld>;\ntemplate<typename T>\nusing\
@@ -110,15 +110,15 @@ data:
     \                                 \\\n    cout << ((f) ? \"Yes\" : \"No\") <<\
     \ '\\n'; \\\n    return;                               \\\n  } while (0)\n#define\
     \ PR()        \\\n  do {              \\\n    cout << \"-1\\n\"; \\\n    return;\
-    \         \\\n  } while (0)\n//#define PRECISION\n\nvoid solve() {}\n\nint main()\
-    \ {\n  cin.tie(0);\n  ios::sync_with_stdio(false);\n  cout << fixed << setprecision(20);\n\
-    \  //*\n  solve();\n  /*/\n  ll _cases;\n  cin >> _cases;\n  while (_cases--)\
-    \ solve();\n  //*/\n}"
+    \         \\\n  } while (0)\n\nvoid solve() {}\n\nint main() {\n  cin.tie(0);\n\
+    \  ios::sync_with_stdio(false);\n  cout << fixed << setprecision(20);\n  //*\n\
+    \  solve();\n  /*/\n  ll _cases;\n  cin >> _cases;\n  while (_cases--) solve();\n\
+    \  //*/\n}"
   dependsOn: []
   isVerificationFile: false
   path: cpp/template/template.cpp
   requiredBy: []
-  timestamp: '2024-09-13 22:52:42+09:00'
+  timestamp: '2024-09-16 23:28:48+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp/template/template.cpp

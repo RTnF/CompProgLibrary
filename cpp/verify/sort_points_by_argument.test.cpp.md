@@ -2,11 +2,8 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: cpp/random/xorshift.hpp
-    title: cpp/random/xorshift.hpp
-  - icon: ':heavy_check_mark:'
-    path: cpp/set/multiset.hpp
-    title: "\u91CD\u8907\u3042\u308A\u306E\u96C6\u5408"
+    path: cpp/geometry/point.hpp
+    title: cpp/geometry/point.hpp
   - icon: ':question:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
@@ -17,9 +14,9 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/lesson/8/ITP2/all/ITP2_7_D
+    PROBLEM: https://judge.yosupo.jp/problem/sort_points_by_argument
     links:
-    - https://onlinejudge.u-aizu.ac.jp/courses/lesson/8/ITP2/all/ITP2_7_D
+    - https://judge.yosupo.jp/problem/sort_points_by_argument
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
@@ -30,31 +27,27 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: set/multiset.hpp:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: template/small_template.hpp:\
     \ line -1: no such header\n"
-  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/lesson/8/ITP2/all/ITP2_7_D\"\
-    \n#include \"set/multiset.hpp\"\n\nint main() {\n  //cin.tie(0);\n  //ios::sync_with_stdio(false);\n\
-    \n  TreeMultiSet ms;\n  int q;\n  cin >> q;\n  while (q--) {\n    int type;\n\
-    \    cin >> type;\n    int x, l, r;\n    switch (type) {\n      case 0: // insert\n\
-    \        cin >> x;\n        ms.add(x);\n        cout << ms.size() << endl;\n \
-    \       break;\n      case 1: // find\n        cin >> x;\n        cout << ms.count(x)\
-    \ << endl;\n        break;\n      case 2: // delete\n        cin >> x;\n     \
-    \   ms.removeAll(x);\n        break;\n      case 3: // dump\n        cin >> l\
-    \ >> r;\n        ms.dump(l, r);\n        break;\n    }\n  }\n}"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/sort_points_by_argument\"\
+    \n#include \"template/small_template.hpp\"\n#include \"geometry/point.hpp\"\n\n\
+    int main() {\n  cin.tie(0);\n  ios::sync_with_stdio(false);\n  int n;\n  cin >>\
+    \ n;\n  vector<Point<ll>> ps;\n  ps.reserve(n);\n  while (n--) {\n    ll x, y;\n\
+    \    cin >> x >> y;\n    ps.emplace_back(x, y);\n  }\n  sort(ps.begin(), ps.end());\n\
+    \  for (auto &&p: ps) {\n    cout << p << '\\n';\n  }\n}"
   dependsOn:
-  - cpp/set/multiset.hpp
   - cpp/template/small_template.hpp
-  - cpp/random/xorshift.hpp
+  - cpp/geometry/point.hpp
   isVerificationFile: true
-  path: cpp/verify/multi_set.test.cpp
+  path: cpp/verify/sort_points_by_argument.test.cpp
   requiredBy: []
   timestamp: '2024-09-18 18:24:28+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: cpp/verify/multi_set.test.cpp
+documentation_of: cpp/verify/sort_points_by_argument.test.cpp
 layout: document
 redirect_from:
-- /verify/cpp/verify/multi_set.test.cpp
-- /verify/cpp/verify/multi_set.test.cpp.html
-title: cpp/verify/multi_set.test.cpp
+- /verify/cpp/verify/sort_points_by_argument.test.cpp
+- /verify/cpp/verify/sort_points_by_argument.test.cpp.html
+title: cpp/verify/sort_points_by_argument.test.cpp
 ---
