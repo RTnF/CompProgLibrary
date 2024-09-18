@@ -4,21 +4,23 @@
 // 辺
 template<class T>
 class Edge {
-  static int nextId;
+  static int next_id;
 
 public:
   const int from, to, id;
   const T cost;
-  Edge(int from_, int to_, T cost_): from(from_), to(to_), id(nextId++), cost(cost_) {}
-  Edge(int from_, int to_): from(from_), to(to_), id(nextId++), cost(1) {}
+  Edge(int from_, int to_, T cost_):
+    from(from_), to(to_), id(next_id++), cost(cost_) {}
+  Edge(int from_, int to_): from(from_), to(to_), id(next_id++), cost(1) {}
 };
 
 template<class T>
-int Edge<T>::nextId = 0;
+int Edge<T>::next_id = 0;
 
 template<class T>
 ostream &operator<<(ostream &os, const Edge<T> &edge) {
-  os << edge.id << ": " << edge.from << " -> " << edge.to << " (" << edge.cost << ")";
+  os << edge.id << ": " << edge.from << " -> " << edge.to << " (" << edge.cost
+     << ")";
   return os;
 }
 
@@ -33,8 +35,12 @@ class ListGraph {
 public:
   static const Cost UNREACHABLE = numeric_limits<Cost>::max();
   static const Cost NEGATIVE_CYCLE = numeric_limits<Cost>::min();
-  ListGraph() {}
+  // 頂点数 0
+  ListGraph(): n(0), m(0), adj(0) {}
+  // 頂点数 n_
   ListGraph(int n_): n(n_), m(0), adj(n_) {}
+
+  vector<E> &operator[](int i) { return adj[i]; }
 
   void add_node() {
     adj.emplace_back();
@@ -59,7 +65,6 @@ public:
     shortest_path_dist.clear();
     shortest_path_parent.clear();
   }
-  vector<E> &operator[](int i) { return adj[i]; }
 
   // 最短距離
   void dijkstra(int start_node);

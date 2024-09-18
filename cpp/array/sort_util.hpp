@@ -1,20 +1,6 @@
 #pragma once
 #include "template/small_template.hpp"
 
-template<typename T>
-int count(vector<T> v, T value, int idx_begin = 0, int idx_end = -1) {
-  if (idx_end == -1) {
-    idx_end = v.size();
-  }
-  int cnt = 0;
-  for (int i = idx_begin; i < idx_end; i++) {
-    if (v[i] == value) {
-      cnt++;
-    }
-  }
-  return cnt;
-}
-
 /**
  * @brief 逆置換
  * 例：[2, 4, 0, 1, 3] -> [2, 3, 0, 4, 1]
@@ -59,7 +45,7 @@ vector<int> inv_arg_sort(const vector<T> &v) {
  * 例：[3, 3, 1, 5, 2] -> [2, 2, 0, 3, 1] + offset
  * unzip: [1, 2, 3, 5]
  */
-template<typename T>
+template<class T>
 vector<T> compress(const vector<T> &x, vector<T> &unzip, int offset = 0) {
   int n = x.size();
   vector<T> cmp(n);
@@ -77,7 +63,7 @@ vector<T> compress(const vector<T> &x, vector<T> &unzip, int offset = 0) {
  * @brief 座標圧縮 O(n log n)
  * 例：[3, 3, 1, 5, 2] -> [2, 2, 0, 3, 1] + offset
  */
-template<typename T>
+template<class T>
 vector<T> compress(const vector<T> &x, int offset = 0) {
   vector<T> y = x;
   return compress(x, y, offset);

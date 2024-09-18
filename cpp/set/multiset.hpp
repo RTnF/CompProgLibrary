@@ -12,11 +12,11 @@
  */
 template<typename T = ll>
 class TreeMultiSet {
-  static inline Xor64 rnd;
+  static inline Xor64 rnd = Xor64(192865741288375612ull);
   struct Node {
     T k;
     int c = 1;
-    ull p = rnd.next();
+    ull p = rnd.get();
     Node *l = nullptr, *r = nullptr;
     Node(T key): k(key) {}
   };
