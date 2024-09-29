@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: cpp/graph/graph_list.hpp
     title: cpp/graph/graph_list.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
   _extendedRequiredBy: []
@@ -65,7 +65,7 @@ data:
   isVerificationFile: false
   path: cpp/graph/lowlink.hpp
   requiredBy: []
-  timestamp: '2024-09-18 18:24:28+09:00'
+  timestamp: '2024-09-29 16:45:44+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - cpp/verify/articulation_points.test.cpp

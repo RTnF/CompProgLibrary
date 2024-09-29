@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: cpp/graph/prim.hpp
     title: cpp/graph/prim.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
   _extendedRequiredBy: []
@@ -32,11 +32,12 @@ data:
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: graph/graph_list.hpp:\
     \ line -1: no such header\n"
-  code: "#include \"graph/graph_list.hpp\"\n#define PROBLEM \\\n  \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_A\"\
-    \n#include \"graph/prim.hpp\"\n\nint main() {\n  cin.tie(0);\n  ios::sync_with_stdio(false);\n\
-    \  int V, E;\n  cin >> V >> E;\n  ListGraph graph(V);\n  for (int i = 0; i < E;\
-    \ ++i) {\n    int s, t, d;\n    cin >> s >> t >> d;\n    graph.add_bidirectional_edge(s,\
-    \ t, d);\n  }\n  cout << graph.prim() << '\\n';\n}"
+  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_A\"\
+    \n#include \"graph/graph_list.hpp\"\n#include \"graph/prim.hpp\"\n\nint main()\
+    \ {\n  cin.tie(0);\n  ios::sync_with_stdio(false);\n  int V, E;\n  cin >> V >>\
+    \ E;\n  ListGraph graph(V);\n  for (int i = 0; i < E; ++i) {\n    int s, t, d;\n\
+    \    cin >> s >> t >> d;\n    graph.add_bidirectional_edge(s, t, d);\n  }\n  cout\
+    \ << graph.prim() << '\\n';\n}"
   dependsOn:
   - cpp/graph/graph_list.hpp
   - cpp/template/small_template.hpp
@@ -44,7 +45,7 @@ data:
   isVerificationFile: true
   path: cpp/verify/prim.test.cpp
   requiredBy: []
-  timestamp: '2024-09-18 18:24:28+09:00'
+  timestamp: '2024-09-29 16:45:44+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: cpp/verify/prim.test.cpp

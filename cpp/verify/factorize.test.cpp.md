@@ -2,12 +2,15 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
+    path: cpp/array/search_util.hpp
+    title: "\u500B\u6570\u3092\u6570\u3048\u308B"
+  - icon: ':heavy_check_mark:'
     path: cpp/number_theory/factorize.hpp
     title: cpp/number_theory/factorize.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/number_theory/is_prime.hpp
     title: cpp/number_theory/is_prime.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
   _extendedRequiredBy: []
@@ -32,18 +35,19 @@ data:
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: number_theory/factorize.hpp:\
     \ line -1: no such header\n"
-  code: "#define PROBLEM \\\n  \"https://onlinejudge.u-aizu.ac.jp/courses/library/6/NTL/1/NTL_1_A\"\
+  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/6/NTL/1/NTL_1_A\"\
     \n#include \"number_theory/factorize.hpp\"\n\nint main() {\n  cin.tie(0);\n  ios::sync_with_stdio(false);\n\
     \  ull n;\n  cin >> n;\n  auto f = factorize(n);\n  cout << n << ':';\n  for (auto\
     \ p: f) {\n    cout << ' ' << p;\n  }\n  cout << '\\n';\n}"
   dependsOn:
   - cpp/number_theory/factorize.hpp
+  - cpp/array/search_util.hpp
   - cpp/template/small_template.hpp
   - cpp/number_theory/is_prime.hpp
   isVerificationFile: true
   path: cpp/verify/factorize.test.cpp
   requiredBy: []
-  timestamp: '2024-09-18 18:24:28+09:00'
+  timestamp: '2024-09-29 16:45:44+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: cpp/verify/factorize.test.cpp

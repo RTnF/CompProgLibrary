@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: cpp/graph/graph_list.hpp
     title: cpp/graph/graph_list.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
   _extendedRequiredBy: []
@@ -32,21 +32,23 @@ data:
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: graph/dijkstra.hpp:\
     \ line -1: no such header\n"
-  code: "#define PROBLEM \\\n  \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_A\"\
+  code: "#define PROBLEM                                                         \
+    \       \\\n  \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_A\"\
     \n#include \"graph/dijkstra.hpp\"\n\nint main() {\n  cin.tie(0);\n  ios::sync_with_stdio(false);\n\
-    \  int V, E, r;\n  cin >> V >> E >> r;\n  ListGraph<int> graph(V);\n  for (int\
+    \  int V, E, r;\n  cin >> V >> E >> r;\n  ListGraph<ll> graph(V);\n  for (int\
     \ i = 0; i < E; ++i) {\n    int s, t, d;\n    cin >> s >> t >> d;\n    graph.add_edge(s,\
-    \ t, d);\n  }\n  graph.dijkstra(r);\n  for (int i = 0; i < V; ++i) {\n    int\
-    \ dist = graph.get_dist(r, i);\n    if (dist >= 2000000000) {\n      cout << \"\
-    INF\\n\";\n    } else {\n      cout << dist << '\\n';\n    }\n  }\n}"
+    \ t, d);\n  }\n  graph.dijkstra(r);\n  for (int i = 0; i < V; ++i) {\n    ll dist\
+    \ = graph.get_dist(r, i);\n    if (dist >= ListGraph<ll>::UNREACHABLE) {\n   \
+    \   cout << \"INF\\n\";\n    } else {\n      cout << dist << '\\n';\n    }\n \
+    \ }\n}"
   dependsOn:
   - cpp/graph/dijkstra.hpp
-  - cpp/template/small_template.hpp
   - cpp/graph/graph_list.hpp
+  - cpp/template/small_template.hpp
   isVerificationFile: true
   path: cpp/verify/dijkstra.test.cpp
   requiredBy: []
-  timestamp: '2024-09-18 18:24:28+09:00'
+  timestamp: '2024-09-29 16:45:44+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: cpp/verify/dijkstra.test.cpp

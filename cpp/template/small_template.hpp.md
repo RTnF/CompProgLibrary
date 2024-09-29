@@ -15,9 +15,9 @@ data:
   - icon: ':warning:'
     path: cpp/array/cumulative_sum.hpp
     title: "1\u6B21\u5143\u7D2F\u7A4D\u548C"
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: cpp/array/search_util.hpp
-    title: cpp/array/search_util.hpp
+    title: "\u500B\u6570\u3092\u6570\u3048\u308B"
   - icon: ':warning:'
     path: cpp/array/sort_util.hpp
     title: "\u9006\u7F6E\u63DB"
@@ -57,12 +57,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: cpp/number_theory/factorize.hpp
     title: cpp/number_theory/factorize.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/number_theory/is_prime.hpp
     title: cpp/number_theory/is_prime.hpp
   - icon: ':heavy_check_mark:'
     path: cpp/random/xorshift.hpp
     title: cpp/random/xorshift.hpp
+  - icon: ':warning:'
+    path: cpp/segment/segment_union.hpp
+    title: "\u533A\u9593\u306E\u548C\u96C6\u5408"
   - icon: ':heavy_check_mark:'
     path: cpp/segment_tree/segment_tree.hpp
     title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 based on ACL"
@@ -103,7 +106,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: cpp/verify/factorize2.test.cpp
     title: cpp/verify/factorize2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/verify/is_prime.test.cpp
     title: cpp/verify/is_prime.test.cpp
   - icon: ':heavy_check_mark:'
@@ -130,9 +133,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: cpp/verify/warshall_floyd.test.cpp
     title: cpp/verify/warshall_floyd.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: '#line 2 "cpp/template/small_template.hpp"
@@ -195,6 +198,7 @@ data:
   - cpp/set/multiset.hpp
   - cpp/number_theory/is_prime.hpp
   - cpp/number_theory/factorize.hpp
+  - cpp/segment/segment_union.hpp
   - cpp/number/ratio.hpp
   - cpp/algebraic_structure/group.hpp
   - cpp/algebraic_structure/monoid.hpp
@@ -202,7 +206,7 @@ data:
   - cpp/modint/modint.hpp
   - cpp/segment_tree/segment_tree.hpp
   timestamp: '2024-08-28 19:34:48+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - cpp/verify/maximum_profit.test.cpp
   - cpp/verify/is_prime.test.cpp

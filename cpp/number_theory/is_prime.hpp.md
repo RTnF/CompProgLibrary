@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
   _extendedRequiredBy:
@@ -15,12 +15,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: cpp/verify/factorize2.test.cpp
     title: cpp/verify/factorize2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/verify/is_prime.test.cpp
     title: cpp/verify/is_prime.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test
@@ -57,7 +57,7 @@ data:
   requiredBy:
   - cpp/number_theory/factorize.hpp
   timestamp: '2024-09-18 18:24:28+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - cpp/verify/is_prime.test.cpp
   - cpp/verify/factorize2.test.cpp

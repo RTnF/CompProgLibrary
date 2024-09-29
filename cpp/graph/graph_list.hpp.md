@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
   _extendedRequiredBy:
@@ -59,27 +59,27 @@ data:
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: template/small_template.hpp:\
     \ line -1: no such header\n"
-  code: "#pragma once\n#include \"template/small_template.hpp\"\n\n// \u8FBA\ntemplate<class\
-    \ T>\nclass Edge {\n  static int next_id;\n\npublic:\n  const int from, to, id;\n\
-    \  const T cost;\n  Edge(int from_, int to_, T cost_):\n    from(from_), to(to_),\
-    \ id(next_id++), cost(cost_) {}\n  Edge(int from_, int to_): from(from_), to(to_),\
-    \ id(next_id++), cost(1) {}\n};\n\ntemplate<class T>\nint Edge<T>::next_id = 0;\n\
-    \ntemplate<class T>\nostream &operator<<(ostream &os, const Edge<T> &edge) {\n\
-    \  os << edge.id << \": \" << edge.from << \" -> \" << edge.to << \" (\" << edge.cost\n\
-    \     << \")\";\n  return os;\n}\n\n// \u30B0\u30E9\u30D5(\u96A3\u63A5\u30EA\u30B9\
-    \u30C8)\ntemplate<class Cost = ll, class E = Edge<Cost>>\nclass ListGraph {\n\
-    \  int n, m;\n  vector<vector<E>> adj;\n  unordered_map<int, vector<Cost>> shortest_path_dist;\n\
-    \  unordered_map<int, vector<int>> shortest_path_parent;\n\npublic:\n  static\
-    \ const Cost UNREACHABLE = numeric_limits<Cost>::max();\n  static const Cost NEGATIVE_CYCLE\
-    \ = numeric_limits<Cost>::min();\n  // \u9802\u70B9\u6570 0\n  ListGraph(): n(0),\
-    \ m(0), adj(0) {}\n  // \u9802\u70B9\u6570 n_\n  ListGraph(int n_): n(n_), m(0),\
-    \ adj(n_) {}\n\n  vector<E> &operator[](int i) { return adj[i]; }\n\n  void add_node()\
-    \ {\n    adj.emplace_back();\n    n++;\n    reset_shortest();\n  }\n  template<class...\
-    \ Args>\n  void add_edge(int from, int to, Args... args) {\n    adj[from].emplace_back(from,\
-    \ to, args...);\n    m++;\n    reset_shortest();\n  }\n  // \u53CC\u65B9\u5411\
-    \n  template<class... Args>\n  void add_bidirectional_edge(int from, int to, Args...\
-    \ args) {\n    adj[from].emplace_back(from, to, args...);\n    adj[to].emplace_back(to,\
-    \ from, args...);\n    m += 2;\n    reset_shortest();\n  }\n  void reset_shortest()\
+  code: "#pragma once\n#include \"template/small_template.hpp\"\n\n// \u8FBA\ntemplate\
+    \ <class T> class Edge {\n  static int next_id;\n\npublic:\n  const int from,\
+    \ to, id;\n  const T cost;\n  Edge(int from_, int to_, T cost_)\n      : from(from_),\
+    \ to(to_), id(next_id++), cost(cost_) {}\n  Edge(int from_, int to_) : from(from_),\
+    \ to(to_), id(next_id++), cost(1) {}\n};\n\ntemplate <class T> int Edge<T>::next_id\
+    \ = 0;\n\ntemplate <class T> ostream &operator<<(ostream &os, const Edge<T> &edge)\
+    \ {\n  os << edge.id << \": \" << edge.from << \" -> \" << edge.to << \" (\" <<\
+    \ edge.cost\n     << \")\";\n  return os;\n}\n\n// \u30B0\u30E9\u30D5(\u96A3\u63A5\
+    \u30EA\u30B9\u30C8)\ntemplate <class Cost = ll, class E = Edge<Cost>> class ListGraph\
+    \ {\n  int n, m;\n  vector<vector<E>> adj;\n  unordered_map<int, vector<Cost>>\
+    \ shortest_path_dist;\n  unordered_map<int, vector<int>> shortest_path_parent;\n\
+    \npublic:\n  static const Cost UNREACHABLE;\n  static const Cost NEGATIVE_CYCLE;\n\
+    \  // \u9802\u70B9\u6570 0\n  ListGraph() : n(0), m(0), adj(0) {}\n  // \u9802\
+    \u70B9\u6570 n_\n  ListGraph(int n_) : n(n_), m(0), adj(n_) {}\n\n  vector<E>\
+    \ &operator[](int i) { return adj[i]; }\n\n  void add_node() {\n    adj.emplace_back();\n\
+    \    n++;\n    reset_shortest();\n  }\n  template <class... Args> void add_edge(int\
+    \ from, int to, Args... args) {\n    adj[from].emplace_back(from, to, args...);\n\
+    \    m++;\n    reset_shortest();\n  }\n  // \u53CC\u65B9\u5411\n  template <class...\
+    \ Args>\n  void add_bidirectional_edge(int from, int to, Args... args) {\n   \
+    \ adj[from].emplace_back(from, to, args...);\n    adj[to].emplace_back(to, from,\
+    \ args...);\n    m += 2;\n    reset_shortest();\n  }\n  void reset_shortest()\
     \ {\n    shortest_path_dist.clear();\n    shortest_path_parent.clear();\n  }\n\
     \n  // \u6700\u77ED\u8DDD\u96E2\n  void dijkstra(int start_node);\n  void bellman_ford(int\
     \ start_node);\n  Cost get_dist(int from, int to) { return shortest_path_dist[from][to];\
@@ -90,11 +90,14 @@ data:
     \n  // \u95A2\u7BC0\u70B9\u30FB\u6A4B\n  pair<vector<int>, vector<pair<int, int>>>\
     \ lowlink();\n\n  // \u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8\n\
     \  vector<int> topological_sort();\n  vector<int> topological_sort_minimum();\n\
-    \n  template<class C_, class E_>\n  friend ostream &operator<<(ostream &, const\
-    \ ListGraph<C_, E_> &);\n};\n\ntemplate<class C_, class E_>\nostream &operator<<(ostream\
-    \ &os, const ListGraph<C_, E_> &graph) {\n  os << \"N = \" << graph.n << \", M\
-    \ = \" << graph.m << '\\n';\n  for (const auto &ev: graph.adj) {\n    for (const\
-    \ auto &e: ev) {\n      os << e << '\\n';\n    }\n  }\n  return os;\n}"
+    \n  template <class C_, class E_>\n  friend ostream &operator<<(ostream &, const\
+    \ ListGraph<C_, E_> &);\n};\n\ntemplate <class Cost, class E>\nconst Cost ListGraph<Cost,\
+    \ E>::UNREACHABLE = numeric_limits<Cost>::max() >> 2;\ntemplate <class Cost, class\
+    \ E>\nconst Cost ListGraph<Cost, E>::NEGATIVE_CYCLE =\n    numeric_limits<Cost>::min()\
+    \ >> 2;\n\ntemplate <class C_, class E_>\nostream &operator<<(ostream &os, const\
+    \ ListGraph<C_, E_> &graph) {\n  os << \"N = \" << graph.n << \", M = \" << graph.m\
+    \ << '\\n';\n  for (const auto &ev : graph.adj) {\n    for (const auto &e : ev)\
+    \ {\n      os << e << '\\n';\n    }\n  }\n  return os;\n}"
   dependsOn:
   - cpp/template/small_template.hpp
   isVerificationFile: false
@@ -105,7 +108,7 @@ data:
   - cpp/graph/lowlink.hpp
   - cpp/graph/topological_sort.hpp
   - cpp/graph/bellman_ford.hpp
-  timestamp: '2024-09-18 18:24:28+09:00'
+  timestamp: '2024-09-29 16:45:44+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - cpp/verify/dijkstra2.test.cpp

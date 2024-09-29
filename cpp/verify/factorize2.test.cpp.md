@@ -2,12 +2,15 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
+    path: cpp/array/search_util.hpp
+    title: "\u500B\u6570\u3092\u6570\u3048\u308B"
+  - icon: ':heavy_check_mark:'
     path: cpp/number_theory/factorize.hpp
     title: cpp/number_theory/factorize.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/number_theory/is_prime.hpp
     title: cpp/number_theory/is_prime.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
   _extendedRequiredBy: []
@@ -39,12 +42,13 @@ data:
     \ ' ' << p;\n    }\n    cout << '\\n';\n  }\n}"
   dependsOn:
   - cpp/number_theory/factorize.hpp
+  - cpp/array/search_util.hpp
   - cpp/template/small_template.hpp
   - cpp/number_theory/is_prime.hpp
   isVerificationFile: true
   path: cpp/verify/factorize2.test.cpp
   requiredBy: []
-  timestamp: '2024-09-18 18:24:28+09:00'
+  timestamp: '2024-09-29 16:45:44+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: cpp/verify/factorize2.test.cpp

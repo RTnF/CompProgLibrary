@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: cpp/graph/topological_sort.hpp
     title: cpp/graph/topological_sort.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
   _extendedRequiredBy: []
@@ -32,19 +32,19 @@ data:
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: graph/topological_sort.hpp:\
     \ line -1: no such header\n"
-  code: "#define PROBLEM \\\n  \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/4/GRL_4_A\"\
+  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/4/GRL_4_A\"\
     \n#include \"graph/topological_sort.hpp\"\n\nint main() {\n  cin.tie(0);\n  ios::sync_with_stdio(false);\n\
     \  int V, E;\n  cin >> V >> E;\n  ListGraph graph(V);\n  for (int i = 0; i < E;\
     \ ++i) {\n    int s, t;\n    cin >> s >> t;\n    graph.add_edge(s, t);\n  }\n\
     \  cout << !graph.topological_sort_minimum().size() << '\\n';\n}"
   dependsOn:
   - cpp/graph/topological_sort.hpp
-  - cpp/template/small_template.hpp
   - cpp/graph/graph_list.hpp
+  - cpp/template/small_template.hpp
   isVerificationFile: true
   path: cpp/verify/detect_cycle_directed.test.cpp
   requiredBy: []
-  timestamp: '2024-09-18 18:24:28+09:00'
+  timestamp: '2024-09-29 16:45:44+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: cpp/verify/detect_cycle_directed.test.cpp

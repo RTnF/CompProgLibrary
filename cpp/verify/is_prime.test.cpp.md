@@ -1,22 +1,22 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/number_theory/is_prime.hpp
     title: cpp/number_theory/is_prime.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://yukicoder.me/problems/no/3030
+    PROBLEM: https://judge.yosupo.jp/problem/primality_test
     links:
-    - https://yukicoder.me/problems/no/3030
+    - https://judge.yosupo.jp/problem/primality_test
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
@@ -29,18 +29,18 @@ data:
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: number_theory/is_prime.hpp:\
     \ line -1: no such header\n"
-  code: "#define PROBLEM \"https://yukicoder.me/problems/no/3030\"\n#include \"number_theory/is_prime.hpp\"\
-    \n\nint main() {\n  cin.tie(0);\n  ios::sync_with_stdio(false);\n  int n;\n  cin\
-    \ >> n;\n  while (n--) {\n    ull x;\n    cin >> x;\n    cout << x << ' ' << is_prime(x)\
-    \ << '\\n';\n  }\n}"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/primality_test\"\n#include\
+    \ \"number_theory/is_prime.hpp\"\n\nint main() {\n  cin.tie(0);\n  ios::sync_with_stdio(false);\n\
+    \  int n;\n  cin >> n;\n  while (n--) {\n    ull x;\n    cin >> x;\n    cout <<\
+    \ (is_prime(x) ? \"Yes\" : \"No\") << '\\n';\n  }\n}"
   dependsOn:
   - cpp/number_theory/is_prime.hpp
   - cpp/template/small_template.hpp
   isVerificationFile: true
   path: cpp/verify/is_prime.test.cpp
   requiredBy: []
-  timestamp: '2024-09-18 18:24:28+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-09-29 16:45:44+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: cpp/verify/is_prime.test.cpp
 layout: document
