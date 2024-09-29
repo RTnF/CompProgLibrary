@@ -1,5 +1,4 @@
 #pragma once
-#include "template/small_template.hpp"
 #include "graph/graph_list.hpp"
 
 /**
@@ -9,7 +8,7 @@
  * 到達不能：max
  * https://algo-logic.info/dijkstra/
  */
-template<class Cost, class E>
+template <class Cost, class E>
 void ListGraph<Cost, E>::dijkstra(int start_node) {
   if (shortest_path_dist.count(start_node)) {
     return;
@@ -27,7 +26,7 @@ void ListGraph<Cost, E>::dijkstra(int start_node) {
     if (dist[v] < p.first) {
       continue;
     }
-    for (const auto &e: adj[v]) {
+    for (const auto &e : adj[v]) {
       if (dist[v] + e.cost < dist[e.to]) {
         dist[e.to] = dist[v] + e.cost;
         parent[e.to] = v;

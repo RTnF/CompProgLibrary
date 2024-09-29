@@ -1,4 +1,4 @@
-#define PROBLEM \
+#define PROBLEM                                                                \
   "https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_A"
 #include "graph/dijkstra.hpp"
 
@@ -7,7 +7,7 @@ int main() {
   ios::sync_with_stdio(false);
   int V, E, r;
   cin >> V >> E >> r;
-  ListGraph<int> graph(V);
+  ListGraph<ll> graph(V);
   for (int i = 0; i < E; ++i) {
     int s, t, d;
     cin >> s >> t >> d;
@@ -15,8 +15,8 @@ int main() {
   }
   graph.dijkstra(r);
   for (int i = 0; i < V; ++i) {
-    int dist = graph.get_dist(r, i);
-    if (dist >= 2000000000) {
+    ll dist = graph.get_dist(r, i);
+    if (dist >= ListGraph<ll>::UNREACHABLE) {
       cout << "INF\n";
     } else {
       cout << dist << '\n';

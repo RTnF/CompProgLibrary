@@ -1,20 +1,20 @@
 #pragma once
-#include "template/small_template.hpp"
 #include "graph/graph_list.hpp"
+#include "template/small_template.hpp"
 
 /**
  * トポロジカルソート(Kahn) O(E + V)
  * 返り値：DAGの場合根から順、非DAGの場合空
  * https://ja.wikipedia.org/wiki/トポロジカルソート
  */
-template<class Cost, class E>
+template <class Cost, class E>
 vector<int> ListGraph<Cost, E>::topological_sort() {
   vector<int> sorted_node, in_count(n, 0);
   vector<bool> visited(n, false);
   sorted_node.reserve(n);
   stack<int> st;
-  for (auto &es: adj) {
-    for (auto &e: es) {
+  for (auto &es : adj) {
+    for (auto &e : es) {
       in_count[e.to]++;
     }
   }
@@ -28,7 +28,7 @@ vector<int> ListGraph<Cost, E>::topological_sort() {
     st.pop();
     visited[v] = true;
     sorted_node.emplace_back(v);
-    for (auto &e: adj[v]) {
+    for (auto &e : adj[v]) {
       if (--in_count[e.to] == 0) {
         st.emplace(e.to);
       }
@@ -44,14 +44,14 @@ vector<int> ListGraph<Cost, E>::topological_sort() {
  * トポロジカルソート(Kahn)
  * 辞書順最小O(E + V log V)
  */
-template<class Cost, class E>
+template <class Cost, class E>
 vector<int> ListGraph<Cost, E>::topological_sort_minimum() {
   vector<int> sorted_node, in_count(n, 0);
   vector<bool> visited(n, false);
   sorted_node.reserve(n);
   priority_queue<int, vector<int>, greater<int>> pq;
-  for (auto &es: adj) {
-    for (auto &e: es) {
+  for (auto &es : adj) {
+    for (auto &e : es) {
       in_count[e.to]++;
     }
   }
@@ -65,13 +65,13 @@ vector<int> ListGraph<Cost, E>::topological_sort_minimum() {
     pq.pop();
     visited[v] = true;
     sorted_node.emplace_back(v);
-    for (auto &e: adj[v]) {
+    for (auto &e : adj[v]) {
       if (--in_count[e.to] == 0) {
         pq.emplace(e.to);
       }
     }
   }
-  if (sorted_node.size() != n) {
+  if (sorted_node.size() != (size_t)n) {
     return vector<int>();
   }
   return sorted_node;

@@ -1,4 +1,4 @@
-#define PROBLEM "https://yukicoder.me/problems/no/3030"
+#define PROBLEM "https://judge.yosupo.jp/problem/primality_test"
 #include "number_theory/is_prime.hpp"
 
 int main() {
@@ -9,6 +9,6 @@ int main() {
   while (n--) {
     ull x;
     cin >> x;
-    cout << x << ' ' << is_prime(x) << '\n';
+    cout << (is_prime(x) ? "Yes" : "No") << '\n';
   }
 }

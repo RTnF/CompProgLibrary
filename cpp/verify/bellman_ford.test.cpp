@@ -1,4 +1,4 @@
-#define PROBLEM \
+#define PROBLEM                                                                \
   "https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_B"
 #include "graph/bellman_ford.hpp"
 
@@ -16,14 +16,14 @@ int main() {
   graph.bellman_ford(r);
   for (int i = 0; i < V; ++i) {
     ll dist = graph.get_dist(r, i);
-    if (dist == ListGraph<>::NEGATIVE_CYCLE) {
+    if (dist == ListGraph<ll>::NEGATIVE_CYCLE) {
       cout << "NEGATIVE CYCLE\n";
       return 0;
     }
   }
   for (int i = 0; i < V; ++i) {
     ll dist = graph.get_dist(r, i);
-    if (dist == ListGraph<>::UNREACHABLE) {
+    if (dist == ListGraph<ll>::UNREACHABLE) {
       cout << "INF\n";
     } else {
       cout << dist << '\n';

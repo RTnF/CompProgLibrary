@@ -2,43 +2,39 @@
 #include "template/small_template.hpp"
 
 // 辺
-template<class T>
-class Edge {
+template <class T> class Edge {
   static int next_id;
 
 public:
   const int from, to, id;
   const T cost;
-  Edge(int from_, int to_, T cost_):
-    from(from_), to(to_), id(next_id++), cost(cost_) {}
-  Edge(int from_, int to_): from(from_), to(to_), id(next_id++), cost(1) {}
+  Edge(int from_, int to_, T cost_)
+      : from(from_), to(to_), id(next_id++), cost(cost_) {}
+  Edge(int from_, int to_) : from(from_), to(to_), id(next_id++), cost(1) {}
 };
 
-template<class T>
-int Edge<T>::next_id = 0;
+template <class T> int Edge<T>::next_id = 0;
 
-template<class T>
-ostream &operator<<(ostream &os, const Edge<T> &edge) {
+template <class T> ostream &operator<<(ostream &os, const Edge<T> &edge) {
   os << edge.id << ": " << edge.from << " -> " << edge.to << " (" << edge.cost
      << ")";
   return os;
 }
 
 // グラフ(隣接リスト)
-template<class Cost = ll, class E = Edge<Cost>>
-class ListGraph {
+template <class Cost = ll, class E = Edge<Cost>> class ListGraph {
   int n, m;
   vector<vector<E>> adj;
   unordered_map<int, vector<Cost>> shortest_path_dist;
   unordered_map<int, vector<int>> shortest_path_parent;
 
 public:
-  static const Cost UNREACHABLE = numeric_limits<Cost>::max();
-  static const Cost NEGATIVE_CYCLE = numeric_limits<Cost>::min();
+  static const Cost UNREACHABLE;
+  static const Cost NEGATIVE_CYCLE;
   // 頂点数 0
-  ListGraph(): n(0), m(0), adj(0) {}
+  ListGraph() : n(0), m(0), adj(0) {}
   // 頂点数 n_
-  ListGraph(int n_): n(n_), m(0), adj(n_) {}
+  ListGraph(int n_) : n(n_), m(0), adj(n_) {}
 
   vector<E> &operator[](int i) { return adj[i]; }
 
@@ -47,14 +43,13 @@ public:
     n++;
     reset_shortest();
   }
-  template<class... Args>
-  void add_edge(int from, int to, Args... args) {
+  template <class... Args> void add_edge(int from, int to, Args... args) {
     adj[from].emplace_back(from, to, args...);
     m++;
     reset_shortest();
   }
   // 双方向
-  template<class... Args>
+  template <class... Args>
   void add_bidirectional_edge(int from, int to, Args... args) {
     adj[from].emplace_back(from, to, args...);
     adj[to].emplace_back(to, from, args...);
@@ -89,15 +84,21 @@ public:
   vector<int> topological_sort();
   vector<int> topological_sort_minimum();
 
-  template<class C_, class E_>
+  template <class C_, class E_>
   friend ostream &operator<<(ostream &, const ListGraph<C_, E_> &);
 };
 
-template<class C_, class E_>
+template <class Cost, class E>
+const Cost ListGraph<Cost, E>::UNREACHABLE = numeric_limits<Cost>::max() >> 2;
+template <class Cost, class E>
+const Cost ListGraph<Cost, E>::NEGATIVE_CYCLE =
+    numeric_limits<Cost>::min() >> 2;
+
+template <class C_, class E_>
 ostream &operator<<(ostream &os, const ListGraph<C_, E_> &graph) {
   os << "N = " << graph.n << ", M = " << graph.m << '\n';
-  for (const auto &ev: graph.adj) {
-    for (const auto &e: ev) {
+  for (const auto &ev : graph.adj) {
+    for (const auto &e : ev) {
       os << e << '\n';
     }
   }

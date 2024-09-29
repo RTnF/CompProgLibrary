@@ -1,4 +1,4 @@
-#define PROBLEM \
+#define PROBLEM                                                                \
   "https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/1/GRL_1_C"
 #include "graph/warshall_floyd.hpp"
 
@@ -12,18 +12,18 @@ int main() {
     int s, t;
     ll d;
     cin >> s >> t >> d;
-    g.addEdge(s, t, d);
+    g.add_edge(s, t, d);
   }
-  g.warshallFloyd();
-  if (g.hasNegativeCycle()) {
+  g.warshall_floyd();
+  if (g.has_negative_cycle()) {
     cout << "NEGATIVE CYCLE\n";
   } else {
     for (int i = 0; i < V; ++i) {
       for (int j = 0; j < V; ++j) {
-        if (g.getDist(i, j) >= MatrixGraph<>::UNREACHABLE) {
+        if (g.get_dist(i, j) >= MatrixGraph<>::UNREACHABLE) {
           cout << "INF";
         } else {
-          cout << g.getDist(i, j);
+          cout << g.get_dist(i, j);
         }
         cout << " \n"[j == V - 1];
       }
