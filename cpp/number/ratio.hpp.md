@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
   _extendedRequiredBy: []

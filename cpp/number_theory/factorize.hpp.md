@@ -7,7 +7,7 @@ data:
   - icon: ':x:'
     path: cpp/number_theory/is_prime.hpp
     title: cpp/number_theory/is_prime.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
   _extendedRequiredBy: []

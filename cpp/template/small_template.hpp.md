@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':question:'
     path: cpp/algebraic_structure/group.hpp
     title: "\u30A2\u30D5\u30A3\u30F3\u5199\u50CF y = ax + b"
   - icon: ':warning:'
@@ -24,7 +24,7 @@ data:
   - icon: ':warning:'
     path: cpp/array/sort_util.hpp
     title: "\u9006\u7F6E\u63DB"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/geometry/point.hpp
     title: cpp/geometry/point.hpp
   - icon: ':x:'
@@ -63,19 +63,19 @@ data:
   - icon: ':x:'
     path: cpp/number_theory/is_prime.hpp
     title: cpp/number_theory/is_prime.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/random/xorshift.hpp
     title: cpp/random/xorshift.hpp
   - icon: ':warning:'
     path: cpp/segment/segment_union.hpp
     title: "\u533A\u9593\u306E\u548C\u96C6\u5408"
-  - icon: ':x:'
+  - icon: ':question:'
     path: cpp/segment_tree/segment_tree.hpp
     title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 based on ACL"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/set/disjoint_set.hpp
     title: cpp/set/disjoint_set.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/set/multiset.hpp
     title: "\u91CD\u8907\u3042\u308A\u306E\u96C6\u5408"
   - icon: ':warning:'
@@ -103,7 +103,7 @@ data:
   - icon: ':x:'
     path: cpp/verify/dijkstra2.test.cpp
     title: cpp/verify/dijkstra2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/verify/disjoint_set.test.cpp
     title: cpp/verify/disjoint_set.test.cpp
   - icon: ':x:'
@@ -115,16 +115,16 @@ data:
   - icon: ':x:'
     path: cpp/verify/is_prime.test.cpp
     title: cpp/verify/is_prime.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/verify/many_a_plus_b.test.cpp
     title: cpp/verify/many_a_plus_b.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/verify/maximum_profit.test.cpp
     title: cpp/verify/maximum_profit.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/verify/multi_set.test.cpp
     title: cpp/verify/multi_set.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/verify/point_add_range_sum.test.cpp
     title: cpp/verify/point_add_range_sum.test.cpp
   - icon: ':x:'
@@ -133,7 +133,7 @@ data:
   - icon: ':x:'
     path: cpp/verify/prim.test.cpp
     title: cpp/verify/prim.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/verify/sort_points_by_argument.test.cpp
     title: cpp/verify/sort_points_by_argument.test.cpp
   - icon: ':x:'
@@ -141,7 +141,7 @@ data:
     title: cpp/verify/warshall_floyd.test.cpp
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: '#line 2 "cpp/template/small_template.hpp"
@@ -214,7 +214,7 @@ data:
   - cpp/modint/modint.hpp
   - cpp/segment_tree/segment_tree.hpp
   timestamp: '2024-08-28 19:34:48+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - cpp/verify/maximum_profit.test.cpp
   - cpp/verify/is_prime.test.cpp

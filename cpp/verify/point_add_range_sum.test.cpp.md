@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: cpp/algebraic_structure/group.hpp
     title: "\u30A2\u30D5\u30A3\u30F3\u5199\u50CF y = ax + b"
-  - icon: ':x:'
+  - icon: ':question:'
     path: cpp/segment_tree/segment_tree.hpp
     title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 based on ACL"
-  - icon: ':x:'
+  - icon: ':question:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/point_add_range_sum
@@ -48,7 +48,7 @@ data:
   path: cpp/verify/point_add_range_sum.test.cpp
   requiredBy: []
   timestamp: '2024-09-18 18:24:28+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: cpp/verify/point_add_range_sum.test.cpp
 layout: document

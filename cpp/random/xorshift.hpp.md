@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/set/multiset.hpp
     title: "\u91CD\u8907\u3042\u308A\u306E\u96C6\u5408"
   - icon: ':warning:'
     path: cpp/set/set.hpp
     title: "\u91CD\u8907\u306A\u3057\u306E\u96C6\u5408"
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/verify/multi_set.test.cpp
     title: cpp/verify/multi_set.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://ja.wikipedia.org/wiki/Xorshift
@@ -51,7 +51,7 @@ data:
   - cpp/set/set.hpp
   - cpp/set/multiset.hpp
   timestamp: '2024-09-16 23:28:48+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - cpp/verify/multi_set.test.cpp
 documentation_of: cpp/random/xorshift.hpp

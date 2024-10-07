@@ -1,16 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: cpp/algebraic_structure/group.hpp
     title: "\u30A2\u30D5\u30A3\u30F3\u5199\u50CF y = ax + b"
   - icon: ':x:'
     path: cpp/modint/modint.hpp
     title: "\u5270\u4F59\u3092\u53D6\u308A[0, mod)\u306B\u53CE\u3081\u308Bint"
-  - icon: ':x:'
+  - icon: ':question:'
     path: cpp/segment_tree/segment_tree.hpp
     title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 based on ACL"
-  - icon: ':x:'
+  - icon: ':question:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
   _extendedRequiredBy: []

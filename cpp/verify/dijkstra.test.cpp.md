@@ -7,7 +7,7 @@ data:
   - icon: ':x:'
     path: cpp/graph/graph_list.hpp
     title: cpp/graph/graph_list.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
   _extendedRequiredBy: []

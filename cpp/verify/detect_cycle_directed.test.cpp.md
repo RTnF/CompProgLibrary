@@ -7,7 +7,7 @@ data:
   - icon: ':x:'
     path: cpp/graph/topological_sort.hpp
     title: cpp/graph/topological_sort.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
   _extendedRequiredBy: []

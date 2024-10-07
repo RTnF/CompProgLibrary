@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/random/xorshift.hpp
     title: cpp/random/xorshift.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/set/multiset.hpp
     title: "\u91CD\u8907\u3042\u308A\u306E\u96C6\u5408"
-  - icon: ':x:'
+  - icon: ':question:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/lesson/8/ITP2/all/ITP2_7_D
@@ -49,7 +49,7 @@ data:
   path: cpp/verify/multi_set.test.cpp
   requiredBy: []
   timestamp: '2024-09-18 18:24:28+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: cpp/verify/multi_set.test.cpp
 layout: document

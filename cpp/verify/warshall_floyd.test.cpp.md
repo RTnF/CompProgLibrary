@@ -7,7 +7,7 @@ data:
   - icon: ':x:'
     path: cpp/graph/warshall_floyd.hpp
     title: cpp/graph/warshall_floyd.hpp
-  - icon: ':x:'
+  - icon: ':question:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
   _extendedRequiredBy: []
