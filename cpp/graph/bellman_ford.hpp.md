@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: cpp/graph/graph_list.hpp
     title: cpp/graph/graph_list.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: cpp/verify/bellman_ford.test.cpp
     title: cpp/verify/bellman_ford.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links:
     - https://mhrb-minase.hatenablog.com/entry/2019/08/20/003915
@@ -55,7 +55,7 @@ data:
   path: cpp/graph/bellman_ford.hpp
   requiredBy: []
   timestamp: '2024-09-29 16:45:44+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - cpp/verify/bellman_ford.test.cpp
 documentation_of: cpp/graph/bellman_ford.hpp

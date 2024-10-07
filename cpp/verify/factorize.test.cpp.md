@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: cpp/array/search_util.hpp
     title: "\u500B\u6570\u3092\u6570\u3048\u308B"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: cpp/number_theory/factorize.hpp
     title: cpp/number_theory/factorize.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: cpp/number_theory/is_prime.hpp
     title: cpp/number_theory/is_prime.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/6/NTL/1/NTL_1_A
@@ -48,7 +48,7 @@ data:
   path: cpp/verify/factorize.test.cpp
   requiredBy: []
   timestamp: '2024-09-29 16:45:44+09:00'
-  verificationStatus: TEST_ACCEPTED
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: cpp/verify/factorize.test.cpp
 layout: document

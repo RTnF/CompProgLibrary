@@ -6,14 +6,11 @@ data:
     title: cpp/template/small_template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
-  _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _isVerificationFailed: false
+  _pathExtension: hpp
+  _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/1/ALDS1_1_D
-    links:
-    - https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/1/ALDS1_1_D
+    links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
@@ -26,23 +23,25 @@ data:
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: template/small_template.hpp:\
     \ line -1: no such header\n"
-  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/1/ALDS1_1_D\"\
-    \n#include \"template/small_template.hpp\"\n\nint main() {\n  cin.tie(0);\n  ios::sync_with_stdio(false);\n\
-    \n  int n;\n  cin >> n;\n  ll R;\n  cin >> R;\n\n  ll maxv = -INF;\n  ll minv\
-    \ = R;\n  for (int i = 1; i < n; i++) {\n    cin >> R;\n    maxv = max(maxv, R\
-    \ - minv);\n    minv = min(minv, R);\n  }\n\n  cout << maxv << endl;\n}"
+  code: "#pragma once\n#include \"template/small_template.hpp\"\n\n// \u6587\u5B57\
+    \u3001\u500B\u6570\nvector<pair<char, int>> char_count(const string &s) {\n  vector<pair<char,\
+    \ int>> ret;\n  int n = s.size();\n  if (n == 0) {\n    return ret;\n  }\n  char\
+    \ pre = s[0];\n  int cnt = 0;\n  for (int i = 0; i < n; i++) {\n    if (pre ==\
+    \ s[i]) {\n      cnt++;\n    } else {\n      ret.emplace_back(pre, cnt);\n   \
+    \   pre = s[i];\n      cnt = 1;\n    }\n  }\n  ret.emplace_back(pre, cnt);\n \
+    \ return ret;\n}"
   dependsOn:
   - cpp/template/small_template.hpp
-  isVerificationFile: true
-  path: cpp/verify/maximum_profit.test.cpp
+  isVerificationFile: false
+  path: cpp/string/char_count.hpp
   requiredBy: []
-  timestamp: '2024-09-04 08:08:18+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-10-06 17:36:52+09:00'
+  verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: cpp/verify/maximum_profit.test.cpp
+documentation_of: cpp/string/char_count.hpp
 layout: document
 redirect_from:
-- /verify/cpp/verify/maximum_profit.test.cpp
-- /verify/cpp/verify/maximum_profit.test.cpp.html
-title: cpp/verify/maximum_profit.test.cpp
+- /library/cpp/string/char_count.hpp
+- /library/cpp/string/char_count.hpp.html
+title: cpp/string/char_count.hpp
 ---

@@ -1,50 +1,50 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: cpp/graph/bellman_ford.hpp
     title: cpp/graph/bellman_ford.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: cpp/graph/dijkstra.hpp
     title: cpp/graph/dijkstra.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: cpp/graph/lowlink.hpp
     title: cpp/graph/lowlink.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: cpp/graph/prim.hpp
     title: cpp/graph/prim.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: cpp/graph/topological_sort.hpp
     title: cpp/graph/topological_sort.hpp
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: cpp/verify/articulation_points.test.cpp
     title: cpp/verify/articulation_points.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: cpp/verify/bellman_ford.test.cpp
     title: cpp/verify/bellman_ford.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: cpp/verify/bridges.test.cpp
     title: cpp/verify/bridges.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: cpp/verify/detect_cycle_directed.test.cpp
     title: cpp/verify/detect_cycle_directed.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: cpp/verify/dijkstra.test.cpp
     title: cpp/verify/dijkstra.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: cpp/verify/dijkstra2.test.cpp
     title: cpp/verify/dijkstra2.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: cpp/verify/prim.test.cpp
     title: cpp/verify/prim.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -109,7 +109,7 @@ data:
   - cpp/graph/topological_sort.hpp
   - cpp/graph/bellman_ford.hpp
   timestamp: '2024-09-29 16:45:44+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - cpp/verify/dijkstra2.test.cpp
   - cpp/verify/bellman_ford.test.cpp
