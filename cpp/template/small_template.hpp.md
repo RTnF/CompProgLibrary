@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/algebraic_structure/group.hpp
     title: "\u30A2\u30D5\u30A3\u30F3\u5199\u50CF y = ax + b"
   - icon: ':warning:'
@@ -18,7 +18,7 @@ data:
   - icon: ':warning:'
     path: cpp/array/element_count.hpp
     title: cpp/array/element_count.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/array/search_util.hpp
     title: "\u500B\u6570\u3092\u6570\u3048\u308B"
   - icon: ':warning:'
@@ -27,40 +27,40 @@ data:
   - icon: ':heavy_check_mark:'
     path: cpp/geometry/point.hpp
     title: cpp/geometry/point.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/graph/bellman_ford.hpp
     title: cpp/graph/bellman_ford.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/graph/dijkstra.hpp
     title: cpp/graph/dijkstra.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/graph/graph_list.hpp
     title: cpp/graph/graph_list.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/graph/graph_matrix.hpp
     title: cpp/graph/graph_matrix.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/graph/lowlink.hpp
     title: cpp/graph/lowlink.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/graph/prim.hpp
     title: cpp/graph/prim.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/graph/topological_sort.hpp
     title: cpp/graph/topological_sort.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/graph/warshall_floyd.hpp
     title: cpp/graph/warshall_floyd.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/modint/modint.hpp
     title: "\u5270\u4F59\u3092\u53D6\u308A[0, mod)\u306B\u53CE\u3081\u308Bint"
   - icon: ':warning:'
     path: cpp/number/ratio.hpp
     title: cpp/number/ratio.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/number_theory/factorize.hpp
     title: cpp/number_theory/factorize.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/number_theory/is_prime.hpp
     title: cpp/number_theory/is_prime.hpp
   - icon: ':heavy_check_mark:'
@@ -69,7 +69,7 @@ data:
   - icon: ':warning:'
     path: cpp/segment/segment_union.hpp
     title: "\u533A\u9593\u306E\u548C\u96C6\u5408"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/segment_tree/segment_tree.hpp
     title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 based on ACL"
   - icon: ':heavy_check_mark:'
@@ -85,34 +85,34 @@ data:
     path: cpp/string/char_count.hpp
     title: cpp/string/char_count.hpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/verify/articulation_points.test.cpp
     title: cpp/verify/articulation_points.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/verify/bellman_ford.test.cpp
     title: cpp/verify/bellman_ford.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/verify/bridges.test.cpp
     title: cpp/verify/bridges.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/verify/detect_cycle_directed.test.cpp
     title: cpp/verify/detect_cycle_directed.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/verify/dijkstra.test.cpp
     title: cpp/verify/dijkstra.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/verify/dijkstra2.test.cpp
     title: cpp/verify/dijkstra2.test.cpp
   - icon: ':heavy_check_mark:'
     path: cpp/verify/disjoint_set.test.cpp
     title: cpp/verify/disjoint_set.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/verify/factorize.test.cpp
     title: cpp/verify/factorize.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/verify/factorize2.test.cpp
     title: cpp/verify/factorize2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/verify/is_prime.test.cpp
     title: cpp/verify/is_prime.test.cpp
   - icon: ':heavy_check_mark:'
@@ -127,21 +127,21 @@ data:
   - icon: ':heavy_check_mark:'
     path: cpp/verify/point_add_range_sum.test.cpp
     title: cpp/verify/point_add_range_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/verify/point_set_range_composite.test.cpp
     title: cpp/verify/point_set_range_composite.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/verify/prim.test.cpp
     title: cpp/verify/prim.test.cpp
   - icon: ':heavy_check_mark:'
     path: cpp/verify/sort_points_by_argument.test.cpp
     title: cpp/verify/sort_points_by_argument.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/verify/warshall_floyd.test.cpp
     title: cpp/verify/warshall_floyd.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: '#line 2 "cpp/template/small_template.hpp"
@@ -214,7 +214,7 @@ data:
   - cpp/modint/modint.hpp
   - cpp/segment_tree/segment_tree.hpp
   timestamp: '2024-08-28 19:34:48+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - cpp/verify/maximum_profit.test.cpp
   - cpp/verify/is_prime.test.cpp
