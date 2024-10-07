@@ -1,3 +1,4 @@
 **/*.out
-cpp/_bundle/*
+cpp_bundle/*
 bundle.sh
+markdown.sh
