@@ -9,7 +9,7 @@
  * @return vector<pair<T, T>> [l, r]
  */
 template <class T>
-vector<pair<T, T>> segment_union_inclusive(vector<pair<T, T>> &v) {
+vector<pair<T, T>> interval_union_inclusive(vector<pair<T, T>> &v) {
   sort(v.begin(), v.end());
   vector<pair<T, T>> ret;
   for (auto &&[l, r] : v) {
