@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
   _extendedRequiredBy:
@@ -59,9 +59,9 @@ data:
   timestamp: '2024-09-18 18:24:28+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - cpp/verify/is_prime.test.cpp
   - cpp/verify/factorize2.test.cpp
   - cpp/verify/factorize.test.cpp
+  - cpp/verify/is_prime.test.cpp
 documentation_of: cpp/number_theory/is_prime.hpp
 layout: document
 redirect_from:

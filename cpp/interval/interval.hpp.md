@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
   _extendedRequiredBy: []
@@ -10,7 +10,7 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    document_title: "\u533A\u9593\u306E\u548C\u96C6\u5408"
+    document_title: "\u533A\u9593 [start, end)"
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
@@ -25,25 +25,31 @@ data:
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: template/small_template.hpp:\
     \ line -1: no such header\n"
   code: "#pragma once\n#include \"template/small_template.hpp\"\n\n/**\n * @brief\
-    \ \u533A\u9593\u306E\u548C\u96C6\u5408\n *\n * @tparam T\n * @param v [l, r] \u9014\
-    \u4E2D\u3067\u30BD\u30FC\u30C8\u3055\u308C\u308B\n * @return vector<pair<T, T>>\
-    \ [l, r]\n */\ntemplate <class T>\nvector<pair<T, T>> segment_union_inclusive(vector<pair<T,\
-    \ T>> &v) {\n  sort(v.begin(), v.end());\n  vector<pair<T, T>> ret;\n  for (auto\
-    \ &&[l, r] : v) {\n    if (ret.empty() || ret.back().second < l) {\n      ret.emplace_back(l,\
-    \ r);\n    } else if (ret.back().second < r) {\n      ret.back().second = r;\n\
-    \    }\n  }\n  return ret;\n}"
+    \ \u533A\u9593 [start, end)\n *\n * @tparam T\n */\ntemplate <class T = ll> class\
+    \ Interval {\n  T s, e;\n  // \u7A7A\u306E\u533A\u9593\n  bool is_n;\n\npublic:\n\
+    \  constexpr Interval(T start_, T end_)\n      : s(start_), e(end_), is_n(start_\
+    \ == end_) {\n    assert(start_ <= end_);\n  }\n  constexpr Interval() : s(0),\
+    \ e(0), is_n(true) {}\n  constexpr auto operator<=>(const Interval &r) const =\
+    \ default;\n\n  constexpr T start() { return s; }\n  constexpr T end() { return\
+    \ e; }\n  constexpr bool is_null() { return is_n; }\n  constexpr T length() {\
+    \ return e - s; }\n\n  Interval<T> intersection(const Interval<T> &b) const {\n\
+    \    if (b.s >= e || s >= b.e) {\n      return Interval<T>();\n    }\n    return\
+    \ Interval(max(s, b.s), min(e, b.e));\n  }\n\n  friend istream &operator>>(istream\
+    \ &is, Interval &m) {\n    is >> m.s >> m.e;\n    return is;\n  }\n  friend ostream\
+    \ &operator<<(ostream &os, const Interval &m) {\n    os << '[' << m.s << \", \"\
+    \ << m.e << ')';\n    return os;\n  }\n};"
   dependsOn:
   - cpp/template/small_template.hpp
   isVerificationFile: false
-  path: cpp/segment/segment_union.hpp
+  path: cpp/interval/interval.hpp
   requiredBy: []
-  timestamp: '2024-09-29 16:45:44+09:00'
+  timestamp: '2024-10-10 19:14:05+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: cpp/segment/segment_union.hpp
+documentation_of: cpp/interval/interval.hpp
 layout: document
 redirect_from:
-- /library/cpp/segment/segment_union.hpp
-- /library/cpp/segment/segment_union.hpp.html
-title: "\u533A\u9593\u306E\u548C\u96C6\u5408"
+- /library/cpp/interval/interval.hpp
+- /library/cpp/interval/interval.hpp.html
+title: "\u533A\u9593 [start, end)"
 ---

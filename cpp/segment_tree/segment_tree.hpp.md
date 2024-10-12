@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
   _extendedRequiredBy: []
@@ -87,8 +87,8 @@ data:
   timestamp: '2024-09-18 18:24:28+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - cpp/verify/point_set_range_composite.test.cpp
   - cpp/verify/point_add_range_sum.test.cpp
+  - cpp/verify/point_set_range_composite.test.cpp
 documentation_of: cpp/segment_tree/segment_tree.hpp
 layout: document
 redirect_from:

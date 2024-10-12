@@ -51,6 +51,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: cpp/graph/warshall_floyd.hpp
     title: cpp/graph/warshall_floyd.hpp
+  - icon: ':warning:'
+    path: cpp/interval/interval.hpp
+    title: "\u533A\u9593 [start, end)"
+  - icon: ':warning:'
+    path: cpp/interval/interval_union.hpp
+    title: "\u533A\u9593\u306E\u548C\u96C6\u5408"
   - icon: ':heavy_check_mark:'
     path: cpp/modint/modint.hpp
     title: "\u5270\u4F59\u3092\u53D6\u308A[0, mod)\u306B\u53CE\u3081\u308Bint"
@@ -66,15 +72,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: cpp/random/xorshift.hpp
     title: cpp/random/xorshift.hpp
-  - icon: ':warning:'
-    path: cpp/segment/segment_union.hpp
-    title: "\u533A\u9593\u306E\u548C\u96C6\u5408"
   - icon: ':heavy_check_mark:'
     path: cpp/segment_tree/segment_tree.hpp
     title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 based on ACL"
-  - icon: ':heavy_check_mark:'
-    path: cpp/set/disjoint_set.hpp
-    title: cpp/set/disjoint_set.hpp
+  - icon: ':x:'
+    path: cpp/set/disjoint_set_union.hpp
+    title: "\u7D20\u96C6\u5408\u30C7\u30FC\u30BF\u69CB\u9020 (Union Find)"
   - icon: ':heavy_check_mark:'
     path: cpp/set/multiset.hpp
     title: "\u91CD\u8907\u3042\u308A\u306E\u96C6\u5408"
@@ -103,9 +106,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: cpp/verify/dijkstra2.test.cpp
     title: cpp/verify/dijkstra2.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: cpp/verify/disjoint_set.test.cpp
-    title: cpp/verify/disjoint_set.test.cpp
+  - icon: ':x:'
+    path: cpp/verify/disjoint_set_union.test.cpp
+    title: cpp/verify/disjoint_set_union.test.cpp
   - icon: ':heavy_check_mark:'
     path: cpp/verify/factorize.test.cpp
     title: cpp/verify/factorize.test.cpp
@@ -139,9 +142,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: cpp/verify/warshall_floyd.test.cpp
     title: cpp/verify/warshall_floyd.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: '#line 2 "cpp/template/small_template.hpp"
@@ -186,54 +189,55 @@ data:
   isVerificationFile: false
   path: cpp/template/small_template.hpp
   requiredBy:
-  - cpp/array/cumulative_sum.hpp
-  - cpp/array/search_util.hpp
-  - cpp/array/element_count.hpp
-  - cpp/array/sort_util.hpp
   - cpp/random/xorshift.hpp
-  - cpp/string/char_count.hpp
-  - cpp/geometry/point.hpp
-  - cpp/graph/warshall_floyd.hpp
-  - cpp/graph/dijkstra.hpp
-  - cpp/graph/prim.hpp
-  - cpp/graph/lowlink.hpp
-  - cpp/graph/topological_sort.hpp
-  - cpp/graph/bellman_ford.hpp
-  - cpp/graph/graph_list.hpp
-  - cpp/graph/graph_matrix.hpp
-  - cpp/set/disjoint_set.hpp
-  - cpp/set/set.hpp
-  - cpp/set/multiset.hpp
+  - cpp/modint/modint.hpp
   - cpp/number_theory/is_prime.hpp
   - cpp/number_theory/factorize.hpp
-  - cpp/segment/segment_union.hpp
-  - cpp/number/ratio.hpp
+  - cpp/interval/interval.hpp
+  - cpp/interval/interval_union.hpp
+  - cpp/array/cumulative_sum.hpp
+  - cpp/array/search_util.hpp
+  - cpp/array/sort_util.hpp
+  - cpp/array/element_count.hpp
+  - cpp/geometry/point.hpp
+  - cpp/string/char_count.hpp
+  - cpp/graph/graph_list.hpp
+  - cpp/graph/prim.hpp
+  - cpp/graph/dijkstra.hpp
+  - cpp/graph/warshall_floyd.hpp
+  - cpp/graph/bellman_ford.hpp
+  - cpp/graph/graph_matrix.hpp
+  - cpp/graph/lowlink.hpp
+  - cpp/graph/topological_sort.hpp
+  - cpp/set/set.hpp
+  - cpp/set/multiset.hpp
+  - cpp/set/disjoint_set_union.hpp
+  - cpp/algebraic_structure/mapping.hpp
   - cpp/algebraic_structure/group.hpp
   - cpp/algebraic_structure/monoid.hpp
-  - cpp/algebraic_structure/mapping.hpp
-  - cpp/modint/modint.hpp
   - cpp/segment_tree/segment_tree.hpp
+  - cpp/number/ratio.hpp
   timestamp: '2024-08-28 19:34:48+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - cpp/verify/maximum_profit.test.cpp
-  - cpp/verify/is_prime.test.cpp
-  - cpp/verify/disjoint_set.test.cpp
-  - cpp/verify/multi_set.test.cpp
-  - cpp/verify/dijkstra2.test.cpp
-  - cpp/verify/warshall_floyd.test.cpp
-  - cpp/verify/point_set_range_composite.test.cpp
   - cpp/verify/bellman_ford.test.cpp
-  - cpp/verify/articulation_points.test.cpp
-  - cpp/verify/sort_points_by_argument.test.cpp
-  - cpp/verify/prim.test.cpp
-  - cpp/verify/bridges.test.cpp
-  - cpp/verify/dijkstra.test.cpp
-  - cpp/verify/factorize2.test.cpp
-  - cpp/verify/factorize.test.cpp
   - cpp/verify/point_add_range_sum.test.cpp
-  - cpp/verify/many_a_plus_b.test.cpp
+  - cpp/verify/factorize2.test.cpp
+  - cpp/verify/multi_set.test.cpp
+  - cpp/verify/point_set_range_composite.test.cpp
+  - cpp/verify/sort_points_by_argument.test.cpp
+  - cpp/verify/dijkstra.test.cpp
+  - cpp/verify/disjoint_set_union.test.cpp
+  - cpp/verify/articulation_points.test.cpp
+  - cpp/verify/factorize.test.cpp
   - cpp/verify/detect_cycle_directed.test.cpp
+  - cpp/verify/prim.test.cpp
+  - cpp/verify/warshall_floyd.test.cpp
+  - cpp/verify/dijkstra2.test.cpp
+  - cpp/verify/bridges.test.cpp
+  - cpp/verify/is_prime.test.cpp
+  - cpp/verify/maximum_profit.test.cpp
+  - cpp/verify/many_a_plus_b.test.cpp
 documentation_of: cpp/template/small_template.hpp
 layout: document
 redirect_from:

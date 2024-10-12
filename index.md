@@ -58,6 +58,14 @@ data:
     - icon: ':heavy_check_mark:'
       path: cpp/graph/warshall_floyd.hpp
       title: cpp/graph/warshall_floyd.hpp
+  - name: cpp/interval
+    pages:
+    - icon: ':warning:'
+      path: cpp/interval/interval.hpp
+      title: "\u533A\u9593 [start, end)"
+    - icon: ':warning:'
+      path: cpp/interval/interval_union.hpp
+      title: "\u533A\u9593\u306E\u548C\u96C6\u5408"
   - name: cpp/modint
     pages:
     - icon: ':heavy_check_mark:'
@@ -81,11 +89,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: cpp/random/xorshift.hpp
       title: cpp/random/xorshift.hpp
-  - name: cpp/segment
-    pages:
-    - icon: ':warning:'
-      path: cpp/segment/segment_union.hpp
-      title: "\u533A\u9593\u306E\u548C\u96C6\u5408"
   - name: cpp/segment_tree
     pages:
     - icon: ':heavy_check_mark:'
@@ -93,9 +96,9 @@ data:
       title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 based on ACL"
   - name: cpp/set
     pages:
-    - icon: ':heavy_check_mark:'
-      path: cpp/set/disjoint_set.hpp
-      title: cpp/set/disjoint_set.hpp
+    - icon: ':x:'
+      path: cpp/set/disjoint_set_union.hpp
+      title: "\u7D20\u96C6\u5408\u30C7\u30FC\u30BF\u69CB\u9020 (Union Find)"
     - icon: ':heavy_check_mark:'
       path: cpp/set/multiset.hpp
       title: "\u91CD\u8907\u3042\u308A\u306E\u96C6\u5408"
@@ -112,7 +115,7 @@ data:
     - icon: ':warning:'
       path: cpp/template/marathon_template.cpp
       title: cpp/template/marathon_template.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: cpp/template/small_template.hpp
       title: cpp/template/small_template.hpp
     - icon: ':warning:'
@@ -139,9 +142,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: cpp/verify/dijkstra2.test.cpp
       title: cpp/verify/dijkstra2.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: cpp/verify/disjoint_set.test.cpp
-      title: cpp/verify/disjoint_set.test.cpp
+    - icon: ':x:'
+      path: cpp/verify/disjoint_set_union.test.cpp
+      title: cpp/verify/disjoint_set_union.test.cpp
     - icon: ':heavy_check_mark:'
       path: cpp/verify/factorize.test.cpp
       title: cpp/verify/factorize.test.cpp
@@ -177,3 +180,8 @@ data:
       title: cpp/verify/warshall_floyd.test.cpp
 layout: toppage
 ---
+
+参考：
+- 「プログラミングコンテスト攻略のためのアルゴリズムとデータ構造」(渡部 有隆)
+- [AtCoder Library](https://github.com/atcoder/ac-library)
+- [Joeの精進記録](https://xuzijian629.hatenablog.com/)

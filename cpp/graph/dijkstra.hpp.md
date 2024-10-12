@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: cpp/graph/graph_list.hpp
     title: cpp/graph/graph_list.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
   _extendedRequiredBy: []
@@ -57,8 +57,8 @@ data:
   timestamp: '2024-09-29 16:45:44+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - cpp/verify/dijkstra2.test.cpp
   - cpp/verify/dijkstra.test.cpp
+  - cpp/verify/dijkstra2.test.cpp
 documentation_of: cpp/graph/dijkstra.hpp
 layout: document
 redirect_from:

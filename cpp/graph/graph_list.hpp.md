@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
   _extendedRequiredBy:
@@ -103,21 +103,21 @@ data:
   isVerificationFile: false
   path: cpp/graph/graph_list.hpp
   requiredBy:
-  - cpp/graph/dijkstra.hpp
   - cpp/graph/prim.hpp
+  - cpp/graph/dijkstra.hpp
+  - cpp/graph/bellman_ford.hpp
   - cpp/graph/lowlink.hpp
   - cpp/graph/topological_sort.hpp
-  - cpp/graph/bellman_ford.hpp
   timestamp: '2024-09-29 16:45:44+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - cpp/verify/dijkstra2.test.cpp
   - cpp/verify/bellman_ford.test.cpp
-  - cpp/verify/articulation_points.test.cpp
-  - cpp/verify/prim.test.cpp
-  - cpp/verify/bridges.test.cpp
   - cpp/verify/dijkstra.test.cpp
+  - cpp/verify/articulation_points.test.cpp
   - cpp/verify/detect_cycle_directed.test.cpp
+  - cpp/verify/prim.test.cpp
+  - cpp/verify/dijkstra2.test.cpp
+  - cpp/verify/bridges.test.cpp
 documentation_of: cpp/graph/graph_list.hpp
 layout: document
 redirect_from:
