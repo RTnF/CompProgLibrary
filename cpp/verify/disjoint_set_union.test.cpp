@@ -1,5 +1,6 @@
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/1/DSL_1_A"
-#include "set/disjoint_set.hpp"
+#define PROBLEM                                                                \
+  "https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/1/DSL_1_A"
+#include "set/disjoint_set_union.hpp"
 
 int main() {
   cin.tie(0);
@@ -8,7 +9,7 @@ int main() {
   int n, q;
   cin >> n >> q;
 
-  auto ds = DisjointSet(n);
+  auto ds = DisjointSetUnion(n);
 
   for (int i = 0; i < q; i++) {
     int com, x, y;
