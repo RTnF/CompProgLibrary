@@ -5,8 +5,7 @@
  * @brief セグメント木 based on ACL
  * @tparam M モノイド
  */
-template<class M>
-class SegmentTree {
+template <class M> class SegmentTree {
   // ex. n=5, n_node=8, h_node=3
   //                 [1]
   //       [2]                 [3]
@@ -17,9 +16,9 @@ class SegmentTree {
   void update(int i) { node[i] = op(node[i * 2], node[i * 2 + 1]); }
 
 public:
-  SegmentTree(): SegmentTree(0) {}
-  SegmentTree(int n_): SegmentTree(vector<M>(n_, M::e())) {}
-  SegmentTree(const vector<M> &v): n(v.size()) {
+  SegmentTree() : SegmentTree(0) {}
+  SegmentTree(int n_) : SegmentTree(vector<M>(n_, M::e())) {}
+  SegmentTree(const vector<M> &v) : n(v.size()) {
     h_node = 0;
     n_node = 0;
     while (n_node < n) {
@@ -86,10 +85,10 @@ public:
    * @tparam F
    * @param l [0, n], 探索区間[l, n)
    * @param f [](M x) -> bool {...}, f(e) == true
-   * @return [l, n]から1つ, f(op(v[l] ... v[r-1])) == true && f(op(v[l] ... v[r])) == false
+   * @return [l, n]から1つ, f(op(v[l] ... v[r-1])) == true && f(op(v[l] ...
+   * v[r])) == false
    */
-  template<class F>
-  int search_prod_right(int l, F f) {
+  template <class F> int search_prod_right(int l, F f) {
     assert(0 <= l && l <= n);
     assert(f(M::e()));
     if (l == n) {
@@ -122,10 +121,10 @@ public:
    * @tparam F
    * @param r [0, n], 探索区間[0, r)
    * @param f [](M x) -> bool {...}, f(e) == true
-   * @return [0, r]から1つ、f(op(v[l] ... v[r-1])) == true && f(op(v[l-1] ... v[r-1])) == false
+   * @return [0, r]から1つ、f(op(v[l] ... v[r-1])) == true && f(op(v[l-1] ...
+   * v[r-1])) == false
    */
-  template<class F>
-  int search_prod_left(int r, F f) {
+  template <class F> int search_prod_left(int r, F f) {
     assert(0 <= r && r <= n);
     assert(f(M::e()));
     if (r == 0) {
