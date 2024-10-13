@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: cpp/algebraic_structure/group.hpp
     title: "\u30A2\u30D5\u30A3\u30F3\u5199\u50CF y = ax + b"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: cpp/modint/modint.hpp
     title: "\u5270\u4F59\u3092\u53D6\u308A[0, mod)\u306B\u53CE\u3081\u308Bint"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: cpp/segment_tree/segment_tree.hpp
     title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 based on ACL"
   - icon: ':question:'
@@ -15,9 +15,9 @@ data:
     title: cpp/template/small_template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/point_set_range_composite
@@ -53,8 +53,8 @@ data:
   isVerificationFile: true
   path: cpp/verify/point_set_range_composite.test.cpp
   requiredBy: []
-  timestamp: '2024-10-06 17:36:52+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-10-13 18:16:11+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: cpp/verify/point_set_range_composite.test.cpp
 layout: document

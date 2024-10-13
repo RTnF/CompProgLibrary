@@ -6,15 +6,18 @@ data:
     title: cpp/template/small_template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: cpp/verify/point_add_range_sum.test.cpp
     title: cpp/verify/point_add_range_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: cpp/verify/point_set_range_composite.test.cpp
     title: cpp/verify/point_set_range_composite.test.cpp
-  _isVerificationFailed: false
+  - icon: ':x:'
+    path: cpp/verify/segment_tree.test.cpp
+    title: cpp/verify/segment_tree.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     document_title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 based on ACL"
     links: []
@@ -32,13 +35,13 @@ data:
     \ line -1: no such header\n"
   code: "#pragma once\n#include \"template/small_template.hpp\"\n\n/**\n * @brief\
     \ \u30BB\u30B0\u30E1\u30F3\u30C8\u6728 based on ACL\n * @tparam M \u30E2\u30CE\
-    \u30A4\u30C9\n */\ntemplate<class M>\nclass SegmentTree {\n  // ex. n=5, n_node=8,\
+    \u30A4\u30C9\n */\ntemplate <class M> class SegmentTree {\n  // ex. n=5, n_node=8,\
     \ h_node=3\n  //                 [1]\n  //       [2]                 [3]\n  //\
     \   [4]      [5]       [6]       [7]\n  // (8) (9) (10) (11) (12) [13] [14] [15]\n\
     \  int n, n_node, h_node;\n  vector<M> node;\n  void update(int i) { node[i] =\
-    \ op(node[i * 2], node[i * 2 + 1]); }\n\npublic:\n  SegmentTree(): SegmentTree(0)\
-    \ {}\n  SegmentTree(int n_): SegmentTree(vector<M>(n_, M::e())) {}\n  SegmentTree(const\
-    \ vector<M> &v): n(v.size()) {\n    h_node = 0;\n    n_node = 0;\n    while (n_node\
+    \ op(node[i * 2], node[i * 2 + 1]); }\n\npublic:\n  SegmentTree() : SegmentTree(0)\
+    \ {}\n  SegmentTree(int n_) : SegmentTree(vector<M>(n_, M::e())) {}\n  SegmentTree(const\
+    \ vector<M> &v) : n(v.size()) {\n    h_node = 0;\n    n_node = 0;\n    while (n_node\
     \ < n) {\n      h_node++;\n      n_node = 1 << h_node;\n    }\n    node = vector<M>(n_node\
     \ * 2, M::e());\n    for (int i = 0; i < n; i++) {\n      node[n_node + i] = v[i];\n\
     \    }\n    for (int i = n_node - 1; i >= 1; i--) {\n      update(i);\n    }\n\
@@ -57,21 +60,21 @@ data:
     \u63A2\u7D22 O(log n) l\u304B\u3089\u306E\u7DCF\u7A4D\u304Cf\u3092\u6E80\u305F\
     \u3055\u306A\u304F\u306A\u308Br\n   * @tparam F\n   * @param l [0, n], \u63A2\u7D22\
     \u533A\u9593[l, n)\n   * @param f [](M x) -> bool {...}, f(e) == true\n   * @return\
-    \ [l, n]\u304B\u30891\u3064, f(op(v[l] ... v[r-1])) == true && f(op(v[l] ... v[r]))\
-    \ == false\n   */\n  template<class F>\n  int search_prod_right(int l, F f) {\n\
-    \    assert(0 <= l && l <= n);\n    assert(f(M::e()));\n    if (l == n) {\n  \
-    \    return n;\n    }\n    l += n_node;\n    M sm = M::e();\n    do {\n      while\
-    \ (l % 2 == 0) {\n        l >>= 1;\n      }\n      if (!f(op(sm, node[l]))) {\n\
-    \        while (l < n_node) {\n          l = l * 2;\n          if (f(op(sm, node[l])))\
-    \ {\n            sm = op(sm, node[l]);\n            l++;\n          }\n      \
-    \  }\n        return l - n_node;\n      }\n      sm = op(sm, node[l]);\n     \
-    \ l++;\n    } while ((l & -l) != l);\n    return n;\n  }\n\n  /**\n   * @brief\
+    \ [l, n]\u304B\u30891\u3064, f(op(v[l] ... v[r-1])) == true && f(op(v[l] ...\n\
+    \   * v[r])) == false\n   */\n  template <class F> int search_prod_right(int l,\
+    \ F f) {\n    assert(0 <= l && l <= n);\n    assert(f(M::e()));\n    if (l ==\
+    \ n) {\n      return n;\n    }\n    l += n_node;\n    M sm = M::e();\n    do {\n\
+    \      while (l % 2 == 0) {\n        l >>= 1;\n      }\n      if (!f(op(sm, node[l])))\
+    \ {\n        while (l < n_node) {\n          l = l * 2;\n          if (f(op(sm,\
+    \ node[l]))) {\n            sm = op(sm, node[l]);\n            l++;\n        \
+    \  }\n        }\n        return l - n_node;\n      }\n      sm = op(sm, node[l]);\n\
+    \      l++;\n    } while ((l & -l) != l);\n    return n;\n  }\n\n  /**\n   * @brief\
     \ \u4E8C\u5206\u63A2\u7D22 O(log n) r\u304B\u3089\u306E\u7DCF\u7A4D\u304Cf\u3092\
     \u6E80\u305F\u3055\u306A\u304F\u306A\u308Bl\n   * @tparam F\n   * @param r [0,\
     \ n], \u63A2\u7D22\u533A\u9593[0, r)\n   * @param f [](M x) -> bool {...}, f(e)\
     \ == true\n   * @return [0, r]\u304B\u30891\u3064\u3001f(op(v[l] ... v[r-1]))\
-    \ == true && f(op(v[l-1] ... v[r-1])) == false\n   */\n  template<class F>\n \
-    \ int search_prod_left(int r, F f) {\n    assert(0 <= r && r <= n);\n    assert(f(M::e()));\n\
+    \ == true && f(op(v[l-1] ...\n   * v[r-1])) == false\n   */\n  template <class\
+    \ F> int search_prod_left(int r, F f) {\n    assert(0 <= r && r <= n);\n    assert(f(M::e()));\n\
     \    if (r == 0) {\n      return 0;\n    }\n    r += n_node;\n    M sm = M::e();\n\
     \    do {\n      r--;\n      while (r > 1 && (r % 2)) {\n        r >>= 1;\n  \
     \    }\n      if (!f(op(node[r], sm))) {\n        while (r < n_node) {\n     \
@@ -84,11 +87,12 @@ data:
   isVerificationFile: false
   path: cpp/segment_tree/segment_tree.hpp
   requiredBy: []
-  timestamp: '2024-09-18 18:24:28+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-10-13 18:16:11+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - cpp/verify/point_add_range_sum.test.cpp
   - cpp/verify/point_set_range_composite.test.cpp
+  - cpp/verify/segment_tree.test.cpp
 documentation_of: cpp/segment_tree/segment_tree.hpp
 layout: document
 redirect_from:

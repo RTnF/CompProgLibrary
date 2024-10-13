@@ -3,14 +3,14 @@ data:
   libraryCategories:
   - name: cpp/algebraic_structure
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: cpp/algebraic_structure/group.hpp
       title: "\u30A2\u30D5\u30A3\u30F3\u5199\u50CF y = ax + b"
     - icon: ':warning:'
       path: cpp/algebraic_structure/mapping.hpp
       title: "\u5199\u50CF\u306F X -> X \u306A\u3089\u7D50\u5408\u7684\u306A\u306E\
         \u3067\u5909\u63DB\u30E2\u30CE\u30A4\u30C9\u3092\u306A\u3059"
-    - icon: ':warning:'
+    - icon: ':x:'
       path: cpp/algebraic_structure/monoid.hpp
       title: cpp/algebraic_structure/monoid.hpp
   - name: cpp/array
@@ -68,7 +68,7 @@ data:
       title: "\u533A\u9593\u306E\u548C\u96C6\u5408"
   - name: cpp/modint
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: cpp/modint/modint.hpp
       title: "\u5270\u4F59\u3092\u53D6\u308A[0, mod)\u306B\u53CE\u3081\u308Bint"
   - name: cpp/number
@@ -91,7 +91,7 @@ data:
       title: cpp/random/xorshift.hpp
   - name: cpp/segment_tree
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: cpp/segment_tree/segment_tree.hpp
       title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 based on ACL"
   - name: cpp/set
@@ -163,15 +163,18 @@ data:
     - icon: ':heavy_check_mark:'
       path: cpp/verify/multi_set.test.cpp
       title: cpp/verify/multi_set.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: cpp/verify/point_add_range_sum.test.cpp
       title: cpp/verify/point_add_range_sum.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: cpp/verify/point_set_range_composite.test.cpp
       title: cpp/verify/point_set_range_composite.test.cpp
     - icon: ':heavy_check_mark:'
       path: cpp/verify/prim.test.cpp
       title: cpp/verify/prim.test.cpp
+    - icon: ':x:'
+      path: cpp/verify/segment_tree.test.cpp
+      title: cpp/verify/segment_tree.test.cpp
     - icon: ':heavy_check_mark:'
       path: cpp/verify/sort_points_by_argument.test.cpp
       title: cpp/verify/sort_points_by_argument.test.cpp

@@ -6,15 +6,15 @@ data:
     title: cpp/template/small_template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: cpp/verify/point_add_range_sum.test.cpp
     title: cpp/verify/point_add_range_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: cpp/verify/point_set_range_composite.test.cpp
     title: cpp/verify/point_set_range_composite.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     document_title: "\u30A2\u30D5\u30A3\u30F3\u5199\u50CF y = ax + b"
     links: []
@@ -30,23 +30,24 @@ data:
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: template/small_template.hpp:\
     \ line -1: no such header\n"
-  code: "#pragma once\n#include \"template/small_template.hpp\"\n\ntemplate<class\
-    \ T = ll>\nstruct GroupSum {\n  T x;\n  GroupSum(T x_): x(x_) {}\n  GroupSum():\
-    \ GroupSum(e()) {}\n  static GroupSum e() { return 0; }\n  friend GroupSum op(const\
-    \ GroupSum &a, const GroupSum &b) { return a.x + b.x; }\n  GroupSum inv() const\
-    \ { return e().x - x; }\n};\n\n/**\n * @brief \u30A2\u30D5\u30A3\u30F3\u5199\u50CF\
-    \ y = ax + b\n * @tparam T \n */\ntemplate<class T = ll>\nstruct GroupAffine {\n\
-    \  T a, b;\n  GroupAffine(T a_, T b_): a(a_), b(b_) {}\n  GroupAffine(): GroupAffine(e())\
-    \ {}\n  static GroupAffine e() { return {1, 0}; }\n  friend GroupAffine op(const\
-    \ GroupAffine &p, const GroupAffine &q) {\n    return {p.a * q.a, p.b * q.a +\
-    \ q.b};\n  }\n  GroupAffine inv() const { return {1 / a, -b / a}; }\n};\n"
+  code: "#pragma once\n#include \"template/small_template.hpp\"\n#include <limits>\n\
+    \ntemplate <class T = ll> struct GroupSum {\n  T x;\n  GroupSum(T x_) : x(x_)\
+    \ {}\n  GroupSum() : GroupSum(e()) {}\n  static GroupSum e() { return 0; }\n \
+    \ friend GroupSum op(const GroupSum &a, const GroupSum &b) { return a.x + b.x;\
+    \ }\n  GroupSum inv() const { return e().x - x; }\n};\n\n/**\n * @brief \u30A2\
+    \u30D5\u30A3\u30F3\u5199\u50CF y = ax + b\n * @tparam T\n */\ntemplate <class\
+    \ T = ll> struct GroupAffine {\n  T a, b;\n  GroupAffine(T a_, T b_) : a(a_),\
+    \ b(b_) {}\n  GroupAffine() : GroupAffine(e()) {}\n  static GroupAffine e() {\
+    \ return {1, 0}; }\n  friend GroupAffine op(const GroupAffine &p, const GroupAffine\
+    \ &q) {\n    return {p.a * q.a, p.b * q.a + q.b};\n  }\n  GroupAffine inv() const\
+    \ { return {1 / a, -b / a}; }\n};\n"
   dependsOn:
   - cpp/template/small_template.hpp
   isVerificationFile: false
   path: cpp/algebraic_structure/group.hpp
   requiredBy: []
-  timestamp: '2024-09-18 18:24:28+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2024-10-13 18:16:11+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - cpp/verify/point_add_range_sum.test.cpp
   - cpp/verify/point_set_range_composite.test.cpp
