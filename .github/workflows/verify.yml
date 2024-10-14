@@ -29,6 +29,8 @@ jobs:
         GH_PAT: ${{ secrets.GH_PAT }}
         TZ: 'Asia/Tokyo'
       run: |
+        export -p
         export -n GITHUB_ACTION
         export -n GITHUB_ACTIONS
+        export -p
         oj-verify docs
