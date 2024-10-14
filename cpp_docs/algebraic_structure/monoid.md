@@ -1,8 +1,8 @@
 ---
 title: モノイド (Monoid)
-documentation_of: cpp/algebraic_structure/monoid.hpp
+documentation_of: //cpp/algebraic_structure/monoid.hpp
 ---
-<link rel="stylesheet" type="text/css" href="/css/common.css">
+<link rel="stylesheet" type="text/css" href="../../css/common.css">
 
 [Wikipedia - モノイド](https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%8E%E3%82%A4%E3%83%89)
 

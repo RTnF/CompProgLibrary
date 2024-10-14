@@ -1,8 +1,8 @@
 ---
 title: 素集合データ構造 (Union Find)
-documentation_of: cpp/set/disjoint_set_union.hpp
+documentation_of: //cpp/set/disjoint_set_union.hpp
 ---
-<link rel="stylesheet" type="text/css" href="/css/common.css">
+<link rel="stylesheet" type="text/css" href="../../css/common.css">
 
 ## コンストラクタ
 

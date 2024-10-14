@@ -1,8 +1,8 @@
 ---
 title: 群 (Group)
-documentation_of: cpp/algebraic_structure/group.hpp
+documentation_of: //cpp/algebraic_structure/group.hpp
 ---
-<link rel="stylesheet" type="text/css" href="/css/common.css">
+<link rel="stylesheet" type="text/css" href="../../css/common.css">
 
 [Wikipedia - 群 (数学)](https://ja.wikipedia.org/wiki/%E7%BE%A4_(%E6%95%B0%E5%AD%A6))
 
