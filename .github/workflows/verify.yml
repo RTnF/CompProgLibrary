@@ -32,5 +32,7 @@ jobs:
         export -p
         export -n GITHUB_ACTION
         export -n GITHUB_ACTIONS
+        export -n GITHUB_ACTION_REF
+        export -n GITHUB_ACTION_REPOSITORY
         export -p
         oj-verify docs
