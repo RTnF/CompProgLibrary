@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':x:'
     path: cpp/algebraic_structure/group.hpp
-    title: "\u30A2\u30D5\u30A3\u30F3\u5199\u50CF y = ax + b"
+    title: "\u7FA4 (Group)"
   - icon: ':x:'
     path: cpp/segment_tree/segment_tree.hpp
     title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 based on ACL"
@@ -36,10 +36,10 @@ data:
     #include \"algebraic_structure/group.hpp\"\n#include \"segment_tree/segment_tree.hpp\"\
     \n\nint main() {\n  cin.tie(0);\n  ios::sync_with_stdio(false);\n  int N, Q;\n\
     \  cin >> N >> Q;\n  vector<GroupSum<ll>> a(N);\n  for (int i = 0; i < N; i++)\
-    \ {\n    cin >> a[i].x;\n  }\n  SegmentTree<GroupSum<ll>> seg(a);\n  while (Q--)\
-    \ {\n    int cmd;\n    ll x, y;\n    cin >> cmd >> x >> y;\n    if (cmd) {\n \
-    \     cout << seg.product(x, y).x << '\\n';\n    } else {\n      seg.set(x, seg.get(x).x\
-    \ + y);\n    }\n  }\n}"
+    \ {\n    ll x;\n    cin >> x;\n    a[i] = GroupSum(x);\n  }\n  SegmentTree<GroupSum<ll>>\
+    \ seg(a);\n  while (Q--) {\n    int cmd;\n    ll x, y;\n    cin >> cmd >> x >>\
+    \ y;\n    if (cmd) {\n      cout << seg.product(x, y).x() << '\\n';\n    } else\
+    \ {\n      seg.set(x, seg.get(x).x() + y);\n    }\n  }\n}"
   dependsOn:
   - cpp/algebraic_structure/group.hpp
   - cpp/template/small_template.hpp
@@ -47,7 +47,7 @@ data:
   isVerificationFile: true
   path: cpp/verify/point_add_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2024-10-13 18:16:11+09:00'
+  timestamp: '2024-10-14 15:39:44+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: cpp/verify/point_add_range_sum.test.cpp

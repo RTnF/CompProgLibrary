@@ -4,14 +4,10 @@ data:
   _extendedRequiredBy:
   - icon: ':x:'
     path: cpp/algebraic_structure/group.hpp
-    title: "\u30A2\u30D5\u30A3\u30F3\u5199\u50CF y = ax + b"
-  - icon: ':warning:'
-    path: cpp/algebraic_structure/mapping.hpp
-    title: "\u5199\u50CF\u306F X -> X \u306A\u3089\u7D50\u5408\u7684\u306A\u306E\u3067\
-      \u5909\u63DB\u30E2\u30CE\u30A4\u30C9\u3092\u306A\u3059"
+    title: "\u7FA4 (Group)"
   - icon: ':x:'
     path: cpp/algebraic_structure/monoid.hpp
-    title: cpp/algebraic_structure/monoid.hpp
+    title: "\u30E2\u30CE\u30A4\u30C9 (Monoid)"
   - icon: ':warning:'
     path: cpp/array/cumulative_sum.hpp
     title: "1\u6B21\u5143\u7D2F\u7A4D\u548C"
@@ -23,7 +19,7 @@ data:
     title: "\u500B\u6570\u3092\u6570\u3048\u308B"
   - icon: ':warning:'
     path: cpp/array/sort_util.hpp
-    title: "\u9006\u7F6E\u63DB"
+    title: "\u5EA7\u6A19\u5727\u7E2E O(n log n)"
   - icon: ':heavy_check_mark:'
     path: cpp/geometry/point.hpp
     title: cpp/geometry/point.hpp
@@ -215,7 +211,6 @@ data:
   - cpp/set/set.hpp
   - cpp/set/multiset.hpp
   - cpp/set/disjoint_set_union.hpp
-  - cpp/algebraic_structure/mapping.hpp
   - cpp/algebraic_structure/group.hpp
   - cpp/algebraic_structure/monoid.hpp
   - cpp/segment_tree/segment_tree.hpp

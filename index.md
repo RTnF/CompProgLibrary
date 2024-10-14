@@ -5,14 +5,10 @@ data:
     pages:
     - icon: ':x:'
       path: cpp/algebraic_structure/group.hpp
-      title: "\u30A2\u30D5\u30A3\u30F3\u5199\u50CF y = ax + b"
-    - icon: ':warning:'
-      path: cpp/algebraic_structure/mapping.hpp
-      title: "\u5199\u50CF\u306F X -> X \u306A\u3089\u7D50\u5408\u7684\u306A\u306E\
-        \u3067\u5909\u63DB\u30E2\u30CE\u30A4\u30C9\u3092\u306A\u3059"
+      title: "\u7FA4 (Group)"
     - icon: ':x:'
       path: cpp/algebraic_structure/monoid.hpp
-      title: cpp/algebraic_structure/monoid.hpp
+      title: "\u30E2\u30CE\u30A4\u30C9 (Monoid)"
   - name: cpp/array
     pages:
     - icon: ':warning:'
@@ -26,7 +22,7 @@ data:
       title: "\u500B\u6570\u3092\u6570\u3048\u308B"
     - icon: ':warning:'
       path: cpp/array/sort_util.hpp
-      title: "\u9006\u7F6E\u63DB"
+      title: "\u5EA7\u6A19\u5727\u7E2E O(n log n)"
   - name: cpp/geometry
     pages:
     - icon: ':heavy_check_mark:'
@@ -188,3 +184,8 @@ layout: toppage
 - 「プログラミングコンテスト攻略のためのアルゴリズムとデータ構造」(渡部 有隆)
 - [AtCoder Library](https://github.com/atcoder/ac-library)
 - [Joeの精進記録](https://xuzijian629.hatenablog.com/)
+
+## 方針
+
+- GitHub上では `oj-verify` を行わず、ドキュメントのみを生成する
+- 群などはインターフェースにせず、ダックタイピングにする [参考](https://marycore.jp/prog/cpp/interface-class-and-duck-typing/#%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%81%AB%E3%82%88%E3%82%8B%E3%83%80%E3%83%83%E3%82%AF%E3%82%BF%E3%82%A4%E3%83%94%E3%83%B3%E3%82%B0)

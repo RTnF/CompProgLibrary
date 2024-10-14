@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':x:'
     path: cpp/algebraic_structure/group.hpp
-    title: "\u30A2\u30D5\u30A3\u30F3\u5199\u50CF y = ax + b"
+    title: "\u7FA4 (Group)"
   - icon: ':x:'
     path: cpp/modint/modint.hpp
     title: "\u5270\u4F59\u3092\u53D6\u308A[0, mod)\u306B\u53CE\u3081\u308Bint"
@@ -33,27 +33,27 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: modint/modint.hpp:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: algebraic_structure/group.hpp:\
     \ line -1: no such header\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/point_set_range_composite\"\
-    \n#include \"modint/modint.hpp\"\n#include \"algebraic_structure/group.hpp\"\n\
+    \n#include \"algebraic_structure/group.hpp\"\n#include \"modint/modint.hpp\"\n\
     #include \"segment_tree/segment_tree.hpp\"\n\nint main() {\n  cin.tie(0);\n  ios::sync_with_stdio(false);\n\
     \  int N, Q;\n  cin >> N >> Q;\n  vector<GroupAffine<mint>> v(N);\n  for (int\
     \ i = 0; i < N; i++) {\n    int a, b;\n    cin >> a >> b;\n    v[i] = {a, b};\n\
     \  }\n  SegmentTree<GroupAffine<mint>> sg(v);\n  while (Q--) {\n    int type;\n\
     \    cin >> type;\n    if (type) {\n      int l, r;\n      mint x;\n      cin\
-    \ >> l >> r >> x;\n      auto p = sg.product(l, r);\n      cout << p.a * x + p.b\
-    \ << '\\n';\n    } else {\n      int p;\n      mint c, d;\n      cin >> p >> c\
-    \ >> d;\n      sg.set(p, {c, d});\n    }\n  }\n}"
+    \ >> l >> r >> x;\n      auto p = sg.product(l, r);\n      cout << p.a() * x +\
+    \ p.b() << '\\n';\n    } else {\n      int p;\n      mint c, d;\n      cin >>\
+    \ p >> c >> d;\n      sg.set(p, {c, d});\n    }\n  }\n}"
   dependsOn:
-  - cpp/modint/modint.hpp
-  - cpp/template/small_template.hpp
   - cpp/algebraic_structure/group.hpp
+  - cpp/template/small_template.hpp
+  - cpp/modint/modint.hpp
   - cpp/segment_tree/segment_tree.hpp
   isVerificationFile: true
   path: cpp/verify/point_set_range_composite.test.cpp
   requiredBy: []
-  timestamp: '2024-10-13 18:16:11+09:00'
+  timestamp: '2024-10-14 15:39:44+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: cpp/verify/point_set_range_composite.test.cpp

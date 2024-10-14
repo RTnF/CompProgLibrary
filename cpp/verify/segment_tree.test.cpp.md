@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':x:'
     path: cpp/algebraic_structure/monoid.hpp
-    title: cpp/algebraic_structure/monoid.hpp
+    title: "\u30E2\u30CE\u30A4\u30C9 (Monoid)"
   - icon: ':x:'
     path: cpp/segment_tree/segment_tree.hpp
     title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 based on ACL"
