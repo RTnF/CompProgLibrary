@@ -1,27 +1,47 @@
 #pragma once
 #include "template/small_template.hpp"
-#include <limits>
 
-template <class T = ll> struct GroupSum {
-  T x;
-  GroupSum(T x_) : x(x_) {}
+template <class T = ll> class GroupSum {
+  T _x;
+
+public:
+  GroupSum(T x_) : _x(x_) {}
   GroupSum() : GroupSum(e()) {}
+  T x() const { return _x; }
   static GroupSum e() { return 0; }
-  friend GroupSum op(const GroupSum &a, const GroupSum &b) { return a.x + b.x; }
-  GroupSum inv() const { return e().x - x; }
+  friend GroupSum op(const GroupSum &a, const GroupSum &b) {
+    return a._x + b._x;
+  }
+  GroupSum inv() const { return -_x; }
 };
 
-/**
- * @brief アフィン写像 y = ax + b
- * @tparam T
- */
-template <class T = ll> struct GroupAffine {
-  T a, b;
-  GroupAffine(T a_, T b_) : a(a_), b(b_) {}
+template <class T = ll> class GroupMul {
+  T _x;
+
+public:
+  GroupMul(T x) : _x(x) { assert(x != 0); }
+  GroupMul() : GroupMul(e()) {}
+  T x() const { return _x; }
+  static GroupMul e() { return 1; }
+  friend GroupMul op(const GroupMul &a, const GroupMul &b) {
+    return a._x * b._x;
+  }
+  GroupMul inv() const { return 1 / _x; }
+};
+
+// アフィン写像 y = ax + b
+template <class T = ll> class GroupAffine {
+  T _a, _b;
+
+public:
+  GroupAffine(T a, T b) : _a(a), _b(b) {}
   GroupAffine() : GroupAffine(e()) {}
+  T a() const { return _a; }
+  T b() const { return _b; }
   static GroupAffine e() { return {1, 0}; }
   friend GroupAffine op(const GroupAffine &p, const GroupAffine &q) {
-    return {p.a * q.a, p.b * q.a + q.b};
+    return {p._a * q._a, p._b * q._a + q._b};
   }
-  GroupAffine inv() const { return {1 / a, -b / a}; }
+  GroupAffine inv() const { return {1 / _a, -_b / _a}; }
+  T apply(const T &x) const { return _a * x + _b; }
 };

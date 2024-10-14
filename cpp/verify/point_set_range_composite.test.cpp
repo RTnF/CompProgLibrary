@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/point_set_range_composite"
-#include "modint/modint.hpp"
 #include "algebraic_structure/group.hpp"
+#include "modint/modint.hpp"
 #include "segment_tree/segment_tree.hpp"
 
 int main() {
@@ -23,7 +23,7 @@ int main() {
       mint x;
       cin >> l >> r >> x;
       auto p = sg.product(l, r);
-      cout << p.a * x + p.b << '\n';
+      cout << p.a() * x + p.b() << '\n';
     } else {
       int p;
       mint c, d;

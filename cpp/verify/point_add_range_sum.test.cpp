@@ -9,7 +9,9 @@ int main() {
   cin >> N >> Q;
   vector<GroupSum<ll>> a(N);
   for (int i = 0; i < N; i++) {
-    cin >> a[i].x;
+    ll x;
+    cin >> x;
+    a[i] = GroupSum(x);
   }
   SegmentTree<GroupSum<ll>> seg(a);
   while (Q--) {
@@ -17,9 +19,9 @@ int main() {
     ll x, y;
     cin >> cmd >> x >> y;
     if (cmd) {
-      cout << seg.product(x, y).x << '\n';
+      cout << seg.product(x, y).x() << '\n';
     } else {
-      seg.set(x, seg.get(x).x + y);
+      seg.set(x, seg.get(x).x() + y);
     }
   }
 }
