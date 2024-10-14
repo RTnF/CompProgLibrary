@@ -58,7 +58,7 @@ documentation_of: cpp/set/disjoint_set_union.hpp
 layout: document
 title: "\u7D20\u96C6\u5408\u30C7\u30FC\u30BF\u69CB\u9020 (Union Find)"
 ---
-<link rel="stylesheet" type="text/css" href="/css/common.css">
+<link rel="stylesheet" type="text/css" href="../../css/common.css">
 
 ## コンストラクタ
 

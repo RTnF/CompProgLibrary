@@ -50,7 +50,7 @@ documentation_of: cpp/algebraic_structure/monoid.hpp
 layout: document
 title: "\u30E2\u30CE\u30A4\u30C9 (Monoid)"
 ---
-<link rel="stylesheet" type="text/css" href="/css/common.css">
+<link rel="stylesheet" type="text/css" href="../../css/common.css">
 
 [Wikipedia - モノイド](https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%8E%E3%82%A4%E3%83%89)
 
