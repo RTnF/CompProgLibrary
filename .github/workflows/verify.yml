@@ -28,4 +28,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GH_PAT: ${{ secrets.GH_PAT }}
         TZ: 'Asia/Tokyo'
-      run: oj-verify docs
+      run: |
+        export -n GITHUB_ACTION
+        export -n GITHUB_ACTIONS
+        oj-verify docs
