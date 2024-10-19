@@ -35,7 +35,7 @@ data:
   isVerificationFile: false
   path: cpp/string/char_count.hpp
   requiredBy: []
-  timestamp: '2024-10-06 17:36:52+09:00'
+  timestamp: '2024-10-19 16:46:12+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp/string/char_count.hpp

@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: cpp/graph/graph_list.hpp
-    title: cpp/graph/graph_list.hpp
+    title: "\u7D20\u96C6\u5408\u30C7\u30FC\u30BF\u69CB\u9020 (Union Find)"
   - icon: ':heavy_check_mark:'
     path: cpp/graph/prim.hpp
     title: cpp/graph/prim.hpp
@@ -45,7 +45,7 @@ data:
   isVerificationFile: true
   path: cpp/verify/prim.test.cpp
   requiredBy: []
-  timestamp: '2024-09-29 16:45:44+09:00'
+  timestamp: '2024-10-19 19:47:51+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: cpp/verify/prim.test.cpp

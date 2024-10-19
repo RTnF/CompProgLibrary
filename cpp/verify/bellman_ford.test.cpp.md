@@ -6,7 +6,7 @@ data:
     title: cpp/graph/bellman_ford.hpp
   - icon: ':heavy_check_mark:'
     path: cpp/graph/graph_list.hpp
-    title: cpp/graph/graph_list.hpp
+    title: "\u7D20\u96C6\u5408\u30C7\u30FC\u30BF\u69CB\u9020 (Union Find)"
   - icon: ':heavy_check_mark:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
@@ -45,12 +45,12 @@ data:
     \      cout << dist << '\\n';\n    }\n  }\n}"
   dependsOn:
   - cpp/graph/bellman_ford.hpp
-  - cpp/template/small_template.hpp
   - cpp/graph/graph_list.hpp
+  - cpp/template/small_template.hpp
   isVerificationFile: true
   path: cpp/verify/bellman_ford.test.cpp
   requiredBy: []
-  timestamp: '2024-09-29 16:45:44+09:00'
+  timestamp: '2024-10-19 19:47:51+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: cpp/verify/bellman_ford.test.cpp

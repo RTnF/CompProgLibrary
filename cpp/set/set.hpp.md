@@ -26,16 +26,16 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: template/small_template.hpp:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: random/xorshift.hpp:\
     \ line -1: no such header\n"
-  code: "#pragma once\n#include \"template/small_template.hpp\"\n#include \"random/xorshift.hpp\"\
+  code: "#pragma once\n#include \"random/xorshift.hpp\"\n#include \"template/small_template.hpp\"\
     \n\n/**\n * @brief \u91CD\u8907\u306A\u3057\u306E\u96C6\u5408\n * \u633F\u5165\
     \ O(log n)\n * \u524A\u9664 O(log n)\n * \u691C\u7D22 O(log n)\n * \u5B9F\u88C5\
     \uFF1ATreap https://xuzijian629.hatenablog.com/entry/2018/12/08/000452\n * @tparam\
-    \ T \u8981\u7D20\u306E\u578B\n */\ntemplate<typename T = ll>\nclass TreeSet {\n\
+    \ T \u8981\u7D20\u306E\u578B\n */\ntemplate <typename T = ll> class TreeSet {\n\
     \  static inline Xor64 rnd = Xor64(192865741288375612ull);\n  struct Node {\n\
     \    T k;\n    ull p = rnd.get();\n    Node *l = nullptr, *r = nullptr;\n    Node(T\
-    \ key): k(key) {}\n  };\n  using Tree = Node *;\n  Tree root = nullptr;\n  int\
+    \ key) : k(key) {}\n  };\n  using Tree = Node *;\n  Tree root = nullptr;\n  int\
     \ n = 0;\n\n  void split(Tree t, T key, Tree &l, Tree &r) {\n    if (!t) {\n \
     \     l = r = nullptr;\n    } else if (key < t->k) {\n      split(t->l, key, l,\
     \ t->l);\n      r = t;\n    } else {\n      split(t->r, key, t->r, r);\n     \
@@ -56,12 +56,12 @@ data:
     \ = root;\n    while (t->l) {\n      t = t->l;\n    }\n    return t->k;\n  }\n\
     \n  int size() { return n; }\n};\n"
   dependsOn:
-  - cpp/template/small_template.hpp
   - cpp/random/xorshift.hpp
+  - cpp/template/small_template.hpp
   isVerificationFile: false
   path: cpp/set/set.hpp
   requiredBy: []
-  timestamp: '2024-09-29 16:45:44+09:00'
+  timestamp: '2024-10-19 16:46:12+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp/set/set.hpp

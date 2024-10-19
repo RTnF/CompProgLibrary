@@ -38,7 +38,7 @@ data:
       title: cpp/graph/dijkstra.hpp
     - icon: ':heavy_check_mark:'
       path: cpp/graph/graph_list.hpp
-      title: cpp/graph/graph_list.hpp
+      title: "\u7D20\u96C6\u5408\u30C7\u30FC\u30BF\u69CB\u9020 (Union Find)"
     - icon: ':heavy_check_mark:'
       path: cpp/graph/graph_matrix.hpp
       title: cpp/graph/graph_matrix.hpp
@@ -179,8 +179,6 @@ data:
       title: cpp/verify/warshall_floyd.test.cpp
 layout: toppage
 ---
-test5
-
 参考：
 - 「プログラミングコンテスト攻略のためのアルゴリズムとデータ構造」(渡部 有隆)
 - [AtCoder Library](https://github.com/atcoder/ac-library)

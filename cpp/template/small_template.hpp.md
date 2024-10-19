@@ -31,7 +31,7 @@ data:
     title: cpp/graph/dijkstra.hpp
   - icon: ':heavy_check_mark:'
     path: cpp/graph/graph_list.hpp
-    title: cpp/graph/graph_list.hpp
+    title: "\u7D20\u96C6\u5408\u30C7\u30FC\u30BF\u69CB\u9020 (Union Find)"
   - icon: ':heavy_check_mark:'
     path: cpp/graph/graph_matrix.hpp
     title: cpp/graph/graph_matrix.hpp
@@ -158,7 +158,7 @@ data:
 
     using ld = long double;
 
-    constexpr ll INF = 1e+18;
+    constexpr ll INF = 4e+18;
 
     constexpr ld EPS = 1e-12L;
 
@@ -177,7 +177,7 @@ data:
 
     using ld = long double;
 
-    constexpr ll INF = 1e+18;
+    constexpr ll INF = 4e+18;
 
     constexpr ld EPS = 1e-12L;
 
@@ -215,7 +215,7 @@ data:
   - cpp/algebraic_structure/monoid.hpp
   - cpp/segment_tree/segment_tree.hpp
   - cpp/number/ratio.hpp
-  timestamp: '2024-08-28 19:34:48+09:00'
+  timestamp: '2024-10-19 16:46:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - cpp/verify/bellman_ford.test.cpp

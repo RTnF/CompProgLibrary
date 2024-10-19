@@ -41,7 +41,7 @@ data:
   isVerificationFile: true
   path: cpp/verify/sort_points_by_argument.test.cpp
   requiredBy: []
-  timestamp: '2024-09-18 18:24:28+09:00'
+  timestamp: '2024-10-19 16:46:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: cpp/verify/sort_points_by_argument.test.cpp

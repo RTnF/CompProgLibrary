@@ -42,7 +42,7 @@ data:
   isVerificationFile: true
   path: cpp/verify/disjoint_set_union.test.cpp
   requiredBy: []
-  timestamp: '2024-10-12 23:57:22+09:00'
+  timestamp: '2024-10-19 16:46:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: cpp/verify/disjoint_set_union.test.cpp

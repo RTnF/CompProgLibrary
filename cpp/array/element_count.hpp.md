@@ -24,7 +24,7 @@ data:
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: template/small_template.hpp:\
     \ line -1: no such header\n"
   code: "#pragma once\n#include \"template/small_template.hpp\"\n\n// \u500B\u6570\
-    \ntemplate<class T>\nvector<pair<T, int>> element_count(const T &v) {\n  vector<pair<T,\
+    \ntemplate <class T> vector<pair<T, int>> element_count(const T &v) {\n  vector<pair<T,\
     \ int>> ret;\n  int n = v.size();\n  if (n == 0) {\n    return ret;\n  }\n  T\
     \ pre = v[0];\n  int cnt = 0;\n  for (int i = 0; i < n; i++) {\n    if (pre ==\
     \ v[i]) {\n      cnt++;\n    } else {\n      ret.emplace_back(pre, cnt);\n   \
@@ -35,7 +35,7 @@ data:
   isVerificationFile: false
   path: cpp/array/element_count.hpp
   requiredBy: []
-  timestamp: '2024-10-07 18:34:05+09:00'
+  timestamp: '2024-10-19 16:46:12+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp/array/element_count.hpp

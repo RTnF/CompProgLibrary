@@ -23,37 +23,38 @@ data:
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: template/small_template.hpp:\
     \ line -1: no such header\n"
-  code: "#pragma once\n#include \"template/small_template.hpp\"\n\ntemplate<typename\
-    \ T = ll>\nclass Ratio {\n  // n / d\n  T n, d;\n\n  void normalize() {\n    if\
+  code: "#pragma once\n#include \"template/small_template.hpp\"\n\ntemplate <typename\
+    \ T = ll> class Ratio {\n  // n / d\n  T n, d;\n\n  void normalize() {\n    if\
     \ (n == 0) {\n      d = 1;\n      return;\n    }\n    if (d < 0) {\n      n =\
     \ -n;\n      d = -d;\n    }\n    T g = gcd(n, d);\n    n /= g;\n    d /= g;\n\
-    \  }\n\npublic:\n  Ratio(T nominator, T denominator): n(nominator), d(denominator)\
-    \ { normalize(); }\n  Ratio(T nominator): n(nominator), d(1) {}\n\n  strong_ordering\
-    \ operator<=>(const Ratio &r) const {\n    T g = gcd(d, r.d);\n    return r.d\
-    \ / g * n <=> d / g * r.n;\n  }\n  bool operator==(const Ratio &r) const = default;\n\
-    \n  Ratio operator++(int) {\n    Ratio r = *this;\n    ++*this;\n    return r;\n\
-    \  }\n  Ratio &operator++() {\n    n += d;\n    return *this;\n  }\n  Ratio operator--(int)\
-    \ {\n    Ratio r = *this;\n    --*this;\n    return r;\n  }\n  Ratio &operator--()\
-    \ {\n    n -= d;\n    return *this;\n  }\n  Ratio &operator+=(const Ratio &r)\
-    \ {\n    T l = lcm(d, r.d);\n    n = l / d * n + l / r.d * r.n;\n    d = l;\n\
-    \    normalize();\n    return *this;\n  }\n  Ratio &operator-=(const Ratio &r)\
-    \ {\n    T l = lcm(d, r.d);\n    n = l / d * n - l / r.d * r.n;\n    d = l;\n\
-    \    normalize();\n    return *this;\n  }\n  Ratio &operator*=(const Ratio &r)\
-    \ {\n    T g1 = gcd(n, r.d);\n    T g2 = gcd(r.n, d);\n    n = n / g1 * (r.n /\
-    \ g2);\n    d = d / g2 * (r.d / g1);\n    return *this;\n  }\n  Ratio &operator/=(const\
-    \ Ratio &r) {\n    assert(r.n != 0);\n    T g1 = gcd(n, r.n);\n    T g2 = gcd(d,\
-    \ r.d);\n    n = n / g1 * (r.d / g2);\n    d = d / g2 * (r.n / g1);\n    return\
-    \ *this;\n  }\n  Ratio operator+() const { return *this; }\n  Ratio operator-()\
-    \ const { return Ratio(-n, d); }\n\n  friend Ratio operator+(const Ratio &a, const\
-    \ Ratio &b) { return Ratio(a) += b; }\n  friend Ratio operator-(const Ratio &a,\
-    \ const Ratio &b) { return Ratio(a) -= b; }\n  friend Ratio operator*(const Ratio\
-    \ &a, const Ratio &b) { return Ratio(a) *= b; }\n  friend Ratio operator/(const\
-    \ Ratio &a, const Ratio &b) { return Ratio(a) /= b; }\n  friend Ratio operator+(const\
-    \ Ratio &a, const T &b) { return Ratio(a) += b; }\n  friend Ratio operator-(const\
-    \ Ratio &a, const T &b) { return Ratio(a) -= b; }\n  friend Ratio operator*(const\
-    \ Ratio &a, const T &b) { return Ratio(a) *= b; }\n  friend Ratio operator/(const\
-    \ Ratio &a, const T &b) { return Ratio(a) /= b; }\n  friend Ratio operator+(const\
-    \ T &a, const Ratio &b) { return a += b; }\n  friend Ratio operator-(const T &a,\
+    \  }\n\npublic:\n  Ratio(T nominator, T denominator) : n(nominator), d(denominator)\
+    \ {\n    normalize();\n  }\n  Ratio(T nominator) : n(nominator), d(1) {}\n\n \
+    \ strong_ordering operator<=>(const Ratio &r) const {\n    T g = gcd(d, r.d);\n\
+    \    return r.d / g * n <=> d / g * r.n;\n  }\n  bool operator==(const Ratio &r)\
+    \ const = default;\n\n  Ratio operator++(int) {\n    Ratio r = *this;\n    ++*this;\n\
+    \    return r;\n  }\n  Ratio &operator++() {\n    n += d;\n    return *this;\n\
+    \  }\n  Ratio operator--(int) {\n    Ratio r = *this;\n    --*this;\n    return\
+    \ r;\n  }\n  Ratio &operator--() {\n    n -= d;\n    return *this;\n  }\n  Ratio\
+    \ &operator+=(const Ratio &r) {\n    T l = lcm(d, r.d);\n    n = l / d * n + l\
+    \ / r.d * r.n;\n    d = l;\n    normalize();\n    return *this;\n  }\n  Ratio\
+    \ &operator-=(const Ratio &r) {\n    T l = lcm(d, r.d);\n    n = l / d * n - l\
+    \ / r.d * r.n;\n    d = l;\n    normalize();\n    return *this;\n  }\n  Ratio\
+    \ &operator*=(const Ratio &r) {\n    T g1 = gcd(n, r.d);\n    T g2 = gcd(r.n,\
+    \ d);\n    n = n / g1 * (r.n / g2);\n    d = d / g2 * (r.d / g1);\n    return\
+    \ *this;\n  }\n  Ratio &operator/=(const Ratio &r) {\n    assert(r.n != 0);\n\
+    \    T g1 = gcd(n, r.n);\n    T g2 = gcd(d, r.d);\n    n = n / g1 * (r.d / g2);\n\
+    \    d = d / g2 * (r.n / g1);\n    return *this;\n  }\n  Ratio operator+() const\
+    \ { return *this; }\n  Ratio operator-() const { return Ratio(-n, d); }\n\n  friend\
+    \ Ratio operator+(const Ratio &a, const Ratio &b) {\n    return Ratio(a) += b;\n\
+    \  }\n  friend Ratio operator-(const Ratio &a, const Ratio &b) {\n    return Ratio(a)\
+    \ -= b;\n  }\n  friend Ratio operator*(const Ratio &a, const Ratio &b) {\n   \
+    \ return Ratio(a) *= b;\n  }\n  friend Ratio operator/(const Ratio &a, const Ratio\
+    \ &b) {\n    return Ratio(a) /= b;\n  }\n  friend Ratio operator+(const Ratio\
+    \ &a, const T &b) { return Ratio(a) += b; }\n  friend Ratio operator-(const Ratio\
+    \ &a, const T &b) { return Ratio(a) -= b; }\n  friend Ratio operator*(const Ratio\
+    \ &a, const T &b) { return Ratio(a) *= b; }\n  friend Ratio operator/(const Ratio\
+    \ &a, const T &b) { return Ratio(a) /= b; }\n  friend Ratio operator+(const T\
+    \ &a, const Ratio &b) { return a += b; }\n  friend Ratio operator-(const T &a,\
     \ const Ratio &b) { return a -= b; }\n  friend Ratio operator*(const T &a, const\
     \ Ratio &b) { return a *= b; }\n  friend Ratio operator/(const T &a, const Ratio\
     \ &b) { return a /= b; }\n\n  friend istream &operator>>(istream &is, Ratio &r)\
@@ -65,7 +66,7 @@ data:
   isVerificationFile: false
   path: cpp/number/ratio.hpp
   requiredBy: []
-  timestamp: '2024-09-13 22:52:42+09:00'
+  timestamp: '2024-10-19 16:46:12+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp/number/ratio.hpp

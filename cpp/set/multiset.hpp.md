@@ -29,19 +29,19 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: template/small_template.hpp:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: random/xorshift.hpp:\
     \ line -1: no such header\n"
-  code: "#pragma once\n#include \"template/small_template.hpp\"\n#include \"random/xorshift.hpp\"\
+  code: "#pragma once\n#include \"random/xorshift.hpp\"\n#include \"template/small_template.hpp\"\
     \n\n/**\n * @brief \u91CD\u8907\u3042\u308A\u306E\u96C6\u5408\n * \u633F\u5165\
     \ O(log n)\n * \u524A\u9664 O(log n)\n * \u691C\u7D22 O(log n)\n * \u5B9F\u88C5\
     \uFF1ATreap https://xuzijian629.hatenablog.com/entry/2018/12/08/000452\n * @tparam\
-    \ T \u8981\u7D20\u306E\u578B\n */\ntemplate<typename T = ll>\nclass TreeMultiSet\
+    \ T \u8981\u7D20\u306E\u578B\n */\ntemplate <typename T = ll> class TreeMultiSet\
     \ {\n  static inline Xor64 rnd = Xor64(192865741288375612ull);\n  struct Node\
     \ {\n    T k;\n    int c = 1;\n    ull p = rnd.get();\n    Node *l = nullptr,\
-    \ *r = nullptr;\n    Node(T key): k(key) {}\n  };\n  using Tree = Node *;\n  Tree\
-    \ root = nullptr;\n  int n = 0;\n\n  void split(Tree t, T key, Tree &l, Tree &r)\
-    \ {\n    if (!t) {\n      l = r = nullptr;\n    } else if (key < t->k) {\n   \
-    \   split(t->l, key, l, t->l);\n      r = t;\n    } else {\n      split(t->r,\
+    \ *r = nullptr;\n    Node(T key) : k(key) {}\n  };\n  using Tree = Node *;\n \
+    \ Tree root = nullptr;\n  int n = 0;\n\n  void split(Tree t, T key, Tree &l, Tree\
+    \ &r) {\n    if (!t) {\n      l = r = nullptr;\n    } else if (key < t->k) {\n\
+    \      split(t->l, key, l, t->l);\n      r = t;\n    } else {\n      split(t->r,\
     \ key, t->r, r);\n      l = t;\n    }\n  }\n\n  void merge(Tree &t, Tree l, Tree\
     \ r) {\n    if (!l || !r) {\n      t = l ? l : r;\n    } else if (l->p > r->p)\
     \ {\n      merge(l->r, l->r, r);\n      t = l;\n    } else {\n      merge(r->l,\
@@ -55,19 +55,19 @@ data:
     \   if (l <= t->k && t->k <= r) {\n      for (int i = 0; i < t->c; i++) {\n  \
     \      cout << t->k << '\\n';\n      }\n    }\n    if (t->r && t->k < r) {\n \
     \     dump(t->r, l, r);\n    }\n  }\n\npublic:\n  TreeMultiSet() = default;\n\n\
-    \  /**\n   * @brief \u8981\u7D20\u306E\u8FFD\u52A0\n   * \n   * @param key \n\
-    \   * @return int \u8FFD\u52A0\u5F8C\u306E\u540C\u3058\u8981\u7D20\u306E\u6570\
-    \n   */\n  int add(T key) {\n    n++;\n    Tree t = root;\n    while (t) {\n \
-    \     if (key == t->k) {\n        t->c++;\n        return t->c;\n      }\n   \
-    \   t = key < t->k ? t->l : t->r;\n    }\n    insert(root, new Node(key));\n \
-    \   return 1;\n  }\n\n  /**\n   * @brief \u6307\u5B9A\u3057\u305F\u8981\u7D20\u306E\
-    1\u500B\u524A\u9664\n   * \n   * @param key \n   * @return bool \u524A\u9664\u51FA\
+    \  /**\n   * @brief \u8981\u7D20\u306E\u8FFD\u52A0\n   *\n   * @param key\n  \
+    \ * @return int \u8FFD\u52A0\u5F8C\u306E\u540C\u3058\u8981\u7D20\u306E\u6570\n\
+    \   */\n  int add(T key) {\n    n++;\n    Tree t = root;\n    while (t) {\n  \
+    \    if (key == t->k) {\n        t->c++;\n        return t->c;\n      }\n    \
+    \  t = key < t->k ? t->l : t->r;\n    }\n    insert(root, new Node(key));\n  \
+    \  return 1;\n  }\n\n  /**\n   * @brief \u6307\u5B9A\u3057\u305F\u8981\u7D20\u306E\
+    1\u500B\u524A\u9664\n   *\n   * @param key\n   * @return bool \u524A\u9664\u51FA\
     \u6765\u305F\u5834\u5408true\n   */\n  bool remove(T key) {\n    Tree t = root;\n\
     \    while (t) {\n      if (key == t->k) {\n        if (t->c > 1) {\n        \
     \  t->c--;\n        } else {\n          remove(root, key);\n        }\n      \
     \  n--;\n        return true;\n      }\n      t = key < t->k ? t->l : t->r;\n\
     \    }\n    return false;\n  }\n\n  /**\n   * @brief \u6307\u5B9A\u3057\u305F\u8981\
-    \u7D20\u306E\u5168\u524A\u9664\n   * \n   * @param key \n   * @return int \u524A\
+    \u7D20\u306E\u5168\u524A\u9664\n   *\n   * @param key\n   * @return int \u524A\
     \u9664\u3057\u305F\u8981\u7D20\u6570\n   */\n  int removeAll(T key) {\n    Tree\
     \ t = root;\n    while (t) {\n      if (key == t->k) {\n        int ret = t->c;\n\
     \        n -= ret;\n        remove(root, key);\n        return ret;\n      }\n\
@@ -79,12 +79,12 @@ data:
     \ (root) {\n      dump(root, l, r);\n    }\n  }\n\n  int size() { return n; }\n\
     };\n"
   dependsOn:
-  - cpp/template/small_template.hpp
   - cpp/random/xorshift.hpp
+  - cpp/template/small_template.hpp
   isVerificationFile: false
   path: cpp/set/multiset.hpp
   requiredBy: []
-  timestamp: '2024-09-18 18:24:28+09:00'
+  timestamp: '2024-10-19 16:46:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - cpp/verify/multi_set.test.cpp

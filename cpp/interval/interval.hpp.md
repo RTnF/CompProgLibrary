@@ -43,7 +43,7 @@ data:
   isVerificationFile: false
   path: cpp/interval/interval.hpp
   requiredBy: []
-  timestamp: '2024-10-10 19:14:05+09:00'
+  timestamp: '2024-10-19 16:46:12+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp/interval/interval.hpp

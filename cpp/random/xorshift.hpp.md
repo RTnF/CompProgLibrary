@@ -34,7 +34,7 @@ data:
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: template/small_template.hpp:\
     \ line -1: no such header\n"
   code: "#pragma once\n#include \"template/small_template.hpp\"\n\n// https://ja.wikipedia.org/wiki/Xorshift\n\
-    class Xor64 {\n  ull s;\n\npublic:\n  Xor64(ull s_): s(s_) {}\n  // [0, 2**64)\n\
+    class Xor64 {\n  ull s;\n\npublic:\n  Xor64(ull s_) : s(s_) {}\n  // [0, 2**64)\n\
     \  ull get() {\n    ull x = s;\n    x ^= x << 7;\n    return s = x ^ (x >> 9);\n\
     \  }\n  // [min, max)\n  int get_int(int mi, int ma) { return mi + get() % (ma\
     \ - mi); }\n  // [min, max)\n  ll get_ll(ll mi, ll ma) { return mi + get() % (ma\
@@ -50,7 +50,7 @@ data:
   requiredBy:
   - cpp/set/set.hpp
   - cpp/set/multiset.hpp
-  timestamp: '2024-09-16 23:28:48+09:00'
+  timestamp: '2024-10-19 16:46:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - cpp/verify/multi_set.test.cpp

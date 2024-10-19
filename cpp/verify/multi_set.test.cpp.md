@@ -43,12 +43,12 @@ data:
     \ >> r;\n        ms.dump(l, r);\n        break;\n    }\n  }\n}"
   dependsOn:
   - cpp/set/multiset.hpp
-  - cpp/template/small_template.hpp
   - cpp/random/xorshift.hpp
+  - cpp/template/small_template.hpp
   isVerificationFile: true
   path: cpp/verify/multi_set.test.cpp
   requiredBy: []
-  timestamp: '2024-09-18 18:24:28+09:00'
+  timestamp: '2024-10-19 16:46:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: cpp/verify/multi_set.test.cpp

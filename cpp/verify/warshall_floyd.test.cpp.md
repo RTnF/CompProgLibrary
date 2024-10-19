@@ -50,7 +50,7 @@ data:
   isVerificationFile: true
   path: cpp/verify/warshall_floyd.test.cpp
   requiredBy: []
-  timestamp: '2024-09-29 16:45:44+09:00'
+  timestamp: '2024-10-19 16:46:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: cpp/verify/warshall_floyd.test.cpp

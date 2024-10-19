@@ -26,27 +26,27 @@ data:
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: template/small_template.hpp:\
     \ line -1: no such header\n"
-  code: "#pragma once\n#include \"template/small_template.hpp\"\n\ntemplate<class\
-    \ T = ll>\nstruct Point {\n  T x, y;\n  int8_t quadrant; // 0-index \u8C61\u9650\
-    \n  Point(): x(0), y(0) { setQuadrant(); }\n  Point(T x_, T y_): x(x_), y(y_)\
+  code: "#pragma once\n#include \"template/small_template.hpp\"\n\ntemplate <class\
+    \ T = ll> struct Point {\n  T x, y;\n  int8_t quadrant; // 0-index \u8C61\u9650\
+    \n  Point() : x(0), y(0) { setQuadrant(); }\n  Point(T x_, T y_) : x(x_), y(y_)\
     \ { setQuadrant(); }\n  void setX(T x_) {\n    x = x_;\n    setQuadrant();\n \
-    \ }\n  void setY(T y_) {\n    y = y_;\n    setQuadrant();\n  }\n  void setQuadrant()\
-    \ {\n    int8_t xm = x < 0, ym = y < 0;\n    // 0123\n    // quadrant = (ym <<\
-    \ 1) + (xm ^ ym);\n    // 2301\n    quadrant = (!ym << 1) + (xm ^ ym);\n  }\n\
-    };\n\ntemplate<class T>\nbool operator<(const Point<T> &a, const Point<T> &b)\
-    \ {\n  if (a.quadrant != b.quadrant) {\n    return a.quadrant < b.quadrant;\n\
-    \  }\n  T cross = a.x * b.y - b.x * a.y;\n  if (cross != 0) {\n    return cross\
-    \ > 0;\n  } else if (a.x != b.x) {\n    return a.x < b.x;\n  } else {\n    return\
-    \ a.y < b.y;\n  }\n}\n\ntemplate<class T>\nostream &operator<<(ostream &os, const\
-    \ Point<T> &p) {\n  os << p.x << ' ' << p.y;\n  return os;\n}\n\ntemplate<class\
-    \ T = ll>\nstruct Point3 {\n  T x, y, z;\n  Point3(T x_, T y_, T z_): x(x_), y(y_),\
-    \ z(z_) {}\n};\n"
+    \ }\n  void setY(T y_) {\n    y = y_;\n    setQuadrant();\n  }\n\nprivate:\n \
+    \ void setQuadrant() {\n    int8_t xm = x < 0, ym = y < 0;\n    // 0123\n    //\
+    \ quadrant = (ym << 1) + (xm ^ ym);\n    // 2301\n    quadrant = (!ym << 1) +\
+    \ (xm ^ ym);\n  }\n};\n\ntemplate <class T> bool operator<(const Point<T> &a,\
+    \ const Point<T> &b) {\n  if (a.quadrant != b.quadrant) {\n    return a.quadrant\
+    \ < b.quadrant;\n  }\n  T cross = a.x * b.y - b.x * a.y;\n  if (cross != 0) {\n\
+    \    return cross > 0;\n  } else if (a.x != b.x) {\n    return a.x < b.x;\n  }\
+    \ else {\n    return a.y < b.y;\n  }\n}\n\ntemplate <class T> ostream &operator<<(ostream\
+    \ &os, const Point<T> &p) {\n  os << p.x << ' ' << p.y;\n  return os;\n}\n\ntemplate\
+    \ <class T = ll> struct Point3 {\n  T x, y, z;\n  Point3(T x_, T y_, T z_) : x(x_),\
+    \ y(y_), z(z_) {}\n};\n"
   dependsOn:
   - cpp/template/small_template.hpp
   isVerificationFile: false
   path: cpp/geometry/point.hpp
   requiredBy: []
-  timestamp: '2024-09-18 18:24:28+09:00'
+  timestamp: '2024-10-19 16:46:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - cpp/verify/sort_points_by_argument.test.cpp

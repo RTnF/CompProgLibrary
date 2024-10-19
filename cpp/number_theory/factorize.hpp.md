@@ -61,7 +61,7 @@ data:
   isVerificationFile: false
   path: cpp/number_theory/factorize.hpp
   requiredBy: []
-  timestamp: '2024-09-29 16:45:44+09:00'
+  timestamp: '2024-10-19 16:46:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - cpp/verify/factorize2.test.cpp

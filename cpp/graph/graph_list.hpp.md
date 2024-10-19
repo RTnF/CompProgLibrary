@@ -68,22 +68,23 @@ data:
     \ {\n  os << edge.id << \": \" << edge.from << \" -> \" << edge.to << \" (\" <<\
     \ edge.cost\n     << \")\";\n  return os;\n}\n\n// \u30B0\u30E9\u30D5(\u96A3\u63A5\
     \u30EA\u30B9\u30C8)\ntemplate <class Cost = ll, class E = Edge<Cost>> class ListGraph\
-    \ {\n  int n, m;\n  vector<vector<E>> adj;\n  unordered_map<int, vector<Cost>>\
+    \ {\n  int n_, m_;\n  vector<vector<E>> adj;\n  unordered_map<int, vector<Cost>>\
     \ shortest_path_dist;\n  unordered_map<int, vector<int>> shortest_path_parent;\n\
     \npublic:\n  static const Cost UNREACHABLE;\n  static const Cost NEGATIVE_CYCLE;\n\
-    \  // \u9802\u70B9\u6570 0\n  ListGraph() : n(0), m(0), adj(0) {}\n  // \u9802\
-    \u70B9\u6570 n_\n  ListGraph(int n_) : n(n_), m(0), adj(n_) {}\n\n  vector<E>\
-    \ &operator[](int i) { return adj[i]; }\n\n  void add_node() {\n    adj.emplace_back();\n\
-    \    n++;\n    reset_shortest();\n  }\n  template <class... Args> void add_edge(int\
-    \ from, int to, Args... args) {\n    adj[from].emplace_back(from, to, args...);\n\
-    \    m++;\n    reset_shortest();\n  }\n  // \u53CC\u65B9\u5411\n  template <class...\
+    \  // \u9802\u70B9\u6570 0\n  ListGraph() : n_(0), m_(0), adj(0) {}\n  // \u9802\
+    \u70B9\u6570 n\n  ListGraph(int n) : n_(n), m_(0), adj(n) {}\n\n  vector<E> &operator[](int\
+    \ i) { return adj[i]; }\n\n  void add_node() {\n    adj.emplace_back();\n    n_++;\n\
+    \    reset_shortest();\n  }\n  template <class... Args> void add_edge(int from,\
+    \ int to, Args... args) {\n    adj[from].emplace_back(from, to, args...);\n  \
+    \  m_++;\n    reset_shortest();\n  }\n  // \u53CC\u65B9\u5411\n  template <class...\
     \ Args>\n  void add_bidirectional_edge(int from, int to, Args... args) {\n   \
     \ adj[from].emplace_back(from, to, args...);\n    adj[to].emplace_back(to, from,\
-    \ args...);\n    m += 2;\n    reset_shortest();\n  }\n  void reset_shortest()\
+    \ args...);\n    m_ += 2;\n    reset_shortest();\n  }\n  void reset_shortest()\
     \ {\n    shortest_path_dist.clear();\n    shortest_path_parent.clear();\n  }\n\
     \n  // \u6700\u77ED\u8DDD\u96E2\n  void dijkstra(int start_node);\n  void bellman_ford(int\
     \ start_node);\n  Cost get_dist(int from, int to) { return shortest_path_dist[from][to];\
-    \ }\n  vector<int> get_shortest_path(int from, int to) {\n    vector<int> path;\n\
+    \ }\n  vector<Cost> get_dist(int from) { return shortest_path_dist[from]; }\n\
+    \  vector<int> get_shortest_path(int from, int to) {\n    vector<int> path;\n\
     \    for (int cur = to; cur != -1; cur = shortest_path_parent[from][cur]) {\n\
     \      path.emplace_back(cur);\n    }\n    reverse(path.begin(), path.end());\n\
     \    return path;\n  }\n\n  // \u6700\u5C0F\u5168\u57DF\u68EE\n  Cost prim();\n\
@@ -95,7 +96,7 @@ data:
     \ E>::UNREACHABLE = numeric_limits<Cost>::max() >> 2;\ntemplate <class Cost, class\
     \ E>\nconst Cost ListGraph<Cost, E>::NEGATIVE_CYCLE =\n    numeric_limits<Cost>::min()\
     \ >> 2;\n\ntemplate <class C_, class E_>\nostream &operator<<(ostream &os, const\
-    \ ListGraph<C_, E_> &graph) {\n  os << \"N = \" << graph.n << \", M = \" << graph.m\
+    \ ListGraph<C_, E_> &graph) {\n  os << \"N = \" << graph.n_ << \", M = \" << graph.m_\
     \ << '\\n';\n  for (const auto &ev : graph.adj) {\n    for (const auto &e : ev)\
     \ {\n      os << e << '\\n';\n    }\n  }\n  return os;\n}"
   dependsOn:
@@ -108,7 +109,7 @@ data:
   - cpp/graph/bellman_ford.hpp
   - cpp/graph/lowlink.hpp
   - cpp/graph/topological_sort.hpp
-  timestamp: '2024-09-29 16:45:44+09:00'
+  timestamp: '2024-10-19 19:47:51+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - cpp/verify/bellman_ford.test.cpp
@@ -120,8 +121,119 @@ data:
   - cpp/verify/bridges.test.cpp
 documentation_of: cpp/graph/graph_list.hpp
 layout: document
-redirect_from:
-- /library/cpp/graph/graph_list.hpp
-- /library/cpp/graph/graph_list.hpp.html
-title: cpp/graph/graph_list.hpp
+title: "\u7D20\u96C6\u5408\u30C7\u30FC\u30BF\u69CB\u9020 (Union Find)"
 ---
+<link rel="stylesheet" type="text/css" href="../../css/common.css">
+
+隣接リスト。  
+最短距離と `Dijkstra Tree` のうちの一つをもつ
+
+グラフアルゴリズム：
+- [Bellman-Ford](bellman_ford.hpp)
+- [Dijkstra](dijkstra.hpp)
+- [lowlink](lowlink.hpp)
+- [prim](prim.hpp)
+- [Topological Sort](topological_sort.hpp)
+- [Warshall-Floyd](warshall_floyd.hpp)
+
+## コンストラクタ
+
+```cpp
+ListGraph<Cost = ll, E = Edge<Cost>> graph()
+```
+
+$n$ 頂点、結合がない状態で初期化する
+
+## add_node
+
+```cpp
+void add_node()
+```
+
+頂点を $1$ つ追加する
+
+**計算量**
+
+- ならし $ O(1) $
+
+## add_edge
+
+```cpp
+void add_edge(int from, int to, Args... args)
+```
+
+頂点 $from → to$ の有向辺を追加する  
+`args` は `Edge` のコンストラクタに渡る
+
+**計算量**
+
+- ならし $ O(1) $
+
+## add_bidirectional_edge
+
+```cpp
+void add_bidirectional_edge(int from, int to, Args... args)
+```
+
+頂点 $from → to$ と $to → from$ の有向辺を追加する  
+`args` は `Edge` のコンストラクタに渡る
+
+**計算量**
+
+- ならし $ O(1) $
+
+## operator[]
+
+```cpp
+vector<E> &operator[](int i)
+```
+
+頂点 $i$ の隣接リストを返す
+
+## reset_shortest
+
+```cpp
+void reset_shortest()
+```
+
+最短距離のキャッシュをクリアする。  
+`add_edge` か `add_node` で発動する。
+
+**計算量**
+
+- キャッシュがある場合 $ O(size) $
+
+## get_dist
+
+```cpp
+Cost get_dist(int from, int to)
+vector<Cost> get_dist(int from)
+```
+
+キャッシュから最短距離を返す
+
+## get_shortest_path
+
+```cpp
+vector<int> get_shortest_path(int from, int to)
+```
+
+キャッシュから最短パスを求める
+
+## 定数
+
+```cpp
+Cost ListGraph<Cost, E>::UNREACHABLE
+Cost ListGraph<Cost, E>::NEGATIVE_CYCLE
+```
+
+- `UNREACHABLE` : 最短距離において到達不能 $(\infty)$ を表す
+- `NEGATIVE_CYCLE` : 最短距離において負のループ $(-\infty)$ を表す
+
+## operator<< (出力)
+
+```cpp
+ostream &operator<<(ostream &os, const ListGraph<C_, E_> &graph)
+```
+
+デバッグ用

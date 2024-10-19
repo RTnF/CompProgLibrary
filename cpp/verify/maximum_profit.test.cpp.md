@@ -36,7 +36,7 @@ data:
   isVerificationFile: true
   path: cpp/verify/maximum_profit.test.cpp
   requiredBy: []
-  timestamp: '2024-09-04 08:08:18+09:00'
+  timestamp: '2024-10-19 16:46:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: cpp/verify/maximum_profit.test.cpp

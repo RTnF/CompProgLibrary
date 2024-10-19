@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: cpp/graph/graph_list.hpp
-    title: cpp/graph/graph_list.hpp
+    title: "\u7D20\u96C6\u5408\u30C7\u30FC\u30BF\u69CB\u9020 (Union Find)"
   - icon: ':heavy_check_mark:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
@@ -39,8 +39,8 @@ data:
     \u304C\u5168\u30660\u4EE5\u4E0A\n * \u5230\u9054\u4E0D\u80FD\uFF1Amax\n * https://algo-logic.info/dijkstra/\n\
     \ */\ntemplate <class Cost, class E>\nvoid ListGraph<Cost, E>::dijkstra(int start_node)\
     \ {\n  if (shortest_path_dist.count(start_node)) {\n    return;\n  }\n  using\
-    \ P = pair<Cost, int>;\n  vector<Cost> dist(n, ListGraph::UNREACHABLE);\n  vector<int>\
-    \ parent(n, -1);\n  dist[start_node] = 0;\n  priority_queue<P, vector<P>, greater<P>>\
+    \ P = pair<Cost, int>;\n  vector<Cost> dist(n_, ListGraph::UNREACHABLE);\n  vector<int>\
+    \ parent(n_, -1);\n  dist[start_node] = 0;\n  priority_queue<P, vector<P>, greater<P>>\
     \ pq;\n  pq.emplace(0, start_node);\n  while (!pq.empty()) {\n    P p = pq.top();\n\
     \    pq.pop();\n    Cost v = p.second;\n    if (dist[v] < p.first) {\n      continue;\n\
     \    }\n    for (const auto &e : adj[v]) {\n      if (dist[v] + e.cost < dist[e.to])\
@@ -54,7 +54,7 @@ data:
   isVerificationFile: false
   path: cpp/graph/dijkstra.hpp
   requiredBy: []
-  timestamp: '2024-09-29 16:45:44+09:00'
+  timestamp: '2024-10-19 19:47:51+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - cpp/verify/dijkstra.test.cpp

@@ -43,7 +43,7 @@ data:
     \ mod) -> ull {\n    ull pm = 1;\n    while (y) {\n      if (y & 1) {\n      \
     \  pm = (__uint128_t)pm * x % mod;\n      }\n      x = (__uint128_t)x * x % mod;\n\
     \      y >>= 1;\n    }\n    return pm;\n  };\n  int r = 0;\n  ull d = n - 1;\n\
-    \  while (!(d & 1)) {\n    d >>= 1;\n    ++r;\n  }\n  for (const ull p: {2, 3,\
+    \  while (!(d & 1)) {\n    d >>= 1;\n    ++r;\n  }\n  for (const ull p : {2, 3,\
     \ 5, 7, 11, 13, 17, 19, 23, 29, 31, 37}) {\n    if (p > n - 2) {\n      break;\n\
     \    }\n    ull x = powmod64(p, d, n);\n    if (x == 1 || x == n - 1) {\n    \
     \  continue;\n    }\n    bool cf = true;\n    for (int i = 0; i < r - 1; ++i)\
@@ -56,7 +56,7 @@ data:
   path: cpp/number_theory/is_prime.hpp
   requiredBy:
   - cpp/number_theory/factorize.hpp
-  timestamp: '2024-09-18 18:24:28+09:00'
+  timestamp: '2024-10-19 16:46:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - cpp/verify/factorize2.test.cpp

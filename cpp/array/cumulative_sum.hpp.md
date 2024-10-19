@@ -26,35 +26,35 @@ data:
     \ line -1: no such header\n"
   code: "#pragma once\n#include \"template/small_template.hpp\"\n\n/**\n * @brief\
     \ 1\u6B21\u5143\u7D2F\u7A4D\u548C\n * \u69CB\u7BC9 O(n)\n * \u66F4\u65B0\u4E0D\
-    \u53EF\n * \u90E8\u5206\u548C O(1)\n * @tparam T\n */\ntemplate<class T = ll>\n\
-    class CumulativeSum {\n  vector<T> cs;\n  int n;\n\npublic:\n  CumulativeSum(const\
-    \ vector<T> &v): cs(v.size() + 1), n(v.size()) {\n    cs[0] = T(0);\n    for (int\
-    \ i = 1; i <= n; i++) {\n      cs[i] = cs[i - 1] + v[i - 1];\n    }\n  }\n  //\
-    \ [0, a) 0-n\n  T sum(int a) {\n    assert(0 <= a && a <= n);\n    return cs[a];\n\
-    \  }\n  // [a, b) 0-a-b-n\n  T sum(int a, int b) {\n    assert(0 <= a && a <=\
-    \ b && b <= n);\n    return cs[b] - cs[a];\n  }\n};\n\n/**\n * @brief 2\u6B21\u5143\
-    \u7D2F\u7A4D\u548C\n * \u69CB\u7BC9 O(nm)\n * \u66F4\u65B0\u4E0D\u53EF\n * \u90E8\
-    \u5206\u548C O(1)\n * @tparam T\n */\ntemplate<class T = ll>\nclass CumulativeSum2D\
-    \ {\n  vector<vector<T>> cs;\n  int n, m;\n\npublic:\n  CumulativeSum2D(const\
-    \ vector<vector<T>> &v) {\n    n = v.size();\n    assert(n > 0);\n    m = v[0].size();\n\
-    \    assert(m > 0);\n    for (int i = 1; i < n; i++) {\n      assert(int(v[i].size())\
-    \ == m);\n    }\n    cs.resize(n + 1);\n    cs[0] = vector<T>(m + 1, T(0));\n\
-    \    for (int i = 1; i <= n; i++) {\n      cs[i].reserve(m + 1);\n      cs[i].emplace_back(T(0));\n\
-    \      for (int j = 0; j < m; j++) {\n        cs[i].emplace_back(cs[i].back()\
-    \ + v[i - 1][j]);\n      }\n    }\n    for (int i = 2; i <= n; i++) {\n      for\
-    \ (int j = 1; j <= m; j++)\n        cs[i][j] += cs[i - 1][j];\n    }\n  }\n  //\
-    \ [0, a) 0-n\n  // [0, b) 0-m\n  T sum(int a, int b) {\n    assert(0 <= a && a\
-    \ <= n);\n    assert(0 <= b && b <= m);\n    return cs[a][b];\n  }\n  // [a1,\
-    \ a2) 0-a1-a2-n\n  // [b1, b2) 0-b1-b2-m\n  T sum(int a1, int b1, int a2, int\
-    \ b2) {\n    assert(0 <= a1 && a1 <= a2 && a2 <= n);\n    assert(0 <= b1 && b1\
-    \ <= b2 && b2 <= m);\n    return cs[a2][b2] - cs[a1][b2] - cs[a2][b1] + cs[a1][b1];\n\
-    \  }\n};\n"
+    \u53EF\n * \u90E8\u5206\u548C O(1)\n * @tparam T\n */\ntemplate <class T = ll>\
+    \ class CumulativeSum {\n  vector<T> cs;\n  int n;\n\npublic:\n  CumulativeSum(const\
+    \ vector<T> &v) : cs(v.size() + 1), n(v.size()) {\n    cs[0] = T(0);\n    for\
+    \ (int i = 1; i <= n; i++) {\n      cs[i] = cs[i - 1] + v[i - 1];\n    }\n  }\n\
+    \  // [0, a) 0-n\n  T sum(int a) {\n    assert(0 <= a && a <= n);\n    return\
+    \ cs[a];\n  }\n  // [a, b) 0-a-b-n\n  T sum(int a, int b) {\n    assert(0 <= a\
+    \ && a <= b && b <= n);\n    return cs[b] - cs[a];\n  }\n};\n\n/**\n * @brief\
+    \ 2\u6B21\u5143\u7D2F\u7A4D\u548C\n * \u69CB\u7BC9 O(nm)\n * \u66F4\u65B0\u4E0D\
+    \u53EF\n * \u90E8\u5206\u548C O(1)\n * @tparam T\n */\ntemplate <class T = ll>\
+    \ class CumulativeSum2D {\n  vector<vector<T>> cs;\n  int n, m;\n\npublic:\n \
+    \ CumulativeSum2D(const vector<vector<T>> &v) {\n    n = v.size();\n    assert(n\
+    \ > 0);\n    m = v[0].size();\n    assert(m > 0);\n    for (int i = 1; i < n;\
+    \ i++) {\n      assert(int(v[i].size()) == m);\n    }\n    cs.resize(n + 1);\n\
+    \    cs[0] = vector<T>(m + 1, T(0));\n    for (int i = 1; i <= n; i++) {\n   \
+    \   cs[i].reserve(m + 1);\n      cs[i].emplace_back(T(0));\n      for (int j =\
+    \ 0; j < m; j++) {\n        cs[i].emplace_back(cs[i].back() + v[i - 1][j]);\n\
+    \      }\n    }\n    for (int i = 2; i <= n; i++) {\n      for (int j = 1; j <=\
+    \ m; j++)\n        cs[i][j] += cs[i - 1][j];\n    }\n  }\n  // [0, a) 0-n\n  //\
+    \ [0, b) 0-m\n  T sum(int a, int b) {\n    assert(0 <= a && a <= n);\n    assert(0\
+    \ <= b && b <= m);\n    return cs[a][b];\n  }\n  // [a1, a2) 0-a1-a2-n\n  // [b1,\
+    \ b2) 0-b1-b2-m\n  T sum(int a1, int b1, int a2, int b2) {\n    assert(0 <= a1\
+    \ && a1 <= a2 && a2 <= n);\n    assert(0 <= b1 && b1 <= b2 && b2 <= m);\n    return\
+    \ cs[a2][b2] - cs[a1][b2] - cs[a2][b1] + cs[a1][b1];\n  }\n};\n"
   dependsOn:
   - cpp/template/small_template.hpp
   isVerificationFile: false
   path: cpp/array/cumulative_sum.hpp
   requiredBy: []
-  timestamp: '2024-09-18 18:24:28+09:00'
+  timestamp: '2024-10-19 16:46:12+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp/array/cumulative_sum.hpp
