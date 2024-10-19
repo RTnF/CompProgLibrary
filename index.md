@@ -121,6 +121,9 @@ data:
   - name: cpp/verify
     pages:
     - icon: ':heavy_check_mark:'
+      path: cpp/verify/a_plus_b.test.cpp
+      title: cpp/verify/a_plus_b.test.cpp
+    - icon: ':heavy_check_mark:'
       path: cpp/verify/articulation_points.test.cpp
       title: cpp/verify/articulation_points.test.cpp
     - icon: ':heavy_check_mark:'
