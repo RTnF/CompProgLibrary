@@ -23,7 +23,7 @@ template <class T> ostream &operator<<(ostream &os, const Edge<T> &edge) {
 
 // グラフ(隣接リスト)
 template <class Cost = ll, class E = Edge<Cost>> class ListGraph {
-  int n, m;
+  int n_, m_;
   vector<vector<E>> adj;
   unordered_map<int, vector<Cost>> shortest_path_dist;
   unordered_map<int, vector<int>> shortest_path_parent;
@@ -32,20 +32,20 @@ public:
   static const Cost UNREACHABLE;
   static const Cost NEGATIVE_CYCLE;
   // 頂点数 0
-  ListGraph() : n(0), m(0), adj(0) {}
-  // 頂点数 n_
-  ListGraph(int n_) : n(n_), m(0), adj(n_) {}
+  ListGraph() : n_(0), m_(0), adj(0) {}
+  // 頂点数 n
+  ListGraph(int n) : n_(n), m_(0), adj(n) {}
 
   vector<E> &operator[](int i) { return adj[i]; }
 
   void add_node() {
     adj.emplace_back();
-    n++;
+    n_++;
     reset_shortest();
   }
   template <class... Args> void add_edge(int from, int to, Args... args) {
     adj[from].emplace_back(from, to, args...);
-    m++;
+    m_++;
     reset_shortest();
   }
   // 双方向
@@ -53,7 +53,7 @@ public:
   void add_bidirectional_edge(int from, int to, Args... args) {
     adj[from].emplace_back(from, to, args...);
     adj[to].emplace_back(to, from, args...);
-    m += 2;
+    m_ += 2;
     reset_shortest();
   }
   void reset_shortest() {
@@ -65,6 +65,7 @@ public:
   void dijkstra(int start_node);
   void bellman_ford(int start_node);
   Cost get_dist(int from, int to) { return shortest_path_dist[from][to]; }
+  vector<Cost> get_dist(int from) { return shortest_path_dist[from]; }
   vector<int> get_shortest_path(int from, int to) {
     vector<int> path;
     for (int cur = to; cur != -1; cur = shortest_path_parent[from][cur]) {
@@ -96,7 +97,7 @@ const Cost ListGraph<Cost, E>::NEGATIVE_CYCLE =
 
 template <class C_, class E_>
 ostream &operator<<(ostream &os, const ListGraph<C_, E_> &graph) {
-  os << "N = " << graph.n << ", M = " << graph.m << '\n';
+  os << "N = " << graph.n_ << ", M = " << graph.m_ << '\n';
   for (const auto &ev : graph.adj) {
     for (const auto &e : ev) {
       os << e << '\n';

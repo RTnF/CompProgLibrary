@@ -13,10 +13,10 @@ void ListGraph<Cost, E>::bellman_ford(int start_node) {
   if (shortest_path_dist.count(start_node)) {
     return;
   }
-  vector<Cost> dist(n, ListGraph::UNREACHABLE);
-  vector<int> parent(n, -1);
+  vector<Cost> dist(n_, ListGraph::UNREACHABLE);
+  vector<int> parent(n_, -1);
   dist[start_node] = 0;
-  for (int i = 0; i < n - 1; ++i) {
+  for (int i = 0; i < n_ - 1; ++i) {
     for (auto &es : adj) {
       for (auto &e : es) {
         if (dist[e.from] != ListGraph::UNREACHABLE &&
@@ -27,7 +27,7 @@ void ListGraph<Cost, E>::bellman_ford(int start_node) {
       }
     }
   }
-  for (int i = 0; i < n; ++i) {
+  for (int i = 0; i < n_; ++i) {
     for (auto &es : adj) {
       for (auto &e : es) {
         if (dist[e.from] != ListGraph::UNREACHABLE &&

@@ -14,8 +14,8 @@ void ListGraph<Cost, E>::dijkstra(int start_node) {
     return;
   }
   using P = pair<Cost, int>;
-  vector<Cost> dist(n, ListGraph::UNREACHABLE);
-  vector<int> parent(n, -1);
+  vector<Cost> dist(n_, ListGraph::UNREACHABLE);
+  vector<int> parent(n_, -1);
   dist[start_node] = 0;
   priority_queue<P, vector<P>, greater<P>> pq;
   pq.emplace(0, start_node);

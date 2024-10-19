@@ -13,9 +13,9 @@
 template <class Cost, class E>
 pair<vector<int>, vector<pair<int, int>>> ListGraph<Cost, E>::lowlink() {
   using P = pair<int, int>;
-  vector<bool> visited(n, false);
+  vector<bool> visited(n_, false);
   // ord: 頂点を探索した順番 low: DFS木にない辺を高々1回通って踏める最小のord
-  vector<int> ord(n, 0), low(n, 0), articulation_points;
+  vector<int> ord(n_, 0), low(n_, 0), articulation_points;
   vector<P> bridges;
   int visit_count = 0;
 
@@ -46,7 +46,7 @@ pair<vector<int>, vector<pair<int, int>>> ListGraph<Cost, E>::lowlink() {
       articulation_points.emplace_back(v);
     }
   };
-  for (int i = 0; i < n; ++i) {
+  for (int i = 0; i < n_; ++i) {
     if (!visited[i]) {
       dfs(dfs, i, -1);
     }

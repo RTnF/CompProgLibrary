@@ -12,8 +12,8 @@
 template <class Cost, class E> Cost ListGraph<Cost, E>::prim() {
   Cost mst_dist = 0;
   using P = pair<Cost, int>;
-  vector<Cost> dist(n, ListGraph<Cost>::UNREACHABLE);
-  vector<bool> used(n, false);
+  vector<Cost> dist(n_, ListGraph<Cost>::UNREACHABLE);
+  vector<bool> used(n_, false);
   auto span = [&](int start_node) {
     dist[start_node] = 0;
     priority_queue<P, vector<P>, greater<P>> pq;
@@ -35,7 +35,7 @@ template <class Cost, class E> Cost ListGraph<Cost, E>::prim() {
       }
     }
   };
-  for (int i = 0; i < n; ++i) {
+  for (int i = 0; i < n_; ++i) {
     if (!used[i]) {
       span(i);
     }
