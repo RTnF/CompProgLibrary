@@ -3,10 +3,10 @@ data:
   libraryCategories:
   - name: cpp/algebraic_structure
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: cpp/algebraic_structure/group.hpp
       title: "\u7FA4 (Group)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: cpp/algebraic_structure/monoid.hpp
       title: "\u30E2\u30CE\u30A4\u30C9 (Monoid)"
   - name: cpp/array
@@ -64,7 +64,7 @@ data:
       title: "\u533A\u9593\u306E\u548C\u96C6\u5408"
   - name: cpp/modint
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: cpp/modint/modint.hpp
       title: "\u5270\u4F59\u3092\u53D6\u308A[0, mod)\u306B\u53CE\u3081\u308Bint"
   - name: cpp/number
@@ -87,12 +87,12 @@ data:
       title: cpp/random/xorshift.hpp
   - name: cpp/segment_tree
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: cpp/segment_tree/segment_tree.hpp
       title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 based on ACL"
   - name: cpp/set
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: cpp/set/disjoint_set_union.hpp
       title: "\u7D20\u96C6\u5408\u30C7\u30FC\u30BF\u69CB\u9020 (Union Find)"
     - icon: ':heavy_check_mark:'
@@ -111,7 +111,7 @@ data:
     - icon: ':warning:'
       path: cpp/template/marathon_template.cpp
       title: cpp/template/marathon_template.cpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: cpp/template/small_template.hpp
       title: cpp/template/small_template.hpp
     - icon: ':warning:'
@@ -138,7 +138,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: cpp/verify/dijkstra2.test.cpp
       title: cpp/verify/dijkstra2.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: cpp/verify/disjoint_set_union.test.cpp
       title: cpp/verify/disjoint_set_union.test.cpp
     - icon: ':heavy_check_mark:'
@@ -159,16 +159,16 @@ data:
     - icon: ':heavy_check_mark:'
       path: cpp/verify/multi_set.test.cpp
       title: cpp/verify/multi_set.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: cpp/verify/point_add_range_sum.test.cpp
       title: cpp/verify/point_add_range_sum.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: cpp/verify/point_set_range_composite.test.cpp
       title: cpp/verify/point_set_range_composite.test.cpp
     - icon: ':heavy_check_mark:'
       path: cpp/verify/prim.test.cpp
       title: cpp/verify/prim.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: cpp/verify/segment_tree.test.cpp
       title: cpp/verify/segment_tree.test.cpp
     - icon: ':heavy_check_mark:'
@@ -188,5 +188,4 @@ test5
 
 ## 方針
 
-- GitHub上では `oj-verify` を行わず、ドキュメントのみを生成する
 - 群などはインターフェースにせず、ダックタイピングにする [参考](https://marycore.jp/prog/cpp/interface-class-and-duck-typing/#%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%81%AB%E3%82%88%E3%82%8B%E3%83%80%E3%83%83%E3%82%AF%E3%82%BF%E3%82%A4%E3%83%94%E3%83%B3%E3%82%B0)

@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: cpp/graph/lowlink.hpp
     title: cpp/graph/lowlink.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
   _extendedRequiredBy: []

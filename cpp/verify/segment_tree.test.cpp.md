@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/algebraic_structure/monoid.hpp
     title: "\u30E2\u30CE\u30A4\u30C9 (Monoid)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/segment_tree/segment_tree.hpp
     title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 based on ACL"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://atcoder.jp/contests/practice2/tasks/practice2_j
@@ -52,7 +52,7 @@ data:
   path: cpp/verify/segment_tree.test.cpp
   requiredBy: []
   timestamp: '2024-10-13 18:16:11+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: cpp/verify/segment_tree.test.cpp
 layout: document

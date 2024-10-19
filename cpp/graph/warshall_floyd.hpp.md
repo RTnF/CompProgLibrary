@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: cpp/graph/graph_matrix.hpp
     title: cpp/graph/graph_matrix.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
   _extendedRequiredBy: []

@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/template/small_template.hpp
     title: cpp/template/small_template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/verify/point_add_range_sum.test.cpp
     title: cpp/verify/point_add_range_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/verify/point_set_range_composite.test.cpp
     title: cpp/verify/point_set_range_composite.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/verify/segment_tree.test.cpp
     title: cpp/verify/segment_tree.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 based on ACL"
     links: []
@@ -88,7 +88,7 @@ data:
   path: cpp/segment_tree/segment_tree.hpp
   requiredBy: []
   timestamp: '2024-10-13 18:16:11+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - cpp/verify/point_add_range_sum.test.cpp
   - cpp/verify/point_set_range_composite.test.cpp

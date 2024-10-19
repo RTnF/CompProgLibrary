@@ -2,10 +2,10 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/algebraic_structure/group.hpp
     title: "\u7FA4 (Group)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/algebraic_structure/monoid.hpp
     title: "\u30E2\u30CE\u30A4\u30C9 (Monoid)"
   - icon: ':warning:'
@@ -53,7 +53,7 @@ data:
   - icon: ':warning:'
     path: cpp/interval/interval_union.hpp
     title: "\u533A\u9593\u306E\u548C\u96C6\u5408"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/modint/modint.hpp
     title: "\u5270\u4F59\u3092\u53D6\u308A[0, mod)\u306B\u53CE\u3081\u308Bint"
   - icon: ':warning:'
@@ -68,10 +68,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: cpp/random/xorshift.hpp
     title: cpp/random/xorshift.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/segment_tree/segment_tree.hpp
     title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 based on ACL"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/set/disjoint_set_union.hpp
     title: "\u7D20\u96C6\u5408\u30C7\u30FC\u30BF\u69CB\u9020 (Union Find)"
   - icon: ':heavy_check_mark:'
@@ -102,7 +102,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: cpp/verify/dijkstra2.test.cpp
     title: cpp/verify/dijkstra2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/verify/disjoint_set_union.test.cpp
     title: cpp/verify/disjoint_set_union.test.cpp
   - icon: ':heavy_check_mark:'
@@ -123,16 +123,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: cpp/verify/multi_set.test.cpp
     title: cpp/verify/multi_set.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/verify/point_add_range_sum.test.cpp
     title: cpp/verify/point_add_range_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/verify/point_set_range_composite.test.cpp
     title: cpp/verify/point_set_range_composite.test.cpp
   - icon: ':heavy_check_mark:'
     path: cpp/verify/prim.test.cpp
     title: cpp/verify/prim.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/verify/segment_tree.test.cpp
     title: cpp/verify/segment_tree.test.cpp
   - icon: ':heavy_check_mark:'
@@ -141,9 +141,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: cpp/verify/warshall_floyd.test.cpp
     title: cpp/verify/warshall_floyd.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: '#line 2 "cpp/template/small_template.hpp"
@@ -216,7 +216,7 @@ data:
   - cpp/segment_tree/segment_tree.hpp
   - cpp/number/ratio.hpp
   timestamp: '2024-08-28 19:34:48+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - cpp/verify/bellman_ford.test.cpp
   - cpp/verify/point_add_range_sum.test.cpp
