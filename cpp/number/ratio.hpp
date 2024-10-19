@@ -1,8 +1,7 @@
 #pragma once
 #include "template/small_template.hpp"
 
-template<typename T = ll>
-class Ratio {
+template <typename T = ll> class Ratio {
   // n / d
   T n, d;
 
@@ -21,8 +20,10 @@ class Ratio {
   }
 
 public:
-  Ratio(T nominator, T denominator): n(nominator), d(denominator) { normalize(); }
-  Ratio(T nominator): n(nominator), d(1) {}
+  Ratio(T nominator, T denominator) : n(nominator), d(denominator) {
+    normalize();
+  }
+  Ratio(T nominator) : n(nominator), d(1) {}
 
   strong_ordering operator<=>(const Ratio &r) const {
     T g = gcd(d, r.d);
@@ -80,10 +81,18 @@ public:
   Ratio operator+() const { return *this; }
   Ratio operator-() const { return Ratio(-n, d); }
 
-  friend Ratio operator+(const Ratio &a, const Ratio &b) { return Ratio(a) += b; }
-  friend Ratio operator-(const Ratio &a, const Ratio &b) { return Ratio(a) -= b; }
-  friend Ratio operator*(const Ratio &a, const Ratio &b) { return Ratio(a) *= b; }
-  friend Ratio operator/(const Ratio &a, const Ratio &b) { return Ratio(a) /= b; }
+  friend Ratio operator+(const Ratio &a, const Ratio &b) {
+    return Ratio(a) += b;
+  }
+  friend Ratio operator-(const Ratio &a, const Ratio &b) {
+    return Ratio(a) -= b;
+  }
+  friend Ratio operator*(const Ratio &a, const Ratio &b) {
+    return Ratio(a) *= b;
+  }
+  friend Ratio operator/(const Ratio &a, const Ratio &b) {
+    return Ratio(a) /= b;
+  }
   friend Ratio operator+(const Ratio &a, const T &b) { return Ratio(a) += b; }
   friend Ratio operator-(const Ratio &a, const T &b) { return Ratio(a) -= b; }
   friend Ratio operator*(const Ratio &a, const T &b) { return Ratio(a) *= b; }

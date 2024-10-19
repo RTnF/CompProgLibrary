@@ -8,13 +8,12 @@
  * 部分和 O(1)
  * @tparam T
  */
-template<class T = ll>
-class CumulativeSum {
+template <class T = ll> class CumulativeSum {
   vector<T> cs;
   int n;
 
 public:
-  CumulativeSum(const vector<T> &v): cs(v.size() + 1), n(v.size()) {
+  CumulativeSum(const vector<T> &v) : cs(v.size() + 1), n(v.size()) {
     cs[0] = T(0);
     for (int i = 1; i <= n; i++) {
       cs[i] = cs[i - 1] + v[i - 1];
@@ -39,8 +38,7 @@ public:
  * 部分和 O(1)
  * @tparam T
  */
-template<class T = ll>
-class CumulativeSum2D {
+template <class T = ll> class CumulativeSum2D {
   vector<vector<T>> cs;
   int n, m;
 

@@ -1,6 +1,6 @@
 #pragma once
-#include "template/small_template.hpp"
 #include "graph/graph_list.hpp"
+#include "template/small_template.hpp"
 
 /**
  * Lowlink 関節点・橋の列挙
@@ -10,7 +10,7 @@
  * O(V + E log E) (Lowlink + sort)
  * https://algo-logic.info/articulation-points/
  */
-template<class Cost, class E>
+template <class Cost, class E>
 pair<vector<int>, vector<pair<int, int>>> ListGraph<Cost, E>::lowlink() {
   using P = pair<int, int>;
   vector<bool> visited(n, false);
@@ -24,7 +24,7 @@ pair<vector<int>, vector<pair<int, int>>> ListGraph<Cost, E>::lowlink() {
     low[v] = ord[v] = visit_count++;
     bool is_articular = false;
     int child_count = 0;
-    for (auto &e: adj[v]) {
+    for (auto &e : adj[v]) {
       if (!visited[e.to]) {
         child_count++;
         self(self, e.to, v);

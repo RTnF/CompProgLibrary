@@ -6,7 +6,7 @@ class Xor64 {
   ull s;
 
 public:
-  Xor64(ull s_): s(s_) {}
+  Xor64(ull s_) : s(s_) {}
   // [0, 2**64)
   ull get() {
     ull x = s;

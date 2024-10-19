@@ -1,5 +1,3 @@
-test5
-
 参考：
 - 「プログラミングコンテスト攻略のためのアルゴリズムとデータ構造」(渡部 有隆)
 - [AtCoder Library](https://github.com/atcoder/ac-library)

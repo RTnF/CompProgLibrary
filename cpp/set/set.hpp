@@ -1,6 +1,6 @@
 #pragma once
-#include "template/small_template.hpp"
 #include "random/xorshift.hpp"
+#include "template/small_template.hpp"
 
 /**
  * @brief 重複なしの集合
@@ -10,14 +10,13 @@
  * 実装：Treap https://xuzijian629.hatenablog.com/entry/2018/12/08/000452
  * @tparam T 要素の型
  */
-template<typename T = ll>
-class TreeSet {
+template <typename T = ll> class TreeSet {
   static inline Xor64 rnd = Xor64(192865741288375612ull);
   struct Node {
     T k;
     ull p = rnd.get();
     Node *l = nullptr, *r = nullptr;
-    Node(T key): k(key) {}
+    Node(T key) : k(key) {}
   };
   using Tree = Node *;
   Tree root = nullptr;

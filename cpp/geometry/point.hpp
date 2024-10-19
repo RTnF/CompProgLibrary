@@ -1,12 +1,11 @@
 #pragma once
 #include "template/small_template.hpp"
 
-template<class T = ll>
-struct Point {
+template <class T = ll> struct Point {
   T x, y;
   int8_t quadrant; // 0-index 象限
-  Point(): x(0), y(0) { setQuadrant(); }
-  Point(T x_, T y_): x(x_), y(y_) { setQuadrant(); }
+  Point() : x(0), y(0) { setQuadrant(); }
+  Point(T x_, T y_) : x(x_), y(y_) { setQuadrant(); }
   void setX(T x_) {
     x = x_;
     setQuadrant();
@@ -15,6 +14,8 @@ struct Point {
     y = y_;
     setQuadrant();
   }
+
+private:
   void setQuadrant() {
     int8_t xm = x < 0, ym = y < 0;
     // 0123
@@ -24,8 +25,7 @@ struct Point {
   }
 };
 
-template<class T>
-bool operator<(const Point<T> &a, const Point<T> &b) {
+template <class T> bool operator<(const Point<T> &a, const Point<T> &b) {
   if (a.quadrant != b.quadrant) {
     return a.quadrant < b.quadrant;
   }
@@ -39,14 +39,12 @@ bool operator<(const Point<T> &a, const Point<T> &b) {
   }
 }
 
-template<class T>
-ostream &operator<<(ostream &os, const Point<T> &p) {
+template <class T> ostream &operator<<(ostream &os, const Point<T> &p) {
   os << p.x << ' ' << p.y;
   return os;
 }
 
-template<class T = ll>
-struct Point3 {
+template <class T = ll> struct Point3 {
   T x, y, z;
-  Point3(T x_, T y_, T z_): x(x_), y(y_), z(z_) {}
+  Point3(T x_, T y_, T z_) : x(x_), y(y_), z(z_) {}
 };

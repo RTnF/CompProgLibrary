@@ -1,6 +1,6 @@
 #pragma once
-#include "template/small_template.hpp"
 #include "graph/graph_list.hpp"
+#include "template/small_template.hpp"
 
 /**
  * ベルマンフォード法
@@ -8,7 +8,7 @@
  * 到達不能：max, 負閉路を通る：min
  * https://mhrb-minase.hatenablog.com/entry/2019/08/20/003915
  */
-template<class Cost, class E>
+template <class Cost, class E>
 void ListGraph<Cost, E>::bellman_ford(int start_node) {
   if (shortest_path_dist.count(start_node)) {
     return;
@@ -17,10 +17,10 @@ void ListGraph<Cost, E>::bellman_ford(int start_node) {
   vector<int> parent(n, -1);
   dist[start_node] = 0;
   for (int i = 0; i < n - 1; ++i) {
-    for (auto &es: adj) {
-      for (auto &e: es) {
-        if (dist[e.from] != ListGraph::UNREACHABLE
-            && dist[e.from] + e.cost < dist[e.to]) {
+    for (auto &es : adj) {
+      for (auto &e : es) {
+        if (dist[e.from] != ListGraph::UNREACHABLE &&
+            dist[e.from] + e.cost < dist[e.to]) {
           dist[e.to] = dist[e.from] + e.cost;
           parent[e.to] = e.from;
         }
@@ -28,10 +28,10 @@ void ListGraph<Cost, E>::bellman_ford(int start_node) {
     }
   }
   for (int i = 0; i < n; ++i) {
-    for (auto &es: adj) {
-      for (auto &e: es) {
-        if (dist[e.from] != ListGraph::UNREACHABLE
-            && dist[e.from] + e.cost < dist[e.to]) {
+    for (auto &es : adj) {
+      for (auto &e : es) {
+        if (dist[e.from] != ListGraph::UNREACHABLE &&
+            dist[e.from] + e.cost < dist[e.to]) {
           dist[e.to] = ListGraph::NEGATIVE_CYCLE;
           parent[e.to] = -1;
         }

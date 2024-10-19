@@ -2,8 +2,7 @@
 #include "template/small_template.hpp"
 
 // 個数
-template<class T>
-vector<pair<T, int>> element_count(const T &v) {
+template <class T> vector<pair<T, int>> element_count(const T &v) {
   vector<pair<T, int>> ret;
   int n = v.size();
   if (n == 0) {

@@ -27,7 +27,7 @@ bool is_prime(ull n) {
     d >>= 1;
     ++r;
   }
-  for (const ull p: {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37}) {
+  for (const ull p : {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37}) {
     if (p > n - 2) {
       break;
     }
