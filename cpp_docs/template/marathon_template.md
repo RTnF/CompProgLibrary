@@ -1,6 +1,26 @@
+---
+title: テンプレート
+documentation_of: //cpp/template/marathon_template.cpp
+---
+<link rel="stylesheet" type="text/css" href="../../css/common.css">
+
+## エディタ用折りたたみ
+
+```cpp
 #pragma region template
+#pragma endregion
+```
+
+## 一括インクルード、 `std::` の省略
+
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
+```
+
+## 型の略記
+
+```cpp
 using ll = int64_t;
 using ull = uint64_t;
 using ld = long double;
@@ -22,15 +42,81 @@ using vpii = vector<pii>;
 using vp = vector<pll>;
 using vpdd = vector<pdd>;
 using vpld = vector<pld>;
-template <typename T> using pqrev = priority_queue<T, vector<T>, greater<T>>;
+```
+
+`long long` ではなく、 `long` として扱われる。
+
+## 定数
+
+```cpp
+constexpr int INF = 1e9;
+constexpr double EPS = 1e-12;
+```
+
+`INF + INF` がオーバーフローしないように
+
+## マクロ
+
+```cpp
 #define rep(i, n) for (int i = 0, i##_end = (n); i < i##_end; i++)
 #define repb(i, n) for (int i = (n) - 1; i >= 0; i--)
 #define repr(i, a, b) for (int i = (a), i##_end = (b); i < i##_end; i++)
 #define reprb(i, a, b) for (int i = (b) - 1, i##_end = (a); i >= i##_end; i--)
 #define ALL(a) (a).begin(), (a).end()
 #define SZ(x) ((int)(x).size())
-constexpr int INF = 1e9;
-constexpr double EPS = 1e-12;
+template <typename T> using pqrev = priority_queue<T, vector<T>, greater<T>>;
+```
+
+## ユーティリティ
+
+```cpp
+template <typename S, typename T> constexpr bool chmax(S &a, const T &b) {
+  if (a < b) {
+    a = b;
+    return 1;
+  }
+  return 0;
+}
+template <typename S, typename T> constexpr bool chmin(S &a, const T &b) {
+  if (b < a) {
+    a = b;
+    return 1;
+  }
+  return 0;
+}
+template <typename T> T max(const vector<T> &x) { return *max_element(ALL(x)); }
+template <typename T> T min(const vector<T> &x) { return *min_element(ALL(x)); }
+template <typename T> pair<T, int> argmax(const vector<T> &x) {
+  int idx = 0;
+  T m = x[0];
+  repr(i, 1, SZ(x)) {
+    if (chmax(m, x[i]))
+      idx = i;
+  }
+  return {m, idx};
+}
+template <typename T> pair<T, int> argmin(const vector<T> &x) {
+  int idx = 0;
+  T m = x[0];
+  repr(i, 1, SZ(x)) {
+    if (chmin(m, x[i]))
+      idx = i;
+  }
+  return {m, idx};
+}
+template <typename T> T sum(const vector<T> &x) {
+  return accumulate(ALL(x), T(0));
+}
+// last param -> T
+template <typename T> vector<T> makev(size_t a, T b) { return vector<T>(a, b); }
+template <typename... Args> auto makev(size_t sz, Args... args) {
+  return vector<decltype(makev(args...))>(sz, makev(args...));
+}
+```
+
+## 出力
+
+```cpp
 template <typename S, typename T> inline bool chmax(S &a, const T &b) {
   if (a < b) {
     a = b;
@@ -85,7 +171,11 @@ void print(Head &&head, Tail &&...tail) {
   }
   print(std::forward<Tail>(tail)...);
 }
+```
 
+## タイマー
+
+```cpp
 struct Timer {
   chrono::high_resolution_clock::time_point start, now;
   chrono::nanoseconds nano;
@@ -107,7 +197,11 @@ struct Timer {
   int get_limit_ms() { return threshold / 1000000; }
   bool intime() { return get_ns() <= threshold; }
 } timer;
+```
 
+## 乱数
+
+```cpp
 // https://ja.wikipedia.org/wiki/Xorshift
 class Xor64 {
   ull s;
@@ -136,9 +230,12 @@ public:
     return sqrt(-2.0 * log(x)) * cos(2.0 * M_PI * y);
   }
 } rnd(720759665484242684ull);
+```
 
-#pragma endregion
+## 本体
 
+```cpp
 void solve() {}
 
 int main() { solve(); }
+```

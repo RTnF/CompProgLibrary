@@ -1,5 +1,5 @@
 ---
-title: 素集合データ構造 (Union Find)
+title: グラフ (隣接リスト形式)
 documentation_of: //cpp/graph/graph_list.hpp
 ---
 <link rel="stylesheet" type="text/css" href="../../css/common.css">
