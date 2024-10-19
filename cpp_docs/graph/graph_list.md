@@ -26,7 +26,7 @@ $n$ 頂点、結合がない状態で初期化する
 ## add_node
 
 ```cpp
-void add_node()
+void graph.add_node()
 ```
 
 頂点を $1$ つ追加する
@@ -38,7 +38,7 @@ void add_node()
 ## add_edge
 
 ```cpp
-void add_edge(int from, int to, Args... args)
+void graph.add_edge(int from, int to, Args... args)
 ```
 
 頂点 $from → to$ の有向辺を追加する  
@@ -51,7 +51,7 @@ void add_edge(int from, int to, Args... args)
 ## add_bidirectional_edge
 
 ```cpp
-void add_bidirectional_edge(int from, int to, Args... args)
+void graph.add_bidirectional_edge(int from, int to, Args... args)
 ```
 
 頂点 $from → to$ と $to → from$ の有向辺を追加する  
@@ -64,7 +64,7 @@ void add_bidirectional_edge(int from, int to, Args... args)
 ## operator[]
 
 ```cpp
-vector<E> &operator[](int i)
+vector<E> graph.&operator[](int i)
 ```
 
 頂点 $i$ の隣接リストを返す
@@ -72,7 +72,7 @@ vector<E> &operator[](int i)
 ## reset_shortest
 
 ```cpp
-void reset_shortest()
+void graph.reset_shortest()
 ```
 
 最短距離のキャッシュをクリアする。  
@@ -85,8 +85,8 @@ void reset_shortest()
 ## get_dist
 
 ```cpp
-Cost get_dist(int from, int to)
-vector<Cost> get_dist(int from)
+Cost graph.get_dist(int from, int to)
+vector<Cost> graph.get_dist(int from)
 ```
 
 キャッシュから最短距離を返す
@@ -94,7 +94,7 @@ vector<Cost> get_dist(int from)
 ## get_shortest_path
 
 ```cpp
-vector<int> get_shortest_path(int from, int to)
+vector<int> graph.get_shortest_path(int from, int to)
 ```
 
 キャッシュから最短パスを求める
