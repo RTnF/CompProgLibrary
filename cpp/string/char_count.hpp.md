@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: cpp/template/small_template.hpp
-    title: cpp/template/small_template.hpp
+    title: "\u5171\u901A\u30D8\u30C3\u30C0\u30FC"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -40,8 +40,33 @@ data:
   verifiedWith: []
 documentation_of: cpp/string/char_count.hpp
 layout: document
-redirect_from:
-- /library/cpp/string/char_count.hpp
-- /library/cpp/string/char_count.hpp.html
-title: cpp/string/char_count.hpp
+title: "\u30E9\u30F3\u30EC\u30F3\u30B0\u30B9\u5727\u7E2E"
 ---
+<link rel="stylesheet" type="text/css" href="../../css/common.css">
+
+## char_count
+
+```cpp
+vector<pair<char, int>> char_count(const string &s)
+```
+
+**制約**
+
+文字はASCIIに含まれる。
+
+**計算量**
+
+- $ O(|S|) $
+
+**例**
+
+```cpp
+char_count("")
+// -> []
+
+char_count("abc")
+// -> [('a', 1), ('b', 1), ('c', 1)]
+
+char_count("aaaAAABBbb")
+// -> [('a', 3), ('A', 3), ('B', 2), ('b', 2)]
+```

@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: cpp/template/small_template.hpp
-    title: cpp/template/small_template.hpp
+    title: "\u5171\u901A\u30D8\u30C3\u30C0\u30FC"
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: cpp/graph/bellman_ford.hpp
@@ -121,7 +121,7 @@ data:
   - cpp/verify/bridges.test.cpp
 documentation_of: cpp/graph/graph_list.hpp
 layout: document
-title: "\u7D20\u96C6\u5408\u30C7\u30FC\u30BF\u69CB\u9020 (Union Find)"
+title: "\u30B0\u30E9\u30D5 (\u96A3\u63A5\u30EA\u30B9\u30C8\u5F62\u5F0F)"
 ---
 <link rel="stylesheet" type="text/css" href="../../css/common.css">
 

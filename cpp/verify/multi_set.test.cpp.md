@@ -9,7 +9,7 @@ data:
     title: "\u91CD\u8907\u3042\u308A\u306E\u96C6\u5408"
   - icon: ':heavy_check_mark:'
     path: cpp/template/small_template.hpp
-    title: cpp/template/small_template.hpp
+    title: "\u5171\u901A\u30D8\u30C3\u30C0\u30FC"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -32,15 +32,17 @@ data:
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: set/multiset.hpp:\
     \ line -1: no such header\n"
-  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/lesson/8/ITP2/all/ITP2_7_D\"\
-    \n#include \"set/multiset.hpp\"\n\nint main() {\n  //cin.tie(0);\n  //ios::sync_with_stdio(false);\n\
+  code: "#define PROBLEM                                                         \
+    \       \\\n  \"https://onlinejudge.u-aizu.ac.jp/courses/lesson/8/ITP2/all/ITP2_7_D\"\
+    \n#include \"set/multiset.hpp\"\n\nint main() {\n  cin.tie(0);\n  ios::sync_with_stdio(false);\n\
     \n  TreeMultiSet ms;\n  int q;\n  cin >> q;\n  while (q--) {\n    int type;\n\
-    \    cin >> type;\n    int x, l, r;\n    switch (type) {\n      case 0: // insert\n\
-    \        cin >> x;\n        ms.add(x);\n        cout << ms.size() << endl;\n \
-    \       break;\n      case 1: // find\n        cin >> x;\n        cout << ms.count(x)\
-    \ << endl;\n        break;\n      case 2: // delete\n        cin >> x;\n     \
-    \   ms.removeAll(x);\n        break;\n      case 3: // dump\n        cin >> l\
-    \ >> r;\n        ms.dump(l, r);\n        break;\n    }\n  }\n}"
+    \    cin >> type;\n    int x, l, r;\n    switch (type) {\n    case 0: // insert\n\
+    \      cin >> x;\n      ms.add(x);\n      cout << ms.size() << \"\\n\";\n    \
+    \  break;\n    case 1: // find\n      cin >> x;\n      cout << ms.count(x) <<\
+    \ \"\\n\";\n      break;\n    case 2: // delete\n      cin >> x;\n      ms.removeAll(x);\n\
+    \      break;\n    case 3: // dump\n      cin >> l >> r;\n      ms.aoj_dump(l,\
+    \ r);\n      break;\n    }\n    if (ms.size() < 3000) {\n      ms.verify();\n\
+    \    }\n  }\n}"
   dependsOn:
   - cpp/set/multiset.hpp
   - cpp/random/xorshift.hpp
@@ -48,7 +50,7 @@ data:
   isVerificationFile: true
   path: cpp/verify/multi_set.test.cpp
   requiredBy: []
-  timestamp: '2024-10-19 16:46:12+09:00'
+  timestamp: '2024-10-22 19:23:44+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: cpp/verify/multi_set.test.cpp

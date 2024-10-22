@@ -38,7 +38,7 @@ data:
       title: cpp/graph/dijkstra.hpp
     - icon: ':heavy_check_mark:'
       path: cpp/graph/graph_list.hpp
-      title: "\u7D20\u96C6\u5408\u30C7\u30FC\u30BF\u69CB\u9020 (Union Find)"
+      title: "\u30B0\u30E9\u30D5 (\u96A3\u63A5\u30EA\u30B9\u30C8\u5F62\u5F0F)"
     - icon: ':heavy_check_mark:'
       path: cpp/graph/graph_matrix.hpp
       title: cpp/graph/graph_matrix.hpp
@@ -105,18 +105,18 @@ data:
     pages:
     - icon: ':warning:'
       path: cpp/string/char_count.hpp
-      title: cpp/string/char_count.hpp
+      title: "\u30E9\u30F3\u30EC\u30F3\u30B0\u30B9\u5727\u7E2E"
   - name: cpp/template
     pages:
     - icon: ':warning:'
       path: cpp/template/marathon_template.cpp
-      title: cpp/template/marathon_template.cpp
+      title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
     - icon: ':heavy_check_mark:'
       path: cpp/template/small_template.hpp
-      title: cpp/template/small_template.hpp
+      title: "\u5171\u901A\u30D8\u30C3\u30C0\u30FC"
     - icon: ':warning:'
       path: cpp/template/template.cpp
-      title: cpp/template/template.cpp
+      title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   verificationCategories:
   - name: cpp/verify
     pages:
