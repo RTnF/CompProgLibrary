@@ -14,14 +14,32 @@ template <typename T = ll> class TreeMultiSet {
   static inline Xor64 rnd = Xor64(192865741288375612ull);
   struct Node {
     T k;
-    int c = 1;
+    size_t c = 1;  // 個数
+    size_t cr = 1; // 部分木を合わせた個数
     ull p = rnd.get();
     Node *l = nullptr, *r = nullptr;
     Node(T key) : k(key) {}
   };
+  friend ostream &operator<<(ostream &os, const Node &t) {
+    os << "[" << &t << "](k=" << t.k << ", p=" << t.p << ", c=" << t.c
+       << ", cr=" << t.cr << ", l=" << t.l << ", r=" << t.r << ")";
+    return os;
+  }
   using Tree = Node *;
   Tree root = nullptr;
-  int n = 0;
+  size_t n_ = 0;
+
+  void update_cr(Tree t) {
+    if (t) {
+      t->cr = t->c;
+      if (t->l) {
+        t->cr += t->l->cr;
+      }
+      if (t->r) {
+        t->cr += t->r->cr;
+      }
+    }
+  }
 
   void split(Tree t, T key, Tree &l, Tree &r) {
     if (!t) {
@@ -33,6 +51,7 @@ template <typename T = ll> class TreeMultiSet {
       split(t->r, key, t->r, r);
       l = t;
     }
+    update_cr(t);
   }
 
   void merge(Tree &t, Tree l, Tree r) {
@@ -45,6 +64,7 @@ template <typename T = ll> class TreeMultiSet {
       merge(r->l, l, r->l);
       t = r;
     }
+    update_cr(t);
   }
 
   void insert(Tree &t, Tree item) {
@@ -56,6 +76,7 @@ template <typename T = ll> class TreeMultiSet {
     } else {
       insert(item->k < t->k ? t->l : t->r, item);
     }
+    update_cr(t);
   }
 
   void remove(Tree &t, T key) {
@@ -64,20 +85,70 @@ template <typename T = ll> class TreeMultiSet {
     } else {
       remove(key < t->k ? t->l : t->r, key);
     }
+    update_cr(t);
   }
 
   // AOJ
-  void dump(Tree &t, int l, int r) {
+  void aoj_dump(Tree &t, T l, T r) {
     if (t->l && t->k > l) {
-      dump(t->l, l, r);
+      aoj_dump(t->l, l, r);
     }
     if (l <= t->k && t->k <= r) {
-      for (int i = 0; i < t->c; i++) {
+      for (size_t i = 0; i < t->c; i++) {
         cout << t->k << '\n';
       }
     }
     if (t->r && t->k < r) {
-      dump(t->r, l, r);
+      aoj_dump(t->r, l, r);
+    }
+  }
+
+  void print(Tree t) {
+    if (t) {
+      cout << (*t) << "\n";
+      if (t->l) {
+        print(t->l);
+      }
+      if (t->r) {
+        print(t->r);
+      }
+    }
+  }
+
+  // 検証
+  void verify(Tree t, size_t &n_v) {
+    if (t) {
+      n_v += t->c;
+      size_t cr = t->c;
+      if (t->l) {
+        cr += t->l->cr;
+      }
+      if (t->r) {
+        cr += t->r->cr;
+      }
+      if (cr != t->cr) {
+        print(root);
+        cout.flush();
+        assert(false);
+      }
+      if (t->l) {
+        verify(t->l, n_v);
+      }
+      if (t->r) {
+        verify(t->r, n_v);
+      }
+    }
+  }
+
+  T find_by_order(Tree t, size_t k) {
+    assert(t);
+    size_t sz_l = t->l ? t->l->cr : 0;
+    if (k < sz_l) {
+      return find_by_order(t->l, k);
+    } else if (k < sz_l + t->c) {
+      return t->k;
+    } else {
+      return find_by_order(t->r, k - sz_l - t->c);
     }
   }
 
@@ -85,44 +156,75 @@ public:
   TreeMultiSet() = default;
 
   /**
-   * @brief 要素の追加
+   * @brief 要素のn個追加
    *
    * @param key
-   * @return int 追加後の同じ要素の数
+   * @return size_t 追加後の同じ要素の数
    */
-  int add(T key) {
-    n++;
+  size_t add(T key, size_t n = 1) {
+    n_ += n;
     Tree t = root;
+    bool found = false;
     while (t) {
       if (key == t->k) {
-        t->c++;
-        return t->c;
+        found = true;
+        break;
       }
       t = key < t->k ? t->l : t->r;
     }
+    if (found) {
+      t = root;
+      while (t) {
+        t->cr += n;
+        if (key == t->k) {
+          t->c += n;
+          return t->c;
+        }
+        t = key < t->k ? t->l : t->r;
+      }
+    }
     insert(root, new Node(key));
-    return 1;
+    return n;
   }
 
   /**
-   * @brief 指定した要素の1個削除
+   * @brief 指定した要素のn個削除
+   * 要素がn個を下回る場合は何もしない
    *
    * @param key
    * @return bool 削除出来た場合true
    */
-  bool remove(T key) {
+  bool remove(T key, size_t n = 1) {
     Tree t = root;
+    bool found = false;
     while (t) {
       if (key == t->k) {
-        if (t->c > 1) {
-          t->c--;
-        } else {
+        if (t->c == n) {
+          n_ -= n;
           remove(root, key);
+        } else if (t->c > n) {
+          n_ -= n;
+          t->c -= n;
+          t->cr -= n;
+          found = true;
+          break;
+        } else {
+          return false;
         }
-        n--;
         return true;
       }
       t = key < t->k ? t->l : t->r;
+    }
+    if (found) {
+      t = root;
+      while (t) {
+        t->cr -= n;
+        if (key == t->k) {
+          t->c -= n;
+          return true;
+        }
+        t = key < t->k ? t->l : t->r;
+      }
     }
     return false;
   }
@@ -131,14 +233,14 @@ public:
    * @brief 指定した要素の全削除
    *
    * @param key
-   * @return int 削除した要素数
+   * @return size_t 削除した要素数
    */
-  int removeAll(T key) {
+  size_t removeAll(T key) {
     Tree t = root;
     while (t) {
       if (key == t->k) {
-        int ret = t->c;
-        n -= ret;
+        size_t ret = t->c;
+        n_ -= ret;
         remove(root, key);
         return ret;
       }
@@ -147,7 +249,8 @@ public:
     return 0;
   }
 
-  int count(T key) {
+  // 検索 個数を返す O(log n)
+  size_t count(T key) {
     Tree t = root;
     while (t) {
       if (key == t->k) {
@@ -166,12 +269,32 @@ public:
     return t->k;
   }
 
+  T max() {
+    Tree t = root;
+    while (t->r) {
+      t = t->r;
+    }
+    return t->k;
+  }
+
+  // K番目の要素(0-indexed)
+  T get_kth(size_t k) { assert(0 <= k && k < n_); }
+
   // AOJ
-  void dump(int l, int r) {
+  void aoj_dump(T l, T r) {
     if (root) {
-      dump(root, l, r);
+      aoj_dump(root, l, r);
     }
   }
 
-  int size() { return n; }
+  size_t size() { return n_; }
+
+  void verify() {
+    if (root) {
+      // 総数がn_に一致
+      size_t n_v = 0;
+      verify(root, n_v);
+      assert(n_ == n_v);
+    }
+  }
 };
