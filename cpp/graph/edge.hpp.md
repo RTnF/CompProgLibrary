@@ -46,6 +46,9 @@ data:
     path: cpp/verify/dijkstra2.test.cpp
     title: cpp/verify/dijkstra2.test.cpp
   - icon: ':heavy_check_mark:'
+    path: cpp/verify/lowest_common_ancestor.test.cpp
+    title: cpp/verify/lowest_common_ancestor.test.cpp
+  - icon: ':heavy_check_mark:'
     path: cpp/verify/prim.test.cpp
     title: cpp/verify/prim.test.cpp
   - icon: ':heavy_check_mark:'
@@ -98,6 +101,7 @@ data:
   - cpp/verify/detect_cycle_directed.test.cpp
   - cpp/verify/prim.test.cpp
   - cpp/verify/dijkstra2.test.cpp
+  - cpp/verify/lowest_common_ancestor.test.cpp
   - cpp/verify/bridges.test.cpp
 documentation_of: cpp/graph/edge.hpp
 layout: document

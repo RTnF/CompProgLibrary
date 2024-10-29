@@ -33,23 +33,24 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: graph/graph_list.hpp:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: graph/prim.hpp:\
     \ line -1: no such header\n"
-  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_A\"\
-    \n#include \"graph/graph_list.hpp\"\n#include \"graph/prim.hpp\"\n\nint main()\
+  code: "#define PROBLEM                                                         \
+    \       \\\n  \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_A\"\
+    \n#include \"graph/prim.hpp\"\n#include \"graph/graph_list.hpp\"\n\nint main()\
     \ {\n  cin.tie(0);\n  ios::sync_with_stdio(false);\n  int V, E;\n  cin >> V >>\
     \ E;\n  ListGraph graph(V);\n  for (int i = 0; i < E; ++i) {\n    int s, t, d;\n\
     \    cin >> s >> t >> d;\n    graph.add_bidirectional_edge(s, t, d);\n  }\n  cout\
     \ << graph.prim() << '\\n';\n}"
   dependsOn:
+  - cpp/graph/prim.hpp
   - cpp/graph/graph_list.hpp
   - cpp/graph/edge.hpp
   - cpp/template/small_template.hpp
-  - cpp/graph/prim.hpp
   isVerificationFile: true
   path: cpp/verify/prim.test.cpp
   requiredBy: []
-  timestamp: '2024-10-29 23:42:15+09:00'
+  timestamp: '2024-10-30 01:21:21+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: cpp/verify/prim.test.cpp

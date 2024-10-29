@@ -20,9 +20,9 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/tree_diameter
+    PROBLEM: https://judge.yosupo.jp/problem/lca
     links:
-    - https://judge.yosupo.jp/problem/tree_diameter
+    - https://judge.yosupo.jp/problem/lca
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
@@ -35,28 +35,27 @@ data:
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: tree/tree.hpp:\
     \ line -1: no such header\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/tree_diameter\"\n#include\
-    \ \"tree/tree.hpp\"\n\nint main() {\n  cin.tie(0);\n  ios::sync_with_stdio(false);\n\
-    \  int N;\n  cin >> N;\n  vector<int> a(N - 1), b(N - 1);\n  vector<ll> c(N -\
-    \ 1);\n  for (int i = 0; i < N - 1; i++) {\n    cin >> a[i] >> b[i] >> c[i];\n\
-    \  }\n  Tree t(a, b, c);\n  auto [df, dt, d] = t.diameter();\n  auto path = t.path(df,\
-    \ dt);\n  cout << d << ' ' << path.size() << '\\n';\n  for (int i = 0; i < (int)path.size();\
-    \ i++) {\n    cout << path[i] << \" \\n\"[i + 1 == (int)path.size()];\n  }\n}"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/lca\"\n#include \"tree/tree.hpp\"\
+    \n\nint main() {\n  cin.tie(0);\n  ios::sync_with_stdio(false);\n  int n, q;\n\
+    \  cin >> n >> q;\n  vector<int> p(n);\n  p[0] = 0;\n  for (int i = 1; i < n;\
+    \ i++) {\n    cin >> p[i];\n  }\n  Tree t(p);\n  t.build_ancestor();\n  while\
+    \ (q--) {\n    int u, v;\n    cin >> u >> v;\n    cout << t.lowest_common_ancestor(u,\
+    \ v) << '\\n';\n  }\n}"
   dependsOn:
   - cpp/tree/tree.hpp
   - cpp/array/doubling.hpp
   - cpp/template/small_template.hpp
   - cpp/graph/edge.hpp
   isVerificationFile: true
-  path: cpp/verify/tree_diameter.test.cpp
+  path: cpp/verify/lowest_common_ancestor.test.cpp
   requiredBy: []
   timestamp: '2024-10-30 01:21:21+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: cpp/verify/tree_diameter.test.cpp
+documentation_of: cpp/verify/lowest_common_ancestor.test.cpp
 layout: document
 redirect_from:
-- /verify/cpp/verify/tree_diameter.test.cpp
-- /verify/cpp/verify/tree_diameter.test.cpp.html
-title: cpp/verify/tree_diameter.test.cpp
+- /verify/cpp/verify/lowest_common_ancestor.test.cpp
+- /verify/cpp/verify/lowest_common_ancestor.test.cpp.html
+title: cpp/verify/lowest_common_ancestor.test.cpp
 ---

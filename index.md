@@ -14,6 +14,9 @@ data:
     - icon: ':warning:'
       path: cpp/array/cumulative_sum.hpp
       title: "1\u6B21\u5143\u7D2F\u7A4D\u548C"
+    - icon: ':heavy_check_mark:'
+      path: cpp/array/doubling.hpp
+      title: cpp/array/doubling.hpp
     - icon: ':warning:'
       path: cpp/array/element_count.hpp
       title: cpp/array/element_count.hpp
@@ -162,6 +165,9 @@ data:
       path: cpp/verify/is_prime.test.cpp
       title: cpp/verify/is_prime.test.cpp
     - icon: ':heavy_check_mark:'
+      path: cpp/verify/lowest_common_ancestor.test.cpp
+      title: cpp/verify/lowest_common_ancestor.test.cpp
+    - icon: ':heavy_check_mark:'
       path: cpp/verify/many_a_plus_b.test.cpp
       title: cpp/verify/many_a_plus_b.test.cpp
     - icon: ':heavy_check_mark:'
@@ -197,6 +203,7 @@ layout: toppage
 - 「プログラミングコンテスト攻略のためのアルゴリズムとデータ構造」(渡部 有隆)
 - [AtCoder Library](https://github.com/atcoder/ac-library)
 - [Joeの精進記録](https://xuzijian629.hatenablog.com/)
+- [いかたこのたこつぼ > アルゴリズム](https://ikatakos.com/pot/programming_algorithm)
 
 ## 方針
 
