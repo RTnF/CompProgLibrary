@@ -8,24 +8,27 @@ template <class Cost = ll, class E = Edge<Cost>> class Tree {
   vector<vector<E>> adj;
   vector<int> parent_;           // 0の親は0
   vector<int> depth_;            // 深さ(根からの辺の数)
+  vector<int> cost_depth_;       // 深さ(コスト合計)
   vector<vector<int>> ancestor_; // 2**i回遡った祖先
 
   void build_parent() {
-    stack<pair<int, int>> s;
+    stack<tuple<int, int, Cost>> s;
     basic_string<bool> visited(n_, false);
     visited[0] = true;
     parent_[0] = 0;
     depth_[0] = 0;
-    s.emplace(0, 0);
+    cost_depth_[0] = 0;
+    s.emplace(0, 0, 0);
     while (s.size()) {
-      auto [node, d] = s.top();
+      auto [node, d, dc] = s.top();
       s.pop();
       for (auto &&e : adj[node]) {
         if (!visited[e.to]) {
           visited[e.to] = true;
           parent_[e.to] = node;
           depth_[e.to] = d + 1;
-          s.emplace(e.to, d + 1);
+          cost_depth_[e.to] = dc + e.cost;
+          s.emplace(e.to, d + 1, dc + e.cost);
         }
       }
     }
@@ -58,10 +61,10 @@ template <class Cost = ll, class E = Edge<Cost>> class Tree {
 
 public:
   Tree(vector<int> &from, vector<int> &to, vector<Cost> &cost)
-      : n_(from.size() + 1), adj(n_), parent_(n_), depth_(n_) {
+      : n_(from.size() + 1), adj(n_), parent_(n_), depth_(n_), cost_depth_(n_) {
     assert(n_ == (int)to.size() + 1);
     assert(n_ == (int)cost.size() + 1);
-    for (int i = 0; i < n_; i++) {
+    for (int i = 0; i < n_ - 1; i++) {
       assert(0 <= from[i]);
       assert(from[i] < n_);
       assert(0 <= to[i]);
@@ -71,9 +74,22 @@ public:
     }
     build_parent();
   }
+  Tree(vector<int> &from, vector<int> &to)
+      : n_(from.size() + 1), adj(n_), parent_(n_), depth_(n_), cost_depth_(n_) {
+    assert(n_ == (int)to.size() + 1);
+    for (int i = 0; i < n_ - 1; i++) {
+      assert(0 <= from[i]);
+      assert(from[i] < n_);
+      assert(0 <= to[i]);
+      assert(to[i] < n_);
+      adj[from[i]].emplace_back(from[i], to[i]);
+      adj[to[i]].emplace_back(to[i], from[i]);
+    }
+    build_parent();
+  }
   // 引数parentは0が根でなくてもよい
   Tree(vector<int> &parent)
-      : n_(parent.size()), adj(n_), parent_(n_), depth_(n_) {
+      : n_(parent.size()), adj(n_), parent_(n_), depth_(n_), cost_depth_(n_) {
     assert(n_ > 0);
     for (int i = 0; i < n_; i++) {
       if (i != parent[i] && 0 <= parent[i] && parent[i] < n_) {
@@ -158,6 +174,28 @@ public:
       }
     }
     return ancestor_[0][u];
+  }
+
+  // 距離 O(log N)
+  Cost distance(int u, int v) const {
+    assert(0 <= u);
+    assert(u < n_);
+    assert(0 <= v);
+    assert(v < n_);
+    return cost_depth_[u] + cost_depth_[v] -
+           cost_depth_[lowest_common_ancestor(u, v)] * 2;
+  }
+
+  int depth(int v) const {
+    assert(0 <= v);
+    assert(v < n_);
+    return depth_[v];
+  }
+
+  Cost cost_depth(int v) const {
+    assert(0 <= v);
+    assert(v < n_);
+    return cost_depth_[v];
   }
 
   vector<E> &operator[](int i) const { return adj[i]; }
