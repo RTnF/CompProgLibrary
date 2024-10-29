@@ -2,6 +2,9 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
+    path: cpp/graph/edge.hpp
+    title: cpp/graph/edge.hpp
+  - icon: ':heavy_check_mark:'
     path: cpp/graph/graph_list.hpp
     title: "\u30B0\u30E9\u30D5 (\u96A3\u63A5\u30EA\u30B9\u30C8\u5F62\u5F0F)"
   - icon: ':heavy_check_mark:'
@@ -50,11 +53,12 @@ data:
     }"
   dependsOn:
   - cpp/graph/graph_list.hpp
+  - cpp/graph/edge.hpp
   - cpp/template/small_template.hpp
   isVerificationFile: false
   path: cpp/graph/dijkstra.hpp
   requiredBy: []
-  timestamp: '2024-10-19 19:47:51+09:00'
+  timestamp: '2024-10-29 23:42:15+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - cpp/verify/dijkstra.test.cpp

@@ -30,6 +30,9 @@ data:
     path: cpp/graph/dijkstra.hpp
     title: cpp/graph/dijkstra.hpp
   - icon: ':heavy_check_mark:'
+    path: cpp/graph/edge.hpp
+    title: cpp/graph/edge.hpp
+  - icon: ':heavy_check_mark:'
     path: cpp/graph/graph_list.hpp
     title: "\u30B0\u30E9\u30D5 (\u96A3\u63A5\u30EA\u30B9\u30C8\u5F62\u5F0F)"
   - icon: ':heavy_check_mark:'
@@ -83,6 +86,9 @@ data:
   - icon: ':warning:'
     path: cpp/string/char_count.hpp
     title: "\u30E9\u30F3\u30EC\u30F3\u30B0\u30B9\u5727\u7E2E"
+  - icon: ':heavy_check_mark:'
+    path: cpp/tree/tree.hpp
+    title: cpp/tree/tree.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: cpp/verify/articulation_points.test.cpp
@@ -138,6 +144,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: cpp/verify/sort_points_by_argument.test.cpp
     title: cpp/verify/sort_points_by_argument.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: cpp/verify/tree_diameter.test.cpp
+    title: cpp/verify/tree_diameter.test.cpp
   - icon: ':heavy_check_mark:'
     path: cpp/verify/warshall_floyd.test.cpp
     title: cpp/verify/warshall_floyd.test.cpp
@@ -203,6 +212,7 @@ data:
   - cpp/graph/graph_list.hpp
   - cpp/graph/prim.hpp
   - cpp/graph/dijkstra.hpp
+  - cpp/graph/edge.hpp
   - cpp/graph/warshall_floyd.hpp
   - cpp/graph/bellman_ford.hpp
   - cpp/graph/graph_matrix.hpp
@@ -211,6 +221,7 @@ data:
   - cpp/set/set.hpp
   - cpp/set/multiset.hpp
   - cpp/set/disjoint_set_union.hpp
+  - cpp/tree/tree.hpp
   - cpp/algebraic_structure/group.hpp
   - cpp/algebraic_structure/monoid.hpp
   - cpp/segment_tree/segment_tree.hpp
@@ -221,6 +232,7 @@ data:
   - cpp/verify/bellman_ford.test.cpp
   - cpp/verify/point_add_range_sum.test.cpp
   - cpp/verify/factorize2.test.cpp
+  - cpp/verify/tree_diameter.test.cpp
   - cpp/verify/multi_set.test.cpp
   - cpp/verify/point_set_range_composite.test.cpp
   - cpp/verify/sort_points_by_argument.test.cpp

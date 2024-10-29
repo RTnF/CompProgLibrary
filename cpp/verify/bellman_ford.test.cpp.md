@@ -5,6 +5,9 @@ data:
     path: cpp/graph/bellman_ford.hpp
     title: cpp/graph/bellman_ford.hpp
   - icon: ':heavy_check_mark:'
+    path: cpp/graph/edge.hpp
+    title: cpp/graph/edge.hpp
+  - icon: ':heavy_check_mark:'
     path: cpp/graph/graph_list.hpp
     title: "\u30B0\u30E9\u30D5 (\u96A3\u63A5\u30EA\u30B9\u30C8\u5F62\u5F0F)"
   - icon: ':heavy_check_mark:'
@@ -38,19 +41,20 @@ data:
     \  int V, E, r;\n  cin >> V >> E >> r;\n  ListGraph graph(V);\n  for (int i =\
     \ 0; i < E; ++i) {\n    int s, t, d;\n    cin >> s >> t >> d;\n    graph.add_edge(s,\
     \ t, d);\n  }\n  graph.bellman_ford(r);\n  for (int i = 0; i < V; ++i) {\n   \
-    \ ll dist = graph.get_dist(r, i);\n    if (dist == ListGraph<ll>::NEGATIVE_CYCLE)\
+    \ ll dist = graph.distance(r, i);\n    if (dist == ListGraph<ll>::NEGATIVE_CYCLE)\
     \ {\n      cout << \"NEGATIVE CYCLE\\n\";\n      return 0;\n    }\n  }\n  for\
-    \ (int i = 0; i < V; ++i) {\n    ll dist = graph.get_dist(r, i);\n    if (dist\
+    \ (int i = 0; i < V; ++i) {\n    ll dist = graph.distance(r, i);\n    if (dist\
     \ == ListGraph<ll>::UNREACHABLE) {\n      cout << \"INF\\n\";\n    } else {\n\
     \      cout << dist << '\\n';\n    }\n  }\n}"
   dependsOn:
   - cpp/graph/bellman_ford.hpp
   - cpp/graph/graph_list.hpp
+  - cpp/graph/edge.hpp
   - cpp/template/small_template.hpp
   isVerificationFile: true
   path: cpp/verify/bellman_ford.test.cpp
   requiredBy: []
-  timestamp: '2024-10-19 19:47:51+09:00'
+  timestamp: '2024-10-29 23:42:15+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: cpp/verify/bellman_ford.test.cpp

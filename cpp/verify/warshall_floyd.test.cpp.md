@@ -39,8 +39,8 @@ data:
     \ ++i) {\n    int s, t;\n    ll d;\n    cin >> s >> t >> d;\n    g.add_edge(s,\
     \ t, d);\n  }\n  g.warshall_floyd();\n  if (g.has_negative_cycle()) {\n    cout\
     \ << \"NEGATIVE CYCLE\\n\";\n  } else {\n    for (int i = 0; i < V; ++i) {\n \
-    \     for (int j = 0; j < V; ++j) {\n        if (g.get_dist(i, j) >= MatrixGraph<>::UNREACHABLE)\
-    \ {\n          cout << \"INF\";\n        } else {\n          cout << g.get_dist(i,\
+    \     for (int j = 0; j < V; ++j) {\n        if (g.distance(i, j) >= MatrixGraph<>::UNREACHABLE)\
+    \ {\n          cout << \"INF\";\n        } else {\n          cout << g.distance(i,\
     \ j);\n        }\n        cout << \" \\n\"[j == V - 1];\n      }\n    }\n  }\n\
     }"
   dependsOn:
@@ -50,7 +50,7 @@ data:
   isVerificationFile: true
   path: cpp/verify/warshall_floyd.test.cpp
   requiredBy: []
-  timestamp: '2024-10-19 16:46:12+09:00'
+  timestamp: '2024-10-29 23:42:15+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: cpp/verify/warshall_floyd.test.cpp

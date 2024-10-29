@@ -37,7 +37,7 @@ data:
     \ n(n_), m(0), mat(n_, vector<Cost>(n_, MatrixGraph::UNREACHABLE)) {\n    for\
     \ (int i = 0; i < n; ++i) {\n      mat[i][i] = 0;\n    }\n  }\n\n  void add_edge(int\
     \ from, int to, Cost cost = 1) {\n    mat[from][to] = cost;\n    m++;\n  }\n\n\
-    \  // \u6700\u77ED\u8DDD\u96E2\n  void warshall_floyd();\n  Cost get_dist(int\
+    \  // \u6700\u77ED\u8DDD\u96E2\n  void warshall_floyd();\n  Cost distance(int\
     \ from, int to) { return shortest_path_dist[from][to]; }\n  vector<int> get_shortest_path(int\
     \ from, int to) {\n    vector<int> path;\n    for (int cur = to; cur != from;\
     \ cur = shortest_path_parent[from][cur]) {\n      path.emplace_back(cur);\n  \
@@ -57,7 +57,7 @@ data:
   path: cpp/graph/graph_matrix.hpp
   requiredBy:
   - cpp/graph/warshall_floyd.hpp
-  timestamp: '2024-10-19 16:46:12+09:00'
+  timestamp: '2024-10-29 23:42:15+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - cpp/verify/warshall_floyd.test.cpp

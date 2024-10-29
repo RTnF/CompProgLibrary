@@ -5,6 +5,9 @@ data:
     path: cpp/graph/dijkstra.hpp
     title: cpp/graph/dijkstra.hpp
   - icon: ':heavy_check_mark:'
+    path: cpp/graph/edge.hpp
+    title: cpp/graph/edge.hpp
+  - icon: ':heavy_check_mark:'
     path: cpp/graph/graph_list.hpp
     title: "\u30B0\u30E9\u30D5 (\u96A3\u63A5\u30EA\u30B9\u30C8\u5F62\u5F0F)"
   - icon: ':heavy_check_mark:'
@@ -36,20 +39,20 @@ data:
     \ \"graph/dijkstra.hpp\"\n\nint main() {\n  cin.tie(0);\n  ios::sync_with_stdio(false);\n\
     \  int V, E, start, goal;\n  cin >> V >> E >> start >> goal;\n  ListGraph graph(V);\n\
     \  for (int i = 0; i < E; ++i) {\n    int s, t, d;\n    cin >> s >> t >> d;\n\
-    \    graph.add_edge(s, t, d);\n  }\n  graph.dijkstra(start);\n  ll dist = graph.get_dist(start,\
+    \    graph.add_edge(s, t, d);\n  }\n  graph.dijkstra(start);\n  ll dist = graph.distance(start,\
     \ goal);\n  if (dist == ListGraph<>::UNREACHABLE) {\n    cout << \"-1\\n\";\n\
-    \  } else {\n    auto ans = graph.get_shortest_path(start, goal);\n    int n =\
-    \ (int)ans.size() - 1;\n    cout << dist << ' ' << n << '\\n';\n    for (int i\
-    \ = 0; i < n; ++i) {\n      cout << ans[i] << ' ' << ans[i + 1] << '\\n';\n  \
-    \  }\n  }\n}"
+    \  } else {\n    auto ans = graph.shortest_path(start, goal);\n    int n = (int)ans.size()\
+    \ - 1;\n    cout << dist << ' ' << n << '\\n';\n    for (int i = 0; i < n; ++i)\
+    \ {\n      cout << ans[i] << ' ' << ans[i + 1] << '\\n';\n    }\n  }\n}"
   dependsOn:
   - cpp/graph/dijkstra.hpp
   - cpp/graph/graph_list.hpp
+  - cpp/graph/edge.hpp
   - cpp/template/small_template.hpp
   isVerificationFile: true
   path: cpp/verify/dijkstra2.test.cpp
   requiredBy: []
-  timestamp: '2024-10-19 19:47:51+09:00'
+  timestamp: '2024-10-29 23:42:15+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: cpp/verify/dijkstra2.test.cpp

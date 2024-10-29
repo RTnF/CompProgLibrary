@@ -37,6 +37,9 @@ data:
       path: cpp/graph/dijkstra.hpp
       title: cpp/graph/dijkstra.hpp
     - icon: ':heavy_check_mark:'
+      path: cpp/graph/edge.hpp
+      title: cpp/graph/edge.hpp
+    - icon: ':heavy_check_mark:'
       path: cpp/graph/graph_list.hpp
       title: "\u30B0\u30E9\u30D5 (\u96A3\u63A5\u30EA\u30B9\u30C8\u5F62\u5F0F)"
     - icon: ':heavy_check_mark:'
@@ -117,6 +120,11 @@ data:
     - icon: ':warning:'
       path: cpp/template/template.cpp
       title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
+  - name: cpp/tree
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: cpp/tree/tree.hpp
+      title: cpp/tree/tree.hpp
   verificationCategories:
   - name: cpp/verify
     pages:
@@ -177,6 +185,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: cpp/verify/sort_points_by_argument.test.cpp
       title: cpp/verify/sort_points_by_argument.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: cpp/verify/tree_diameter.test.cpp
+      title: cpp/verify/tree_diameter.test.cpp
     - icon: ':heavy_check_mark:'
       path: cpp/verify/warshall_floyd.test.cpp
       title: cpp/verify/warshall_floyd.test.cpp

@@ -5,14 +5,11 @@ data:
     path: cpp/graph/edge.hpp
     title: cpp/graph/edge.hpp
   - icon: ':heavy_check_mark:'
-    path: cpp/graph/graph_list.hpp
-    title: "\u30B0\u30E9\u30D5 (\u96A3\u63A5\u30EA\u30B9\u30C8\u5F62\u5F0F)"
-  - icon: ':heavy_check_mark:'
-    path: cpp/graph/lowlink.hpp
-    title: cpp/graph/lowlink.hpp
-  - icon: ':heavy_check_mark:'
     path: cpp/template/small_template.hpp
     title: "\u5171\u901A\u30D8\u30C3\u30C0\u30FC"
+  - icon: ':heavy_check_mark:'
+    path: cpp/tree/tree.hpp
+    title: cpp/tree/tree.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -20,9 +17,9 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/3/GRL_3_B
+    PROBLEM: https://judge.yosupo.jp/problem/tree_diameter
     links:
-    - https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/3/GRL_3_B
+    - https://judge.yosupo.jp/problem/tree_diameter
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
@@ -33,29 +30,30 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: graph/lowlink.hpp:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: tree/tree.hpp:\
     \ line -1: no such header\n"
-  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/3/GRL_3_B\"\
-    \n#include \"graph/lowlink.hpp\"\n\nint main() {\n  cin.tie(0);\n  ios::sync_with_stdio(false);\n\
-    \  int V, E;\n  cin >> V >> E;\n  ListGraph graph(V);\n  for (int i = 0; i < E;\
-    \ ++i) {\n    int s, t;\n    cin >> s >> t;\n    graph.add_bidirectional_edge(s,\
-    \ t);\n  }\n  auto [aps, bridges] = graph.lowlink();\n  for (auto &&b: bridges)\
-    \ {\n    cout << b.first << ' ' << b.second << '\\n';\n  }\n}"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/tree_diameter\"\n#include\
+    \ \"tree/tree.hpp\"\n\nint main() {\n  cin.tie(0);\n  ios::sync_with_stdio(false);\n\
+    \  int N;\n  cin >> N;\n  vector<int> a(N - 1), b(N - 1);\n  vector<ll> c(N -\
+    \ 1);\n  for (int i = 0; i < N - 1; i++) {\n    cin >> a[i] >> b[i] >> c[i];\n\
+    \  }\n  ListGraph t(a, b, c);\n  auto [df, dt, d] = t.diameter();\n  auto path\
+    \ = t.path(df, dt);\n  cout << d << ' ' << path.size() << '\\n';\n  for (int i\
+    \ = 0; i < (int)path.size(); i++) {\n    cout << path[i] << \" \\n\"[i + 1 ==\
+    \ (int)path.size()];\n  }\n}"
   dependsOn:
-  - cpp/graph/lowlink.hpp
-  - cpp/graph/graph_list.hpp
+  - cpp/tree/tree.hpp
   - cpp/graph/edge.hpp
   - cpp/template/small_template.hpp
   isVerificationFile: true
-  path: cpp/verify/bridges.test.cpp
+  path: cpp/verify/tree_diameter.test.cpp
   requiredBy: []
   timestamp: '2024-10-29 23:42:15+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: cpp/verify/bridges.test.cpp
+documentation_of: cpp/verify/tree_diameter.test.cpp
 layout: document
 redirect_from:
-- /verify/cpp/verify/bridges.test.cpp
-- /verify/cpp/verify/bridges.test.cpp.html
-title: cpp/verify/bridges.test.cpp
+- /verify/cpp/verify/tree_diameter.test.cpp
+- /verify/cpp/verify/tree_diameter.test.cpp.html
+title: cpp/verify/tree_diameter.test.cpp
 ---
