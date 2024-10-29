@@ -13,11 +13,11 @@ int main() {
     graph.add_edge(s, t, d);
   }
   graph.dijkstra(start);
-  ll dist = graph.get_dist(start, goal);
+  ll dist = graph.distance(start, goal);
   if (dist == ListGraph<>::UNREACHABLE) {
     cout << "-1\n";
   } else {
-    auto ans = graph.get_shortest_path(start, goal);
+    auto ans = graph.shortest_path(start, goal);
     int n = (int)ans.size() - 1;
     cout << dist << ' ' << n << '\n';
     for (int i = 0; i < n; ++i) {

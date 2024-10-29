@@ -1,25 +1,6 @@
 #pragma once
+#include "graph/edge.hpp"
 #include "template/small_template.hpp"
-
-// 辺
-template <class T> class Edge {
-  static int next_id;
-
-public:
-  const int from, to, id;
-  const T cost;
-  Edge(int from_, int to_, T cost_)
-      : from(from_), to(to_), id(next_id++), cost(cost_) {}
-  Edge(int from_, int to_) : from(from_), to(to_), id(next_id++), cost(1) {}
-};
-
-template <class T> int Edge<T>::next_id = 0;
-
-template <class T> ostream &operator<<(ostream &os, const Edge<T> &edge) {
-  os << edge.id << ": " << edge.from << " -> " << edge.to << " (" << edge.cost
-     << ")";
-  return os;
-}
 
 // グラフ(隣接リスト)
 template <class Cost = ll, class E = Edge<Cost>> class ListGraph {
@@ -36,7 +17,7 @@ public:
   // 頂点数 n
   ListGraph(int n) : n_(n), m_(0), adj(n) {}
 
-  vector<E> &operator[](int i) { return adj[i]; }
+  vector<E> &operator[](int i) const { return adj[i]; }
 
   void add_node() {
     adj.emplace_back();
@@ -64,9 +45,9 @@ public:
   // 最短距離
   void dijkstra(int start_node);
   void bellman_ford(int start_node);
-  Cost get_dist(int from, int to) { return shortest_path_dist[from][to]; }
-  vector<Cost> get_dist(int from) { return shortest_path_dist[from]; }
-  vector<int> get_shortest_path(int from, int to) {
+  Cost distance(int from, int to) { return shortest_path_dist[from][to]; }
+  vector<Cost> distance(int from) { return shortest_path_dist[from]; }
+  vector<int> shortest_path(int from, int to) {
     vector<int> path;
     for (int cur = to; cur != -1; cur = shortest_path_parent[from][cur]) {
       path.emplace_back(cur);

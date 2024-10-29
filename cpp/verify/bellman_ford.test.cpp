@@ -15,14 +15,14 @@ int main() {
   }
   graph.bellman_ford(r);
   for (int i = 0; i < V; ++i) {
-    ll dist = graph.get_dist(r, i);
+    ll dist = graph.distance(r, i);
     if (dist == ListGraph<ll>::NEGATIVE_CYCLE) {
       cout << "NEGATIVE CYCLE\n";
       return 0;
     }
   }
   for (int i = 0; i < V; ++i) {
-    ll dist = graph.get_dist(r, i);
+    ll dist = graph.distance(r, i);
     if (dist == ListGraph<ll>::UNREACHABLE) {
       cout << "INF\n";
     } else {

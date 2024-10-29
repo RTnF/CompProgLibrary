@@ -20,10 +20,10 @@ int main() {
   } else {
     for (int i = 0; i < V; ++i) {
       for (int j = 0; j < V; ++j) {
-        if (g.get_dist(i, j) >= MatrixGraph<>::UNREACHABLE) {
+        if (g.distance(i, j) >= MatrixGraph<>::UNREACHABLE) {
           cout << "INF";
         } else {
-          cout << g.get_dist(i, j);
+          cout << g.distance(i, j);
         }
         cout << " \n"[j == V - 1];
       }

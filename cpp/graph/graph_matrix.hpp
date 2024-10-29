@@ -26,7 +26,7 @@ public:
 
   // 最短距離
   void warshall_floyd();
-  Cost get_dist(int from, int to) { return shortest_path_dist[from][to]; }
+  Cost distance(int from, int to) { return shortest_path_dist[from][to]; }
   vector<int> get_shortest_path(int from, int to) {
     vector<int> path;
     for (int cur = to; cur != from; cur = shortest_path_parent[from][cur]) {
