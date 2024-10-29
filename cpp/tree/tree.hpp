@@ -1,26 +1,31 @@
 #pragma once
+#include "array/doubling.hpp"
 #include "graph/edge.hpp"
-#include "template/small_template.hpp"
 
 // 根付き木(根=0)
-template <class Cost = ll, class E = Edge<Cost>> class ListGraph {
+template <class Cost = ll, class E = Edge<Cost>> class Tree {
   int n_;
   vector<vector<E>> adj;
-  vector<int> parent; // 0の親は0
+  vector<int> parent_;           // 0の親は0
+  vector<int> depth_;            // 深さ(根からの辺の数)
+  vector<vector<int>> ancestor_; // 2**i回遡った祖先
 
   void build_parent() {
-    parent[0] = 0;
-    stack<int> s;
+    stack<pair<int, int>> s;
     basic_string<bool> visited(n_, false);
     visited[0] = true;
+    parent_[0] = 0;
+    depth_[0] = 0;
+    s.emplace(0, 0);
     while (s.size()) {
-      int node = s.top();
+      auto [node, d] = s.top();
       s.pop();
       for (auto &&e : adj[node]) {
         if (!visited[e.to]) {
           visited[e.to] = true;
-          parent[e.to] = node;
-          s.emplace(e.to);
+          parent_[e.to] = node;
+          depth_[e.to] = d + 1;
+          s.emplace(e.to, d + 1);
         }
       }
     }
@@ -52,8 +57,8 @@ template <class Cost = ll, class E = Edge<Cost>> class ListGraph {
   }
 
 public:
-  ListGraph(vector<int> &from, vector<int> &to, vector<Cost> &cost)
-      : n_(from.size() + 1), adj(n_), parent(n_) {
+  Tree(vector<int> &from, vector<int> &to, vector<Cost> &cost)
+      : n_(from.size() + 1), adj(n_), parent_(n_), depth_(n_) {
     assert(n_ == (int)to.size() + 1);
     assert(n_ == (int)cost.size() + 1);
     for (int i = 0; i < n_; i++) {
@@ -63,6 +68,18 @@ public:
       assert(to[i] < n_);
       adj[from[i]].emplace_back(from[i], to[i], cost[i]);
       adj[to[i]].emplace_back(to[i], from[i], cost[i]);
+    }
+    build_parent();
+  }
+  // 引数parentは0が根でなくてもよい
+  Tree(vector<int> &parent)
+      : n_(parent.size()), adj(n_), parent_(n_), depth_(n_) {
+    assert(n_ > 0);
+    for (int i = 0; i < n_; i++) {
+      if (i != parent[i] && 0 <= parent[i] && parent[i] < n_) {
+        adj[parent[i]].emplace_back(parent[i], i);
+        adj[i].emplace_back(i, parent[i]);
+      }
     }
     build_parent();
   }
@@ -101,14 +118,56 @@ public:
     return {}; // 到達しない
   }
 
+  // ダブリングによる祖先構築 O(N log N)
+  void build_ancestor() { ancestor_ = doubling(parent_, n_ - 1); }
+
+  // i回遡った祖先 O(log N)
+  int ancestor(int v, int i) const {
+    int k = 0;
+    for (int j = 1; j <= i; j <<= 1, k++) {
+      if (i & j) {
+        v = ancestor_[k][v];
+      }
+    }
+    return v;
+  }
+
+  // LCA O(log N)
+  int lowest_common_ancestor(int u, int v) const {
+    assert(0 <= u);
+    assert(u < n_);
+    assert(0 <= v);
+    assert(v < n_);
+    int du = depth_[u];
+    int dv = depth_[v];
+    if (du > dv) {
+      u = ancestor(u, du - dv);
+      du = dv;
+    } else if (du < dv) {
+      v = ancestor(v, dv - du);
+    }
+    if (u == v) {
+      return u;
+    }
+    for (int k = bit_width((unsigned)du); k >= 0; k--) {
+      int nu = ancestor_[k][u];
+      int nv = ancestor_[k][v];
+      if (nu != nv) {
+        u = nu;
+        v = nv;
+      }
+    }
+    return ancestor_[0][u];
+  }
+
   vector<E> &operator[](int i) const { return adj[i]; }
 
   template <class C_, class E_>
-  friend ostream &operator<<(ostream &, const ListGraph<C_, E_> &);
+  friend ostream &operator<<(ostream &, const Tree<C_, E_> &);
 };
 
 template <class C_, class E_>
-ostream &operator<<(ostream &os, const ListGraph<C_, E_> &graph) {
+ostream &operator<<(ostream &os, const Tree<C_, E_> &graph) {
   os << "N = " << graph.n_ << '\n';
   for (const auto &ev : graph.adj) {
     for (const auto &e : ev) {
