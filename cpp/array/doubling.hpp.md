@@ -10,6 +10,9 @@ data:
     title: cpp/tree/tree.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: cpp/verify/jump_on_tree.test.cpp
+    title: cpp/verify/jump_on_tree.test.cpp
+  - icon: ':heavy_check_mark:'
     path: cpp/verify/lowest_common_ancestor.test.cpp
     title: cpp/verify/lowest_common_ancestor.test.cpp
   - icon: ':heavy_check_mark:'
@@ -53,6 +56,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - cpp/verify/tree_diameter.test.cpp
+  - cpp/verify/jump_on_tree.test.cpp
   - cpp/verify/lowest_common_ancestor.test.cpp
 documentation_of: cpp/array/doubling.hpp
 layout: document

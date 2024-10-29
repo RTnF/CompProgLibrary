@@ -165,6 +165,9 @@ data:
       path: cpp/verify/is_prime.test.cpp
       title: cpp/verify/is_prime.test.cpp
     - icon: ':heavy_check_mark:'
+      path: cpp/verify/jump_on_tree.test.cpp
+      title: cpp/verify/jump_on_tree.test.cpp
+    - icon: ':heavy_check_mark:'
       path: cpp/verify/lowest_common_ancestor.test.cpp
       title: cpp/verify/lowest_common_ancestor.test.cpp
     - icon: ':heavy_check_mark:'

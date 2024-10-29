@@ -46,6 +46,9 @@ data:
     path: cpp/verify/dijkstra2.test.cpp
     title: cpp/verify/dijkstra2.test.cpp
   - icon: ':heavy_check_mark:'
+    path: cpp/verify/jump_on_tree.test.cpp
+    title: cpp/verify/jump_on_tree.test.cpp
+  - icon: ':heavy_check_mark:'
     path: cpp/verify/lowest_common_ancestor.test.cpp
     title: cpp/verify/lowest_common_ancestor.test.cpp
   - icon: ':heavy_check_mark:'
@@ -96,6 +99,7 @@ data:
   verifiedWith:
   - cpp/verify/bellman_ford.test.cpp
   - cpp/verify/tree_diameter.test.cpp
+  - cpp/verify/jump_on_tree.test.cpp
   - cpp/verify/dijkstra.test.cpp
   - cpp/verify/articulation_points.test.cpp
   - cpp/verify/detect_cycle_directed.test.cpp

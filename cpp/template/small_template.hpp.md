@@ -124,6 +124,9 @@ data:
     path: cpp/verify/is_prime.test.cpp
     title: cpp/verify/is_prime.test.cpp
   - icon: ':heavy_check_mark:'
+    path: cpp/verify/jump_on_tree.test.cpp
+    title: cpp/verify/jump_on_tree.test.cpp
+  - icon: ':heavy_check_mark:'
     path: cpp/verify/lowest_common_ancestor.test.cpp
     title: cpp/verify/lowest_common_ancestor.test.cpp
   - icon: ':heavy_check_mark:'
@@ -240,6 +243,7 @@ data:
   - cpp/verify/point_add_range_sum.test.cpp
   - cpp/verify/factorize2.test.cpp
   - cpp/verify/tree_diameter.test.cpp
+  - cpp/verify/jump_on_tree.test.cpp
   - cpp/verify/multi_set.test.cpp
   - cpp/verify/point_set_range_composite.test.cpp
   - cpp/verify/sort_points_by_argument.test.cpp
