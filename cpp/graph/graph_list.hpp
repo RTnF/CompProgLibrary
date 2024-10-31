@@ -17,7 +17,7 @@ public:
   // 頂点数 n
   ListGraph(int n) : n_(n), m_(0), adj(n) {}
 
-  vector<E> &operator[](int i) const { return adj[i]; }
+  vector<E> &operator[](int i) { return adj[i]; }
 
   void add_node() {
     adj.emplace_back();

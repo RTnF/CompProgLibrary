@@ -198,7 +198,7 @@ public:
     return cost_depth_[v];
   }
 
-  vector<E> &operator[](int i) const { return adj[i]; }
+  vector<E> &operator[](int i) { return adj[i]; }
 
   template <class C_, class E_>
   friend ostream &operator<<(ostream &, const Tree<C_, E_> &);
