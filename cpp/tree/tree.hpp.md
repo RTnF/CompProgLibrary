@@ -108,8 +108,8 @@ data:
     \ v)] * 2;\n  }\n\n  int depth(int v) const {\n    assert(0 <= v);\n    assert(v\
     \ < n_);\n    return depth_[v];\n  }\n\n  Cost cost_depth(int v) const {\n   \
     \ assert(0 <= v);\n    assert(v < n_);\n    return cost_depth_[v];\n  }\n\n  vector<E>\
-    \ &operator[](int i) const { return adj[i]; }\n\n  template <class C_, class E_>\n\
-    \  friend ostream &operator<<(ostream &, const Tree<C_, E_> &);\n};\n\ntemplate\
+    \ &operator[](int i) { return adj[i]; }\n\n  template <class C_, class E_>\n \
+    \ friend ostream &operator<<(ostream &, const Tree<C_, E_> &);\n};\n\ntemplate\
     \ <class C_, class E_>\nostream &operator<<(ostream &os, const Tree<C_, E_> &graph)\
     \ {\n  os << \"N = \" << graph.n_ << '\\n';\n  for (const auto &ev : graph.adj)\
     \ {\n    for (const auto &e : ev) {\n      os << e << '\\n';\n    }\n  }\n  return\
@@ -121,7 +121,7 @@ data:
   isVerificationFile: false
   path: cpp/tree/tree.hpp
   requiredBy: []
-  timestamp: '2024-10-30 08:24:37+09:00'
+  timestamp: '2024-11-03 09:29:45+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - cpp/verify/tree_diameter.test.cpp

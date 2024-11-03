@@ -58,7 +58,7 @@ data:
   isVerificationFile: false
   path: cpp/graph/bellman_ford.hpp
   requiredBy: []
-  timestamp: '2024-10-29 23:42:15+09:00'
+  timestamp: '2024-11-03 09:29:45+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - cpp/verify/bellman_ford.test.cpp

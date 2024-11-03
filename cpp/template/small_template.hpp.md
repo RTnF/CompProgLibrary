@@ -36,6 +36,9 @@ data:
     path: cpp/graph/edge.hpp
     title: cpp/graph/edge.hpp
   - icon: ':heavy_check_mark:'
+    path: cpp/graph/find_cycle.hpp
+    title: cpp/graph/find_cycle.hpp
+  - icon: ':heavy_check_mark:'
     path: cpp/graph/graph_list.hpp
     title: "\u30B0\u30E9\u30D5 (\u96A3\u63A5\u30EA\u30B9\u30C8\u5F62\u5F0F)"
   - icon: ':heavy_check_mark:'
@@ -66,8 +69,14 @@ data:
     path: cpp/number/ratio.hpp
     title: cpp/number/ratio.hpp
   - icon: ':heavy_check_mark:'
+    path: cpp/number_theory/enumerate_quotients.hpp
+    title: cpp/number_theory/enumerate_quotients.hpp
+  - icon: ':heavy_check_mark:'
     path: cpp/number_theory/factorize.hpp
     title: cpp/number_theory/factorize.hpp
+  - icon: ':warning:'
+    path: cpp/number_theory/floor_sum.hpp
+    title: cpp/number_theory/floor_sum.hpp
   - icon: ':heavy_check_mark:'
     path: cpp/number_theory/is_prime.hpp
     title: cpp/number_theory/is_prime.hpp
@@ -106,6 +115,9 @@ data:
     path: cpp/verify/detect_cycle_directed.test.cpp
     title: cpp/verify/detect_cycle_directed.test.cpp
   - icon: ':heavy_check_mark:'
+    path: cpp/verify/detect_cycle_directed_2.test.cpp
+    title: cpp/verify/detect_cycle_directed_2.test.cpp
+  - icon: ':heavy_check_mark:'
     path: cpp/verify/dijkstra.test.cpp
     title: cpp/verify/dijkstra.test.cpp
   - icon: ':heavy_check_mark:'
@@ -114,6 +126,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: cpp/verify/disjoint_set_union.test.cpp
     title: cpp/verify/disjoint_set_union.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: cpp/verify/enumerate_quotients.test.cpp
+    title: cpp/verify/enumerate_quotients.test.cpp
   - icon: ':heavy_check_mark:'
     path: cpp/verify/factorize.test.cpp
     title: cpp/verify/factorize.test.cpp
@@ -209,7 +224,9 @@ data:
   - cpp/random/xorshift.hpp
   - cpp/modint/modint.hpp
   - cpp/number_theory/is_prime.hpp
+  - cpp/number_theory/floor_sum.hpp
   - cpp/number_theory/factorize.hpp
+  - cpp/number_theory/enumerate_quotients.hpp
   - cpp/interval/interval.hpp
   - cpp/interval/interval_union.hpp
   - cpp/array/cumulative_sum.hpp
@@ -222,6 +239,7 @@ data:
   - cpp/graph/graph_list.hpp
   - cpp/graph/prim.hpp
   - cpp/graph/dijkstra.hpp
+  - cpp/graph/find_cycle.hpp
   - cpp/graph/edge.hpp
   - cpp/graph/warshall_floyd.hpp
   - cpp/graph/bellman_ford.hpp
@@ -245,6 +263,7 @@ data:
   - cpp/verify/tree_diameter.test.cpp
   - cpp/verify/jump_on_tree.test.cpp
   - cpp/verify/multi_set.test.cpp
+  - cpp/verify/enumerate_quotients.test.cpp
   - cpp/verify/point_set_range_composite.test.cpp
   - cpp/verify/sort_points_by_argument.test.cpp
   - cpp/verify/dijkstra.test.cpp
@@ -252,6 +271,7 @@ data:
   - cpp/verify/articulation_points.test.cpp
   - cpp/verify/factorize.test.cpp
   - cpp/verify/detect_cycle_directed.test.cpp
+  - cpp/verify/detect_cycle_directed_2.test.cpp
   - cpp/verify/prim.test.cpp
   - cpp/verify/warshall_floyd.test.cpp
   - cpp/verify/segment_tree.test.cpp

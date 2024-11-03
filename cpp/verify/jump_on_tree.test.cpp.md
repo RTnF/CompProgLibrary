@@ -53,7 +53,7 @@ data:
   isVerificationFile: true
   path: cpp/verify/jump_on_tree.test.cpp
   requiredBy: []
-  timestamp: '2024-10-30 08:24:37+09:00'
+  timestamp: '2024-11-03 09:29:45+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: cpp/verify/jump_on_tree.test.cpp

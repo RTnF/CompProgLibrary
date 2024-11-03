@@ -48,7 +48,7 @@ data:
   isVerificationFile: true
   path: cpp/verify/detect_cycle_directed.test.cpp
   requiredBy: []
-  timestamp: '2024-10-29 23:42:15+09:00'
+  timestamp: '2024-11-03 09:29:45+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: cpp/verify/detect_cycle_directed.test.cpp

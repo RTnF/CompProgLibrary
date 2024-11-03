@@ -43,6 +43,9 @@ data:
       path: cpp/graph/edge.hpp
       title: cpp/graph/edge.hpp
     - icon: ':heavy_check_mark:'
+      path: cpp/graph/find_cycle.hpp
+      title: cpp/graph/find_cycle.hpp
+    - icon: ':heavy_check_mark:'
       path: cpp/graph/graph_list.hpp
       title: "\u30B0\u30E9\u30D5 (\u96A3\u63A5\u30EA\u30B9\u30C8\u5F62\u5F0F)"
     - icon: ':heavy_check_mark:'
@@ -81,8 +84,14 @@ data:
   - name: cpp/number_theory
     pages:
     - icon: ':heavy_check_mark:'
+      path: cpp/number_theory/enumerate_quotients.hpp
+      title: cpp/number_theory/enumerate_quotients.hpp
+    - icon: ':heavy_check_mark:'
       path: cpp/number_theory/factorize.hpp
       title: cpp/number_theory/factorize.hpp
+    - icon: ':warning:'
+      path: cpp/number_theory/floor_sum.hpp
+      title: cpp/number_theory/floor_sum.hpp
     - icon: ':heavy_check_mark:'
       path: cpp/number_theory/is_prime.hpp
       title: cpp/number_theory/is_prime.hpp
@@ -147,6 +156,9 @@ data:
       path: cpp/verify/detect_cycle_directed.test.cpp
       title: cpp/verify/detect_cycle_directed.test.cpp
     - icon: ':heavy_check_mark:'
+      path: cpp/verify/detect_cycle_directed_2.test.cpp
+      title: cpp/verify/detect_cycle_directed_2.test.cpp
+    - icon: ':heavy_check_mark:'
       path: cpp/verify/dijkstra.test.cpp
       title: cpp/verify/dijkstra.test.cpp
     - icon: ':heavy_check_mark:'
@@ -155,6 +167,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: cpp/verify/disjoint_set_union.test.cpp
       title: cpp/verify/disjoint_set_union.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: cpp/verify/enumerate_quotients.test.cpp
+      title: cpp/verify/enumerate_quotients.test.cpp
     - icon: ':heavy_check_mark:'
       path: cpp/verify/factorize.test.cpp
       title: cpp/verify/factorize.test.cpp
