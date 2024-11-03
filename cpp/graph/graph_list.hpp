@@ -1,6 +1,5 @@
 #pragma once
 #include "graph/edge.hpp"
-#include "template/small_template.hpp"
 
 // グラフ(隣接リスト)
 template <class Cost = ll, class E = Edge<Cost>> class ListGraph {
@@ -63,6 +62,7 @@ public:
   pair<vector<int>, vector<pair<int, int>>> lowlink();
 
   // トポロジカルソート
+  vector<E> find_cycle_directed();
   vector<int> topological_sort();
   vector<int> topological_sort_minimum();
 

@@ -51,6 +51,5 @@ vector<T> compress(const vector<T> &x, vector<T> &unzip, int offset = 0) {
 // 座標圧縮 O(n log n)
 // 例：[3, 3, 1, 5, 2] -> [2, 2, 0, 3, 1] + offset
 template <class T> vector<T> compress(const vector<T> &x, int offset = 0) {
-  vector<T> y = x;
-  return compress(x, y, offset);
+  return compress(x, vector<T>(), offset);
 }

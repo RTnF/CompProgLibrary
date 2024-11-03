@@ -10,7 +10,7 @@
 template <class Cost, class E>
 vector<int> ListGraph<Cost, E>::topological_sort() {
   vector<int> sorted_node, in_count(n_, 0);
-  vector<bool> visited(n_, false);
+  // vector<bool> visited(n_, false);
   sorted_node.reserve(n_);
   stack<int> st;
   for (auto &es : adj) {
@@ -26,7 +26,7 @@ vector<int> ListGraph<Cost, E>::topological_sort() {
   while (!st.empty()) {
     int v = st.top();
     st.pop();
-    visited[v] = true;
+    // visited[v] = true;
     sorted_node.emplace_back(v);
     for (auto &e : adj[v]) {
       if (--in_count[e.to] == 0) {
@@ -34,7 +34,7 @@ vector<int> ListGraph<Cost, E>::topological_sort() {
       }
     }
   }
-  if (sorted_node.size() != n_) {
+  if ((int)sorted_node.size() != n_) {
     return vector<int>();
   }
   return sorted_node;
@@ -47,7 +47,7 @@ vector<int> ListGraph<Cost, E>::topological_sort() {
 template <class Cost, class E>
 vector<int> ListGraph<Cost, E>::topological_sort_minimum() {
   vector<int> sorted_node, in_count(n_, 0);
-  vector<bool> visited(n_, false);
+  // vector<bool> visited(n_, false);
   sorted_node.reserve(n_);
   priority_queue<int, vector<int>, greater<int>> pq;
   for (auto &es : adj) {
@@ -63,7 +63,7 @@ vector<int> ListGraph<Cost, E>::topological_sort_minimum() {
   while (!pq.empty()) {
     int v = pq.top();
     pq.pop();
-    visited[v] = true;
+    // visited[v] = true;
     sorted_node.emplace_back(v);
     for (auto &e : adj[v]) {
       if (--in_count[e.to] == 0) {
@@ -71,7 +71,7 @@ vector<int> ListGraph<Cost, E>::topological_sort_minimum() {
       }
     }
   }
-  if (sorted_node.size() != (size_t)n_) {
+  if ((int)sorted_node.size() != n_) {
     return vector<int>();
   }
   return sorted_node;

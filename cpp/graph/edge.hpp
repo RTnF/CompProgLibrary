@@ -6,8 +6,8 @@ template <class T> class Edge {
   static int next_id;
 
 public:
-  const int from, to, id;
-  const T cost;
+  int from, to, id;
+  T cost;
   Edge(int from_, int to_, T cost_)
       : from(from_), to(to_), id(next_id++), cost(cost_) {}
   Edge(int from_, int to_) : from(from_), to(to_), id(next_id++), cost(1) {}
