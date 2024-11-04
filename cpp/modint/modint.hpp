@@ -122,10 +122,10 @@ using mint17 = ModInt<1000000007u>;
 
 mint factorial(int n) {
   assert(0 <= n);
-  static int sz_ini = 100000;
+  static const int sz_ini = 100000;
   static int sz = 1;
   static vector<mint> fac(1, 1);
-  int sz_new = sz < sz_ini ? sz_ini : n + 1;
+  int sz_new = max(sz_ini, n + 1);
   if (sz_new > sz) {
     fac.resize(sz_new);
     for (int i = sz; i < sz_new; i++) {
@@ -138,10 +138,10 @@ mint factorial(int n) {
 
 mint factorial_inv(int n) {
   assert(0 <= n);
-  static int sz_ini = 100000;
+  static const int sz_ini = 100000;
   static int sz = 1;
   static vector<mint> fac_inv(1, 1);
-  int sz_new = sz < sz_ini ? sz_ini : n + 1;
+  int sz_new = max(sz_ini, n + 1);
   if (sz_new > sz) {
     fac_inv.resize(sz_new);
     for (int i = sz; i < sz_new; i++) {

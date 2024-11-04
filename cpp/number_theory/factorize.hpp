@@ -61,3 +61,29 @@ vector<ull> factorize(ull n) {
 }
 
 vector<pair<ull, int>> factorize_count(ull n) { return counts(factorize(n)); }
+
+vector<ull> divisors(ull n) {
+  if (n == 1) {
+    return {1};
+  }
+  auto factor = factorize_count(n);
+  int num_factor = factor.size();
+  vector<ull> div;
+  auto dfs = [&](auto &Self, ull f, int i) -> void {
+      ull p = 1;
+    if (i == num_factor - 1) {
+      for (int j = 0; j <= factor[i].second; j++) {
+        div.emplace_back(f * p);
+        p *= factor[i].first;
+      }
+    } else {
+      for (int j = 0; j <= factor[i].second; j++) {
+        Self(Self, f * p, i + 1);
+        p *= factor[i].first;
+      }
+    }
+  };
+  dfs(dfs, 1, 0);
+  sort(div.begin(), div.end());
+  return div;
+}
