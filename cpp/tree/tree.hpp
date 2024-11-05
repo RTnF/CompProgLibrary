@@ -2,9 +2,9 @@
 #include "array/doubling.hpp"
 #include "graph/edge.hpp"
 
-// 根付き木(根=0)
+// 根付き木
 template <class Cost = ll, class E = Edge<Cost>> class Tree {
-  int n_;
+  int n_, root_;
   vector<vector<E>> adj;
   vector<int> parent_;           // 0の親は0
   vector<int> depth_;            // 深さ(根からの辺の数)
@@ -14,11 +14,11 @@ template <class Cost = ll, class E = Edge<Cost>> class Tree {
   void build_parent() {
     stack<tuple<int, int, Cost>> s;
     basic_string<bool> visited(n_, false);
-    visited[0] = true;
-    parent_[0] = 0;
-    depth_[0] = 0;
-    cost_depth_[0] = 0;
-    s.emplace(0, 0, 0);
+    visited[root_] = true;
+    parent_[root_] = root_;
+    depth_[root_] = 0;
+    cost_depth_[root_] = 0;
+    s.emplace(root_, 0, 0);
     while (s.size()) {
       auto [node, d, dc] = s.top();
       s.pop();
@@ -60,8 +60,9 @@ template <class Cost = ll, class E = Edge<Cost>> class Tree {
   }
 
 public:
-  Tree(vector<int> &from, vector<int> &to, vector<Cost> &cost)
-      : n_(from.size() + 1), adj(n_), parent_(n_), depth_(n_), cost_depth_(n_) {
+  Tree(int root, vector<int> &from, vector<int> &to, vector<Cost> &cost)
+      : n_(from.size() + 1), root_(root), adj(n_), parent_(n_), depth_(n_),
+        cost_depth_(n_) {
     assert(n_ == (int)to.size() + 1);
     assert(n_ == (int)cost.size() + 1);
     for (int i = 0; i < n_ - 1; i++) {
@@ -74,8 +75,9 @@ public:
     }
     build_parent();
   }
-  Tree(vector<int> &from, vector<int> &to)
-      : n_(from.size() + 1), adj(n_), parent_(n_), depth_(n_), cost_depth_(n_) {
+  Tree(int root, vector<int> &from, vector<int> &to)
+      : n_(from.size() + 1), root_(root), adj(n_), parent_(n_), depth_(n_),
+        cost_depth_(n_) {
     assert(n_ == (int)to.size() + 1);
     for (int i = 0; i < n_ - 1; i++) {
       assert(0 <= from[i]);
@@ -87,10 +89,29 @@ public:
     }
     build_parent();
   }
-  // 引数parentは0が根でなくてもよい
+  Tree(int root, vector<int> &parent)
+      : n_(parent.size()), root_(root), adj(n_), parent_(n_), depth_(n_),
+        cost_depth_(n_) {
+    assert(n_ > 0);
+    for (int i = 0; i < n_; i++) {
+      if (i != parent[i] && 0 <= parent[i] && parent[i] < n_) {
+        adj[parent[i]].emplace_back(parent[i], i);
+        adj[i].emplace_back(i, parent[i]);
+      }
+    }
+    build_parent();
+  }
   Tree(vector<int> &parent)
       : n_(parent.size()), adj(n_), parent_(n_), depth_(n_), cost_depth_(n_) {
     assert(n_ > 0);
+    int r = -1;
+    for (int i = 0; i < n_; i++) {
+      if (parent[i] == i || parent[i] < 0) {
+        r = i;
+      }
+    }
+    root_ = r;
+    assert(r >= 0);
     for (int i = 0; i < n_; i++) {
       if (i != parent[i] && 0 <= parent[i] && parent[i] < n_) {
         adj[parent[i]].emplace_back(parent[i], i);

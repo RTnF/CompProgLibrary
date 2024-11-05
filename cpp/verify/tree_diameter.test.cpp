@@ -11,7 +11,7 @@ int main() {
   for (int i = 0; i < N - 1; i++) {
     cin >> a[i] >> b[i] >> c[i];
   }
-  Tree t(a, b, c);
+  Tree t(0, a, b, c);
   auto [df, dt, d] = t.diameter();
   auto path = t.path(df, dt);
   cout << d << ' ' << path.size() << '\n';

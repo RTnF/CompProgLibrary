@@ -10,7 +10,7 @@ int main() {
   for (int i = 0; i < n - 1; i++) {
     cin >> a[i] >> b[i];
   }
-  Tree<int> t(a, b);
+  Tree<int> t(0, a, b);
   t.build_ancestor();
   while (q--) {
     int u, v, i;
