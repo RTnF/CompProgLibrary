@@ -6,21 +6,20 @@ data:
     title: "\u5171\u901A\u30D8\u30C3\u30C0\u30FC"
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
-    path: cpp/set/multiset.hpp
-    title: "\u91CD\u8907\u3042\u308A\u306E\u96C6\u5408"
-  - icon: ':warning:'
-    path: cpp/set/set.hpp
-    title: "\u91CD\u8907\u306A\u3057\u306E\u96C6\u5408"
+    path: cpp/graph/graph_flow.hpp
+    title: cpp/graph/graph_flow.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: cpp/verify/multi_set.test.cpp
-    title: cpp/verify/multi_set.test.cpp
+    path: cpp/verify/max_flow.test.cpp
+    title: cpp/verify/max_flow.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: cpp/verify/min_cost_flow.test.cpp
+    title: cpp/verify/min_cost_flow.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    links:
-    - https://ja.wikipedia.org/wiki/Xorshift
+    links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
@@ -33,31 +32,33 @@ data:
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: template/small_template.hpp:\
     \ line -1: no such header\n"
-  code: "#pragma once\n#include \"template/small_template.hpp\"\n\n// https://ja.wikipedia.org/wiki/Xorshift\n\
-    class Xor64 {\n  ull s;\n\npublic:\n  Xor64(ull s_) : s(s_) {}\n  // [0, 2**64)\n\
-    \  ull get() {\n    ull x = s;\n    x ^= x << 7;\n    return s = x ^ (x >> 9);\n\
-    \  }\n  // [min, max)\n  int get_int(int mi, int ma) { return mi + get() % (ma\
-    \ - mi); }\n  // [min, max)\n  ll get_ll(ll mi, ll ma) { return mi + get() % (ma\
-    \ - mi); }\n  // [0, 1)\n  double get_double() { return get() / pow(2.0, 64);\
-    \ }\n  // [min, max)\n  double get_double(double mi, double ma) {\n    return\
-    \ mi + get_double() * (ma - mi);\n  }\n  // normal\n  double get_normal() {\n\
-    \    double x = get_double(), y = get_double();\n    return sqrt(-2.0 * log(x))\
-    \ * cos(2.0 * M_PI * y);\n  }\n};"
+  code: "#pragma once\n#include \"template/small_template.hpp\"\n\n// \u8FBA\ntemplate\
+    \ <class T> class FlowEdge {\n  static int next_id;\n\npublic:\n  int from, to,\
+    \ rev, id;\n  T cap, cost;\n  FlowEdge(int from_, int to_, int rev_, T cap_, T\
+    \ cost_)\n      : from(from_), to(to_), rev(rev_), id(next_id++), cap(max(cap_,\
+    \ (T)0)),\n        cost(cost_) {}\n  FlowEdge(int from_, int to_, int rev_, T\
+    \ cap_)\n      : from(from_), to(to_), rev(rev_), id(next_id++), cap(max(cap_,\
+    \ (T)0)),\n        cost(0) {}\n  FlowEdge(int from_, int to_, int rev_)\n    \
+    \  : from(from_), to(to_), rev(rev_), id(next_id++), cap(0), cost(0) {}\n};\n\n\
+    template <class T> int FlowEdge<T>::next_id = 0;\n\ntemplate <class T> ostream\
+    \ &operator<<(ostream &os, const FlowEdge<T> &e) {\n  os << e.id << \": \" <<\
+    \ e.from << \" -> \" << e.to << \" (\" << e.cap << \", \"\n     << e.cost << \"\
+    )\";\n  return os;\n}"
   dependsOn:
   - cpp/template/small_template.hpp
   isVerificationFile: false
-  path: cpp/random/xorshift.hpp
+  path: cpp/graph/edge_flow.hpp
   requiredBy:
-  - cpp/set/set.hpp
-  - cpp/set/multiset.hpp
-  timestamp: '2024-10-19 16:46:12+09:00'
+  - cpp/graph/graph_flow.hpp
+  timestamp: '2024-11-10 02:02:04+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - cpp/verify/multi_set.test.cpp
-documentation_of: cpp/random/xorshift.hpp
+  - cpp/verify/max_flow.test.cpp
+  - cpp/verify/min_cost_flow.test.cpp
+documentation_of: cpp/graph/edge_flow.hpp
 layout: document
 redirect_from:
-- /library/cpp/random/xorshift.hpp
-- /library/cpp/random/xorshift.hpp.html
-title: cpp/random/xorshift.hpp
+- /library/cpp/graph/edge_flow.hpp
+- /library/cpp/graph/edge_flow.hpp.html
+title: cpp/graph/edge_flow.hpp
 ---

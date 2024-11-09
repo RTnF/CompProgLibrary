@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: cpp/number_theory/is_prime.hpp
     title: cpp/number_theory/is_prime.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: cpp/template/small_template.hpp
     title: "\u5171\u901A\u30D8\u30C3\u30C0\u30FC"
   _extendedRequiredBy: []
@@ -53,7 +53,15 @@ data:
     \    }\n    return factor;\n  }\n  return factor;\n}\n}; // namespace in\n\nvector<ull>\
     \ factorize(ull n) {\n  auto f = in::factorize(n);\n  sort(f.begin(), f.end());\n\
     \  return f;\n}\n\nvector<pair<ull, int>> factorize_count(ull n) { return counts(factorize(n));\
-    \ }\n"
+    \ }\n\nvector<ull> divisors(ull n) {\n  if (n == 1) {\n    return {1};\n  }\n\
+    \  auto factor = factorize_count(n);\n  int num_factor = factor.size();\n  vector<ull>\
+    \ div;\n  auto dfs = [&](auto &Self, ull f, int i) -> void {\n      ull p = 1;\n\
+    \    if (i == num_factor - 1) {\n      for (int j = 0; j <= factor[i].second;\
+    \ j++) {\n        div.emplace_back(f * p);\n        p *= factor[i].first;\n  \
+    \    }\n    } else {\n      for (int j = 0; j <= factor[i].second; j++) {\n  \
+    \      Self(Self, f * p, i + 1);\n        p *= factor[i].first;\n      }\n   \
+    \ }\n  };\n  dfs(dfs, 1, 0);\n  sort(div.begin(), div.end());\n  return div;\n\
+    }\n"
   dependsOn:
   - cpp/array/search_util.hpp
   - cpp/template/small_template.hpp
@@ -61,7 +69,7 @@ data:
   isVerificationFile: false
   path: cpp/number_theory/factorize.hpp
   requiredBy: []
-  timestamp: '2024-10-19 16:46:12+09:00'
+  timestamp: '2024-11-04 20:54:25+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - cpp/verify/factorize2.test.cpp

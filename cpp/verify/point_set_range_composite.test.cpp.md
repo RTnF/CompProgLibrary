@@ -10,7 +10,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: cpp/segment_tree/segment_tree.hpp
     title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 based on ACL"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: cpp/template/small_template.hpp
     title: "\u5171\u901A\u30D8\u30C3\u30C0\u30FC"
   _extendedRequiredBy: []
@@ -53,7 +53,7 @@ data:
   isVerificationFile: true
   path: cpp/verify/point_set_range_composite.test.cpp
   requiredBy: []
-  timestamp: '2024-10-31 21:49:33+09:00'
+  timestamp: '2024-11-04 20:54:25+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: cpp/verify/point_set_range_composite.test.cpp

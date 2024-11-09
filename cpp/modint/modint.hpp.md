@@ -1,11 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: cpp/template/small_template.hpp
     title: "\u5171\u901A\u30D8\u30C3\u30C0\u30FC"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: cpp/verify/combination.test.cpp
+    title: cpp/verify/combination.test.cpp
   - icon: ':heavy_check_mark:'
     path: cpp/verify/point_set_range_composite.test.cpp
     title: cpp/verify/point_set_range_composite.test.cpp
@@ -68,27 +71,28 @@ data:
     \ ModInt &t) {\n    ll y;\n    is >> y;\n    t.set(y);\n    return is;\n  }\n\
     \  friend ostream &operator<<(ostream &os, const ModInt &t) {\n    os << t.x;\n\
     \    return os;\n  }\n};\n\nusing mint = ModInt<998244353u>;\nusing mint17 = ModInt<1000000007u>;\n\
-    \nmint factorial(int n) {\n  assert(0 <= n);\n  static int sz_ini = 100000;\n\
-    \  static int sz = 1;\n  static vector<mint> fac(1, 1);\n  int sz_new = sz < sz_ini\
-    \ ? sz_ini : n + 1;\n  if (sz_new > sz) {\n    fac.resize(sz_new);\n    for (int\
-    \ i = sz; i < sz_new; i++) {\n      fac[i] = fac[i - 1] * i;\n    }\n    sz =\
-    \ sz_new;\n  }\n  return fac[n];\n}\n\nmint factorial_inv(int n) {\n  assert(0\
-    \ <= n);\n  static int sz_ini = 100000;\n  static int sz = 1;\n  static vector<mint>\
-    \ fac_inv(1, 1);\n  int sz_new = sz < sz_ini ? sz_ini : n + 1;\n  if (sz_new >\
-    \ sz) {\n    fac_inv.resize(sz_new);\n    for (int i = sz; i < sz_new; i++) {\n\
-    \      fac_inv[i] = fac_inv[i - 1] / i;\n    }\n    sz = sz_new;\n  }\n  return\
-    \ fac_inv[n];\n}\n\n// combination\nmint C(int n, int k) {\n  assert(0 <= n);\n\
-    \  assert(0 <= k);\n  assert(k <= n);\n  return factorial(n) * factorial_inv(k)\
-    \ * factorial_inv(n - k);\n}"
+    \nmint factorial(int n) {\n  assert(0 <= n);\n  static const int sz_ini = 100000;\n\
+    \  static int sz = 1;\n  static vector<mint> fac(1, 1);\n  int sz_new = max(sz_ini,\
+    \ n + 1);\n  if (sz_new > sz) {\n    fac.resize(sz_new);\n    for (int i = sz;\
+    \ i < sz_new; i++) {\n      fac[i] = fac[i - 1] * i;\n    }\n    sz = sz_new;\n\
+    \  }\n  return fac[n];\n}\n\nmint factorial_inv(int n) {\n  assert(0 <= n);\n\
+    \  static const int sz_ini = 100000;\n  static int sz = 1;\n  static vector<mint>\
+    \ fac_inv(1, 1);\n  int sz_new = max(sz_ini, n + 1);\n  if (sz_new > sz) {\n \
+    \   fac_inv.resize(sz_new);\n    for (int i = sz; i < sz_new; i++) {\n      fac_inv[i]\
+    \ = fac_inv[i - 1] / i;\n    }\n    sz = sz_new;\n  }\n  return fac_inv[n];\n\
+    }\n\n// combination\nmint C(int n, int k) {\n  assert(0 <= n);\n  assert(0 <=\
+    \ k);\n  assert(k <= n);\n  return factorial(n) * factorial_inv(k) * factorial_inv(n\
+    \ - k);\n}"
   dependsOn:
   - cpp/template/small_template.hpp
   isVerificationFile: false
   path: cpp/modint/modint.hpp
   requiredBy: []
-  timestamp: '2024-10-31 21:49:33+09:00'
+  timestamp: '2024-11-04 20:54:25+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - cpp/verify/point_set_range_composite.test.cpp
+  - cpp/verify/combination.test.cpp
 documentation_of: cpp/modint/modint.hpp
 layout: document
 redirect_from:

@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: cpp/array/doubling.hpp
     title: cpp/array/doubling.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: cpp/graph/edge.hpp
     title: cpp/graph/edge.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: cpp/template/small_template.hpp
     title: "\u5171\u901A\u30D8\u30C3\u30C0\u30FC"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: cpp/tree/tree.hpp
     title: cpp/tree/tree.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/tree_diameter
@@ -39,9 +39,10 @@ data:
     \ \"tree/tree.hpp\"\n\nint main() {\n  cin.tie(0);\n  ios::sync_with_stdio(false);\n\
     \  int N;\n  cin >> N;\n  vector<int> a(N - 1), b(N - 1);\n  vector<ll> c(N -\
     \ 1);\n  for (int i = 0; i < N - 1; i++) {\n    cin >> a[i] >> b[i] >> c[i];\n\
-    \  }\n  Tree t(a, b, c);\n  auto [df, dt, d] = t.diameter();\n  auto path = t.path(df,\
-    \ dt);\n  cout << d << ' ' << path.size() << '\\n';\n  for (int i = 0; i < (int)path.size();\
-    \ i++) {\n    cout << path[i] << \" \\n\"[i + 1 == (int)path.size()];\n  }\n}"
+    \  }\n  Tree t(0, a, b, c);\n  auto [df, dt, d] = t.diameter();\n  auto path =\
+    \ t.path(df, dt);\n  cout << d << ' ' << path.size() << '\\n';\n  for (int i =\
+    \ 0; i < (int)path.size(); i++) {\n    cout << path[i] << \" \\n\"[i + 1 == (int)path.size()];\n\
+    \  }\n}"
   dependsOn:
   - cpp/tree/tree.hpp
   - cpp/array/doubling.hpp
@@ -50,8 +51,8 @@ data:
   isVerificationFile: true
   path: cpp/verify/tree_diameter.test.cpp
   requiredBy: []
-  timestamp: '2024-11-03 09:29:45+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-11-10 02:02:04+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: cpp/verify/tree_diameter.test.cpp
 layout: document

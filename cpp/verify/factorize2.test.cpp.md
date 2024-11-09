@@ -10,7 +10,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: cpp/number_theory/is_prime.hpp
     title: cpp/number_theory/is_prime.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: cpp/template/small_template.hpp
     title: "\u5171\u901A\u30D8\u30C3\u30C0\u30FC"
   _extendedRequiredBy: []
@@ -48,7 +48,7 @@ data:
   isVerificationFile: true
   path: cpp/verify/factorize2.test.cpp
   requiredBy: []
-  timestamp: '2024-10-19 16:46:12+09:00'
+  timestamp: '2024-11-04 20:54:25+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: cpp/verify/factorize2.test.cpp

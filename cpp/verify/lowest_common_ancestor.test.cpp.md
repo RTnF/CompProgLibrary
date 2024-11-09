@@ -1,16 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: cpp/array/doubling.hpp
     title: cpp/array/doubling.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: cpp/graph/edge.hpp
     title: cpp/graph/edge.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: cpp/template/small_template.hpp
     title: "\u5171\u901A\u30D8\u30C3\u30C0\u30FC"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: cpp/tree/tree.hpp
     title: cpp/tree/tree.hpp
   _extendedRequiredBy: []
@@ -49,7 +49,7 @@ data:
   isVerificationFile: true
   path: cpp/verify/lowest_common_ancestor.test.cpp
   requiredBy: []
-  timestamp: '2024-11-03 09:29:45+09:00'
+  timestamp: '2024-11-10 02:02:04+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: cpp/verify/lowest_common_ancestor.test.cpp

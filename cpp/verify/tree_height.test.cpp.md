@@ -2,18 +2,27 @@
 data:
   _extendedDependsOn:
   - icon: ':question:'
+    path: cpp/array/doubling.hpp
+    title: cpp/array/doubling.hpp
+  - icon: ':question:'
+    path: cpp/graph/edge.hpp
+    title: cpp/graph/edge.hpp
+  - icon: ':question:'
     path: cpp/template/small_template.hpp
     title: "\u5171\u901A\u30D8\u30C3\u30C0\u30FC"
+  - icon: ':question:'
+    path: cpp/tree/tree.hpp
+    title: cpp/tree/tree.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/1/ALDS1_1_D
+    PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/5/GRL_5_B
     links:
-    - https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/1/ALDS1_1_D
+    - https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/5/GRL_5_B
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
@@ -24,25 +33,30 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: template/small_template.hpp:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: tree/tree.hpp:\
     \ line -1: no such header\n"
-  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/1/ALDS1_1_D\"\
-    \n#include \"template/small_template.hpp\"\n\nint main() {\n  cin.tie(0);\n  ios::sync_with_stdio(false);\n\
-    \n  int n;\n  cin >> n;\n  ll R;\n  cin >> R;\n\n  ll maxv = -INF;\n  ll minv\
-    \ = R;\n  for (int i = 1; i < n; i++) {\n    cin >> R;\n    maxv = max(maxv, R\
-    \ - minv);\n    minv = min(minv, R);\n  }\n\n  cout << maxv << endl;\n}"
+  code: "#define PROBLEM                                                         \
+    \       \\\n  \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/5/GRL_5_B\"\
+    \n#include \"tree/tree.hpp\"\n\nint main() {\n  cin.tie(0);\n  ios::sync_with_stdio(false);\n\
+    \  int N;\n  cin >> N;\n  vector<int> a(N - 1), b(N - 1);\n  vector<ll> c(N -\
+    \ 1);\n  for (int i = 0; i < N - 1; i++) {\n    cin >> a[i] >> b[i] >> c[i];\n\
+    \  }\n  Tree t(0, a, b, c);\n  for (auto &&e : t.height()) {\n    cout << e <<\
+    \ '\\n';\n  }\n}"
   dependsOn:
+  - cpp/tree/tree.hpp
+  - cpp/array/doubling.hpp
   - cpp/template/small_template.hpp
+  - cpp/graph/edge.hpp
   isVerificationFile: true
-  path: cpp/verify/maximum_profit.test.cpp
+  path: cpp/verify/tree_height.test.cpp
   requiredBy: []
-  timestamp: '2024-10-19 16:46:12+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2024-11-10 02:02:04+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: cpp/verify/maximum_profit.test.cpp
+documentation_of: cpp/verify/tree_height.test.cpp
 layout: document
 redirect_from:
-- /verify/cpp/verify/maximum_profit.test.cpp
-- /verify/cpp/verify/maximum_profit.test.cpp.html
-title: cpp/verify/maximum_profit.test.cpp
+- /verify/cpp/verify/tree_height.test.cpp
+- /verify/cpp/verify/tree_height.test.cpp.html
+title: cpp/verify/tree_height.test.cpp
 ---

@@ -14,7 +14,7 @@ data:
     - icon: ':warning:'
       path: cpp/array/cumulative_sum.hpp
       title: "1\u6B21\u5143\u7D2F\u7A4D\u548C"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: cpp/array/doubling.hpp
       title: cpp/array/doubling.hpp
     - icon: ':warning:'
@@ -39,12 +39,18 @@ data:
     - icon: ':heavy_check_mark:'
       path: cpp/graph/dijkstra.hpp
       title: cpp/graph/dijkstra.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: cpp/graph/edge.hpp
       title: cpp/graph/edge.hpp
     - icon: ':heavy_check_mark:'
+      path: cpp/graph/edge_flow.hpp
+      title: cpp/graph/edge_flow.hpp
+    - icon: ':heavy_check_mark:'
       path: cpp/graph/find_cycle.hpp
       title: cpp/graph/find_cycle.hpp
+    - icon: ':heavy_check_mark:'
+      path: cpp/graph/graph_flow.hpp
+      title: cpp/graph/graph_flow.hpp
     - icon: ':heavy_check_mark:'
       path: cpp/graph/graph_list.hpp
       title: "\u30B0\u30E9\u30D5 (\u96A3\u63A5\u30EA\u30B9\u30C8\u5F62\u5F0F)"
@@ -121,12 +127,15 @@ data:
     - icon: ':warning:'
       path: cpp/string/char_count.hpp
       title: "\u30E9\u30F3\u30EC\u30F3\u30B0\u30B9\u5727\u7E2E"
+    - icon: ':question:'
+      path: cpp/string/rolling_hash.hpp
+      title: cpp/string/rolling_hash.hpp
   - name: cpp/template
     pages:
     - icon: ':warning:'
       path: cpp/template/marathon_template.cpp
       title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: cpp/template/small_template.hpp
       title: "\u5171\u901A\u30D8\u30C3\u30C0\u30FC"
     - icon: ':warning:'
@@ -134,7 +143,7 @@ data:
       title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
   - name: cpp/tree
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: cpp/tree/tree.hpp
       title: cpp/tree/tree.hpp
   verificationCategories:
@@ -152,6 +161,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: cpp/verify/bridges.test.cpp
       title: cpp/verify/bridges.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: cpp/verify/combination.test.cpp
+      title: cpp/verify/combination.test.cpp
     - icon: ':heavy_check_mark:'
       path: cpp/verify/detect_cycle_directed.test.cpp
       title: cpp/verify/detect_cycle_directed.test.cpp
@@ -186,11 +198,20 @@ data:
       path: cpp/verify/lowest_common_ancestor.test.cpp
       title: cpp/verify/lowest_common_ancestor.test.cpp
     - icon: ':heavy_check_mark:'
+      path: cpp/verify/lowest_common_ancestor_2.test.cpp
+      title: cpp/verify/lowest_common_ancestor_2.test.cpp
+    - icon: ':heavy_check_mark:'
       path: cpp/verify/many_a_plus_b.test.cpp
       title: cpp/verify/many_a_plus_b.test.cpp
     - icon: ':heavy_check_mark:'
+      path: cpp/verify/max_flow.test.cpp
+      title: cpp/verify/max_flow.test.cpp
+    - icon: ':heavy_check_mark:'
       path: cpp/verify/maximum_profit.test.cpp
       title: cpp/verify/maximum_profit.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: cpp/verify/min_cost_flow.test.cpp
+      title: cpp/verify/min_cost_flow.test.cpp
     - icon: ':heavy_check_mark:'
       path: cpp/verify/multi_set.test.cpp
       title: cpp/verify/multi_set.test.cpp
@@ -204,14 +225,26 @@ data:
       path: cpp/verify/prim.test.cpp
       title: cpp/verify/prim.test.cpp
     - icon: ':heavy_check_mark:'
+      path: cpp/verify/rolling_hash.test.cpp
+      title: cpp/verify/rolling_hash.test.cpp
+    - icon: ':x:'
+      path: cpp/verify/rolling_hash_2.test.cpp
+      title: cpp/verify/rolling_hash_2.test.cpp
+    - icon: ':heavy_check_mark:'
       path: cpp/verify/segment_tree.test.cpp
       title: cpp/verify/segment_tree.test.cpp
     - icon: ':heavy_check_mark:'
       path: cpp/verify/sort_points_by_argument.test.cpp
       title: cpp/verify/sort_points_by_argument.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: cpp/verify/tree_diameter.test.cpp
       title: cpp/verify/tree_diameter.test.cpp
+    - icon: ':x:'
+      path: cpp/verify/tree_diameter_2.test.cpp
+      title: cpp/verify/tree_diameter_2.test.cpp
+    - icon: ':x:'
+      path: cpp/verify/tree_height.test.cpp
+      title: cpp/verify/tree_height.test.cpp
     - icon: ':heavy_check_mark:'
       path: cpp/verify/warshall_floyd.test.cpp
       title: cpp/verify/warshall_floyd.test.cpp
@@ -219,6 +252,7 @@ layout: toppage
 ---
 参考：
 - 「プログラミングコンテスト攻略のためのアルゴリズムとデータ構造」(渡部 有隆)
+- 「アルゴリズム実技検定　公式テキスト［上級］～［エキスパート］編」(大槻 兼資, 杉江 祐哉, 中村 謙弘, 高橋 直大)
 - [AtCoder Library](https://github.com/atcoder/ac-library)
 - [Joeの精進記録](https://xuzijian629.hatenablog.com/)
 - [いかたこのたこつぼ > アルゴリズム](https://ikatakos.com/pot/programming_algorithm)
