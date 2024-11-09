@@ -114,29 +114,45 @@ public:
   }
 
   // 最小費用流 O(FVE)
-  Cost min_cost_flow(int s, int t, int f) {
-    Cost result = 0;
-    while (f > 0) {
-      auto [dist, pv, pe] = bellman_ford(s);
-      if (dist[t] == F_MAX) {
-        return -1;
+  vector<pair<Cost, Cost>> min_cost_flow_slope(int source, int sink,
+                                               Cost flow_cutoff = F_MAX) {
+    vector<pair<Cost, Cost>> result(1, {0, 0});
+    Cost flow_total = 0;
+    Cost cost_total = 0;
+    while (true) {
+      auto [dist, pv, pe] = bellman_ford(source);
+      if (dist[sink] == F_MAX) {
+        return result;
       }
-      Cost flow = f;
-      int v = t;
-      while (v != s) {
+      Cost flow = F_MAX;
+      int v = sink;
+      while (v != source) {
         flow = min(flow, adj[pv[v]][pe[v]].cap);
         v = pv[v];
       }
-      result += flow * dist[t];
-      f -= flow;
-      v = t;
-      while (v != s) {
+      flow_total += flow;
+      cost_total += flow * dist[sink];
+      result.emplace_back(flow_total, cost_total);
+      v = sink;
+      while (v != source) {
         adj[pv[v]][pe[v]].cap -= flow;
         adj[v][adj[pv[v]][pe[v]].rev].cap += flow;
         v = pv[v];
       }
+      if (flow_total >= flow_cutoff) {
+        return result;
+      }
     }
-    return result;
+  }
+  Cost min_cost_flow(int source, int sink, int flow) {
+    auto slope = min_cost_flow_slope(source, sink, flow);
+    int n = slope.size();
+    if (slope[n - 1].first < flow) {
+      return -1;
+    }
+    auto [x1, y1] = slope[n - 2];
+    auto [x2, y2] = slope[n - 1];
+    return (y2 - y1) / (x2 - x1) * (flow - x1) + y1;
   }
 
   template <class C_, class E_>
