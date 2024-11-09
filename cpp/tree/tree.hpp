@@ -6,63 +6,54 @@
 template <class Cost = ll, class E = Edge<Cost>> class Tree {
   int n_, root_;
   vector<vector<E>> adj;
-  vector<int> parent_;           // 0の親は0
-  vector<int> depth_;            // 深さ(根からの辺の数)
-  vector<int> cost_depth_;       // 深さ(コスト合計)
+  // 0の親は0, 深さ(根からの辺の数/コスト合計)
+  vector<vector<int>> parent_, depth_, cost_depth_;
   vector<vector<int>> ancestor_; // 2**i回遡った祖先
+  vector<int> farthest_node_;    // 最遠点
+  vector<Cost> height_;          // 高さ(最遠点までの距離)
 
-  void build_parent() {
-    stack<tuple<int, int, Cost>> s;
+  // 返り値：最遠ノード O(N)
+  void build_depth(int from) {
+    if (farthest_node_[from] != -1) {
+      return;
+    }
+    parent_[from] = vector<int>(n_);
+    depth_[from] = vector<int>(n_);
+    cost_depth_[from] = vector<int>(n_);
+    parent_[from][from] = from;
+    depth_[from][from] = 0;
+    cost_depth_[from][from] = 0;
     basic_string<bool> visited(n_, false);
-    visited[root_] = true;
-    parent_[root_] = root_;
-    depth_[root_] = 0;
-    cost_depth_[root_] = 0;
-    s.emplace(root_, 0, 0);
+    stack<tuple<int, int, Cost>> s;
+    Cost max_cost = -1;
+    int farthest = -1;
+    s.emplace(from, 0, 0);
+    visited[from] = true;
     while (s.size()) {
       auto [node, d, dc] = s.top();
       s.pop();
-      for (auto &&e : adj[node]) {
-        if (!visited[e.to]) {
-          visited[e.to] = true;
-          parent_[e.to] = node;
-          depth_[e.to] = d + 1;
-          cost_depth_[e.to] = dc + e.cost;
-          s.emplace(e.to, d + 1, dc + e.cost);
-        }
-      }
-    }
-  }
-
-  // 最遠ノード O(N)
-  pair<int, Cost> farthest_node(int from) const {
-    basic_string<bool> visited(n_, false);
-    stack<pair<int, Cost>> s;
-    Cost max_cost = -1;
-    int farthest = -1;
-    s.emplace(from, 0);
-    visited[from] = true;
-    while (s.size()) {
-      auto [node, d] = s.top();
-      s.pop();
-      if (max_cost < d) {
-        max_cost = d;
+      if (max_cost < dc) {
+        max_cost = dc;
         farthest = node;
       }
       for (auto &&e : adj[node]) {
         if (!visited[e.to]) {
           visited[e.to] = true;
-          s.emplace(e.to, d + e.cost);
+          parent_[from][e.to] = node;
+          depth_[from][e.to] = d + 1;
+          cost_depth_[from][e.to] = dc + e.cost;
+          s.emplace(e.to, d + 1, dc + e.cost);
         }
       }
     }
-    return {farthest, max_cost};
+    farthest_node_[from] = farthest;
+    height_[from] = max_cost;
   }
 
 public:
   Tree(int root, vector<int> &from, vector<int> &to, vector<Cost> &cost)
       : n_(from.size() + 1), root_(root), adj(n_), parent_(n_), depth_(n_),
-        cost_depth_(n_) {
+        cost_depth_(n_), farthest_node_(n_, -1), height_(n_, -1) {
     assert(n_ == (int)to.size() + 1);
     assert(n_ == (int)cost.size() + 1);
     for (int i = 0; i < n_ - 1; i++) {
@@ -73,11 +64,11 @@ public:
       adj[from[i]].emplace_back(from[i], to[i], cost[i]);
       adj[to[i]].emplace_back(to[i], from[i], cost[i]);
     }
-    build_parent();
+    build_depth(root_);
   }
   Tree(int root, vector<int> &from, vector<int> &to)
       : n_(from.size() + 1), root_(root), adj(n_), parent_(n_), depth_(n_),
-        cost_depth_(n_) {
+        cost_depth_(n_), farthest_node_(n_, -1), height_(n_, -1) {
     assert(n_ == (int)to.size() + 1);
     for (int i = 0; i < n_ - 1; i++) {
       assert(0 <= from[i]);
@@ -87,11 +78,11 @@ public:
       adj[from[i]].emplace_back(from[i], to[i]);
       adj[to[i]].emplace_back(to[i], from[i]);
     }
-    build_parent();
+    build_depth(root_);
   }
   Tree(int root, vector<int> &parent)
       : n_(parent.size()), root_(root), adj(n_), parent_(n_), depth_(n_),
-        cost_depth_(n_) {
+        cost_depth_(n_), farthest_node_(n_, -1), height_(n_, -1) {
     assert(n_ > 0);
     for (int i = 0; i < n_; i++) {
       if (i != parent[i] && 0 <= parent[i] && parent[i] < n_) {
@@ -99,10 +90,11 @@ public:
         adj[i].emplace_back(i, parent[i]);
       }
     }
-    build_parent();
+    build_depth(root_);
   }
   Tree(vector<int> &parent)
-      : n_(parent.size()), adj(n_), parent_(n_), depth_(n_), cost_depth_(n_) {
+      : n_(parent.size()), adj(n_), parent_(n_), depth_(n_), cost_depth_(n_),
+        farthest_node_(n_, -1), height_(n_, -1) {
     assert(n_ > 0);
     int r = -1;
     for (int i = 0; i < n_; i++) {
@@ -118,14 +110,26 @@ public:
         adj[i].emplace_back(i, parent[i]);
       }
     }
-    build_parent();
+    build_depth(root_);
   }
 
   // 直径(from, to, cost) O(N)
-  tuple<int, int, Cost> diameter() const {
-    auto [f0, d0] = farthest_node(0);
-    auto [f1, d1] = farthest_node(f0);
-    return {f0, f1, d1};
+  tuple<int, int, Cost> diameter() {
+    build_depth(0);
+    int f0 = farthest_node_[0];
+    build_depth(f0);
+    return {f0, farthest_node_[f0], height_[f0]};
+  }
+
+  // vから最遠点までの距離 O(N)
+  vector<Cost> height() {
+    auto [f0, f1, d] = diameter();
+    build_depth(f1);
+    vector<Cost> h(n_);
+    for (int i = 0; i < n_; i++) {
+      h[i] = max(cost_depth_[f0][i], cost_depth_[f1][i]);
+    }
+    return h;
   }
 
   // 経路 O(N)
@@ -156,7 +160,7 @@ public:
   }
 
   // ダブリングによる祖先構築 O(N log N)
-  void build_ancestor() { ancestor_ = doubling(parent_, n_ - 1); }
+  void build_ancestor() { ancestor_ = doubling(parent_[root_], n_ - 1); }
 
   // i回遡った祖先 O(log N)
   int ancestor(int v, int i) const {
@@ -171,12 +175,8 @@ public:
 
   // LCA O(log N)
   int lowest_common_ancestor(int u, int v) const {
-    assert(0 <= u);
-    assert(u < n_);
-    assert(0 <= v);
-    assert(v < n_);
-    int du = depth_[u];
-    int dv = depth_[v];
+    int du = depth_[root_][u];
+    int dv = depth_[root_][v];
     if (du > dv) {
       u = ancestor(u, du - dv);
       du = dv;
@@ -203,21 +203,13 @@ public:
     assert(u < n_);
     assert(0 <= v);
     assert(v < n_);
-    return cost_depth_[u] + cost_depth_[v] -
-           cost_depth_[lowest_common_ancestor(u, v)] * 2;
+    return cost_depth_[root_][u] + cost_depth_[root_][v] -
+           cost_depth_[root_][lowest_common_ancestor(u, v)] * 2;
   }
 
-  int depth(int v) const {
-    assert(0 <= v);
-    assert(v < n_);
-    return depth_[v];
-  }
+  int depth(int v) const { return depth_[root_][v]; }
 
-  Cost cost_depth(int v) const {
-    assert(0 <= v);
-    assert(v < n_);
-    return cost_depth_[v];
-  }
+  Cost cost_depth(int v) const { return cost_depth_[root_][v]; }
 
   vector<E> &operator[](int i) { return adj[i]; }
 

@@ -1,5 +1,6 @@
 参考：
 - 「プログラミングコンテスト攻略のためのアルゴリズムとデータ構造」(渡部 有隆)
+- 「アルゴリズム実技検定　公式テキスト［上級］～［エキスパート］編」(大槻 兼資, 杉江 祐哉, 中村 謙弘, 高橋 直大)
 - [AtCoder Library](https://github.com/atcoder/ac-library)
 - [Joeの精進記録](https://xuzijian629.hatenablog.com/)
 - [いかたこのたこつぼ > アルゴリズム](https://ikatakos.com/pot/programming_algorithm)
