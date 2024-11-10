@@ -12,19 +12,19 @@ template <uint32_t m, enable_if_t<(2 <= m)> * = nullptr> class ModInt {
 public:
   constexpr ModInt() : x(0) {}
   template <class T, enable_if_t<is_signed_v<T>> * = nullptr>
-  constexpr ModInt(T x_) : x(x_ < 0 ? x_ % (ll)mod + (ll)mod : x_ % (ll)mod) {}
+  constexpr ModInt(T x_) : x(x_ < 0 ? x_ % (ll)m + (ll)m : x_ % (ll)m) {}
   template <class U, enable_if_t<!is_signed_v<U>> * = nullptr>
-  constexpr ModInt(U x_) : x(x_ % mod) {}
+  constexpr ModInt(U x_) : x(x_ % m) {}
 
   uint32_t get() const { return x; }
   static constexpr uint32_t mod() { return m; }
   template <class T, enable_if_t<is_signed_v<T>> * = nullptr>
   constexpr void set(T x_) {
-    x = x_ < 0 ? x_ % (ll)mod + (ll)mod : x_ % (ll)mod;
+    x = x_ < 0 ? x_ % (ll)m + (ll)m : x_ % (ll)m;
   }
   template <class U, enable_if_t<!is_signed_v<U>> * = nullptr>
   constexpr void set(U x_) {
-    x = x_ % mod;
+    x = x_ % m;
   }
 
   constexpr ModInt operator++(int) {
