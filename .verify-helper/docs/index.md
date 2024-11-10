@@ -4,6 +4,7 @@
 - [AtCoder Library](https://github.com/atcoder/ac-library)
 - [Joeの精進記録](https://xuzijian629.hatenablog.com/)
 - [いかたこのたこつぼ > アルゴリズム](https://ikatakos.com/pot/programming_algorithm)
+- [Luzhiled's memo](https://ei1333.github.io/luzhiled/)
 
 ## 方針
 

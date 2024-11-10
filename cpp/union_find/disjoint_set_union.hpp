@@ -2,16 +2,14 @@
 #include "template/small_template.hpp"
 
 // 素集合データ構造 (Union Find)
-class DisjointSetUnion {
+class UnionFind {
   // root: -1 * 連結成分サイズ, その他: 親
   vector<int> _ps;
   int _num_groups, _n;
 
 public:
-  DisjointSetUnion() : _num_groups(0), _n(0) {}
-  DisjointSetUnion(int n) : _ps(n, -1), _num_groups(n), _n(n) {
-    assert(n >= 0);
-  }
+  UnionFind() : _num_groups(0), _n(0) {}
+  UnionFind(int n) : _ps(n, -1), _num_groups(n), _n(n) { assert(n >= 0); }
 
   // a と b を結合する
   int unite(int a, int b) {
