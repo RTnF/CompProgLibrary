@@ -152,6 +152,19 @@ template <typename T = ll> class TreeMultiSet {
     }
   }
 
+  void enumerate_in(vector<pair<T, size_t>> &v, Tree t, const T &l,
+                    const T &r) {
+    if (t->l && l < t->k) {
+      enumerate_in(v, t->l, l, r);
+    }
+    if (l <= t->k && t->k < r) {
+      v.emplace_back(t->k, t->c);
+    }
+    if (t->r && t->k < r - 1) {
+      enumerate_in(v, t->r, l, r);
+    }
+  }
+
 public:
   TreeMultiSet() = default;
 
@@ -278,10 +291,22 @@ public:
   }
 
   // K番目の要素(0-indexed)
-  T get_kth(size_t k) { assert(0 <= k && k < n_); }
+  T get_kth(size_t k) {
+    // TODO
+    assert(0 <= k && k < n_);
+  }
+
+  // l <= k < r を満たす要素の列挙
+  vector<pair<T, size_t>> enumerate(const T &l, const T &r) {
+    vector<pair<T, size_t>> ret;
+    if (root) {
+      enumerate_in(ret, root, l, r);
+    }
+    return ret;
+  }
 
   // AOJ
-  void aoj_dump(T l, T r) {
+  void aoj_dump(const T &l, const T &r) {
     if (root) {
       aoj_dump(root, l, r);
     }

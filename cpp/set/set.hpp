@@ -93,6 +93,13 @@ public:
     }
     return t->k;
   }
+  T max() {
+    Tree t = root;
+    while (t->r) {
+      t = t->r;
+    }
+    return t->k;
+  }
 
   int size() { return n; }
 };
