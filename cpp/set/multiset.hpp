@@ -165,6 +165,16 @@ template <typename T = ll> class TreeMultiSet {
     }
   }
 
+  void enumerate_all_in(vector<pair<T, size_t>> &v, Tree t) {
+    if (t->l) {
+      enumerate_all_in(v, t->l);
+    }
+    v.emplace_back(t->k, t->c);
+    if (t->r) {
+      enumerate_all_in(v, t->r);
+    }
+  }
+
 public:
   TreeMultiSet() = default;
 
@@ -274,6 +284,27 @@ public:
     return 0;
   }
 
+  // 検索 順位(0-indexed)の区間を返す O(log n)
+  // 存在しない場合、-1,-1
+  pair<int, int> rank(T key) {
+    Tree t = root;
+    int rnk = 0;
+    while (t) {
+      if (key == t->k) {
+        rnk += t->l ? t->l->cr : 0;
+        return {rnk, rnk + t->c};
+      }
+      if (key < t->k) {
+        t = t->l;
+      } else {
+        rnk += t->c;
+        rnk += t->l ? t->l->cr : 0;
+        t = t->r;
+      }
+    }
+    return {-1, -1};
+  }
+
   T min() {
     Tree t = root;
     while (t->l) {
@@ -292,8 +323,8 @@ public:
 
   // K番目の要素(0-indexed)
   T get_kth(size_t k) {
-    // TODO
-    assert(0 <= k && k < n_);
+    assert(k < n_);
+    return find_by_order(root, k);
   }
 
   // l <= k < r を満たす要素の列挙
@@ -301,6 +332,15 @@ public:
     vector<pair<T, size_t>> ret;
     if (root) {
       enumerate_in(ret, root, l, r);
+    }
+    return ret;
+  }
+
+  // 全要素の列挙
+  vector<pair<T, size_t>> enumerate_all() {
+    vector<pair<T, size_t>> ret;
+    if (root) {
+      enumerate_all_in(ret, root);
     }
     return ret;
   }

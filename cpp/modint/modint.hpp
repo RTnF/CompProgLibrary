@@ -120,42 +120,15 @@ public:
 using mint = ModInt<998244353u>;
 using mint17 = ModInt<1000000007u>;
 
-mint factorial(int n) {
-  assert(0 <= n);
-  static const int sz_ini = 100000;
-  static int sz = 1;
-  static vector<mint> fac(1, 1);
-  int sz_new = max(sz_ini, n + 1);
-  if (sz_new > sz) {
-    fac.resize(sz_new);
-    for (int i = sz; i < sz_new; i++) {
-      fac[i] = fac[i - 1] * i;
-    }
-    sz = sz_new;
-  }
-  return fac[n];
-}
-
-mint factorial_inv(int n) {
-  assert(0 <= n);
-  static const int sz_ini = 100000;
-  static int sz = 1;
-  static vector<mint> fac_inv(1, 1);
-  int sz_new = max(sz_ini, n + 1);
-  if (sz_new > sz) {
-    fac_inv.resize(sz_new);
-    for (int i = sz; i < sz_new; i++) {
-      fac_inv[i] = fac_inv[i - 1] / i;
-    }
-    sz = sz_new;
-  }
-  return fac_inv[n];
-}
+const int MAX = 20000003;
+mint fac[20000003];
 
 // combination
-mint C(int n, int k) {
-  assert(0 <= n);
-  assert(0 <= k);
-  assert(k <= n);
-  return factorial(n) * factorial_inv(k) * factorial_inv(n - k);
+constexpr mint C(int n, int k) { return fac[n] / (fac[k] * fac[n - k]); }
+
+constexpr void init() {
+  fac[0] = 1;
+  for (int i = 1; i < MAX; i++) {
+    fac[i] = fac[i - 1] * i;
+  }
 }
