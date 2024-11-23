@@ -25,7 +25,7 @@ int main() {
       break;
     case 2: // delete
       cin >> x;
-      ms.removeAll(x);
+      ms.remove_all(x);
       break;
     case 3: // dump
       cin >> l >> r;

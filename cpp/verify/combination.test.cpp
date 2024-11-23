@@ -2,6 +2,7 @@
 #include "modint/modint.hpp"
 
 int main() {
+  init();
   cin.tie(0);
   ios::sync_with_stdio(false);
   int n, k;

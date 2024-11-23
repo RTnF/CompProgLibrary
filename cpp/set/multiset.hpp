@@ -258,7 +258,7 @@ public:
    * @param key
    * @return size_t 削除した要素数
    */
-  size_t removeAll(T key) {
+  size_t remove_all(T key) {
     Tree t = root;
     while (t) {
       if (key == t->k) {
@@ -284,6 +284,41 @@ public:
     return 0;
   }
 
+  // 検索 ない場合、検索値より小さい中で最大の要素または無効値
+  optional<T> find_lower(T key) {
+    Tree t = root;
+    Tree lower = nullptr;
+
+    while (t) {
+      if (key == t->k) {
+        return key;
+      } else if (key < t->k) {
+        t = t->l;
+      } else {
+        lower = t;
+        t = t->r;
+      }
+    }
+    return lower ? optional(lower->k) : nullopt;
+  }
+
+  // 検索 ない場合、検索値より大きい中で最小の要素または無効値
+  optional<T> find_upper(T key) {
+    Tree t = root;
+    Tree upper = nullptr;
+    while (t) {
+      if (key == t->k) {
+        return key;
+      } else if (key < t->k) {
+        upper = t;
+        t = t->l;
+      } else {
+        t = t->r;
+      }
+    }
+    return upper ? optional(upper->k) : nullopt;
+  }
+
   // 検索 順位(0-indexed)の区間を返す O(log n)
   // 存在しない場合、-1,-1
   pair<int, int> rank(T key) {
@@ -293,8 +328,7 @@ public:
       if (key == t->k) {
         rnk += t->l ? t->l->cr : 0;
         return {rnk, rnk + t->c};
-      }
-      if (key < t->k) {
+      } else if (key < t->k) {
         t = t->l;
       } else {
         rnk += t->c;
