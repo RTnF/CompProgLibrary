@@ -120,15 +120,15 @@ public:
 using mint = ModInt<998244353u>;
 using mint17 = ModInt<1000000007u>;
 
-const int MAX = 20000003;
-mint fac[20000003];
+const int MAX_FAC = 20000003;
+mint fac[MAX_FAC];
 
 // combination
 constexpr mint C(int n, int k) { return fac[n] / (fac[k] * fac[n - k]); }
 
 constexpr void init() {
   fac[0] = 1;
-  for (int i = 1; i < MAX; i++) {
+  for (int i = 1; i < MAX_FAC; i++) {
     fac[i] = fac[i - 1] * i;
   }
 }
