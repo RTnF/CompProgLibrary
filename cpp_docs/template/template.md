@@ -48,7 +48,7 @@ using vpii = vector<pii>;
 using vp = vector<pll>;
 using vpdd = vector<pdd>;
 using vpld = vector<pld>;
-template <typename T> using pqrev = priority_queue<T, vector<T>, greater<T>>;
+template <class T> using pqrev = priority_queue<T, vector<T>, greater<T>>;
 ```
 
 `long long` ではなく、 `long` として扱われる。
@@ -92,23 +92,23 @@ constexpr ll MOD = 998244353;
 ## ユーティリティ
 
 ```cpp
-template <typename S, typename T> constexpr bool chmax(S &a, const T &b) {
+template <class S, class T> constexpr bool chmax(S &a, const T &b) {
   if (a < b) {
     a = b;
     return 1;
   }
   return 0;
 }
-template <typename S, typename T> constexpr bool chmin(S &a, const T &b) {
+template <class S, class T> constexpr bool chmin(S &a, const T &b) {
   if (b < a) {
     a = b;
     return 1;
   }
   return 0;
 }
-template <typename T> T max(const vector<T> &x) { return *max_element(ALL(x)); }
-template <typename T> T min(const vector<T> &x) { return *min_element(ALL(x)); }
-template <typename T> pair<T, int> argmax(const vector<T> &x) {
+template <class T> T max(const vector<T> &x) { return *max_element(ALL(x)); }
+template <class T> T min(const vector<T> &x) { return *min_element(ALL(x)); }
+template <class T> pair<T, int> argmax(const vector<T> &x) {
   int idx = 0;
   T m = x[0];
   repr(i, 1, SZ(x)) {
@@ -117,7 +117,7 @@ template <typename T> pair<T, int> argmax(const vector<T> &x) {
   }
   return {m, idx};
 }
-template <typename T> pair<T, int> argmin(const vector<T> &x) {
+template <class T> pair<T, int> argmin(const vector<T> &x) {
   int idx = 0;
   T m = x[0];
   repr(i, 1, SZ(x)) {
@@ -126,7 +126,7 @@ template <typename T> pair<T, int> argmin(const vector<T> &x) {
   }
   return {m, idx};
 }
-template <typename T> T sum(const vector<T> &x) {
+template <class T> T sum(const vector<T> &x) {
   return accumulate(ALL(x), T(0));
 }
 // last param -> T
@@ -139,7 +139,7 @@ template <typename... Args> auto makev(size_t sz, Args... args) {
 ## デバッグ用
 
 ```cpp
-template <typename T>
+template <class T>
 constexpr T local([[maybe_unused]] const T &lcl, [[maybe_unused]] const T &oj) {
 #ifdef OJ_LOCAL
   return lcl;

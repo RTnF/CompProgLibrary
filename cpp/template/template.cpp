@@ -26,7 +26,7 @@ using vpii = vector<pii>;
 using vp = vector<pll>;
 using vpdd = vector<pdd>;
 using vpld = vector<pld>;
-template <typename T> using pqrev = priority_queue<T, vector<T>, greater<T>>;
+template <class T> using pqrev = priority_queue<T, vector<T>, greater<T>>;
 #define rep(i, n) for (ll i = 0, i##_end = (n); i < i##_end; i++)
 #define repb(i, n) for (ll i = (n) - 1; i >= 0; i--)
 #define repr(i, a, b) for (ll i = (a), i##_end = (b); i < i##_end; i++)
@@ -36,7 +36,7 @@ template <typename T> using pqrev = priority_queue<T, vector<T>, greater<T>>;
 constexpr ll INF = 4e+18;
 constexpr ld EPS = 1e-12L;
 constexpr ld PI = 3.14159265358979323846L;
-template <typename T>
+template <class T>
 constexpr T local([[maybe_unused]] const T &lcl, [[maybe_unused]] const T &oj) {
 #ifdef OJ_LOCAL
   return lcl;
@@ -44,23 +44,23 @@ constexpr T local([[maybe_unused]] const T &lcl, [[maybe_unused]] const T &oj) {
   return oj;
 #endif
 }
-template <typename S, typename T> constexpr bool chmax(S &a, const T &b) {
+template <class S, class T> constexpr bool chmax(S &a, const T &b) {
   if (a < b) {
     a = b;
     return 1;
   }
   return 0;
 }
-template <typename S, typename T> constexpr bool chmin(S &a, const T &b) {
+template <class S, class T> constexpr bool chmin(S &a, const T &b) {
   if (b < a) {
     a = b;
     return 1;
   }
   return 0;
 }
-template <typename T> T max(const vector<T> &x) { return *max_element(ALL(x)); }
-template <typename T> T min(const vector<T> &x) { return *min_element(ALL(x)); }
-template <typename T> pair<T, int> argmax(const vector<T> &x) {
+template <class T> T max(const vector<T> &x) { return *max_element(ALL(x)); }
+template <class T> T min(const vector<T> &x) { return *min_element(ALL(x)); }
+template <class T> pair<T, int> argmax(const vector<T> &x) {
   int idx = 0;
   T m = x[0];
   repr(i, 1, SZ(x)) {
@@ -69,7 +69,7 @@ template <typename T> pair<T, int> argmax(const vector<T> &x) {
   }
   return {m, idx};
 }
-template <typename T> pair<T, int> argmin(const vector<T> &x) {
+template <class T> pair<T, int> argmin(const vector<T> &x) {
   int idx = 0;
   T m = x[0];
   repr(i, 1, SZ(x)) {
@@ -78,21 +78,21 @@ template <typename T> pair<T, int> argmin(const vector<T> &x) {
   }
   return {m, idx};
 }
-template <typename T> T sum(const vector<T> &x) {
+template <class T> T sum(const vector<T> &x) {
   return accumulate(ALL(x), T(0));
 }
 // last param -> T
-template <typename T> vector<T> makev(size_t a, T b) { return vector<T>(a, b); }
-template <typename... Args> auto makev(size_t sz, Args... args) {
+template <class T> vector<T> makev(size_t a, T b) { return vector<T>(a, b); }
+template <class... Args> auto makev(size_t sz, Args... args) {
   return vector<decltype(makev(args...))>(sz, makev(args...));
 }
 
 namespace in {
-template <typename T> bool print(const T &a) {
+template <class T> bool print(const T &a) {
   cout << a;
   return true;
 }
-template <typename T> bool print(const vector<T> &vec) {
+template <class T> bool print(const vector<T> &vec) {
   for (auto &a : vec) {
     cout << a;
     if (&a != &vec.back())
@@ -100,7 +100,7 @@ template <typename T> bool print(const vector<T> &vec) {
   }
   return false;
 }
-template <typename T> bool print(const vector<vector<T>> &vv) {
+template <class T> bool print(const vector<vector<T>> &vv) {
   for (auto &v : vv) {
     for (auto &a : v) {
       cout << a;
@@ -114,8 +114,7 @@ template <typename T> bool print(const vector<vector<T>> &vv) {
 }
 }; // namespace in
 void print() { cout << '\n'; }
-template <typename Head, typename... Tail>
-void print(Head &&head, Tail &&...tail) {
+template <class Head, class... Tail> void print(Head &&head, Tail &&...tail) {
   bool f = in::print(head);
   if (sizeof...(tail) != 0) {
     cout << (f ? ' ' : '\n');

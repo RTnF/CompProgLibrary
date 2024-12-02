@@ -64,29 +64,29 @@ constexpr double EPS = 1e-12;
 #define reprb(i, a, b) for (int i = (b) - 1, i##_end = (a); i >= i##_end; i--)
 #define ALL(a) (a).begin(), (a).end()
 #define SZ(x) ((int)(x).size())
-template <typename T> using pqrev = priority_queue<T, vector<T>, greater<T>>;
+template <class T> using pqrev = priority_queue<T, vector<T>, greater<T>>;
 ```
 
 ## ユーティリティ
 
 ```cpp
-template <typename S, typename T> constexpr bool chmax(S &a, const T &b) {
+template <class S, class T> constexpr bool chmax(S &a, const T &b) {
   if (a < b) {
     a = b;
     return 1;
   }
   return 0;
 }
-template <typename S, typename T> constexpr bool chmin(S &a, const T &b) {
+template <class S, class T> constexpr bool chmin(S &a, const T &b) {
   if (b < a) {
     a = b;
     return 1;
   }
   return 0;
 }
-template <typename T> T max(const vector<T> &x) { return *max_element(ALL(x)); }
-template <typename T> T min(const vector<T> &x) { return *min_element(ALL(x)); }
-template <typename T> pair<T, int> argmax(const vector<T> &x) {
+template <class T> T max(const vector<T> &x) { return *max_element(ALL(x)); }
+template <class T> T min(const vector<T> &x) { return *min_element(ALL(x)); }
+template <class T> pair<T, int> argmax(const vector<T> &x) {
   int idx = 0;
   T m = x[0];
   repr(i, 1, SZ(x)) {
@@ -95,7 +95,7 @@ template <typename T> pair<T, int> argmax(const vector<T> &x) {
   }
   return {m, idx};
 }
-template <typename T> pair<T, int> argmin(const vector<T> &x) {
+template <class T> pair<T, int> argmin(const vector<T> &x) {
   int idx = 0;
   T m = x[0];
   repr(i, 1, SZ(x)) {
@@ -104,7 +104,7 @@ template <typename T> pair<T, int> argmin(const vector<T> &x) {
   }
   return {m, idx};
 }
-template <typename T> T sum(const vector<T> &x) {
+template <class T> T sum(const vector<T> &x) {
   return accumulate(ALL(x), T(0));
 }
 // last param -> T
@@ -131,9 +131,9 @@ template <typename S, typename T> inline bool chmin(S &a, const T &b) {
   }
   return 0;
 }
-template <typename T> T max(const vector<T> &x) { return *max_element(ALL(x)); }
-template <typename T> T min(const vector<T> &x) { return *min_element(ALL(x)); }
-template <typename T> T sum(const vector<T> &x) {
+template <class T> T max(const vector<T> &x) { return *max_element(ALL(x)); }
+template <class T> T min(const vector<T> &x) { return *min_element(ALL(x)); }
+template <class T> T sum(const vector<T> &x) {
   return accumulate(ALL(x), T(0));
 }
 namespace in {

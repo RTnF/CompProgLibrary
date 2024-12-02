@@ -22,7 +22,7 @@ using vpii = vector<pii>;
 using vp = vector<pll>;
 using vpdd = vector<pdd>;
 using vpld = vector<pld>;
-template <typename T> using pqrev = priority_queue<T, vector<T>, greater<T>>;
+template <class T> using pqrev = priority_queue<T, vector<T>, greater<T>>;
 #define rep(i, n) for (int i = 0, i##_end = (n); i < i##_end; i++)
 #define repb(i, n) for (int i = (n) - 1; i >= 0; i--)
 #define repr(i, a, b) for (int i = (a), i##_end = (b); i < i##_end; i++)
@@ -45,9 +45,9 @@ template <typename S, typename T> inline bool chmin(S &a, const T &b) {
   }
   return 0;
 }
-template <typename T> T max(const vector<T> &x) { return *max_element(ALL(x)); }
-template <typename T> T min(const vector<T> &x) { return *min_element(ALL(x)); }
-template <typename T> T sum(const vector<T> &x) {
+template <class T> T max(const vector<T> &x) { return *max_element(ALL(x)); }
+template <class T> T min(const vector<T> &x) { return *min_element(ALL(x)); }
+template <class T> T sum(const vector<T> &x) {
   return accumulate(ALL(x), T(0));
 }
 namespace in {

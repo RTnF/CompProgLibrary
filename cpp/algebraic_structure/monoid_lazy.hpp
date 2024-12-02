@@ -1,6 +1,5 @@
 #pragma once
 #include "template/small_template.hpp"
-#include <limits>
 
 // 遅延セグ木用の関数
 

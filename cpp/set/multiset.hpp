@@ -1,6 +1,41 @@
 #pragma once
-#include "random/xorshift.hpp"
 #include "template/small_template.hpp"
+
+namespace in {
+// https://ja.wikipedia.org/wiki/Xorshift
+class Xor64 {
+  ull s;
+
+public:
+  Xor64(ull s_) : s(s_) {}
+  // [0, 2**64)
+  ull get() {
+    ull x = s;
+    x ^= x << 7;
+    return s = x ^ (x >> 9);
+  }
+};
+static inline Xor64 rnd = Xor64(192865741288175612ull);
+template <class T = ll> struct Node {
+  T k;
+  ull p = rnd.get();
+  size_t c = 1;  // 個数
+  size_t cr = 1; // 部分木を合わせた個数
+  Node *l, *r;
+  static int node_count;
+  static Node *const nil;
+  Node(T key, size_t c_ = 1) : k(key), c(c_), cr(c_), l(nil), r(nil) {}
+  // nil用
+  Node(T key, ull p_, size_t c_)
+      : k(key), p(p_), c(c_), cr(c_), l(nullptr), r(nullptr) {}
+  friend ostream &operator<<(ostream &os, const Node &t) {
+    os << "[" << &t << "](k=" << t.k << ", p=" << t.p << ", c=" << t.c
+       << ", cr=" << t.cr << ", l=" << t.l << ", r=" << t.r << ")";
+    return os;
+  }
+};
+template <class T> Node<T> *const Node<T>::nil = new Node<T>({}, 0, 0);
+} // namespace in
 
 /**
  * @brief 重複ありの集合
@@ -10,40 +45,23 @@
  * 実装：Treap https://xuzijian629.hatenablog.com/entry/2018/12/08/000452
  * @tparam T 要素の型
  */
-template <typename T = ll> class TreeMultiSet {
-  static inline Xor64 rnd = Xor64(192865741288375612ull);
-  struct Node {
-    T k;
-    size_t c = 1;  // 個数
-    size_t cr = 1; // 部分木を合わせた個数
-    ull p = rnd.get();
-    Node *l = nullptr, *r = nullptr;
-    Node(T key) : k(key) {}
-  };
-  friend ostream &operator<<(ostream &os, const Node &t) {
-    os << "[" << &t << "](k=" << t.k << ", p=" << t.p << ", c=" << t.c
-       << ", cr=" << t.cr << ", l=" << t.l << ", r=" << t.r << ")";
-    return os;
-  }
-  using Tree = Node *;
-  Tree root = nullptr;
+template <class T = ll> class TreeMultiSet {
+  using Tree = in::Node<T> *;
+  const Tree nil = in::Node<T>::nil;
+  Tree root = in::Node<T>::nil;
   size_t n_ = 0;
 
   void update_cr(Tree t) {
-    if (t) {
+    if (t != nil) {
       t->cr = t->c;
-      if (t->l) {
-        t->cr += t->l->cr;
-      }
-      if (t->r) {
-        t->cr += t->r->cr;
-      }
+      t->cr += t->l->cr;
+      t->cr += t->r->cr;
     }
   }
 
   void split(Tree t, T key, Tree &l, Tree &r) {
-    if (!t) {
-      l = r = nullptr;
+    if (t == nil) {
+      l = r = nil;
     } else if (key < t->k) {
       split(t->l, key, l, t->l);
       r = t;
@@ -55,8 +73,10 @@ template <typename T = ll> class TreeMultiSet {
   }
 
   void merge(Tree &t, Tree l, Tree r) {
-    if (!l || !r) {
-      t = l ? l : r;
+    if (l == nil) {
+      t = r;
+    } else if (r == nil) {
+      t = l;
     } else if (l->p > r->p) {
       merge(l->r, l->r, r);
       t = l;
@@ -68,7 +88,7 @@ template <typename T = ll> class TreeMultiSet {
   }
 
   void insert(Tree &t, Tree item) {
-    if (!t) {
+    if (t == nil) {
       t = item;
     } else if (item->p > t->p) {
       split(t, item->k, item->l, item->r);
@@ -90,7 +110,7 @@ template <typename T = ll> class TreeMultiSet {
 
   // AOJ
   void aoj_dump(Tree &t, T l, T r) {
-    if (t->l && t->k > l) {
+    if (t->l != nil && t->k > l) {
       aoj_dump(t->l, l, r);
     }
     if (l <= t->k && t->k <= r) {
@@ -98,13 +118,13 @@ template <typename T = ll> class TreeMultiSet {
         cout << t->k << '\n';
       }
     }
-    if (t->r && t->k < r) {
+    if (t->r != nil && t->k < r) {
       aoj_dump(t->r, l, r);
     }
   }
 
   void print(Tree t) {
-    if (t) {
+    if (t != nil) {
       cout << (*t) << "\n";
       if (t->l) {
         print(t->l);
@@ -117,7 +137,7 @@ template <typename T = ll> class TreeMultiSet {
 
   // 検証
   void verify(Tree t, size_t &n_v) {
-    if (t) {
+    if (t != nil) {
       n_v += t->c;
       size_t cr = t->c;
       if (t->l) {
@@ -141,7 +161,7 @@ template <typename T = ll> class TreeMultiSet {
   }
 
   T find_by_order(Tree t, size_t k) {
-    assert(t);
+    assert(t != nil);
     size_t sz_l = t->l ? t->l->cr : 0;
     if (k < sz_l) {
       return find_by_order(t->l, k);
@@ -152,26 +172,26 @@ template <typename T = ll> class TreeMultiSet {
     }
   }
 
-  void enumerate_in(vector<pair<T, size_t>> &v, Tree t, const T &l,
-                    const T &r) {
-    if (t->l && l < t->k) {
-      enumerate_in(v, t->l, l, r);
+  void enumerate_in(vector<tuple<T, size_t, T>> &v, Tree t, const T &l,
+                    const T &r, Tree parent) {
+    if (t->l != nil && l < t->k) {
+      enumerate_in(v, t->l, l, r, t);
     }
     if (l <= t->k && t->k < r) {
-      v.emplace_back(t->k, t->c);
+      v.emplace_back(t->k, t->c, parent ? parent->k : -1);
     }
-    if (t->r && t->k < r - 1) {
-      enumerate_in(v, t->r, l, r);
+    if (t->r != nil && t->k < r - 1) {
+      enumerate_in(v, t->r, l, r, t);
     }
   }
 
-  void enumerate_all_in(vector<pair<T, size_t>> &v, Tree t) {
-    if (t->l) {
-      enumerate_all_in(v, t->l);
+  void enumerate_all_in(vector<tuple<T, size_t, T>> &v, Tree t, Tree parent) {
+    if (t->l != nil) {
+      enumerate_all_in(v, t->l, t);
     }
-    v.emplace_back(t->k, t->c);
-    if (t->r) {
-      enumerate_all_in(v, t->r);
+    v.emplace_back(t->k, t->c, parent ? parent->k : -1);
+    if (t->r != nil) {
+      enumerate_all_in(v, t->r, t);
     }
   }
 
@@ -188,7 +208,7 @@ public:
     n_ += n;
     Tree t = root;
     bool found = false;
-    while (t) {
+    while (t != nil) {
       if (key == t->k) {
         found = true;
         break;
@@ -197,7 +217,7 @@ public:
     }
     if (found) {
       t = root;
-      while (t) {
+      while (t != nil) {
         t->cr += n;
         if (key == t->k) {
           t->c += n;
@@ -205,8 +225,10 @@ public:
         }
         t = key < t->k ? t->l : t->r;
       }
+    } else {
+      in::Node<T> *node = new in::Node<T>(key, n);
+      insert(root, node);
     }
-    insert(root, new Node(key));
     return n;
   }
 
@@ -220,7 +242,7 @@ public:
   bool remove(T key, size_t n = 1) {
     Tree t = root;
     bool found = false;
-    while (t) {
+    while (t != nil) {
       if (key == t->k) {
         if (t->c == n) {
           n_ -= n;
@@ -228,22 +250,20 @@ public:
         } else if (t->c > n) {
           n_ -= n;
           t->c -= n;
-          t->cr -= n;
           found = true;
           break;
         } else {
           return false;
         }
-        return true;
+        return false;
       }
       t = key < t->k ? t->l : t->r;
     }
     if (found) {
       t = root;
-      while (t) {
+      while (t != nil) {
         t->cr -= n;
         if (key == t->k) {
-          t->c -= n;
           return true;
         }
         t = key < t->k ? t->l : t->r;
@@ -260,7 +280,7 @@ public:
    */
   size_t remove_all(T key) {
     Tree t = root;
-    while (t) {
+    while (t != nil) {
       if (key == t->k) {
         size_t ret = t->c;
         n_ -= ret;
@@ -275,7 +295,7 @@ public:
   // 検索 個数を返す O(log n)
   size_t count(T key) {
     Tree t = root;
-    while (t) {
+    while (t != nil) {
       if (key == t->k) {
         return t->c;
       }
@@ -287,9 +307,9 @@ public:
   // 検索 ない場合、検索値より小さい中で最大の要素または無効値
   optional<T> find_lower(T key) {
     Tree t = root;
-    Tree lower = nullptr;
+    Tree lower = nil;
 
-    while (t) {
+    while (t != nil) {
       if (key == t->k) {
         return key;
       } else if (key < t->k) {
@@ -299,14 +319,14 @@ public:
         t = t->r;
       }
     }
-    return lower ? optional(lower->k) : nullopt;
+    return lower != nil ? optional(lower->k) : nullopt;
   }
 
   // 検索 ない場合、検索値より大きい中で最小の要素または無効値
   optional<T> find_upper(T key) {
     Tree t = root;
-    Tree upper = nullptr;
-    while (t) {
+    Tree upper = nil;
+    while (t != nil) {
       if (key == t->k) {
         return key;
       } else if (key < t->k) {
@@ -316,7 +336,7 @@ public:
         t = t->r;
       }
     }
-    return upper ? optional(upper->k) : nullopt;
+    return upper != nil ? optional(upper->k) : nullopt;
   }
 
   // 検索 順位(0-indexed)の区間を返す O(log n)
@@ -324,7 +344,7 @@ public:
   pair<int, int> rank(T key) {
     Tree t = root;
     int rnk = 0;
-    while (t) {
+    while (t != nil) {
       if (key == t->k) {
         rnk += t->l ? t->l->cr : 0;
         return {rnk, rnk + t->c};
@@ -341,7 +361,8 @@ public:
 
   T min() {
     Tree t = root;
-    while (t->l) {
+    assert(root);
+    while (t->l != nil) {
       t = t->l;
     }
     return t->k;
@@ -349,7 +370,8 @@ public:
 
   T max() {
     Tree t = root;
-    while (t->r) {
+    assert(root);
+    while (t->r != nil) {
       t = t->r;
     }
     return t->k;
@@ -362,26 +384,26 @@ public:
   }
 
   // l <= k < r を満たす要素の列挙
-  vector<pair<T, size_t>> enumerate(const T &l, const T &r) {
-    vector<pair<T, size_t>> ret;
-    if (root) {
+  vector<tuple<T, size_t, T>> enumerate(const T &l, const T &r) {
+    vector<tuple<T, size_t, T>> ret;
+    if (root != nil) {
       enumerate_in(ret, root, l, r);
     }
     return ret;
   }
 
   // 全要素の列挙
-  vector<pair<T, size_t>> enumerate_all() {
-    vector<pair<T, size_t>> ret;
-    if (root) {
-      enumerate_all_in(ret, root);
+  vector<tuple<T, size_t, T>> enumerate_all() {
+    vector<tuple<T, size_t, T>> ret;
+    if (root != nil) {
+      enumerate_all_in(ret, root, nullptr);
     }
     return ret;
   }
 
   // AOJ
   void aoj_dump(const T &l, const T &r) {
-    if (root) {
+    if (root != nil) {
       aoj_dump(root, l, r);
     }
   }
@@ -389,7 +411,7 @@ public:
   size_t size() { return n_; }
 
   void verify() {
-    if (root) {
+    if (root != nil) {
       // 総数がn_に一致
       size_t n_v = 0;
       verify(root, n_v);
