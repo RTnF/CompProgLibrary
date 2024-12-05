@@ -4,13 +4,6 @@ documentation_of: //cpp/template/marathon_template.cpp
 ---
 <link rel="stylesheet" type="text/css" href="../../css/common.css">
 
-## エディタ用折りたたみ
-
-```cpp
-#pragma region template
-#pragma endregion
-```
-
 ## 一括インクルード、 `std::` の省略
 
 ```cpp

@@ -1,4 +1,3 @@
-#pragma region template
 #include <bits/stdc++.h>
 using namespace std;
 using ll = int64_t;
@@ -136,8 +135,6 @@ public:
     return sqrt(-2.0 * log(x)) * cos(2.0 * M_PI * y);
   }
 } rnd(720759665484242684ull);
-
-#pragma endregion
 
 void solve() {}
 

@@ -4,13 +4,6 @@ documentation_of: //cpp/template/template.cpp
 ---
 <link rel="stylesheet" type="text/css" href="../../css/common.css">
 
-## エディタ用折りたたみ
-
-```cpp
-#pragma region template
-#pragma endregion
-```
-
 ## 一括インクルード、 `std::` の省略
 
 ```cpp
@@ -59,11 +52,6 @@ template <class T> using pqrev = priority_queue<T, vector<T>, greater<T>>;
 constexpr ll INF = 4e+18;
 constexpr ld EPS = 1e-12L;
 constexpr ld PI = 3.14159265358979323846L;
-/*
-constexpr ll MOD = 1e9 + 7;
-/*/
-constexpr ll MOD = 998244353;
-//*/
 ```
 
 `INF + INF` がオーバーフローしないように

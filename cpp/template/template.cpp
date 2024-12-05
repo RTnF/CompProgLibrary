@@ -1,4 +1,3 @@
-#pragma region template
 #include <bits/stdc++.h>
 // #include <boost/multiprecision/cpp_int.hpp>
 // #include <atcoder/all>
@@ -121,13 +120,6 @@ template <class Head, class... Tail> void print(Head &&head, Tail &&...tail) {
   }
   print(std::forward<Tail>(tail)...);
 }
-#pragma endregion
-
-/*
-constexpr ll MOD = 1e9 + 7;
-/*/
-constexpr ll MOD = 998244353;
-//*/
 
 #define PRF(f)                                                                 \
   do {                                                                         \
