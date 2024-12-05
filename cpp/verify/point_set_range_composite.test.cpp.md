@@ -53,7 +53,7 @@ data:
   isVerificationFile: true
   path: cpp/verify/point_set_range_composite.test.cpp
   requiredBy: []
-  timestamp: '2024-11-04 20:54:25+09:00'
+  timestamp: '2024-11-24 09:02:25+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: cpp/verify/point_set_range_composite.test.cpp

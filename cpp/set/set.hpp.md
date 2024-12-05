@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: cpp/random/xorshift.hpp
     title: cpp/random/xorshift.hpp
   - icon: ':question:'
@@ -54,14 +54,15 @@ data:
     \ new Node(key));\n  }\n  void remove(T key) {\n    n--;\n    remove(root, key);\n\
     \  }\n  bool find(T key) { return find(root, key); }\n  T min() {\n    Tree t\
     \ = root;\n    while (t->l) {\n      t = t->l;\n    }\n    return t->k;\n  }\n\
-    \n  int size() { return n; }\n};\n"
+    \  T max() {\n    Tree t = root;\n    while (t->r) {\n      t = t->r;\n    }\n\
+    \    return t->k;\n  }\n\n  int size() { return n; }\n};\n"
   dependsOn:
   - cpp/random/xorshift.hpp
   - cpp/template/small_template.hpp
   isVerificationFile: false
   path: cpp/set/set.hpp
   requiredBy: []
-  timestamp: '2024-10-19 16:46:12+09:00'
+  timestamp: '2024-11-12 22:03:49+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp/set/set.hpp

@@ -2,11 +2,8 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: cpp/graph/edge_flow.hpp
-    title: cpp/graph/edge_flow.hpp
-  - icon: ':heavy_check_mark:'
-    path: cpp/graph/graph_flow.hpp
-    title: cpp/graph/graph_flow.hpp
+    path: cpp/set/multiset.hpp
+    title: "\u91CD\u8907\u3042\u308A\u306E\u96C6\u5408"
   - icon: ':question:'
     path: cpp/template/small_template.hpp
     title: "\u5171\u901A\u30D8\u30C3\u30C0\u30FC"
@@ -17,9 +14,9 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_B
+    PROBLEM: https://judge.yosupo.jp/problem/double_ended_priority_queue
     links:
-    - https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_B
+    - https://judge.yosupo.jp/problem/double_ended_priority_queue
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
@@ -30,29 +27,30 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: graph/graph_flow.hpp:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: set/multiset.hpp:\
     \ line -1: no such header\n"
-  code: "#define PROBLEM                                                         \
-    \       \\\n  \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_B\"\
-    \n#include \"graph/graph_flow.hpp\"\n\nint main() {\n  cin.tie(0);\n  ios::sync_with_stdio(false);\n\
-    \  int V, E, F;\n  cin >> V >> E >> F;\n  FlowGraph g(V);\n  for (int i = 0; i\
-    \ < E; i++) {\n    int u, v;\n    cin >> u >> v;\n    ll c, d;\n    cin >> c >>\
-    \ d;\n    g.add_edge_min_cost_flow(u, v, c, d);\n  }\n  cout << g.min_cost_flow(0,\
-    \ V - 1, F) << '\\n';\n}"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/double_ended_priority_queue\"\
+    \n#include \"set/multiset.hpp\"\n\nint main() {\n  cin.tie(0);\n  ios::sync_with_stdio(false);\n\
+    \n  TreeMultiSet<int> ms;\n  int n, q;\n  cin >> n >> q;\n  for (int i = 0; i\
+    \ < n; i++) {\n    int s;\n    cin >> s;\n    ms.add(s);\n  }\n  while (q--) {\n\
+    \    int c;\n    cin >> c;\n    switch (c) {\n    case 0:\n      int x;\n    \
+    \  cin >> x;\n      ms.add(x);\n      break;\n    case 1: {\n      int m = ms.min();\n\
+    \      cout << m << '\\n';\n      ms.remove(m);\n      break;\n    }\n    case\
+    \ 2: {\n      int m = ms.max();\n      cout << m << '\\n';\n      ms.remove(m);\n\
+    \      break;\n    }\n    }\n  }\n}"
   dependsOn:
-  - cpp/graph/graph_flow.hpp
-  - cpp/graph/edge_flow.hpp
+  - cpp/set/multiset.hpp
   - cpp/template/small_template.hpp
   isVerificationFile: true
-  path: cpp/verify/min_cost_flow.test.cpp
+  path: cpp/verify/multi_set_3.test.cpp
   requiredBy: []
-  timestamp: '2024-11-10 02:48:43+09:00'
+  timestamp: '2024-12-03 01:33:18+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: cpp/verify/min_cost_flow.test.cpp
+documentation_of: cpp/verify/multi_set_3.test.cpp
 layout: document
 redirect_from:
-- /verify/cpp/verify/min_cost_flow.test.cpp
-- /verify/cpp/verify/min_cost_flow.test.cpp.html
-title: cpp/verify/min_cost_flow.test.cpp
+- /verify/cpp/verify/multi_set_3.test.cpp
+- /verify/cpp/verify/multi_set_3.test.cpp.html
+title: cpp/verify/multi_set_3.test.cpp
 ---

@@ -30,20 +30,20 @@ data:
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: modint/modint.hpp:\
     \ line -1: no such header\n"
   code: "#define PROBLEM \"https://atcoder.jp/contests/past202203-open/tasks/past202203_j\"\
-    \n#include \"modint/modint.hpp\"\n\nint main() {\n  cin.tie(0);\n  ios::sync_with_stdio(false);\n\
-    \  int n, k;\n  cin >> n >> k;\n  vector<int> at(n);\n  for (int i = 0; i < n;\
-    \ i++) {\n    cin >> at[i];\n  }\n  sort(at.begin(), at.end());\n  vector<mint>\
-    \ a(n);\n  for (int i = 0; i < n; i++) {\n    a[i] = at[i];\n  }\n\n  mint ans\
-    \ = 0;\n  for (int i = k - 1; i < n; i++) {\n    ans += C(i, k - 1) * a[i];\n\
-    \    ans -= C(i, k - 1) * a[n - 1 - i];\n  }\n  ans /= C(n, k);\n  cout << ans\
-    \ << '\\n';\n}"
+    \n#include \"modint/modint.hpp\"\n\nint main() {\n  init();\n  cin.tie(0);\n \
+    \ ios::sync_with_stdio(false);\n  int n, k;\n  cin >> n >> k;\n  vector<int> at(n);\n\
+    \  for (int i = 0; i < n; i++) {\n    cin >> at[i];\n  }\n  sort(at.begin(), at.end());\n\
+    \  vector<mint> a(n);\n  for (int i = 0; i < n; i++) {\n    a[i] = at[i];\n  }\n\
+    \n  mint ans = 0;\n  for (int i = k - 1; i < n; i++) {\n    ans += C(i, k - 1)\
+    \ * a[i];\n    ans -= C(i, k - 1) * a[n - 1 - i];\n  }\n  ans /= C(n, k);\n  cout\
+    \ << ans << '\\n';\n}"
   dependsOn:
   - cpp/modint/modint.hpp
   - cpp/template/small_template.hpp
   isVerificationFile: true
   path: cpp/verify/combination.test.cpp
   requiredBy: []
-  timestamp: '2024-11-04 20:54:25+09:00'
+  timestamp: '2024-11-24 09:02:25+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: cpp/verify/combination.test.cpp

@@ -2,11 +2,11 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: cpp/graph/edge_flow.hpp
-    title: cpp/graph/edge_flow.hpp
+    path: cpp/fps/convolution.hpp
+    title: cpp/fps/convolution.hpp
   - icon: ':heavy_check_mark:'
-    path: cpp/graph/graph_flow.hpp
-    title: cpp/graph/graph_flow.hpp
+    path: cpp/modint/modint.hpp
+    title: "\u5270\u4F59\u3092\u53D6\u308A[0, mod)\u306B\u53CE\u3081\u308Bint"
   - icon: ':question:'
     path: cpp/template/small_template.hpp
     title: "\u5171\u901A\u30D8\u30C3\u30C0\u30FC"
@@ -17,9 +17,9 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_B
+    PROBLEM: https://atcoder.jp/contests/past202203-open/tasks/past202203_n
     links:
-    - https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_B
+    - https://atcoder.jp/contests/past202203-open/tasks/past202203_n
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
@@ -30,29 +30,30 @@ data:
     \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
     \ File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: graph/graph_flow.hpp:\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: fps/convolution.hpp:\
     \ line -1: no such header\n"
-  code: "#define PROBLEM                                                         \
-    \       \\\n  \"https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_B\"\
-    \n#include \"graph/graph_flow.hpp\"\n\nint main() {\n  cin.tie(0);\n  ios::sync_with_stdio(false);\n\
-    \  int V, E, F;\n  cin >> V >> E >> F;\n  FlowGraph g(V);\n  for (int i = 0; i\
-    \ < E; i++) {\n    int u, v;\n    cin >> u >> v;\n    ll c, d;\n    cin >> c >>\
-    \ d;\n    g.add_edge_min_cost_flow(u, v, c, d);\n  }\n  cout << g.min_cost_flow(0,\
-    \ V - 1, F) << '\\n';\n}"
+  code: "#define PROBLEM \"https://atcoder.jp/contests/past202203-open/tasks/past202203_n\"\
+    \n#include \"fps/convolution.hpp\"\n\nconst int MAX = 200003;\n\nint main() {\n\
+    \  cin.tie(0);\n  ios::sync_with_stdio(false);\n  int n;\n  cin >> n;\n  vector<ll>\
+    \ a(MAX, 0);\n  for (int i = 0; i < n; i++) {\n    int m;\n    cin >> m;\n   \
+    \ a[m]++;\n  }\n  vector<ll> b = a;\n  reverse(b.begin(), b.end());\n  auto conv\
+    \ = convolution_ll(a, b);\n  ll ans = 0;\n  for (int i = 0; i < MAX - 1; i++)\
+    \ {\n    if (conv[i] > 0) {\n      ans++;\n    }\n  }\n  cout << ans * 2 + 1 <<\
+    \ '\\n';\n}"
   dependsOn:
-  - cpp/graph/graph_flow.hpp
-  - cpp/graph/edge_flow.hpp
+  - cpp/fps/convolution.hpp
+  - cpp/modint/modint.hpp
   - cpp/template/small_template.hpp
   isVerificationFile: true
-  path: cpp/verify/min_cost_flow.test.cpp
+  path: cpp/verify/convolution_ll.test.cpp
   requiredBy: []
-  timestamp: '2024-11-10 02:48:43+09:00'
+  timestamp: '2024-11-24 09:02:25+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: cpp/verify/min_cost_flow.test.cpp
+documentation_of: cpp/verify/convolution_ll.test.cpp
 layout: document
 redirect_from:
-- /verify/cpp/verify/min_cost_flow.test.cpp
-- /verify/cpp/verify/min_cost_flow.test.cpp.html
-title: cpp/verify/min_cost_flow.test.cpp
+- /verify/cpp/verify/convolution_ll.test.cpp
+- /verify/cpp/verify/convolution_ll.test.cpp.html
+title: cpp/verify/convolution_ll.test.cpp
 ---

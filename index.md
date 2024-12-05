@@ -9,6 +9,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: cpp/algebraic_structure/monoid.hpp
       title: "\u30E2\u30CE\u30A4\u30C9 (Monoid)"
+    - icon: ':heavy_check_mark:'
+      path: cpp/algebraic_structure/monoid_lazy.hpp
+      title: cpp/algebraic_structure/monoid_lazy.hpp
   - name: cpp/array
     pages:
     - icon: ':warning:'
@@ -26,11 +29,22 @@ data:
     - icon: ':warning:'
       path: cpp/array/sort_util.hpp
       title: "\u5EA7\u6A19\u5727\u7E2E O(n log n)"
+  - name: cpp/fps
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: cpp/fps/convolution.hpp
+      title: cpp/fps/convolution.hpp
   - name: cpp/geometry
     pages:
     - icon: ':heavy_check_mark:'
-      path: cpp/geometry/point.hpp
-      title: cpp/geometry/point.hpp
+      path: cpp/geometry/line.hpp
+      title: cpp/geometry/line.hpp
+    - icon: ':heavy_check_mark:'
+      path: cpp/geometry/polygon.hpp
+      title: cpp/geometry/polygon.hpp
+    - icon: ':question:'
+      path: cpp/geometry/vector.hpp
+      title: cpp/geometry/vector.hpp
   - name: cpp/graph
     pages:
     - icon: ':heavy_check_mark:'
@@ -79,6 +93,9 @@ data:
       title: "\u533A\u9593\u306E\u548C\u96C6\u5408"
   - name: cpp/modint
     pages:
+    - icon: ':warning:'
+      path: cpp/modint/dynamic_modint.hpp
+      title: "\u5270\u4F59\u3092\u53D6\u308A[0, mod)\u306B\u53CE\u3081\u308Bint"
     - icon: ':heavy_check_mark:'
       path: cpp/modint/modint.hpp
       title: "\u5270\u4F59\u3092\u53D6\u308A[0, mod)\u306B\u53CE\u3081\u308Bint"
@@ -87,6 +104,9 @@ data:
     - icon: ':warning:'
       path: cpp/number/ratio.hpp
       title: cpp/number/ratio.hpp
+    - icon: ':warning:'
+      path: cpp/number/square_matrix.hpp
+      title: cpp/number/square_matrix.hpp
   - name: cpp/number_theory
     pages:
     - icon: ':heavy_check_mark:'
@@ -103,19 +123,28 @@ data:
       title: cpp/number_theory/is_prime.hpp
   - name: cpp/random
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
       path: cpp/random/xorshift.hpp
       title: cpp/random/xorshift.hpp
   - name: cpp/segment_tree
     pages:
+    - icon: ':warning:'
+      path: cpp/segment_tree/binary_indexed_tree.hpp
+      title: Binary Indexed Tree (Fenwick Tree)
+    - icon: ':heavy_check_mark:'
+      path: cpp/segment_tree/lazy_segment_tree.hpp
+      title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 based on ACL"
     - icon: ':heavy_check_mark:'
       path: cpp/segment_tree/segment_tree.hpp
       title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 based on ACL"
+    - icon: ':warning:'
+      path: cpp/segment_tree/segment_tree_beats.hpp
+      title: cpp/segment_tree/segment_tree_beats.hpp
+    - icon: ':heavy_check_mark:'
+      path: cpp/segment_tree/segment_tree_beats_sum.hpp
+      title: cpp/segment_tree/segment_tree_beats_sum.hpp
   - name: cpp/set
     pages:
-    - icon: ':heavy_check_mark:'
-      path: cpp/set/disjoint_set_union.hpp
-      title: "\u7D20\u96C6\u5408\u30C7\u30FC\u30BF\u69CB\u9020 (Union Find)"
     - icon: ':heavy_check_mark:'
       path: cpp/set/multiset.hpp
       title: "\u91CD\u8907\u3042\u308A\u306E\u96C6\u5408"
@@ -146,6 +175,14 @@ data:
     - icon: ':question:'
       path: cpp/tree/tree.hpp
       title: cpp/tree/tree.hpp
+  - name: cpp/union_find
+    pages:
+    - icon: ':warning:'
+      path: cpp/union_find/disjoint_set_union.hpp
+      title: cpp/union_find/disjoint_set_union.hpp
+    - icon: ':heavy_check_mark:'
+      path: cpp/union_find/union_find.hpp
+      title: cpp/union_find/union_find.hpp
   verificationCategories:
   - name: cpp/verify
     pages:
@@ -164,6 +201,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: cpp/verify/combination.test.cpp
       title: cpp/verify/combination.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: cpp/verify/convex_hull.test.cpp
+      title: cpp/verify/convex_hull.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: cpp/verify/convolution_ll.test.cpp
+      title: cpp/verify/convolution_ll.test.cpp
     - icon: ':heavy_check_mark:'
       path: cpp/verify/detect_cycle_directed.test.cpp
       title: cpp/verify/detect_cycle_directed.test.cpp
@@ -216,14 +259,44 @@ data:
       path: cpp/verify/multi_set.test.cpp
       title: cpp/verify/multi_set.test.cpp
     - icon: ':heavy_check_mark:'
+      path: cpp/verify/multi_set_2.test.cpp
+      title: cpp/verify/multi_set_2.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: cpp/verify/multi_set_3.test.cpp
+      title: cpp/verify/multi_set_3.test.cpp
+    - icon: ':heavy_check_mark:'
       path: cpp/verify/point_add_range_sum.test.cpp
       title: cpp/verify/point_add_range_sum.test.cpp
     - icon: ':heavy_check_mark:'
       path: cpp/verify/point_set_range_composite.test.cpp
       title: cpp/verify/point_set_range_composite.test.cpp
     - icon: ':heavy_check_mark:'
+      path: cpp/verify/polygon_area.test.cpp
+      title: cpp/verify/polygon_area.test.cpp
+    - icon: ':heavy_check_mark:'
       path: cpp/verify/prim.test.cpp
       title: cpp/verify/prim.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: cpp/verify/range_add_query.test.cpp
+      title: cpp/verify/range_add_query.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: cpp/verify/range_add_range_min.test.cpp
+      title: cpp/verify/range_add_range_min.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: cpp/verify/range_add_range_sum.test.cpp
+      title: cpp/verify/range_add_range_sum.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: cpp/verify/range_chmax_chmin_add_range_sum.test.cpp
+      title: cpp/verify/range_chmax_chmin_add_range_sum.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: cpp/verify/range_update_query.test.cpp
+      title: cpp/verify/range_update_query.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: cpp/verify/range_update_range_min.test.cpp
+      title: cpp/verify/range_update_range_min.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: cpp/verify/range_update_range_sum.test.cpp
+      title: cpp/verify/range_update_range_sum.test.cpp
     - icon: ':heavy_check_mark:'
       path: cpp/verify/rolling_hash.test.cpp
       title: cpp/verify/rolling_hash.test.cpp
@@ -233,7 +306,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: cpp/verify/segment_tree.test.cpp
       title: cpp/verify/segment_tree.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: cpp/verify/sort_points_by_argument.test.cpp
       title: cpp/verify/sort_points_by_argument.test.cpp
     - icon: ':x:'
@@ -250,12 +323,22 @@ data:
       title: cpp/verify/warshall_floyd.test.cpp
 layout: toppage
 ---
-参考：
+## 参考
+
+### 総合
 - 「プログラミングコンテスト攻略のためのアルゴリズムとデータ構造」(渡部 有隆)
 - 「アルゴリズム実技検定　公式テキスト［上級］～［エキスパート］編」(大槻 兼資, 杉江 祐哉, 中村 謙弘, 高橋 直大)
 - [AtCoder Library](https://github.com/atcoder/ac-library)
 - [Joeの精進記録](https://xuzijian629.hatenablog.com/)
 - [いかたこのたこつぼ > アルゴリズム](https://ikatakos.com/pot/programming_algorithm)
+- [Luzhiled's Library](https://ei1333.github.io/library/)
+- [アルゴリズムとデータ構造大全](https://take44444.github.io/Algorithm-Book/index.html)
+
+### multiset
+- [木構造の実装テクニック](https://qiita.com/tubo28/items/f058582e457f6870a800#%E5%AE%9A%E6%95%B0%E3%81%AB-constconstexpr-%E3%82%92%E4%BB%98%E3%81%91%E3%82%8B)
+
+### Segment Tree Beats
+- [yaketake08's 実装メモ](https://tjkendev.github.io/procon-library/cpp/range_query/segment_tree_beats_2.html)
 
 ## 方針
 

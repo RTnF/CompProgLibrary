@@ -47,13 +47,13 @@ data:
     \ x[i]) - unzip.begin() + offset;\n  }\n  return cmp;\n}\n\n// \u5EA7\u6A19\u5727\
     \u7E2E O(n log n)\n// \u4F8B\uFF1A[3, 3, 1, 5, 2] -> [2, 2, 0, 3, 1] + offset\n\
     template <class T> vector<T> compress(const vector<T> &x, int offset = 0) {\n\
-    \  return compress(x, vector<T>(), offset);\n}"
+    \  auto tmp = vector<T>();\n  return compress(x, tmp, offset);\n}"
   dependsOn:
   - cpp/template/small_template.hpp
   isVerificationFile: false
   path: cpp/array/sort_util.hpp
   requiredBy: []
-  timestamp: '2024-11-03 09:29:45+09:00'
+  timestamp: '2024-11-19 00:22:28+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: cpp/array/sort_util.hpp

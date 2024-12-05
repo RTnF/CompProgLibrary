@@ -69,28 +69,36 @@ data:
     \   return flow;\n      }\n      iter = vector<int>(n_, 0);\n      Cost current_flow\
     \ = dfs(source, sink, F_MAX);\n      while (current_flow > 0) {\n        flow\
     \ += current_flow;\n        current_flow = dfs(source, sink, F_MAX);\n      }\n\
-    \    }\n  }\n\n  // \u6700\u5C0F\u8CBB\u7528\u6D41 O(FVE)\n  Cost min_cost_flow(int\
-    \ s, int t, int f) {\n    Cost result = 0;\n    while (f > 0) {\n      auto [dist,\
-    \ pv, pe] = bellman_ford(s);\n      if (dist[t] == F_MAX) {\n        return -1;\n\
-    \      }\n      Cost flow = f;\n      int v = t;\n      while (v != s) {\n   \
-    \     flow = min(flow, adj[pv[v]][pe[v]].cap);\n        v = pv[v];\n      }\n\
-    \      result += flow * dist[t];\n      f -= flow;\n      v = t;\n      while\
-    \ (v != s) {\n        adj[pv[v]][pe[v]].cap -= flow;\n        adj[v][adj[pv[v]][pe[v]].rev].cap\
-    \ += flow;\n        v = pv[v];\n      }\n    }\n    return result;\n  }\n\n  template\
-    \ <class C_, class E_>\n  friend ostream &operator<<(ostream &, const FlowGraph<C_,\
-    \ E_> &);\n};\n\ntemplate <class Cost, class E>\nconst Cost FlowGraph<Cost, E>::F_MAX\
-    \ = numeric_limits<Cost>::max() >> 2;\n\ntemplate <class C_, class E_>\nostream\
-    \ &operator<<(ostream &os, const FlowGraph<C_, E_> &graph) {\n  os << \"N = \"\
-    \ << graph.n_ << \", M = \" << graph.m_ << '\\n';\n  for (const auto &ev : graph.adj)\
-    \ {\n    for (const auto &e : ev) {\n      os << e << '\\n';\n    }\n  }\n  return\
-    \ os;\n}"
+    \    }\n  }\n\n  // \u6700\u5C0F\u8CBB\u7528\u6D41 O(FVE)\n  vector<pair<Cost,\
+    \ Cost>> min_cost_flow_slope(int source, int sink,\n                         \
+    \                      Cost flow_cutoff = F_MAX) {\n    vector<pair<Cost, Cost>>\
+    \ result(1, {0, 0});\n    Cost flow_total = 0;\n    Cost cost_total = 0;\n   \
+    \ while (true) {\n      auto [dist, pv, pe] = bellman_ford(source);\n      if\
+    \ (dist[sink] == F_MAX) {\n        return result;\n      }\n      Cost flow =\
+    \ F_MAX;\n      int v = sink;\n      while (v != source) {\n        flow = min(flow,\
+    \ adj[pv[v]][pe[v]].cap);\n        v = pv[v];\n      }\n      flow_total += flow;\n\
+    \      cost_total += flow * dist[sink];\n      result.emplace_back(flow_total,\
+    \ cost_total);\n      v = sink;\n      while (v != source) {\n        adj[pv[v]][pe[v]].cap\
+    \ -= flow;\n        adj[v][adj[pv[v]][pe[v]].rev].cap += flow;\n        v = pv[v];\n\
+    \      }\n      if (flow_total >= flow_cutoff) {\n        return result;\n   \
+    \   }\n    }\n  }\n  Cost min_cost_flow(int source, int sink, int flow) {\n  \
+    \  auto slope = min_cost_flow_slope(source, sink, flow);\n    int n = slope.size();\n\
+    \    if (slope[n - 1].first < flow) {\n      return -1;\n    }\n    auto [x1,\
+    \ y1] = slope[n - 2];\n    auto [x2, y2] = slope[n - 1];\n    return (y2 - y1)\
+    \ / (x2 - x1) * (flow - x1) + y1;\n  }\n\n  template <class C_, class E_>\n  friend\
+    \ ostream &operator<<(ostream &, const FlowGraph<C_, E_> &);\n};\n\ntemplate <class\
+    \ Cost, class E>\nconst Cost FlowGraph<Cost, E>::F_MAX = numeric_limits<Cost>::max()\
+    \ >> 2;\n\ntemplate <class C_, class E_>\nostream &operator<<(ostream &os, const\
+    \ FlowGraph<C_, E_> &graph) {\n  os << \"N = \" << graph.n_ << \", M = \" << graph.m_\
+    \ << '\\n';\n  for (const auto &ev : graph.adj) {\n    for (const auto &e : ev)\
+    \ {\n      os << e << '\\n';\n    }\n  }\n  return os;\n}"
   dependsOn:
   - cpp/graph/edge_flow.hpp
   - cpp/template/small_template.hpp
   isVerificationFile: false
   path: cpp/graph/graph_flow.hpp
   requiredBy: []
-  timestamp: '2024-11-10 02:02:04+09:00'
+  timestamp: '2024-11-10 02:48:43+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - cpp/verify/max_flow.test.cpp

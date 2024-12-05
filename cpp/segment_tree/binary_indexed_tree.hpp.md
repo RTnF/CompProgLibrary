@@ -4,17 +4,14 @@ data:
   - icon: ':question:'
     path: cpp/template/small_template.hpp
     title: "\u5171\u901A\u30D8\u30C3\u30C0\u30FC"
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: cpp/set/set.hpp
-    title: "\u91CD\u8907\u306A\u3057\u306E\u96C6\u5408"
+  _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    links:
-    - https://ja.wikipedia.org/wiki/Xorshift
+    document_title: Binary Indexed Tree (Fenwick Tree)
+    links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
@@ -27,29 +24,30 @@ data:
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: template/small_template.hpp:\
     \ line -1: no such header\n"
-  code: "#pragma once\n#include \"template/small_template.hpp\"\n\n// https://ja.wikipedia.org/wiki/Xorshift\n\
-    class Xor64 {\n  ull s;\n\npublic:\n  Xor64(ull s_) : s(s_) {}\n  // [0, 2**64)\n\
-    \  ull get() {\n    ull x = s;\n    x ^= x << 7;\n    return s = x ^ (x >> 9);\n\
-    \  }\n  // [min, max)\n  int get_int(int mi, int ma) { return mi + get() % (ma\
-    \ - mi); }\n  // [min, max)\n  ll get_ll(ll mi, ll ma) { return mi + get() % (ma\
-    \ - mi); }\n  // [0, 1)\n  double get_double() { return get() / pow(2.0, 64);\
-    \ }\n  // [min, max)\n  double get_double(double mi, double ma) {\n    return\
-    \ mi + get_double() * (ma - mi);\n  }\n  // normal\n  double get_normal() {\n\
-    \    double x = get_double(), y = get_double();\n    return sqrt(-2.0 * log(x))\
-    \ * cos(2.0 * M_PI * y);\n  }\n};"
+  code: "#pragma once\n#include \"template/small_template.hpp\"\n\n/**\n * @brief\
+    \ Binary Indexed Tree (Fenwick Tree)\n */\ntemplate <class T = ll> class BinaryIndexedTree\
+    \ {\n  vector<T> tree; // 1-indexed\npublic:\n  BinaryIndexedTree() {}\n  BinaryIndexedTree(int\
+    \ n) : tree(n + 1) {}\n  BinaryIndexedTree(const vector<T> &v) : tree(v.size()\
+    \ + 1) {\n    for (int i = 0; i < (int)v.size(); i++) {\n      tree[i + 1] = v[i];\n\
+    \    }\n    for (int i = 1; i < (int)v.size(); i++) {\n      tree[i + (i & -i)]\
+    \ += tree[i];\n    }\n  }\n  // sum of A[0, r)\n  T sum(int r) const {\n    T\
+    \ s = 0;\n    for (; r > 0; r -= (r & -r)) {\n      s += tree[r];\n    }\n   \
+    \ return s;\n  }\n  // sum of A[l, r)\n  T sum(int l, int r) const { return sum(r)\
+    \ - sum(l); }\n  // A[i] += val\n  void add(int i, T val) {\n    i++;\n    for\
+    \ (; i < (int)tree.size(); i += (i & -i)) {\n      tree[i] += val;\n    }\n  }\n\
+    };"
   dependsOn:
   - cpp/template/small_template.hpp
   isVerificationFile: false
-  path: cpp/random/xorshift.hpp
-  requiredBy:
-  - cpp/set/set.hpp
-  timestamp: '2024-10-19 16:46:12+09:00'
+  path: cpp/segment_tree/binary_indexed_tree.hpp
+  requiredBy: []
+  timestamp: '2024-11-19 00:22:28+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: cpp/random/xorshift.hpp
+documentation_of: cpp/segment_tree/binary_indexed_tree.hpp
 layout: document
 redirect_from:
-- /library/cpp/random/xorshift.hpp
-- /library/cpp/random/xorshift.hpp.html
-title: cpp/random/xorshift.hpp
+- /library/cpp/segment_tree/binary_indexed_tree.hpp
+- /library/cpp/segment_tree/binary_indexed_tree.hpp.html
+title: Binary Indexed Tree (Fenwick Tree)
 ---

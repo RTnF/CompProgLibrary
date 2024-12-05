@@ -2,9 +2,6 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: cpp/random/xorshift.hpp
-    title: cpp/random/xorshift.hpp
-  - icon: ':heavy_check_mark:'
     path: cpp/set/multiset.hpp
     title: "\u91CD\u8907\u3042\u308A\u306E\u96C6\u5408"
   - icon: ':question:'
@@ -39,18 +36,17 @@ data:
     \    cin >> type;\n    int x, l, r;\n    switch (type) {\n    case 0: // insert\n\
     \      cin >> x;\n      ms.add(x);\n      cout << ms.size() << \"\\n\";\n    \
     \  break;\n    case 1: // find\n      cin >> x;\n      cout << ms.count(x) <<\
-    \ \"\\n\";\n      break;\n    case 2: // delete\n      cin >> x;\n      ms.removeAll(x);\n\
+    \ \"\\n\";\n      break;\n    case 2: // delete\n      cin >> x;\n      ms.remove_all(x);\n\
     \      break;\n    case 3: // dump\n      cin >> l >> r;\n      ms.aoj_dump(l,\
     \ r);\n      break;\n    }\n    if (ms.size() < 3000) {\n      ms.verify();\n\
     \    }\n  }\n}"
   dependsOn:
   - cpp/set/multiset.hpp
-  - cpp/random/xorshift.hpp
   - cpp/template/small_template.hpp
   isVerificationFile: true
   path: cpp/verify/multi_set.test.cpp
   requiredBy: []
-  timestamp: '2024-10-22 19:23:44+09:00'
+  timestamp: '2024-12-03 01:33:18+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: cpp/verify/multi_set.test.cpp
