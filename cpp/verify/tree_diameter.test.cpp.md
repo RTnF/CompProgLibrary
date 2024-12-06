@@ -12,12 +12,12 @@ data:
     title: "\u5171\u901A\u30D8\u30C3\u30C0\u30FC"
   - icon: ':question:'
     path: cpp/tree/tree.hpp
-    title: cpp/tree/tree.hpp
+    title: "\u5168\u65B9\u4F4D\u6728DP"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/tree_diameter
@@ -51,8 +51,8 @@ data:
   isVerificationFile: true
   path: cpp/verify/tree_diameter.test.cpp
   requiredBy: []
-  timestamp: '2024-11-10 02:02:04+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-12-07 00:34:35+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: cpp/verify/tree_diameter.test.cpp
 layout: document

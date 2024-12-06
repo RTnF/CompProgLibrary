@@ -7,6 +7,9 @@ data:
   - icon: ':question:'
     path: cpp/graph/edge.hpp
     title: cpp/graph/edge.hpp
+  - icon: ':heavy_check_mark:'
+    path: cpp/modint/dynamic_modint.hpp
+    title: "\u5270\u4F59\u3092\u53D6\u308A[0, mod)\u306B\u53CE\u3081\u308Bint"
   - icon: ':question:'
     path: cpp/template/small_template.hpp
     title: "\u5171\u901A\u30D8\u30C3\u30C0\u30FC"
@@ -20,9 +23,9 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/jump_on_tree
+    PROBLEM: https://atcoder.jp/contests/dp/tasks/dp_v
     links:
-    - https://judge.yosupo.jp/problem/jump_on_tree
+    - https://atcoder.jp/contests/dp/tasks/dp_v
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
@@ -35,31 +38,32 @@ data:
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: tree/tree.hpp:\
     \ line -1: no such header\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/jump_on_tree\"\n#include\
-    \ \"tree/tree.hpp\"\n\nint main() {\n  cin.tie(0);\n  ios::sync_with_stdio(false);\n\
-    \  int n, q;\n  cin >> n >> q;\n  vector<int> a(n - 1), b(n - 1);\n  for (int\
-    \ i = 0; i < n - 1; i++) {\n    cin >> a[i] >> b[i];\n  }\n  Tree<int> t(0, a,\
-    \ b);\n  t.build_ancestor();\n  while (q--) {\n    int u, v, i;\n    cin >> u\
-    \ >> v >> i;\n    int lca = t.lowest_common_ancestor(u, v);\n    int d1 = t.depth(u)\
-    \ - t.depth(lca);\n    int d2 = t.depth(v) - t.depth(lca);\n    if (i > d1 + d2)\
-    \ {\n      cout << \"-1\\n\";\n    } else if (i < d1) {\n      cout << t.ancestor(u,\
-    \ i) << '\\n';\n    } else {\n      cout << t.ancestor(v, d1 + d2 - i) << '\\\
-    n';\n    }\n  }\n}"
+  code: "#define PROBLEM \"https://atcoder.jp/contests/dp/tasks/dp_v\"\n#include \"\
+    tree/tree.hpp\"\n#include \"modint/dynamic_modint.hpp\"\n\nvoid solve() {\n  int\
+    \ n;\n  cin >> n >> DynamicModInt::m;\n  vector<int> x(n - 1), y(n - 1);\n  for\
+    \ (int i = 0; i < n - 1; i++) {\n    cin >> x[i] >> y[i];\n    x[i]--;\n    y[i]--;\n\
+    \  }\n  Tree tree(0, x, y);\n  auto dp = tree.full_tree_dp(DynamicModInt(1), [](DynamicModInt\
+    \ a, DynamicModInt b) -> auto {\n    return a * b;\n  }, [](DynamicModInt a) ->\
+    \ auto { return a + 1; });\n  for (auto &&e: dp) {\n    cout << e - 1 << '\\n';\n\
+    \  }\n}\n\nint main() {\n  cin.tie(0);\n  ios::sync_with_stdio(false);\n  cout\
+    \ << fixed << setprecision(20);\n  //*\n  solve();\n  /*/\n  ll _cases;\n  cin\
+    \ >> _cases;\n  while (_cases--) solve();\n  //*/\n}"
   dependsOn:
   - cpp/tree/tree.hpp
   - cpp/array/doubling.hpp
   - cpp/template/small_template.hpp
   - cpp/graph/edge.hpp
+  - cpp/modint/dynamic_modint.hpp
   isVerificationFile: true
-  path: cpp/verify/jump_on_tree.test.cpp
+  path: cpp/verify/full_tree_dp.test.cpp
   requiredBy: []
   timestamp: '2024-12-07 00:34:35+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: cpp/verify/jump_on_tree.test.cpp
+documentation_of: cpp/verify/full_tree_dp.test.cpp
 layout: document
 redirect_from:
-- /verify/cpp/verify/jump_on_tree.test.cpp
-- /verify/cpp/verify/jump_on_tree.test.cpp.html
-title: cpp/verify/jump_on_tree.test.cpp
+- /verify/cpp/verify/full_tree_dp.test.cpp
+- /verify/cpp/verify/full_tree_dp.test.cpp.html
+title: cpp/verify/full_tree_dp.test.cpp
 ---

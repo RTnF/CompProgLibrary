@@ -9,12 +9,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: cpp/verify/rolling_hash.test.cpp
     title: cpp/verify/rolling_hash.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/verify/rolling_hash_2.test.cpp
     title: cpp/verify/rolling_hash_2.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links:
     - https://qiita.com/keymoon/items/11fac5627672a6d6a9f6
@@ -137,7 +137,7 @@ data:
   path: cpp/string/rolling_hash.hpp
   requiredBy: []
   timestamp: '2024-11-07 00:23:05+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - cpp/verify/rolling_hash.test.cpp
   - cpp/verify/rolling_hash_2.test.cpp

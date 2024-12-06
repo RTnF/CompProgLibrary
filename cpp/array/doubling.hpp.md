@@ -7,8 +7,11 @@ data:
   _extendedRequiredBy:
   - icon: ':question:'
     path: cpp/tree/tree.hpp
-    title: cpp/tree/tree.hpp
+    title: "\u5168\u65B9\u4F4D\u6728DP"
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: cpp/verify/full_tree_dp.test.cpp
+    title: cpp/verify/full_tree_dp.test.cpp
   - icon: ':heavy_check_mark:'
     path: cpp/verify/jump_on_tree.test.cpp
     title: cpp/verify/jump_on_tree.test.cpp
@@ -18,7 +21,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: cpp/verify/lowest_common_ancestor_2.test.cpp
     title: cpp/verify/lowest_common_ancestor_2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/verify/tree_diameter.test.cpp
     title: cpp/verify/tree_diameter.test.cpp
   - icon: ':x:'
@@ -68,6 +71,7 @@ data:
   - cpp/verify/tree_diameter.test.cpp
   - cpp/verify/jump_on_tree.test.cpp
   - cpp/verify/tree_height.test.cpp
+  - cpp/verify/full_tree_dp.test.cpp
   - cpp/verify/lowest_common_ancestor.test.cpp
   - cpp/verify/lowest_common_ancestor_2.test.cpp
 documentation_of: cpp/array/doubling.hpp

@@ -42,7 +42,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: cpp/geometry/polygon.hpp
       title: cpp/geometry/polygon.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: cpp/geometry/vector.hpp
       title: cpp/geometry/vector.hpp
   - name: cpp/graph
@@ -93,7 +93,7 @@ data:
       title: "\u533A\u9593\u306E\u548C\u96C6\u5408"
   - name: cpp/modint
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: cpp/modint/dynamic_modint.hpp
       title: "\u5270\u4F59\u3092\u53D6\u308A[0, mod)\u306B\u53CE\u3081\u308Bint"
     - icon: ':heavy_check_mark:'
@@ -156,7 +156,7 @@ data:
     - icon: ':warning:'
       path: cpp/string/char_count.hpp
       title: "\u30E9\u30F3\u30EC\u30F3\u30B0\u30B9\u5727\u7E2E"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: cpp/string/rolling_hash.hpp
       title: cpp/string/rolling_hash.hpp
   - name: cpp/template
@@ -174,7 +174,7 @@ data:
     pages:
     - icon: ':question:'
       path: cpp/tree/tree.hpp
-      title: cpp/tree/tree.hpp
+      title: "\u5168\u65B9\u4F4D\u6728DP"
   - name: cpp/union_find
     pages:
     - icon: ':warning:'
@@ -231,6 +231,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: cpp/verify/factorize2.test.cpp
       title: cpp/verify/factorize2.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: cpp/verify/full_tree_dp.test.cpp
+      title: cpp/verify/full_tree_dp.test.cpp
     - icon: ':heavy_check_mark:'
       path: cpp/verify/is_prime.test.cpp
       title: cpp/verify/is_prime.test.cpp
@@ -300,16 +303,16 @@ data:
     - icon: ':heavy_check_mark:'
       path: cpp/verify/rolling_hash.test.cpp
       title: cpp/verify/rolling_hash.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: cpp/verify/rolling_hash_2.test.cpp
       title: cpp/verify/rolling_hash_2.test.cpp
     - icon: ':heavy_check_mark:'
       path: cpp/verify/segment_tree.test.cpp
       title: cpp/verify/segment_tree.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: cpp/verify/sort_points_by_argument.test.cpp
       title: cpp/verify/sort_points_by_argument.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: cpp/verify/tree_diameter.test.cpp
       title: cpp/verify/tree_diameter.test.cpp
     - icon: ':x:'

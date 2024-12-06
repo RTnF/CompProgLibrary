@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/geometry/vector.hpp
     title: cpp/geometry/vector.hpp
   - icon: ':question:'

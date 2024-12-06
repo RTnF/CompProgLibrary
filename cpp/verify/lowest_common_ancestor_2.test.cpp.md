@@ -12,7 +12,7 @@ data:
     title: "\u5171\u901A\u30D8\u30C3\u30C0\u30FC"
   - icon: ':question:'
     path: cpp/tree/tree.hpp
-    title: cpp/tree/tree.hpp
+    title: "\u5168\u65B9\u4F4D\u6728DP"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -50,7 +50,7 @@ data:
   isVerificationFile: true
   path: cpp/verify/lowest_common_ancestor_2.test.cpp
   requiredBy: []
-  timestamp: '2024-11-10 02:02:04+09:00'
+  timestamp: '2024-12-07 00:34:35+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: cpp/verify/lowest_common_ancestor_2.test.cpp

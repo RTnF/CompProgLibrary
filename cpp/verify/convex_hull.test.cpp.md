@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: cpp/geometry/polygon.hpp
     title: cpp/geometry/polygon.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/geometry/vector.hpp
     title: cpp/geometry/vector.hpp
   - icon: ':question:'
