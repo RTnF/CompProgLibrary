@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/array/doubling.hpp
     title: cpp/array/doubling.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/graph/edge.hpp
     title: cpp/graph/edge.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/template/small_template.hpp
     title: "\u5171\u901A\u30D8\u30C3\u30C0\u30FC"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/tree/tree.hpp
     title: "\u5168\u65B9\u4F4D\u6728DP"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/5/GRL_5_A
@@ -50,7 +50,7 @@ data:
   path: cpp/verify/tree_diameter_2.test.cpp
   requiredBy: []
   timestamp: '2024-12-07 00:34:35+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: cpp/verify/tree_diameter_2.test.cpp
 layout: document

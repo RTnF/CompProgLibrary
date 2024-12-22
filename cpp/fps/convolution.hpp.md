@@ -4,17 +4,14 @@ data:
   - icon: ':heavy_check_mark:'
     path: cpp/modint/modint.hpp
     title: "\u5270\u4F59\u3092\u53D6\u308A[0, mod)\u306B\u53CE\u3081\u308Bint"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/template/small_template.hpp
     title: "\u5171\u901A\u30D8\u30C3\u30C0\u30FC"
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: cpp/verify/convolution_ll.test.cpp
-    title: cpp/verify/convolution_ll.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -183,9 +180,8 @@ data:
   path: cpp/fps/convolution.hpp
   requiredBy: []
   timestamp: '2024-11-24 09:02:25+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - cpp/verify/convolution_ll.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: cpp/fps/convolution.hpp
 layout: document
 redirect_from:

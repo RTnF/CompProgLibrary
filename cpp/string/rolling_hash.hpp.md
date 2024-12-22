@@ -1,20 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/template/small_template.hpp
     title: "\u5171\u901A\u30D8\u30C3\u30C0\u30FC"
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: cpp/verify/rolling_hash.test.cpp
-    title: cpp/verify/rolling_hash.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: cpp/verify/rolling_hash_2.test.cpp
-    title: cpp/verify/rolling_hash_2.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links:
     - https://qiita.com/keymoon/items/11fac5627672a6d6a9f6
@@ -137,10 +131,8 @@ data:
   path: cpp/string/rolling_hash.hpp
   requiredBy: []
   timestamp: '2024-11-07 00:23:05+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - cpp/verify/rolling_hash.test.cpp
-  - cpp/verify/rolling_hash_2.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: cpp/string/rolling_hash.hpp
 layout: document
 redirect_from:

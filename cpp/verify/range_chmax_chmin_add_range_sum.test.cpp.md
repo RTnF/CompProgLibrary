@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: cpp/segment_tree/segment_tree_beats_sum.hpp
     title: cpp/segment_tree/segment_tree_beats_sum.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/template/small_template.hpp
     title: "\u5171\u901A\u30D8\u30C3\u30C0\u30FC"
   _extendedRequiredBy: []

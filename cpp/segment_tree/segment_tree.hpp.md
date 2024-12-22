@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/template/small_template.hpp
     title: "\u5171\u901A\u30D8\u30C3\u30C0\u30FC"
   _extendedRequiredBy: []
@@ -12,9 +12,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: cpp/verify/point_set_range_composite.test.cpp
     title: cpp/verify/point_set_range_composite.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: cpp/verify/segment_tree.test.cpp
-    title: cpp/verify/segment_tree.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -92,7 +89,6 @@ data:
   verifiedWith:
   - cpp/verify/point_add_range_sum.test.cpp
   - cpp/verify/point_set_range_composite.test.cpp
-  - cpp/verify/segment_tree.test.cpp
 documentation_of: cpp/segment_tree/segment_tree.hpp
 layout: document
 redirect_from:

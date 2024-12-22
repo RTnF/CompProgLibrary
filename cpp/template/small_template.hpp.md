@@ -5,7 +5,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: cpp/algebraic_structure/group.hpp
     title: "\u7FA4 (Group)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: cpp/algebraic_structure/monoid.hpp
     title: "\u30E2\u30CE\u30A4\u30C9 (Monoid)"
   - icon: ':heavy_check_mark:'
@@ -14,7 +14,7 @@ data:
   - icon: ':warning:'
     path: cpp/array/cumulative_sum.hpp
     title: "1\u6B21\u5143\u7D2F\u7A4D\u548C"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/array/doubling.hpp
     title: cpp/array/doubling.hpp
   - icon: ':warning:'
@@ -26,7 +26,7 @@ data:
   - icon: ':warning:'
     path: cpp/array/sort_util.hpp
     title: "\u5EA7\u6A19\u5727\u7E2E O(n log n)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: cpp/fps/convolution.hpp
     title: cpp/fps/convolution.hpp
   - icon: ':heavy_check_mark:'
@@ -44,7 +44,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: cpp/graph/dijkstra.hpp
     title: cpp/graph/dijkstra.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/graph/edge.hpp
     title: cpp/graph/edge.hpp
   - icon: ':heavy_check_mark:'
@@ -80,7 +80,7 @@ data:
   - icon: ':warning:'
     path: cpp/interval/interval_union.hpp
     title: "\u533A\u9593\u306E\u548C\u96C6\u5408"
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: cpp/modint/dynamic_modint.hpp
     title: "\u5270\u4F59\u3092\u53D6\u308A[0, mod)\u306B\u53CE\u3081\u308Bint"
   - icon: ':heavy_check_mark:'
@@ -131,10 +131,10 @@ data:
   - icon: ':warning:'
     path: cpp/string/char_count.hpp
     title: "\u30E9\u30F3\u30EC\u30F3\u30B0\u30B9\u5727\u7E2E"
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: cpp/string/rolling_hash.hpp
     title: cpp/string/rolling_hash.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/tree/tree.hpp
     title: "\u5168\u65B9\u4F4D\u6728DP"
   - icon: ':warning:'
@@ -154,14 +154,8 @@ data:
     path: cpp/verify/bridges.test.cpp
     title: cpp/verify/bridges.test.cpp
   - icon: ':heavy_check_mark:'
-    path: cpp/verify/combination.test.cpp
-    title: cpp/verify/combination.test.cpp
-  - icon: ':heavy_check_mark:'
     path: cpp/verify/convex_hull.test.cpp
     title: cpp/verify/convex_hull.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: cpp/verify/convolution_ll.test.cpp
-    title: cpp/verify/convolution_ll.test.cpp
   - icon: ':heavy_check_mark:'
     path: cpp/verify/detect_cycle_directed.test.cpp
     title: cpp/verify/detect_cycle_directed.test.cpp
@@ -187,9 +181,6 @@ data:
     path: cpp/verify/factorize2.test.cpp
     title: cpp/verify/factorize2.test.cpp
   - icon: ':heavy_check_mark:'
-    path: cpp/verify/full_tree_dp.test.cpp
-    title: cpp/verify/full_tree_dp.test.cpp
-  - icon: ':heavy_check_mark:'
     path: cpp/verify/is_prime.test.cpp
     title: cpp/verify/is_prime.test.cpp
   - icon: ':heavy_check_mark:'
@@ -198,9 +189,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: cpp/verify/lowest_common_ancestor.test.cpp
     title: cpp/verify/lowest_common_ancestor.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: cpp/verify/lowest_common_ancestor_2.test.cpp
-    title: cpp/verify/lowest_common_ancestor_2.test.cpp
   - icon: ':heavy_check_mark:'
     path: cpp/verify/many_a_plus_b.test.cpp
     title: cpp/verify/many_a_plus_b.test.cpp
@@ -229,9 +217,6 @@ data:
     path: cpp/verify/point_set_range_composite.test.cpp
     title: cpp/verify/point_set_range_composite.test.cpp
   - icon: ':heavy_check_mark:'
-    path: cpp/verify/polygon_area.test.cpp
-    title: cpp/verify/polygon_area.test.cpp
-  - icon: ':heavy_check_mark:'
     path: cpp/verify/prim.test.cpp
     title: cpp/verify/prim.test.cpp
   - icon: ':heavy_check_mark:'
@@ -256,32 +241,23 @@ data:
     path: cpp/verify/range_update_range_sum.test.cpp
     title: cpp/verify/range_update_range_sum.test.cpp
   - icon: ':heavy_check_mark:'
-    path: cpp/verify/rolling_hash.test.cpp
-    title: cpp/verify/rolling_hash.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: cpp/verify/rolling_hash_2.test.cpp
-    title: cpp/verify/rolling_hash_2.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: cpp/verify/segment_tree.test.cpp
-    title: cpp/verify/segment_tree.test.cpp
-  - icon: ':heavy_check_mark:'
     path: cpp/verify/sort_points_by_argument.test.cpp
     title: cpp/verify/sort_points_by_argument.test.cpp
   - icon: ':heavy_check_mark:'
     path: cpp/verify/tree_diameter.test.cpp
     title: cpp/verify/tree_diameter.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/verify/tree_diameter_2.test.cpp
     title: cpp/verify/tree_diameter_2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/verify/tree_height.test.cpp
     title: cpp/verify/tree_height.test.cpp
   - icon: ':heavy_check_mark:'
     path: cpp/verify/warshall_floyd.test.cpp
     title: cpp/verify/warshall_floyd.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: '#line 2 "cpp/template/small_template.hpp"
@@ -374,7 +350,7 @@ data:
   - cpp/number/square_matrix.hpp
   - cpp/number/ratio.hpp
   timestamp: '2024-10-19 16:46:12+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - cpp/verify/bellman_ford.test.cpp
   - cpp/verify/max_flow.test.cpp
@@ -387,7 +363,6 @@ data:
   - cpp/verify/jump_on_tree.test.cpp
   - cpp/verify/multi_set.test.cpp
   - cpp/verify/enumerate_quotients.test.cpp
-  - cpp/verify/polygon_area.test.cpp
   - cpp/verify/min_cost_flow.test.cpp
   - cpp/verify/point_set_range_composite.test.cpp
   - cpp/verify/sort_points_by_argument.test.cpp
@@ -395,7 +370,6 @@ data:
   - cpp/verify/range_add_range_sum.test.cpp
   - cpp/verify/range_add_query.test.cpp
   - cpp/verify/multi_set_3.test.cpp
-  - cpp/verify/combination.test.cpp
   - cpp/verify/disjoint_set_union.test.cpp
   - cpp/verify/tree_height.test.cpp
   - cpp/verify/convex_hull.test.cpp
@@ -404,14 +378,9 @@ data:
   - cpp/verify/multi_set_2.test.cpp
   - cpp/verify/detect_cycle_directed.test.cpp
   - cpp/verify/detect_cycle_directed_2.test.cpp
-  - cpp/verify/full_tree_dp.test.cpp
-  - cpp/verify/rolling_hash.test.cpp
   - cpp/verify/prim.test.cpp
-  - cpp/verify/convolution_ll.test.cpp
   - cpp/verify/range_update_range_min.test.cpp
   - cpp/verify/warshall_floyd.test.cpp
-  - cpp/verify/rolling_hash_2.test.cpp
-  - cpp/verify/segment_tree.test.cpp
   - cpp/verify/range_chmax_chmin_add_range_sum.test.cpp
   - cpp/verify/dijkstra2.test.cpp
   - cpp/verify/lowest_common_ancestor.test.cpp
@@ -420,7 +389,6 @@ data:
   - cpp/verify/maximum_profit.test.cpp
   - cpp/verify/many_a_plus_b.test.cpp
   - cpp/verify/range_add_range_min.test.cpp
-  - cpp/verify/lowest_common_ancestor_2.test.cpp
 documentation_of: cpp/template/small_template.hpp
 layout: document
 title: "\u5171\u901A\u30D8\u30C3\u30C0\u30FC"

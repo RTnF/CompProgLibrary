@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: cpp/geometry/vector.hpp
     title: cpp/geometry/vector.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/template/small_template.hpp
     title: "\u5171\u901A\u30D8\u30C3\u30C0\u30FC"
   _extendedRequiredBy:
@@ -15,9 +15,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: cpp/verify/convex_hull.test.cpp
     title: cpp/verify/convex_hull.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: cpp/verify/polygon_area.test.cpp
-    title: cpp/verify/polygon_area.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -65,7 +62,6 @@ data:
   timestamp: '2024-11-23 22:11:34+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - cpp/verify/polygon_area.test.cpp
   - cpp/verify/convex_hull.test.cpp
 documentation_of: cpp/geometry/line.hpp
 layout: document

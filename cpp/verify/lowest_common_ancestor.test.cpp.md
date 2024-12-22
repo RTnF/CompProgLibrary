@@ -1,16 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/array/doubling.hpp
     title: cpp/array/doubling.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/graph/edge.hpp
     title: cpp/graph/edge.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/template/small_template.hpp
     title: "\u5171\u901A\u30D8\u30C3\u30C0\u30FC"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/tree/tree.hpp
     title: "\u5168\u65B9\u4F4D\u6728DP"
   _extendedRequiredBy: []

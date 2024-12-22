@@ -1,20 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/template/small_template.hpp
     title: "\u5171\u901A\u30D8\u30C3\u30C0\u30FC"
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: cpp/fps/convolution.hpp
     title: cpp/fps/convolution.hpp
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: cpp/verify/combination.test.cpp
-    title: cpp/verify/combination.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: cpp/verify/convolution_ll.test.cpp
-    title: cpp/verify/convolution_ll.test.cpp
   - icon: ':heavy_check_mark:'
     path: cpp/verify/point_set_range_composite.test.cpp
     title: cpp/verify/point_set_range_composite.test.cpp
@@ -90,8 +84,6 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - cpp/verify/point_set_range_composite.test.cpp
-  - cpp/verify/combination.test.cpp
-  - cpp/verify/convolution_ll.test.cpp
 documentation_of: cpp/modint/modint.hpp
 layout: document
 redirect_from:

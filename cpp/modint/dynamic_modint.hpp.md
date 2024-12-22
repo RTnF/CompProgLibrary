@@ -1,17 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/template/small_template.hpp
     title: "\u5171\u901A\u30D8\u30C3\u30C0\u30FC"
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: cpp/verify/full_tree_dp.test.cpp
-    title: cpp/verify/full_tree_dp.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     document_title: "\u5270\u4F59\u3092\u53D6\u308A[0, mod)\u306B\u53CE\u3081\u308B\
       int"
@@ -86,9 +83,8 @@ data:
   path: cpp/modint/dynamic_modint.hpp
   requiredBy: []
   timestamp: '2024-11-16 13:35:37+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - cpp/verify/full_tree_dp.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: cpp/modint/dynamic_modint.hpp
 layout: document
 redirect_from:

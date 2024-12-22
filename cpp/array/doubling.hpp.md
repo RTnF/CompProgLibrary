@@ -1,17 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/template/small_template.hpp
     title: "\u5171\u901A\u30D8\u30C3\u30C0\u30FC"
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/tree/tree.hpp
     title: "\u5168\u65B9\u4F4D\u6728DP"
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: cpp/verify/full_tree_dp.test.cpp
-    title: cpp/verify/full_tree_dp.test.cpp
   - icon: ':heavy_check_mark:'
     path: cpp/verify/jump_on_tree.test.cpp
     title: cpp/verify/jump_on_tree.test.cpp
@@ -19,20 +16,17 @@ data:
     path: cpp/verify/lowest_common_ancestor.test.cpp
     title: cpp/verify/lowest_common_ancestor.test.cpp
   - icon: ':heavy_check_mark:'
-    path: cpp/verify/lowest_common_ancestor_2.test.cpp
-    title: cpp/verify/lowest_common_ancestor_2.test.cpp
-  - icon: ':heavy_check_mark:'
     path: cpp/verify/tree_diameter.test.cpp
     title: cpp/verify/tree_diameter.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/verify/tree_diameter_2.test.cpp
     title: cpp/verify/tree_diameter_2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/verify/tree_height.test.cpp
     title: cpp/verify/tree_height.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -65,15 +59,13 @@ data:
   requiredBy:
   - cpp/tree/tree.hpp
   timestamp: '2024-10-30 01:21:21+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - cpp/verify/tree_diameter_2.test.cpp
   - cpp/verify/tree_diameter.test.cpp
   - cpp/verify/jump_on_tree.test.cpp
   - cpp/verify/tree_height.test.cpp
-  - cpp/verify/full_tree_dp.test.cpp
   - cpp/verify/lowest_common_ancestor.test.cpp
-  - cpp/verify/lowest_common_ancestor_2.test.cpp
 documentation_of: cpp/array/doubling.hpp
 layout: document
 redirect_from:

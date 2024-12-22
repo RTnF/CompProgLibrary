@@ -1,17 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/template/small_template.hpp
     title: "\u5171\u901A\u30D8\u30C3\u30C0\u30FC"
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: cpp/verify/segment_tree.test.cpp
-    title: cpp/verify/segment_tree.test.cpp
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -43,9 +40,8 @@ data:
   path: cpp/algebraic_structure/monoid.hpp
   requiredBy: []
   timestamp: '2024-10-19 16:46:12+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - cpp/verify/segment_tree.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: cpp/algebraic_structure/monoid.hpp
 layout: document
 title: "\u30E2\u30CE\u30A4\u30C9 (Monoid)"

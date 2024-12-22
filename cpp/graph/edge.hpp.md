@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/template/small_template.hpp
     title: "\u5171\u901A\u30D8\u30C3\u30C0\u30FC"
   _extendedRequiredBy:
@@ -26,7 +26,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: cpp/graph/topological_sort.hpp
     title: cpp/graph/topological_sort.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: cpp/tree/tree.hpp
     title: "\u5168\u65B9\u4F4D\u6728DP"
   _extendedVerifiedWith:
@@ -52,32 +52,26 @@ data:
     path: cpp/verify/dijkstra2.test.cpp
     title: cpp/verify/dijkstra2.test.cpp
   - icon: ':heavy_check_mark:'
-    path: cpp/verify/full_tree_dp.test.cpp
-    title: cpp/verify/full_tree_dp.test.cpp
-  - icon: ':heavy_check_mark:'
     path: cpp/verify/jump_on_tree.test.cpp
     title: cpp/verify/jump_on_tree.test.cpp
   - icon: ':heavy_check_mark:'
     path: cpp/verify/lowest_common_ancestor.test.cpp
     title: cpp/verify/lowest_common_ancestor.test.cpp
   - icon: ':heavy_check_mark:'
-    path: cpp/verify/lowest_common_ancestor_2.test.cpp
-    title: cpp/verify/lowest_common_ancestor_2.test.cpp
-  - icon: ':heavy_check_mark:'
     path: cpp/verify/prim.test.cpp
     title: cpp/verify/prim.test.cpp
   - icon: ':heavy_check_mark:'
     path: cpp/verify/tree_diameter.test.cpp
     title: cpp/verify/tree_diameter.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/verify/tree_diameter_2.test.cpp
     title: cpp/verify/tree_diameter_2.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: cpp/verify/tree_height.test.cpp
     title: cpp/verify/tree_height.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -114,7 +108,7 @@ data:
   - cpp/graph/topological_sort.hpp
   - cpp/tree/tree.hpp
   timestamp: '2024-11-03 09:29:45+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - cpp/verify/bellman_ford.test.cpp
   - cpp/verify/tree_diameter_2.test.cpp
@@ -125,12 +119,10 @@ data:
   - cpp/verify/articulation_points.test.cpp
   - cpp/verify/detect_cycle_directed.test.cpp
   - cpp/verify/detect_cycle_directed_2.test.cpp
-  - cpp/verify/full_tree_dp.test.cpp
   - cpp/verify/prim.test.cpp
   - cpp/verify/dijkstra2.test.cpp
   - cpp/verify/lowest_common_ancestor.test.cpp
   - cpp/verify/bridges.test.cpp
-  - cpp/verify/lowest_common_ancestor_2.test.cpp
 documentation_of: cpp/graph/edge.hpp
 layout: document
 redirect_from:
