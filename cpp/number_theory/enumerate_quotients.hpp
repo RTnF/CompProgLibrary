@@ -2,6 +2,7 @@
 #include "template/small_template.hpp"
 
 // 整数との商 floor(n / x) を列挙する
+// 制約：1 <= n <= 2^64 - 2^32
 vector<ull> enumerate_quotients(ull n) {
   // N/k - N/(k+1) > 1
   // N/k(k+1) > 1
