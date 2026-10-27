@@ -3,3 +3,5 @@ cpp_bundle/*
 bundle.sh
 markdown.sh
 verify.sh
+cpp/verify/move.sh
+cpp/verify/ac/

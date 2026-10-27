@@ -1,7 +1,8 @@
 #pragma once
 #include "template/small_template.hpp"
 
-template <class T, int n> struct SquareMatrix {
+template<class T, int n>
+struct SquareMatrix {
   T mat[n][n];
   static SquareMatrix<T, n> O() {
     SquareMatrix<T, n> ret;
@@ -21,8 +22,7 @@ template <class T, int n> struct SquareMatrix {
     }
     return ret;
   }
-  T (&operator[](int i))[n] { return mat[i]; }
-  const T (&operator[](int i) const)[n] { return mat[i]; }
+  T (&operator[](int i)) [n] { return mat[i]; } const T (&operator[](int i) const)[n] { return mat[i]; }
   SquareMatrix<T, n> &operator+=(const SquareMatrix<T, n> &y) {
     for (int i = 0; i < n; i++) {
       for (int j = 0; j < n; j++) {
@@ -61,7 +61,7 @@ template <class T, int n> struct SquareMatrix {
     SquareMatrix<T, n> minus;
     for (int i = 0; i < n; i++) {
       for (int j = 0; j < n; j++) {
-        minus.mat[i][j] - mat[i][j];
+        minus.mat[i][j] = -mat[i][j];
       }
     }
     return minus;
@@ -78,24 +78,24 @@ template <class T, int n> struct SquareMatrix {
     return r;
   }
 
-  friend SquareMatrix<T, n> operator+(const SquareMatrix<T, n> &a,
-                                      const SquareMatrix<T, n> &b) {
+  friend SquareMatrix<T, n> operator+(const SquareMatrix<T, n> &a, const SquareMatrix<T, n> &b) {
     return SquareMatrix<T, n>(a) += b;
   }
-  friend SquareMatrix<T, n> operator-(const SquareMatrix<T, n> &a,
-                                      const SquareMatrix<T, n> &b) {
+  friend SquareMatrix<T, n> operator-(const SquareMatrix<T, n> &a, const SquareMatrix<T, n> &b) {
     return SquareMatrix<T, n>(a) -= b;
   }
-  friend SquareMatrix<T, n> operator*(const SquareMatrix<T, n> &a,
-                                      const SquareMatrix<T, n> &b) {
+  friend SquareMatrix<T, n> operator*(const SquareMatrix<T, n> &a, const SquareMatrix<T, n> &b) {
     return SquareMatrix<T, n>(a) *= b;
   }
-  friend bool operator==(const SquareMatrix<T, n> &a,
-                         const SquareMatrix<T, n> &b) {
-    return a.x == b.x;
+  friend bool operator==(const SquareMatrix<T, n> &a, const SquareMatrix<T, n> &b) {
+    for (int i = 0; i < n; i++) {
+      for (int j = 0; j < n; j++) {
+        if (a.mat[i][j] != b.mat[i][j]) {
+          return false;
+        }
+      }
+    }
+    return true;
   }
-  friend bool operator!=(const SquareMatrix<T, n> &a,
-                         const SquareMatrix<T, n> &b) {
-    return a.x != b.x;
-  }
+  friend bool operator!=(const SquareMatrix<T, n> &a, const SquareMatrix<T, n> &b) { return !(a == b); }
 };
