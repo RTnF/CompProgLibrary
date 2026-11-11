@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/many_aplusb"
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/many_aplusb
 #include "template/small_template.hpp"
 
 // https://qiita.com/nojima/items/57b9d39d7d73362ac883

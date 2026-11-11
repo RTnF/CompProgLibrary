@@ -1,3 +1,0 @@
-[[languages.cpp.environments]]
-CXX = "g++-13"
-CXXFLAGS = ["-std=gnu++23", "-O2", "-Wall", "-I", "./cpp"]

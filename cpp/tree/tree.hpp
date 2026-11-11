@@ -192,7 +192,7 @@ public:
     if (u == v) {
       return u;
     }
-    for (int k = bit_width((unsigned)du); k >= 0; k--) {
+    for (int k = (int)ancestor_.size() - 1; k >= 0; k--) {
       int nu = ancestor_[k][u];
       int nv = ancestor_[k][v];
       if (nu != nv) {

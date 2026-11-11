@@ -1,5 +1,4 @@
-#define PROBLEM                                                                \
-  "https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_B"
+// competitive-verifier: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/6/GRL_6_B
 #include "graph/graph_flow.hpp"
 
 int main() {

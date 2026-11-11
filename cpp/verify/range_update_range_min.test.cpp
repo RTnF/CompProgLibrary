@@ -1,5 +1,4 @@
-#define PROBLEM                                                                \
-  "https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/all/DSL_2_F"
+// competitive-verifier: PROBLEM https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/all/DSL_2_F
 #include "algebraic_structure/monoid_lazy.hpp"
 #include "segment_tree/lazy_segment_tree.hpp"
 

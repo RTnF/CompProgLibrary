@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/point_set_range_composite"
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/point_set_range_composite
 #include "algebraic_structure/group.hpp"
 #include "modint/modint.hpp"
 #include "segment_tree/segment_tree.hpp"

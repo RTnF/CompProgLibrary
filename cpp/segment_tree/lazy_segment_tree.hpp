@@ -5,7 +5,8 @@
  * @brief セグメント木 based on ACL
  * @tparam M モノイド
  */
-template <class M, class F> class LazySegmentTree {
+template<class M, class F>
+class LazySegmentTree {
   // ex. n=5, n_node=8, h_node=3
   //                 [1]
   //       [2]                 [3]
@@ -28,9 +29,9 @@ template <class M, class F> class LazySegmentTree {
   }
 
 public:
-  LazySegmentTree() : LazySegmentTree(0) {}
-  LazySegmentTree(int n_) : LazySegmentTree(vector<M>(n_, M::e())) {}
-  LazySegmentTree(const vector<M> &v) : n(v.size()) {
+  LazySegmentTree(): LazySegmentTree(0) {}
+  LazySegmentTree(int n_): LazySegmentTree(vector<M>(n_, M::e())) {}
+  LazySegmentTree(const vector<M> &v): n(v.size()) {
     h_node = 0;
     n_node = 0;
     while (n_node < n) {
@@ -172,7 +173,8 @@ public:
    * @return [l, n]から1つ, f(op(v[l] ... v[r-1])) == true && f(op(v[l] ...
    * v[r])) == false
    */
-  template <class G> int search_prod_right(int l, G f) {
+  template<class G>
+  int search_prod_right(int l, G f) {
     assert(0 <= l && l <= n);
     assert(f(M::e()));
     if (l == n) {
@@ -212,7 +214,8 @@ public:
    * @return [0, r]から1つ、f(op(v[l] ... v[r-1])) == true && f(op(v[l-1] ...
    * v[r-1])) == false
    */
-  template <class G> int search_prod_left(int r, G f) {
+  template<class G>
+  int search_prod_left(int r, G f) {
     assert(0 <= r && r <= n);
     assert(f(M::e()));
     if (r == 0) {
@@ -244,3 +247,10 @@ public:
     return 0;
   }
 };
+
+/*
+使用例
+using RSum = RangeAddRangeSum<ll>::RangeSum;
+using RAdd = RangeAddRangeSum<ll>::RangeAdd;
+LazySegmentTree<RSum, RAdd> segtree(vector<RSum>(MAX, RSum(0, 1)));
+*/

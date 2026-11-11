@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/factorize"
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/factorize
 #include "number_theory/factorize.hpp"
 
 int main() {

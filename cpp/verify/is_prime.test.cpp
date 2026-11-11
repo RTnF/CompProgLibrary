@@ -1,4 +1,4 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/primality_test"
+// competitive-verifier: PROBLEM https://judge.yosupo.jp/problem/primality_test
 #include "number_theory/is_prime.hpp"
 
 int main() {
