@@ -5,3 +5,5 @@ markdown.sh
 verify.sh
 cpp/verify/move.sh
 cpp/verify/ac/
+verify_files.json
+verify_results.json

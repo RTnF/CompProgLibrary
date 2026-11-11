@@ -26,10 +26,28 @@ jobs:
         uses: competitive-verifier/actions/setup@v2
         with:
           cache-pip: true
+
+      # Initialize your own environment for resolving.
+      - name: oj-resolve
+        uses: competitive-verifier/actions/oj-resolve@v2
+        with:
+          output-path: verify_files.json
+          # Specify patterns
+          include: |
+                cpp/
+          # exclude: your-own-exclude/
+          # If you have config.toml
+          config: .verify-helper/config.toml
       - name: parse-doxygen
         uses: competitive-verifier/actions/parse-doxygen@v2
         with:
           verify-files: verify_files.json
+
+      - name: Upload verify_files.json
+        uses: competitive-verifier/actions/upload-verify-artifact@v2
+        with:
+          file: verify_files.json
+
       - name: Check bundled
         id: test-bundled
         run: |
