@@ -10,17 +10,25 @@ struct DynamicModInt {
   static uint32_t m;
   uint32_t x;
 
-  DynamicModInt() : x(0) {}
-  template <class T, enable_if_t<is_signed_v<T>> * = nullptr>
-  DynamicModInt(T x_) : x(x_ < 0 ? x_ % (ll)m + (ll)m : x_ % (ll)m) {}
-  template <class U, enable_if_t<!is_signed_v<U>> * = nullptr>
-  DynamicModInt(U x_) : x(x_ % m) {}
+  DynamicModInt(): x(0) {}
+  template<class T, enable_if_t<is_signed_v<T>> * = nullptr>
+  DynamicModInt(T x_) {
+    x = x_ % m;
+    if (x < 0)
+      x += m;
+  }
+  template<class U, enable_if_t<!is_signed_v<U>> * = nullptr>
+  DynamicModInt(U x_): x(x_ % m) {}
 
   uint32_t get() const { return x; }
-  template <class T, enable_if_t<is_signed_v<T>> * = nullptr> void set(T x_) {
-    x = x_ < 0 ? x_ % (ll)m + (ll)m : x_ % (ll)m;
+  template<class T, enable_if_t<is_signed_v<T>> * = nullptr>
+  void set(T x_) {
+    x = x_ % m;
+    if (x < 0)
+      x += m;
   }
-  template <class U, enable_if_t<!is_signed_v<U>> * = nullptr> void set(U x_) {
+  template<class U, enable_if_t<!is_signed_v<U>> * = nullptr>
+  void set(U x_) {
     x = x_ % m;
   }
 
@@ -83,28 +91,20 @@ struct DynamicModInt {
     return pow(m - 2);
   }
 
-  friend DynamicModInt operator+(const DynamicModInt &a,
-                                 const DynamicModInt &b) {
+  friend DynamicModInt operator+(const DynamicModInt &a, const DynamicModInt &b) {
     return DynamicModInt(a) += b;
   }
-  friend DynamicModInt operator-(const DynamicModInt &a,
-                                 const DynamicModInt &b) {
+  friend DynamicModInt operator-(const DynamicModInt &a, const DynamicModInt &b) {
     return DynamicModInt(a) -= b;
   }
-  friend DynamicModInt operator*(const DynamicModInt &a,
-                                 const DynamicModInt &b) {
+  friend DynamicModInt operator*(const DynamicModInt &a, const DynamicModInt &b) {
     return DynamicModInt(a) *= b;
   }
-  friend DynamicModInt operator/(const DynamicModInt &a,
-                                 const DynamicModInt &b) {
+  friend DynamicModInt operator/(const DynamicModInt &a, const DynamicModInt &b) {
     return DynamicModInt(a) /= b;
   }
-  friend bool operator==(const DynamicModInt &a, const DynamicModInt &b) {
-    return a.x == b.x;
-  }
-  friend bool operator!=(const DynamicModInt &a, const DynamicModInt &b) {
-    return a.x != b.x;
-  }
+  friend bool operator==(const DynamicModInt &a, const DynamicModInt &b) { return a.x == b.x; }
+  friend bool operator!=(const DynamicModInt &a, const DynamicModInt &b) { return a.x != b.x; }
 
   friend istream &operator>>(istream &is, DynamicModInt &t) {
     ll y;

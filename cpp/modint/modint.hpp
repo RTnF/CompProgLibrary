@@ -6,23 +6,30 @@
  * based on ACL
  * @tparam mod 素数に限る
  */
-template <uint32_t m, enable_if_t<(2 <= m)> * = nullptr> class ModInt {
+template<uint32_t m, enable_if_t<(2 <= m)> * = nullptr>
+class ModInt {
   uint32_t x;
 
 public:
-  constexpr ModInt() : x(0) {}
-  template <class T, enable_if_t<is_signed_v<T>> * = nullptr>
-  constexpr ModInt(T x_) : x(x_ < 0 ? x_ % (ll)m + (ll)m : x_ % (ll)m) {}
-  template <class U, enable_if_t<!is_signed_v<U>> * = nullptr>
-  constexpr ModInt(U x_) : x(x_ % m) {}
+  constexpr ModInt(): x(0) {}
+  template<class T, enable_if_t<is_signed_v<T>> * = nullptr>
+  constexpr ModInt(T x_) {
+    x = x_ % m;
+    if (x < 0)
+      x += m;
+  }
+  template<class U, enable_if_t<!is_signed_v<U>> * = nullptr>
+  constexpr ModInt(U x_): x(x_ % m) {}
 
   uint32_t get() const { return x; }
   static constexpr uint32_t mod() { return m; }
-  template <class T, enable_if_t<is_signed_v<T>> * = nullptr>
+  template<class T, enable_if_t<is_signed_v<T>> * = nullptr>
   constexpr void set(T x_) {
-    x = x_ < 0 ? x_ % (ll)m + (ll)m : x_ % (ll)m;
+    x = x_ % m;
+    if (x < 0)
+      x += m;
   }
-  template <class U, enable_if_t<!is_signed_v<U>> * = nullptr>
+  template<class U, enable_if_t<!is_signed_v<U>> * = nullptr>
   constexpr void set(U x_) {
     x = x_ % m;
   }
@@ -86,24 +93,12 @@ public:
     return pow(m - 2);
   }
 
-  constexpr friend ModInt operator+(const ModInt &a, const ModInt &b) {
-    return ModInt(a) += b;
-  }
-  constexpr friend ModInt operator-(const ModInt &a, const ModInt &b) {
-    return ModInt(a) -= b;
-  }
-  constexpr friend ModInt operator*(const ModInt &a, const ModInt &b) {
-    return ModInt(a) *= b;
-  }
-  constexpr friend ModInt operator/(const ModInt &a, const ModInt &b) {
-    return ModInt(a) /= b;
-  }
-  constexpr friend bool operator==(const ModInt &a, const ModInt &b) {
-    return a.x == b.x;
-  }
-  constexpr friend bool operator!=(const ModInt &a, const ModInt &b) {
-    return a.x != b.x;
-  }
+  constexpr friend ModInt operator+(const ModInt &a, const ModInt &b) { return ModInt(a) += b; }
+  constexpr friend ModInt operator-(const ModInt &a, const ModInt &b) { return ModInt(a) -= b; }
+  constexpr friend ModInt operator*(const ModInt &a, const ModInt &b) { return ModInt(a) *= b; }
+  constexpr friend ModInt operator/(const ModInt &a, const ModInt &b) { return ModInt(a) /= b; }
+  constexpr friend bool operator==(const ModInt &a, const ModInt &b) { return a.x == b.x; }
+  constexpr friend bool operator!=(const ModInt &a, const ModInt &b) { return a.x != b.x; }
 
   friend istream &operator>>(istream &is, ModInt &t) {
     ll y;

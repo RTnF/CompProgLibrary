@@ -110,18 +110,20 @@ constexpr int primitive_root_constexpr(int m) {
       return g;
   }
 }
-template <int m> constexpr int primitive_root = primitive_root_constexpr(m);
+template<int m>
+constexpr int primitive_root = primitive_root_constexpr(m);
 
 // @param n `1 <= n`
 // @return same with bit::countr_zero
 constexpr int countr_zero_constexpr(unsigned int n) {
   int x = 0;
-  while (!(n & (1 << x)))
+  while (!(n & (1u << x)))
     x++;
   return x;
 }
 
-template <class mint, int g = primitive_root<mint::mod()>> struct fft_info {
+template<class mint, int g = primitive_root<mint::mod()>>
+struct fft_info {
   static constexpr int rank2 = countr_zero_constexpr(mint::mod() - 1);
   array<mint, rank2 + 1> root;  // root[i]^(2^i) == 1
   array<mint, rank2 + 1> iroot; // root[i] * iroot[i] == 1
@@ -161,7 +163,8 @@ template <class mint, int g = primitive_root<mint::mod()>> struct fft_info {
   }
 };
 
-template <class mint> void butterfly(vector<mint> &a) {
+template<class mint>
+void butterfly(vector<mint> &a) {
   int n = int(a.size());
   int h = countr_zero((unsigned int)n);
 
@@ -213,7 +216,8 @@ template <class mint> void butterfly(vector<mint> &a) {
   }
 }
 
-template <class mint> void butterfly_inv(vector<mint> &a) {
+template<class mint>
+void butterfly_inv(vector<mint> &a) {
   int n = int(a.size());
   int h = countr_zero((unsigned int)n);
 
@@ -230,9 +234,7 @@ template <class mint> void butterfly_inv(vector<mint> &a) {
           auto l = a[i + offset];
           auto r = a[i + offset + p];
           a[i + offset] = l + r;
-          a[i + offset + p] =
-              (unsigned long long)(mint::mod() + l.get() - r.get()) *
-              irot.get();
+          a[i + offset + p] = (unsigned long long)(mint::mod() + l.get() - r.get()) * irot.get();
           ;
         }
         if (s + 1 != (1 << (len - 1)))
@@ -253,17 +255,12 @@ template <class mint> void butterfly_inv(vector<mint> &a) {
           auto a2 = 1ULL * a[i + offset + 2 * p].get();
           auto a3 = 1ULL * a[i + offset + 3 * p].get();
 
-          auto a2na3iimag =
-              1ULL * mint((mint::mod() + a2 - a3) * iimag.get()).get();
+          auto a2na3iimag = 1ULL * mint((mint::mod() + a2 - a3) * iimag.get()).get();
 
           a[i + offset] = a0 + a1 + a2 + a3;
-          a[i + offset + 1 * p] =
-              (a0 + (mint::mod() - a1) + a2na3iimag) * irot.get();
-          a[i + offset + 2 * p] =
-              (a0 + a1 + (mint::mod() - a2) + (mint::mod() - a3)) * irot2.get();
-          a[i + offset + 3 * p] =
-              (a0 + (mint::mod() - a1) + (mint::mod() - a2na3iimag)) *
-              irot3.get();
+          a[i + offset + 1 * p] = (a0 + (mint::mod() - a1) + a2na3iimag) * irot.get();
+          a[i + offset + 2 * p] = (a0 + a1 + (mint::mod() - a2) + (mint::mod() - a3)) * irot2.get();
+          a[i + offset + 3 * p] = (a0 + (mint::mod() - a1) + (mint::mod() - a2na3iimag)) * irot3.get();
         }
         if (s + 1 != (1 << (len - 2)))
           irot *= info.irate3[countr_zero(~(unsigned int)(s))];
@@ -273,7 +270,7 @@ template <class mint> void butterfly_inv(vector<mint> &a) {
   }
 }
 
-template <class mint>
+template<class mint>
 vector<mint> convolution_naive(const vector<mint> &a, const vector<mint> &b) {
   int n = int(a.size()), m = int(b.size());
   vector<mint> ans(n + m - 1);
@@ -293,7 +290,7 @@ vector<mint> convolution_naive(const vector<mint> &a, const vector<mint> &b) {
   return ans;
 }
 
-template <class mint>
+template<class mint>
 vector<mint> convolution_fft(vector<mint> a, vector<mint> b) {
   int n = int(a.size()), m = int(b.size());
   int z = (int)bit_ceil((unsigned int)(n + m - 1));
@@ -312,7 +309,7 @@ vector<mint> convolution_fft(vector<mint> a, vector<mint> b) {
   return a;
 }
 
-template <class mint>
+template<class mint>
 vector<mint> convolution(vector<mint> &&a, vector<mint> &&b) {
   int n = int(a.size()), m = int(b.size());
   if (!n || !m)
@@ -326,7 +323,7 @@ vector<mint> convolution(vector<mint> &&a, vector<mint> &&b) {
   return convolution_fft(a, b);
 }
 
-template <unsigned int mod = 998244353, class T>
+template<unsigned int mod = 998244353, class T>
 vector<T> convolution(const vector<T> &a, const vector<T> &b) {
   int n = int(a.size()), m = int(b.size());
   if (!n || !m)
