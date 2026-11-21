@@ -27,6 +27,14 @@ jobs:
         with:
           cache-pip: true
 
+      - name: Cache competitive-verifier state
+        uses: actions/cache@v4
+        with:
+          path: .competitive-verifier
+          key: compprog-verifier-v1-${{ runner.os }}-${{ hashFiles('cpp/**', '.verify-helper/config.toml') }}
+          restore-keys: |
+            compprog-verifier-v1-${{ runner.os }}-
+
       # Initialize your own environment for resolving.
       - name: oj-resolve
         uses: competitive-verifier/actions/oj-resolve@v2
@@ -34,10 +42,11 @@ jobs:
           output-path: verify_files.json
           # Specify patterns
           include: |
-                cpp/
+            cpp/
           # exclude: your-own-exclude/
           # If you have config.toml
           config: .verify-helper/config.toml
+
       - name: parse-doxygen
         uses: competitive-verifier/actions/parse-doxygen@v2
         with:
@@ -52,6 +61,7 @@ jobs:
         id: test-bundled
         run: |
           echo "count=$(find .competitive-verifier/bundled/ -type f | wc -l)" >> $GITHUB_OUTPUT
+
       - name: Upload bundled
         uses: actions/upload-artifact@v7
         if: steps.test-bundled.outputs.count > 0
@@ -81,6 +91,14 @@ jobs:
         with:
           cache-pip: true
 
+      - name: Cache test cases and verifier cache
+        uses: actions/cache@v4
+        with:
+          path: .competitive-verifier
+          key: compprog-verifier-v1-${{ runner.os }}-${{ hashFiles('verify_files.json') }}
+          restore-keys: |
+            compprog-verifier-v1-${{ runner.os }}-
+
       - name: Verify
         uses: competitive-verifier/actions/verify@v2
         with:
@@ -105,14 +123,14 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 2147483647
-  
+
       - name: Download verify_files.json and all artifacts
         id: all-artifacts
         uses: competitive-verifier/actions/download-verify-artifact@v2
         with:
           download-all: true
           artifact-root: .artifacts/
-  
+
       - name: Extract bundled
         shell: bash
         run: |
@@ -125,7 +143,7 @@ jobs:
           fi
         env:
           SRCDIR: .artifacts/Bundled-${{ runner.os }}
-  
+
       - name: Set up competitive-verifier
         uses: competitive-verifier/actions/setup@v2
         with:
@@ -140,11 +158,13 @@ jobs:
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
+
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
           source: _jekyll
           destination: _site
+
       - name: Upload artifact
         id: upload-pages
         uses: actions/upload-pages-artifact@v3
@@ -155,6 +175,7 @@ jobs:
         uses: competitive-verifier/actions/check@v2
         with:
           verify-result: ${{ steps.all-artifacts.outputs.artifacts-root }}/Result-*/result.json
+
   deploy:
     if: (success() || failure()) && github.ref == 'refs/heads/main' && needs.docs-and-check.outputs.upload-pages == 'true'
     needs: docs-and-check
